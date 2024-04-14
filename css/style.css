@@ -248,10 +248,11 @@ a:focus {
     transition: .5s;
 }
 
+/*********** tamano letra nombre barra **********/
 .navbar .navbar-brand {
     margin: 0;
     color: #ffffff;
-    font-size: 45px;
+    font-size: 15px;
     line-height: 0px;
     font-weight: 700;
     letter-spacing: 5px;
