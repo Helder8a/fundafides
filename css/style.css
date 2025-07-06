@@ -295,8 +295,9 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 }
 
 .navbar .navbar-brand img {
-    max-width: 100%;
-    max-height: 40px;
+    max-width: 100%; /* Asegura que la imagen no se desborde */
+    height: auto; /* Mantiene la proporción */
+    object-fit: contain; /* Ajusta la imagen dentro de su contenedor sin recortar */
 }
 
 .navbar-dark .navbar-nav .nav-link,
@@ -401,10 +402,17 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 .carousel .carousel-img {
     position: relative;
     width: 100%;
-    height: 100%;
-    min-height: 200px;
+    height: 100%; /* Ajustado para móviles, se controlará con media queries */
+    min-height: 200px; /* Mínimo para que no se vea vacío */
     text-align: right;
     overflow: hidden;
+}
+
+.carousel .carousel-img img {
+    width: 100%;
+    height: 100%; /* La altura se adaptará al contenedor, y object-fit asegurará que no se estire */
+    object-fit: cover; /* Recorta la imagen para cubrir el área, evitando estiramientos */
+    object-position: center; /* Centra la imagen dentro del contenedor */
 }
 
 .carousel .carousel-img::after {
@@ -416,12 +424,6 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     left: 0;
     background: rgba(0, 0, 0, .6); /* Slightly darker overlay for better text contrast */
     z-index: 1;
-}
-
-.carousel .carousel-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 .carousel .carousel-text {
@@ -720,8 +722,16 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     width: 100%;
     height: 100vh; /* This might make the image too tall on some screens, consider a max-height */
     max-height: 500px; /* Added max-height for better control */
-    object-fit: cover; /* Ensures image covers the area */
+    object-fit: cover; /* Ensures image covers the area without stretching */
+    object-position: center; /* Centers the image */
 }
+/* Asegura que la imagen dentro del about-img también se comporte bien */
+.about .about-img img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Elimina espacio extra debajo de la imagen */
+}
+
 
 .about .about-tab {
     width: 100%;
@@ -770,10 +780,12 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     }
     .about .section-header {
         margin-top: 30px;
-        text-align: center; /* Center header on smaller screens */
+        text-align: center; /* Centrar header on smaller screens */
     }
     .about .about-img {
         height: 300px; /* Adjusted image height for smaller screens */
+        max-height: 300px; /* Asegurar que no exceda */
+        margin-bottom: 30px; /* Espacio debajo de la imagen cuando se apila */
     }
 }
 
@@ -969,6 +981,9 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
 .causes .causes-img img {
     width: 100%;
+    height: auto; /* Mantiene la proporción */
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin estirarse */
+    object-position: center; /* Centra la imagen */
     transition: .3s;
 }
 
@@ -1075,7 +1090,7 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
 /*******************************/
 /********** Facts CSS **********/
-*******************************/
+/*******************************/
 .facts {
     position: relative;
     width: 100%;
@@ -1086,6 +1101,12 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     background: rgba(0, 0, 0, .6); /* Darker overlay */
     padding: 90px 0; /* Added vertical padding */
 }
+/* Asegura que la imagen de fondo del parallax se comporte bien */
+.facts[data-parallax="scroll"] {
+    background-size: cover;
+    background-position: center;
+}
+
 
 .facts .facts-item {
     display: flex;
@@ -1161,8 +1182,11 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
 .team .team-img img {
     width: 100%;
+    height: auto; /* Mantiene la proporción */
+    object-fit: cover; /* Recorta la imagen para cubrir el área, evitando estiramientos */
+    object-position: center top; /* Centra la imagen pero con preferencia al top para caras */
     transform: scale(1.1);
-    margin-bottom: -15px;
+    margin-bottom: -15px; /* Ajuste para la animación */
     transition: .3s;
 }
 
@@ -1251,6 +1275,9 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
 .music-img img {
     width: 100%;
+    height: auto; /* Mantiene la proporción */
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin estirarse */
+    object-position: center; /* Centra la imagen */
     transform: scale(1.0); /* Estado normal, sin zoom */
     transition: .3s;
 }
@@ -1296,6 +1323,9 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
 .testimonial .testimonial-profile img {
     width: 80px;
+    height: 80px; /* Asegura una altura fija para la imagen de perfil */
+    object-fit: cover; /* Recorta y cubre el área */
+    object-position: center; /* Centra la imagen */
     margin-bottom: -1px;
 }
 
@@ -1447,6 +1477,9 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
 .event .event-item img {
     width: 100%;
+    height: auto; /* Mantiene la proporción */
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin estirarse */
+    object-position: center; /* Centra la imagen */
 }
 
 .event .event-content {
@@ -1580,6 +1613,9 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
 .blog .blog-img img {
     width: 100%;
+    height: auto; /* Mantiene la proporción */
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin estirarse */
+    object-position: center; /* Centra la imagen */
 }
 
 .blog .blog-text {
@@ -1670,8 +1706,9 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
 .contact .contact-img img {
     width: 100%;
-    height: 440px;
-    object-fit: cover;
+    height: auto; /* Mantiene la proporción */
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin estirarse */
+    object-position: center; /* Centra la imagen */
 }
 
 .contact .contact-form {
@@ -1768,9 +1805,11 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 }
 
 .single .single-content img {
+    max-width: 100%; /* Asegura que la imagen no se desborde */
+    height: auto; /* Mantiene la proporción */
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin estirarse */
+    object-position: center; /* Centra la imagen */
     margin-bottom: 25px; /* Increased margin */
-    width: 100%;
-    border-radius: 4px; /* Slightly rounded image corners */
 }
 
 .single .single-tags {
@@ -1811,6 +1850,9 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
 .single .single-bio-img img {
     width: 100%;
+    height: 100px; /* Altura fija para mantener la consistencia */
+    object-fit: cover; /* Asegura que la imagen cubra el área */
+    object-position: center; /* Centra la imagen */
     border: 5px solid #ffffff; /* Thinner white border */
     border-radius: 50%; /* Round image */
 }
@@ -1870,6 +1912,9 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
 .single .post-item .post-img img {
     width: 100%;
+    height: 80px; /* Altura fija para mantener la consistencia */
+    object-fit: cover; /* Asegura que la imagen cubra el área */
+    object-position: center; /* Centra la imagen */
     border-radius: 4px; /* Rounded image corners */
 }
 
@@ -1976,6 +2021,9 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
 .single .comment-img img {
     width: 100%;
+    height: 60px; /* Altura fija para consistencia */
+    object-fit: cover; /* Asegura que la imagen cubra el área */
+    object-position: center; /* Centra la imagen */
     border-radius: 50%; /* Round image */
 }
 
@@ -2244,6 +2292,9 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
 .sidebar .image-widget img {
     max-width: 100%;
+    height: auto; /* Mantiene la proporción */
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin estirarse */
+    object-position: center; /* Centra la imagen */
     transition: .3s;
 }
 
@@ -2457,6 +2508,11 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     .carousel .carousel-text p {
         font-size: 18px;
     }
+    /* Ajustes de imagen para el carrusel en tablets */
+    .carousel .carousel-img {
+        height: 400px; /* Altura más apropiada para tablets */
+    }
+
 
     .about .about-img {
         max-height: 400px; /* Ajustar altura para tablets */
@@ -2504,6 +2560,9 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
     .carousel {
         margin-bottom: 45px;
+    }
+    .carousel .carousel-img {
+        height: 250px; /* Altura más apropiada para móviles */
     }
     .carousel .carousel-text h1 {
         font-size: 30px; /* Reducir tamaño de fuente del encabezado del carrusel */
@@ -2560,6 +2619,10 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     .team .team-item {
         margin-bottom: 30px;
     }
+    .team .team-img img {
+        height: 250px; /* Altura más controlada para imágenes del equipo en móvil */
+        object-position: center top; /* Asegurar que las caras se vean bien */
+    }
     .team .team-text {
         height: auto; /* Permitir que el texto se expanda */
         position: static; /* Eliminar posicionamiento absoluto para apilar */
@@ -2581,15 +2644,19 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     .music-section .music-item {
         margin-bottom: 30px;
     }
+    .music-img img {
+        height: 250px; /* Altura más controlada para la carátula de música en móvil */
+    }
 
+
+    .contact .contact-img {
+        display: none; /* Ocultar la imagen grande del formulario de contacto en móviles */
+    }
     .contact .contact-form {
         margin-top: 0; /* Eliminar el margen negativo en móviles para que se apile bien */
         padding: 20px;
         box-shadow: none; /* Eliminar sombra pesada en móviles para un diseño más limpio */
         border: none; /* Eliminar borde para un diseño más limpio */
-    }
-    .contact .contact-img {
-        display: none; /* Ocultar la imagen grande del formulario de contacto en móviles */
     }
 
     .footer .footer-contact,
@@ -2625,6 +2692,13 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     .card-body audio {
         margin-top: 10px; /* Espacio entre título y reproductor */
     }
+    /* Asegurar que las imágenes de audio (si las hubiera en las tarjetas) también sean responsive */
+    .card-body img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
 }
 
 /* Ajustes adicionales para pantallas muy pequeñas (Ej: iPhone 5/SE) */
@@ -2647,6 +2721,10 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     .carousel .carousel-text p {
         font-size: 14px;
     }
+    .carousel .carousel-img {
+        height: 200px; /* Altura aún más pequeña para móviles muy pequeños */
+    }
+
 
     .about .about-tab .nav.nav-pills .nav-link {
         padding: 10px 15px; /* Más pequeño para pantallas muy estrechas */
@@ -2655,5 +2733,9 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
     .contact .contact-form {
         padding: 15px;
+    }
+
+    .facts .facts-text h3 {
+        font-size: 30px;
     }
 }
