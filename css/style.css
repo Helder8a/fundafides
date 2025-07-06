@@ -1569,3 +1569,141 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     margin-bottom: 45px; /* Increased margin */
     padding-bottom: 30px;
     background: #ffffff; /* White background for blog item */
+    border: 1px solid #eeeeee; /* Light border */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.blog .blog-img {
+    width: 100%;
+}
+
+.blog .blog-img img {
+    width: 100%;
+}
+
+.blog .blog-text {
+    padding: 30px 30px 15px 30px;
+}
+
+.blog .blog-text h3 {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.blog .blog-text h3 a {
+    color: #2c3e50; /* Dark blue-grey for blog title link (was #4a4c70) */
+}
+
+.blog .blog-text h3 a:hover {
+    color: #e67e22; /* Accent color on hover (was #FDBE33) */
+}
+
+.blog .blog-text p {
+    margin: 0;
+    color: #444444; /* Consistent text color */
+}
+
+.blog .blog-meta {
+    margin: 0 30px;
+    padding-top: 15px;
+    display: flex;
+    border-top: 1px solid rgba(0, 0, 0, .1); /* Softer border */
+}
+
+.blog .blog-meta p {
+    margin: 0;
+    color: #777777; /* Changed from previous attempt to be consistent with other similar elements, maintaining contrast. If this is on a dark background, this should be #FFFFFF. */
+    padding: 0 30px;
+    border-right: 1px solid rgba(0, 0, 0, .1); /* Softer border */
+}
+
+.blog .blog-meta p:first-child {
+    padding-left: 0;
+}
+
+.blog .blog-meta p:last-child {
+    padding-right: 0;
+    border: none;
+}
+
+.blog .blog-meta i {
+    color: #e67e22; /* Accent color for icons (was #4a4c70) */
+    margin-right: 8px
+}
+
+.blog .pagination {
+    margin-bottom: 15px;
+}
+
+.blog .pagination .page-link {
+    color: #2c3e50; /* Dark blue-grey for pagination link (was #4a4c70) */
+    border-radius: 4px; /* Slightly rounded */
+    border-color: #2c3e50; /* Dark blue-grey border */
+}
+
+.blog .pagination .page-link:hover,
+.blog .pagination .page-item.active .page-link {
+    color: #ffffff; /* White text on active/hover */
+    background: #e67e22; /* Accent color background (was #4a4c70) */
+    border-color: #e67e22; /* Accent color border */
+}
+
+.blog .pagination .disabled .page-link {
+    color: #999999;
+}
+
+
+/*******************************/
+/********* Contact CSS *********/
+/*******************************/
+.contact {
+    position: relative;
+    width: 100%;
+    padding: 90px 0; /* Increased padding */
+}
+
+.contact .contact-img {
+    position: relative;
+    width: 100%;
+}
+
+.contact .contact-img img {
+    width: 100%;
+    height: 440px;
+    object-fit: cover;
+}
+
+.contact .contact-form {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    margin-top: -220px;
+    padding: 40px; /* Increased padding */
+    background: #ffffff; /* White background for contact form */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* More prominent shadow */
+    border-radius: 8px; /* Rounded corners */
+}
+
+@media (max-width: 991.98px) {
+    .contact .contact-form {
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .contact .contact-form {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .contact .contact-form {
+        max-width: 300px;
+    }
+}
+
+.contact .contact-form input {
+    padding: 15px;
+    background: #f8f9fa; /* Light gray background for inputs */
