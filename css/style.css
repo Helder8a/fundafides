@@ -1707,3 +1707,369 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 .contact .contact-form input {
     padding: 15px;
     background: #f8f9fa; /* Light gray background for inputs */
+    border-radius: 4px; /* Rounded */
+    border: 1px solid #eeeeee; /* Light border */
+    color: #444444; /* Dark text color */
+}
+
+.contact .contact-form textarea {
+    height: 150px;
+    padding: 8px 15px;
+    background: #f8f9fa; /* Light gray background for textarea */
+    border-radius: 4px; /* Rounded */
+    border: 1px solid #eeeeee; /* Light border */
+    color: #444444; /* Dark text color */
+}
+
+.contact .contact-form input:focus,
+.contact .contact-form textarea:focus {
+    /* box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25); Ya lo cubre el selector *:focus si no hay !important*/
+    /* outline: none; Ya lo cubre el selector *:focus si no hay !important*/
+}
+
+.contact .contact-form .btn-custom {
+    width: 100%;
+    background-color: #e67e22; /* Accent color for button */
+    color: #ffffff; /* White text */
+    border: none;
+}
+
+.contact .contact-form .btn-custom:hover {
+    background-color: #d35400; /* Darker accent on hover */
+    color: #ffffff;
+}
+
+.contact .help-block ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    color: #e74c3c; /* Red for error messages */
+    font-size: 14px;
+}
+
+
+/*******************************/
+/******* Single Post CSS *******/
+/*******************************/
+.single {
+    position: relative;
+    padding: 90px 0; /* Increased padding */
+}
+
+.single .single-content {
+    position: relative;
+    margin-bottom: 60px; /* Increased margin */
+    overflow: hidden;
+    background: #ffffff; /* White background */
+    border: 1px solid #eeeeee; /* Light border */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow */
+    border-radius: 8px; /* Rounded corners */
+    padding: 30px; /* Add padding for content */
+}
+
+.single .single-content img {
+    margin-bottom: 25px; /* Increased margin */
+    width: 100%;
+    border-radius: 4px; /* Slightly rounded image corners */
+}
+
+.single .single-tags {
+    margin: -5px -5px 41px -5px;
+    font-size: 0;
+}
+
+.single .single-tags a {
+    margin: 5px;
+    display: inline-block;
+    padding: 7px 15px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #2c3e50; /* Dark blue-grey for tag text (was #4a4c70) */
+    border: 1px solid #95a5a6; /* Softer gray border for tags */
+    border-radius: 4px; /* Rounded tags */
+}
+
+.single .single-tags a:hover {
+    color: #ffffff; /* White text on hover */
+    background: #e67e22; /* Accent background on hover (was #FDBE33) */
+    border-color: #e67e22; /* Accent border on hover */
+}
+
+.single .single-bio {
+    margin-bottom: 60px; /* Increased margin */
+    padding: 30px;
+    background: #f8f9fa; /* Light gray background for bio */
+    display: flex;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow */
+}
+
+.single .single-bio-img {
+    width: 100%;
+    max-width: 100px;
+}
+
+.single .single-bio-img img {
+    width: 100%;
+    border: 5px solid #ffffff; /* Thinner white border */
+    border-radius: 50%; /* Round image */
+}
+
+.single .single-bio-text {
+    padding-left: 30px;
+}
+
+.single .single-bio-text h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 3px;
+    color: #2c3e50; /* Consistent dark blue-grey */
+}
+
+.single .single-bio-text p {
+    margin: 0;
+    color: #444444; /* Consistent text color */
+}
+
+.single .single-related {
+    margin-bottom: 60px; /* Increased margin */
+}
+
+.single .single-related h2 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 35px; /* Increased margin */
+    color: #2c3e50; /* Consistent dark blue-grey */
+}
+
+.single .related-slider {
+    position: relative;
+    margin: 0 -15px;
+    width: calc(100% + 30px);
+}
+
+.single .related-slider .post-item {
+    margin: 0 15px;
+}
+
+.single .post-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Increased margin */
+    background: #ffffff; /* White background for related posts */
+    border: 1px solid #eeeeee; /* Light border */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Subtle shadow */
+    border-radius: 4px; /* Rounded corners */
+    padding: 10px;
+}
+
+.single .post-item .post-img {
+    width: 100%;
+    max-width: 80px;
+}
+
+.single .post-item .post-img img {
+    width: 100%;
+    border-radius: 4px; /* Rounded image corners */
+}
+
+.single .post-item .post-text {
+    padding-left: 15px;
+}
+
+.single .post-item .post-text a {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c3e50; /* Dark blue-grey for link */
+}
+
+.single .post-item .post-text a:hover {
+    color: #e67e22; /* Accent color on hover (was #FDBE33) */
+}
+
+.single .post-item .post-meta {
+    display: flex;
+    margin-top: 8px;
+}
+
+.single .post-item .post-meta p {
+    display: inline-block;
+    margin: 0;
+    padding: 0 3px;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: italic;
+    color: #777777; /* Softer gray text */
+}
+
+.single .post-item .post-meta p a {
+    margin-left: 5px;
+    color: #999999;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.single .related-slider .owl-nav {
+    position: absolute;
+    width: 90px;
+    top: -55px;
+    right: 15px;
+    display: flex;
+}
+
+.single .related-slider .owl-nav .owl-prev,
+.single .related-slider .owl-nav .owl-next {
+    margin-left: 15px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff; /* White icon */
+    background: #3498db; /* Friendly blue background (was #FDBE33) */
+    font-size: 16px;
+    transition: .3s;
+    border-radius: 50%; /* Round buttons */
+}
+
+.single .related-slider .owl-nav .owl-prev:hover,
+.single .related-slider .owl-nav .owl-next:hover {
+    color: #ffffff; /* White icon on hover */
+    background: #2980b9; /* Darker blue on hover (was #4a4c70) */
+}
+
+.single .single-comment {
+    position: relative;
+    margin-bottom: 60px; /* Increased margin */
+}
+
+.single .single-comment h2 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 35px; /* Increased margin */
+    color: #2c3e50; /* Consistent dark blue-grey */
+}
+
+.single .comment-list {
+    list-style: none;
+    padding: 0;
+}
+
+.single .comment-child {
+    list-style: none;
+}
+
+.single .comment-body {
+    display: flex;
+    margin-bottom: 30px;
+    background: #ffffff; /* White background */
+    border: 1px solid #eeeeee; /* Light border */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Subtle shadow */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px;
+}
+
+.single .comment-img {
+    width: 60px;
+}
+
+.single .comment-img img {
+    width: 100%;
+    border-radius: 50%; /* Round image */
+}
+
+.single .comment-text {
+    padding-left: 15px;
+    width: calc(100% - 60px);
+}
+
+.single .comment-text h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 3px;
+    color: #2c3e50; /* Consistent dark blue-grey */
+}
+
+.single .comment-text span {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #777777; /* Softer gray */
+}
+
+.single .comment-text .btn {
+    padding: 3px 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff; /* White text */
+    background: #3498db; /* Friendly blue background (was #dddddd) */
+    border-radius: 4px; /* Rounded */
+}
+
+.single .comment-text .btn:hover {
+    background: #2980b9; /* Darker blue on hover (was #FDBE33) */
+}
+
+.single .comment-form {
+    position: relative;
+}
+
+.single .comment-form h2 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 35px; /* Increased margin */
+    color: #2c3e50; /* Consistent dark blue-grey */
+}
+
+.single .comment-form form {
+    padding: 30px;
+    background: #ffffff; /* White background for comment form */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.single .comment-form form .form-group:last-child {
+    margin: 0;
+}
+
+.single .comment-form input,
+.single .comment-form textarea {
+    border-radius: 4px; /* Rounded */
+    border: 1px solid #eeeeee; /* Light border */
+    color: #444444; /* Dark text */
+}
+
+.single .comment-form input:focus,
+.single .comment-form textarea:focus {
+    /* box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25); Ya lo cubre el selector *:focus si no hay !important*/
+    /* outline: none; Ya lo cubre el selector *:focus si no hay !important*/
+}
+
+.single .comment-form .btn-custom {
+    width: 100%;
+    background-color: #e67e22; /* Accent color */
+    color: #ffffff; /* White text */
+    border: none;
+}
+.single .comment-form .btn-custom:hover {
+    background-color: #d35400; /* Darker accent on hover */
+}
+
+
+/**********************************/
+/*********** Sidebar CSS **********/
+/**********************************/
+.sidebar {
+    position: relative;
+    width: 100%;
+}
+
+@media(max-width: 991.98px) {
+    .sidebar {
+        margin-top: 45px;
+    }
+}
+
+.sidebar .sidebar-widget {
