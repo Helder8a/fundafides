@@ -1,102 +1,109 @@
 /*******************************/
-/********* General CSS *********/
+/********* Global Styles *********/
 /*******************************/
-body {
-    color: #444444; /* Darker gray for better legibility than original #777777 */
-    font-weight: 500;
-    background: #f8f9fa; /* Slightly off-white for background to reduce eye strain */
-    font-family: 'Quicksand', sans-serif;
-    /* Added general body padding for overall content breathing room */
-    padding-left: 20px;
-    padding-right: 20px;
-    line-height: 1.6; /* Improved line height for better readability of text blocks */
+:root {
+    /* Define variables para colores y espaciado para fácil mantenimiento */
+    --primary-color: #e67e22; /* Naranja principal (anteriormente #e67e22) */
+    --secondary-color: #f39c12; /* Naranja secundario/acento (anteriormente #f39c12) */
+    --dark-blue-grey: #2c3e50; /* Azul-gris oscuro para encabezados y fondos */
+    --text-color: #444444; /* Gris oscuro para texto general */
+    --light-grey-bg: #f8f9fa; /* Gris claro para fondos */
+    --white: #ffffff;
+    --border-light: rgba(0, 0, 0, .1); /* Borde suave */
+    --border-dark: rgba(255, 255, 255, .1); /* Borde suave oscuro */
+    --shadow-light: rgba(0, 0, 0, 0.05); /* Sombra sutil */
+    --shadow-medium: rgba(0, 0, 0, 0.1); /* Sombra media */
+    --transition-speed: .3s;
+    --spacing-xs: 10px;
+    --spacing-sm: 15px;
+    --spacing-md: 30px;
+    --spacing-lg: 45px;
+    --spacing-xl: 60px;
+    --spacing-xxl: 90px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: #2c3e50; /* A strong, professional dark blue-grey for headings (was #4a4c70) */
-    margin-bottom: 15px; /* Added margin-bottom to all headings for better spacing */
-    line-height: 1.2; /* Tighter line height for headings */
+body {
+    color: var(--text-color);
+    font-weight: 500;
+    background: var(--light-grey-bg);
+    font-family: 'Quicksand', sans-serif;
+    padding-left: var(--spacing-sm); /* Reducido ligeramente el padding inicial */
+    padding-right: var(--spacing-sm);
+    line-height: 1.6;
+    overflow-x: hidden; /* Evita el scroll horizontal no deseado */
+}
+
+/* Mejora de la fuente para un rendering más suave */
+body, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea, select {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--dark-blue-grey);
+    margin-bottom: var(--spacing-sm); /* Consistente con variables */
+    line-height: 1.2;
 }
 
 p {
-    margin-bottom: 20px; /* Increased margin-bottom for paragraphs for better readability */
+    margin-bottom: var(--spacing-md); /* Aumento para mejor legibilidad */
 }
 
 a {
-    color: #3498db; /* A standard blue for links, providing good contrast */
-    transition: .3s;
+    color: var(--primary-color); /* Enlaces con color primario */
+    transition: color var(--transition-speed);
 }
 
 a:hover,
 a:active,
 a:focus {
-    color: #f39c12; /* A more subdued but still vibrant orange for link hover (was #FDBE33) */
+    color: var(--secondary-color); /* Color de acento para hover/active/focus */
     outline: none;
     text-decoration: none;
 }
 
-/* Mejora de la visibilidad del foco para la navegación por teclado en todos los elementos enfocables */
+/* Mejora de la visibilidad del foco para la navegación por teclado */
 *:focus {
-    outline: 3px solid #3498db !important; /* Un azul claro y visible */
-    outline-offset: 2px; /* Un pequeño desplazamiento para que no se superponga al borde del elemento */
-}
-
-/* Asegurar que los botones personalizados tengan un foco con su color de acento */
-.btn.btn-custom:focus {
-    outline: 3px solid #f39c12 !important; /* Foco que coincide con el color de acento */
+    outline: 3px solid var(--secondary-color) !important; /* Usar color de acento */
     outline-offset: 2px;
     box-shadow: 0 0 0 0.2rem rgba(243, 156, 18, 0.25); /* Sombra que coincide con el color de acento */
 }
 
-/* Estilos específicos para campos de formulario cuando están enfocados */
+/* Revertir box-shadow para elementos que Bootstrap ya maneja bien, si es necesario */
 .form-control:focus {
-    outline: 3px solid #3498db !important; /* Mantener foco azul para inputs */
-    outline-offset: 2px;
-    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25); /* Sombra estándar de Bootstrap */
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25); /* Mantener sombra estándar de Bootstrap para inputs */
 }
-
-/* Estilos específicos para enlaces cuando están enfocados si no son botones, para consistencia */
-a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
-    outline: 3px solid #f39c12 !important; /* Ejemplo: foco naranja para enlaces */
-    outline-offset: 2px;
-}
-
 
 .btn.btn-custom {
     padding: 12px 20px;
     text-align: center;
     font-size: 16px;
     font-weight: 500;
-    color: #ffffff; /* White text for better contrast on button */
-    border-radius: 4px; /* Slightly rounded corners for a modern feel */
-    border: 2px solid #e67e22; /* A strong orange for the button border (was #FDBE33) */
-    background-color: #e67e22; /* Solid background for immediate visibility */
-    box-shadow: none; /* Remove inset box shadow on default state */
-    transition: background-color 0.3s ease-out, border-color 0.3s ease-out, color 0.3s ease-out;
+    color: var(--white);
+    border-radius: 4px;
+    border: 2px solid var(--primary-color);
+    background-color: var(--primary-color);
+    box-shadow: none;
+    transition: background-color var(--transition-speed), border-color var(--transition-speed), color var(--transition-speed);
 }
 
 .btn.btn-custom:hover {
-    color: #ffffff; /* Keep text white on hover */
-    background-color: #d35400; /* Darker orange on hover */
-    border-color: #d35400; /* Darker border on hover */
-    box-shadow: none; /* Ensure no unwanted shadow */
+    color: var(--white);
+    background-color: #d35400; /* Un naranja más oscuro para hover */
+    border-color: #d35400;
 }
 
 .container-fluid {
     max-width: 1366px;
 }
 
-[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
-[class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+[class^="flaticon-"]:before,
+[class*=" flaticon-"]:before,
+[class^="flaticon-"]:after,
+[class*=" flaticon-"]:after {
     font-size: inherit;
     margin-left: 0;
 }
-
 
 /**********************************/
 /****** Loader & Back to Top ******/
@@ -110,18 +117,14 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #ffffff;
+    background: var(--white);
     opacity: 0;
     visibility: hidden;
-    -webkit-transition: opacity .3s ease-out, visibility 0s linear .3s;
-    -o-transition: opacity .3s ease-out, visibility 0s linear .3s;
     transition: opacity .3s ease-out, visibility 0s linear .3s;
     z-index: 999;
 }
 
 #loader.show {
-    -webkit-transition: opacity .6s ease-out, visibility 0s linear 0s;
-    -o-transition: opacity .6s ease-out, visibility 0s linear 0s;
     transition: opacity .6s ease-out, visibility 0s linear 0s;
     visibility: visible;
     opacity: 1;
@@ -132,15 +135,9 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     width: 45px;
     height: 45px;
     border: 5px solid #dddddd;
-    border-top: 5px solid #e67e22; /* Loader top border using new accent color (was #FDBE33) */
+    border-top: 5px solid var(--primary-color);
     border-radius: 50%;
-    -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
-}
-
-@-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
 }
 
 @keyframes spin {
@@ -151,82 +148,76 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 .back-to-top {
     position: fixed;
     display: none;
-    background: #3498db; /* Back to top button background (friendly blue) (was #FDBE33) */
+    background: var(--primary-color);
     width: 44px;
     height: 44px;
     text-align: center;
     line-height: 1;
     font-size: 22px;
-    right: 15px;
-    bottom: 15px;
-    transition: background 0.5s;
-    z-index: 9;
-    border-radius: 50%; /* Make it round */
+    right: var(--spacing-sm);
+    bottom: var(--spacing-sm);
+    transition: background var(--transition-speed);
+    z-index: 99; /* Z-index más alto para que sea visible */
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra sutil para destacarlo */
 }
 
 .back-to-top i {
-    color: #ffffff; /* White icon for better contrast (was #4a4c70) */
-    padding-top: 10px;
+    color: var(--white);
+    padding-top: var(--spacing-xs); /* Ajustado para centrar mejor el icono */
 }
 
 .back-to-top:hover {
-    background: #2980b9; /* Darker blue on hover (was #4a4c70) */
+    background: #d35400; /* Naranja más oscuro en hover */
 }
-
-.back-to-top:hover i {
-    color: #ffffff; /* Keep icon white on hover (was #FDBE33) */
-}
-
 
 /**********************************/
 /********** Top Bar CSS ***********/
 /**********************************/
 .top-bar {
-    position: absolute;
+    position: relative; /* Cambiado a relative para fluir mejor con el navbar si no es absoluto */
     height: 45px;
     width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    background-color: #2c3e50; /* Consistent dark background for top bar */
-    border-bottom: 1px solid rgba(255, 255, 255, .1); /* Softer border */
+    background-color: var(--dark-blue-grey);
+    border-bottom: 1px solid var(--border-dark);
+    display: flex; /* Asegura que los elementos internos se distribuyan bien */
+    align-items: center;
+}
+
+.top-bar .top-bar-left,
+.top-bar .top-bar-right {
+    display: flex;
+    align-items: center;
 }
 
 .top-bar .top-bar-left {
-    display: flex;
-    align-items: center;
     justify-content: flex-start;
 }
 
 .top-bar .top-bar-right {
-    display: flex;
-    align-items: center;
     justify-content: flex-end;
 }
 
 .top-bar .text {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: row;
     height: 45px;
-    padding: 0 10px;
-    text-align: center;
-    border-left: 1px solid rgba(255, 255, 255, .1); /* Softer border */
+    padding: 0 var(--spacing-xs);
+    border-left: 1px solid var(--border-dark);
 }
 
 .top-bar .text:last-child {
-    border-right: 1px solid rgba(255, 255, 255, .1); /* Softer border */
+    border-right: 1px solid var(--border-dark);
 }
 
 .top-bar .text i {
     font-size: 16px;
-    color: #f39c12; /* Accent color for icons (was #FDBE33) */
+    color: var(--secondary-color);
     margin-right: 5px;
 }
 
 .top-bar .text p {
-    color: #ffffff; /* White text for clarity */
+    color: var(--white);
     font-size: 16px;
     font-weight: 500;
     margin: 0;
@@ -236,7 +227,6 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     display: flex;
     height: 45px;
     font-size: 0;
-    justify-content: flex-end;
 }
 
 .top-bar .social a {
@@ -246,87 +236,88 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     width: 45px;
     height: 100%;
     font-size: 16px;
-    color: #f39c12; /* Accent color for social icons (was #FDBE33) */
-    border-right: 1px solid rgba(255, 255, 255, .1); /* Softer border */
+    color: var(--secondary-color);
+    border-right: 1px solid var(--border-dark);
+    transition: all var(--transition-speed);
 }
 
 .top-bar .social a:first-child {
-    border-left: 1px solid rgba(255, 255, 255, .1); /* Softer border */
+    border-left: 1px solid var(--border-dark);
 }
 
 .top-bar .social a:hover {
-    color: #ffffff;
-    background: #e67e22; /* Darker accent on hover (was #FDBE33) */
+    color: var(--white);
+    background: var(--primary-color);
 }
 
 @media (min-width: 992px) {
     .top-bar {
-        padding: 0 60px;
+        padding: 0 var(--spacing-xl);
     }
 }
-
 
 /**********************************/
 /*********** Nav Bar CSS **********/
 /**********************************/
 .navbar {
     position: relative;
-    transition: .5s;
-    z-index: 999;
+    transition: all .5s ease;
+    z-index: 99; /* Asegura que el navbar esté sobre el contenido */
 }
 
 .navbar.nav-sticky {
     position: fixed;
     top: 0;
     width: 100%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .2); /* Softer shadow */
-    transition: .5s;
+    box-shadow: 0 2px 5px var(--shadow-medium);
+    background: var(--dark-blue-grey) !important; /* Asegura que sea oscuro al hacer sticky */
 }
 
-/*********** tamano letra nombre barra **********/
 .navbar .navbar-brand {
     margin: 0;
-    color: #ffffff;
+    color: var(--white);
     font-size: 15px;
     line-height: 0px;
     font-weight: 700;
     letter-spacing: 5px;
     text-transform: uppercase;
+    display: flex; /* Para alinear el logo y el texto si hubiera */
+    align-items: center;
 }
 
 .navbar .navbar-brand img {
-    max-width: 100%; /* Asegura que la imagen no se desborde */
-    height: auto; /* Mantiene la proporción */
-    object-fit: contain; /* Ajusta la imagen dentro de su contenedor sin recortar */
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
-.navbar-dark .navbar-nav .nav-link,
+.navbar-dark .navbar-nav .nav-link {
+    padding: 10px var(--spacing-sm) 8px var(--spacing-sm);
+    color: var(--white);
+    transition: color var(--transition-speed);
+}
+/* Agrupadas para mejor consistencia y reducción de código */
+.navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link:focus,
-.navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link.active {
-    padding: 10px 15px 8px 15px;
-    color: #ffffff; /* White text for menu items */
-}
-
-.navbar-dark .navbar-nav .nav-link:hover,
-.navbar-dark .navbar-nav .nav-link.active {
-    color: #f39c12; /* Accent color for active/hover links (was #FDBE33) */
-    transition: none;
+    color: var(--secondary-color);
 }
 
 .navbar .dropdown-menu {
     margin-top: 0;
     border: 0;
-    border-radius: 4px; /* Slightly rounded dropdown */
-    background: #ffffff; /* White background for dropdown */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .1); /* Light shadow for dropdown */
+    border-radius: 4px;
+    background: var(--white);
+    box-shadow: 0 2px 5px var(--shadow-medium);
 }
 .navbar .dropdown-item {
-    color: #444444; /* Dark gray for dropdown items */
+    color: var(--text-color);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
 }
-.navbar .dropdown-item:hover {
-    background-color: #f8f9fa; /* Light hover background */
-    color: #e67e22; /* Accent color on hover */
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus { /* Añadido foco para accesibilidad */
+    background-color: var(--light-grey-bg);
+    color: var(--primary-color);
 }
 
 
@@ -335,24 +326,23 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
         position: absolute;
         width: 100%;
         top: 45px;
-        padding: 20px 60px;
+        padding: 20px var(--spacing-xl);
         background: transparent !important;
-        border-bottom: 1px solid rgba(255, 255, 255, .1); /* Softer border */
-        z-index: 9;
+        border-bottom: 1px solid var(--border-dark);
     }
 
     .navbar.nav-sticky {
-        padding: 10px 60px;
-        background: #2c3e50 !important; /* Darker blue-grey for sticky nav (was #20212B) */
+        padding: 10px var(--spacing-xl);
+        background: var(--dark-blue-grey) !important;
         border-bottom: none;
     }
 
     .page .navbar {
-        background: #2c3e50 !important; /* Darker blue-grey for page nav (was #20212B) */
+        background: var(--dark-blue-grey) !important;
     }
 
     .navbar a.nav-link {
-        padding: 8px 15px;
+        padding: 8px var(--spacing-sm);
         font-size: 16px;
         letter-spacing: 1px;
     }
@@ -360,8 +350,8 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
 @media (max-width: 991.98px) {
     .navbar {
-        padding: 15px;
-        background: #2c3e50 !important; /* Darker blue-grey for mobile nav (was #20212B) */
+        padding: var(--spacing-sm);
+        background: var(--dark-blue-grey) !important;
     }
 
     .navbar a.nav-link {
@@ -380,9 +370,9 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 .carousel {
     position: relative;
     width: 100%;
-    min-height: 200px;
-    background: #ffffff;
-    margin-bottom: 60px; /* Increased margin for better separation */
+    min-height: 200px; /* Asegura un mínimo en cualquier caso */
+    background: var(--white);
+    margin-bottom: var(--spacing-xl); /* Consistente con variables */
 }
 
 .carousel .container-fluid {
@@ -403,16 +393,15 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     position: relative;
     width: 100%;
     height: 100%; /* Ajustado para móviles, se controlará con media queries */
-    min-height: 200px; /* Mínimo para que no se vea vacío */
-    text-align: right;
+    min-height: 200px;
     overflow: hidden;
 }
 
 .carousel .carousel-img img {
     width: 100%;
-    height: 100%; /* La altura se adaptará al contenedor, y object-fit asegurará que no se estire */
-    object-fit: cover; /* Recorta la imagen para cubrir el área, evitando estiramientos */
-    object-position: center; /* Centra la imagen dentro del contenedor */
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .carousel .carousel-img::after {
@@ -422,7 +411,7 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(0, 0, 0, .6); /* Slightly darker overlay for better text contrast */
+    background: rgba(0, 0, 0, .65); /* Un poco más oscuro para mejor contraste del texto */
     z-index: 1;
 }
 
@@ -434,33 +423,35 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     justify-content: center;
     flex-direction: column;
     z-index: 2;
+    padding: 0 var(--spacing-sm); /* Añadir padding para texto en móviles */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Sombra de texto sutil para legibilidad */
 }
 
 .carousel .carousel-text h1 {
     text-align: center;
-    color: #ffffff;
+    color: var(--white);
     font-size: 60px;
     font-weight: 700;
-    margin-bottom: 25px; /* Increased margin */
+    margin-bottom: var(--spacing-md);
 }
 
 .carousel .carousel-text p {
-    color: #ffffff;
+    color: var(--white);
     text-align: center;
     font-size: 20px;
-    margin-bottom: 30px; /* Increased margin */
+    margin-bottom: var(--spacing-md);
 }
 
 .carousel .carousel-btn .btn.btn-custom {
-    color: #ffffff; /* White text for custom buttons */
+    color: var(--white);
 }
 
 .carousel .carousel-btn .btn.btn-custom:hover {
-    color: #ffffff; /* Keep white text on hover */
+    color: var(--white);
 }
 
 .carousel .carousel-btn .btn:first-child {
-    margin-right: 15px;
+    margin-right: var(--spacing-sm);
 }
 
 .carousel .owl-nav {
@@ -481,16 +472,17 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #f39c12; /* Accent color for nav arrows (was #FDBE33) */
+    color: var(--secondary-color);
     background: rgba(256, 256, 256, .2);
     font-size: 22px;
-    transition: .3s;
+    transition: all var(--transition-speed);
+    border-radius: 50%; /* Botones redondos para los controles */
 }
 
 .carousel .owl-nav .owl-prev:hover,
 .carousel .owl-nav .owl-next:hover {
-    color: #ffffff;
-    background: #e67e22; /* Darker accent on hover (was #FDBE33) */
+    color: var(--white);
+    background: var(--primary-color);
 }
 
 .carousel .owl-nav .owl-prev {
@@ -502,15 +494,17 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     animation-duration: 1s;
 }
 
+/* Reutilización para un solo modal de video */
 #videoModal .modal-dialog {
     position: relative;
     max-width: 800px;
-    margin: 60px auto 0 auto;
+    margin: var(--spacing-xl) auto 0 auto;
 }
 
 #videoModal .modal-body {
     position: relative;
     padding: 0px;
+    background-color: #000; /* Fondo negro para el modal de video */
 }
 
 #videoModal .close {
@@ -522,10 +516,18 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     z-index: 999;
     font-size: 30px;
     font-weight: normal;
-    color: #ffffff;
+    color: var(--white);
     background: #000000;
     opacity: 1;
+    border-radius: 50%; /* Botón de cierre redondo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+#videoModal .close:hover {
+    background-color: var(--primary-color); /* Color de hover para el botón de cerrar */
+}
+
 
 @media (max-width: 991.98px) {
     .carousel .carousel-text h1 {
@@ -573,10 +575,10 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 /*******************************/
 .page-header {
     position: relative;
-    margin-bottom: 60px; /* Increased margin */
+    margin-bottom: var(--spacing-xl);
     padding: 210px 0 90px 0;
     text-align: center;
-    background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url(../img/page-header.jpg); /* Darker overlay */
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../img/page-header.jpg); /* Más oscuro */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -585,10 +587,10 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
 .page-header h2 {
     position: relative;
-    color: #e67e22; /* Accent color for page header (was #FDBE33) */
+    color: var(--primary-color);
     font-size: 60px;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-md);
     padding-bottom: 5px;
 }
 
@@ -599,18 +601,18 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     height: 2px;
     left: calc(50% - 50px);
     bottom: 0;
-    background: #e67e22; /* Accent color for line (was #FDBE33) */
+    background: var(--primary-color);
 }
 
 .page-header a {
     position: relative;
     padding: 0 12px;
     font-size: 22px;
-    color: #ffffff; /* White for clarity */
+    color: var(--white);
 }
 
 .page-header a:hover {
-    color: #f39c12; /* Accent color on hover (was #FDBE33) */
+    color: var(--secondary-color);
 }
 
 .page-header a::after {
@@ -621,7 +623,7 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     top: -2px;
     right: -7px;
     text-align: center;
-    color: #ffffff; /* White for separator */
+    color: var(--white);
 }
 
 .page-header a:last-child::after {
@@ -630,7 +632,7 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
 @media (max-width: 991.98px) {
     .page-header {
-        padding: 60px 0;
+        padding: var(--spacing-xl) 0;
     }
 
     .page-header h2 {
@@ -644,7 +646,7 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
 @media (max-width: 767.98px) {
     .page-header {
-        padding: 45px 0;
+        padding: var(--spacing-lg) 0;
     }
 
     .page-header h2 {
@@ -664,24 +666,24 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     position: relative;
     width: 100%;
     max-width: 700px;
-    margin: 0 auto 60px auto; /* Increased margin for better separation */
-    text-align: center; /* Ensure text is centered consistently */
+    margin: 0 auto var(--spacing-xl) auto; /* Consistente con variables */
+    text-align: center;
 }
 
 .section-header p {
-    margin-bottom: 10px; /* Adjusted margin */
+    margin-bottom: var(--spacing-xs);
     position: relative;
     font-size: 22px;
     font-weight: 600;
     text-transform: capitalize;
-    color: #e67e22; /* Accent color for paragraph in section header (was #FDBE33) */
+    color: var(--primary-color);
 }
 
 .section-header h2 {
     margin: 0;
     font-size: 45px;
     font-weight: 700;
-    color: #2c3e50; /* Consistent dark blue-grey for section headers */
+    color: var(--dark-blue-grey);
 }
 
 @media (max-width: 991.98px) {
@@ -709,64 +711,61 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 .about {
     position: relative;
     width: 100%;
-    padding: 90px 0; /* Increased padding for more breathing room */
+    padding: var(--spacing-xxl) 0;
 }
 
 .about .section-header {
-    margin-bottom: 45px; /* Adjusted margin */
-    margin-left: 0; /* Ensure this is not overriding global centering for some reason */
-    text-align: left; /* Keep text alignment for this specific header if it's on the left */
+    margin-bottom: var(--spacing-lg);
+    margin-left: 0;
+    text-align: left;
 }
 
 .about .about-img {
     width: 100%;
-    height: 100vh; /* This might make the image too tall on some screens, consider a max-height */
-    max-height: 500px; /* Added max-height for better control */
-    object-fit: cover; /* Ensures image covers the area without stretching */
-    object-position: center; /* Centers the image */
+    /* Altura fluida con un máximo para evitar imágenes excesivamente altas */
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    object-position: center;
+    background-size: cover; /* Para el parallax */
+    background-position: center; /* Para el parallax */
+    min-height: 300px; /* Asegura una altura mínima para la imagen */
 }
+
 /* Asegura que la imagen dentro del about-img también se comporte bien */
 .about .about-img img {
     max-width: 100%;
     height: auto;
-    display: block; /* Elimina espacio extra debajo de la imagen */
+    display: block;
 }
-
 
 .about .about-tab {
     width: 100%;
 }
 
 .about .about-tab .nav.nav-pills .nav-item {
-    margin-bottom: 15px; /* Add space between tab items, especially for wrapping */
+    margin-bottom: var(--spacing-sm);
 }
 
 .about .about-tab .nav.nav-pills .nav-link {
-    padding: 12px 20px; /* Increased padding */
+    padding: 12px 20px;
     font-weight: 600;
     background: none;
     border-radius: 0;
-    border-bottom: 1px solid rgba(0, 0, 0, .1); /* Softer border */
-    transition: none;
-    color: #444444; /* Default tab text color */
-}
-
-/* Mejora de la visibilidad del foco para las pestañas de navegación */
-.about .about-tab .nav.nav-pills .nav-link:focus {
-    outline: 3px solid #3498db !important; /* Un azul claro y visible */
-    outline-offset: 2px;
-    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25); /* Mantener el efecto de sombra de Bootstrap */
+    border-bottom: 1px solid var(--border-light);
+    transition: all var(--transition-speed);
+    color: var(--text-color);
 }
 
 .about .about-tab .nav.nav-pills .nav-link:hover,
 .about .about-tab .nav.nav-pills .nav-link.active {
-    color: #e67e22; /* Accent color for active/hover tab (was #FDBE33) */
+    color: var(--primary-color);
     padding-bottom: 7px;
-    border-bottom: 3px solid #e67e22; /* Accent color for active/hover tab border (was #FDBE33) */
+    border-bottom: 3px solid var(--primary-color);
 }
 
 .about .about-tab .tab-content {
-    padding: 30px 0 0 0; /* Increased padding */
+    padding: var(--spacing-md) 0 0 0;
     background: transparent;
 }
 
@@ -776,16 +775,16 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
 @media (max-width: 991.98px) {
     .about {
-        padding: 60px 0; /* Adjusted padding for smaller screens */
+        padding: var(--spacing-xl) 0;
     }
     .about .section-header {
-        margin-top: 30px;
-        text-align: center; /* Centrar header on smaller screens */
+        margin-top: var(--spacing-md);
+        text-align: center;
     }
     .about .about-img {
-        height: 300px; /* Adjusted image height for smaller screens */
-        max-height: 300px; /* Asegurar que no exceda */
-        margin-bottom: 30px; /* Espacio debajo de la imagen cuando se apila */
+        height: 300px;
+        max-height: 300px;
+        margin-bottom: var(--spacing-md);
     }
 }
 
@@ -796,7 +795,7 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 .service {
     position: relative;
     width: 100%;
-    padding: 90px 0 60px 0; /* Increased padding */
+    padding: var(--spacing-xxl) 0 var(--spacing-xl) 0;
 }
 
 .service .service-item {
@@ -804,19 +803,26 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 45px;
-    transition: .3s;
+    margin-bottom: var(--spacing-lg);
+    transition: transform var(--transition-speed); /* Transición para efectos de hover */
+    padding: var(--spacing-sm); /* Añadir padding para separación interna */
+}
+/* Efecto sutil de levantamiento en hover */
+.service .service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px var(--shadow-light);
 }
 
 .service .service-icon {
     position: relative;
     width: 60px;
+    flex-shrink: 0; /* Evita que el icono se encoja */
 }
 
 .service .service-icon i {
     position: relative;
     display: block;
-    color: #e67e22; /* Accent color for service icons (was #FDBE33) */
+    color: var(--primary-color);
     font-size: 60px;
     line-height: 60px;
     margin-top: 5px;
@@ -824,8 +830,8 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
 .service .service-text {
     position: relative;
-    margin-left: 20px;
-    padding-left: 20px;
+    margin-left: var(--spacing-md); /* Aumentado para mejor separación */
+    padding-left: var(--spacing-md); /* Aumentado para mejor separación */
 }
 
 .service .service-text::before {
@@ -835,7 +841,7 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     height: calc(100% - 10px);
     top: 5px;
     left: 0;
-    background: rgba(0, 0, 0, .1);
+    background: var(--border-light);
 }
 
 .service .service-text::after {
@@ -845,20 +851,20 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     height: 40px;
     top: calc(50% - 20px);
     left: -1px;
-    background: #e67e22; /* Accent color for text line (was #FDBE33) */
+    background: var(--primary-color);
 }
 
 .service .service-text h3 {
-    margin-bottom: 10px;
+    margin-bottom: var(--spacing-xs);
     font-size: 22px;
     font-weight: 700;
     letter-spacing: 1px;
-    color: #2c3e50; /* Consistent dark blue-grey for service text headings */
+    color: var(--dark-blue-grey);
 }
 
 .service .service-text p {
     margin: 0;
-    color: #444444; /* Consistent text color */
+    color: var(--text-color);
 }
 
 
@@ -868,87 +874,96 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 .donate {
     position: relative;
     width: 100%;
-    margin: 90px 0; /* Increased margin */
-    background: rgba(0, 0, 0, .6); /* Darker overlay */
+    margin: var(--spacing-xxl) 0;
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('../img/donate-bg.jpg') no-repeat center center; /* Añadir imagen de fondo */
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .donate .donate-content {
-    padding: 90px 0 60px 0; /* Increased padding */
+    padding: var(--spacing-xxl) 0 var(--spacing-xl) 0;
 }
 
-.container .donate {
-    margin: 90px 0; /* Consistent with section margin */
+.container .donate { /* Revisar si este selector es necesario, podría ser redundante */
+    margin: var(--spacing-xxl) 0;
 }
 
 .container .donate .donate-content {
-    padding: 60px 45px 30px 45px; /* Increased horizontal padding */
+    padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-md) var(--spacing-lg);
 }
 
 .donate .donate-content .section-header {
-    margin-bottom: 45px; /* Increased margin */
+    margin-bottom: var(--spacing-lg);
 }
 
 .donate .donate-content .section-header h2 {
-    color: #ffffff;
+    color: var(--white);
 }
 
 .donate .donate-text p {
-    color: #ffffff;
+    color: var(--white);
     font-size: 18px;
 }
 
 .donate .donate-form {
-    padding: 90px 45px; /* Increased horizontal padding */
-    background: #e67e22; /* Accent color for form background (was #FDBE33) */
+    padding: var(--spacing-xxl) var(--spacing-lg);
+    background: var(--primary-color);
+    border-radius: 8px; /* Mayor redondez para el formulario */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Sombra más pronunciada */
 }
 
 .donate .donate-form .control-group {
-    margin-bottom: 25px; /* Increased margin */
+    margin-bottom: var(--spacing-md);
 }
 
 .donate .donate-form .form-control {
     height: 60px;
-    color: #ffffff;
-    padding: 0 15px;
-    border-radius: 4px; /* Slightly rounded */
-    border: 1px solid rgba(255, 255, 255, 0.5); /* Softer white border */
+    color: var(--white);
+    padding: 0 var(--spacing-sm);
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
     background: transparent;
+    transition: border-color var(--transition-speed), background-color var(--transition-speed);
 }
-
+/* Mejorar placeholder */
 .donate .donate-form .form-control::placeholder {
-    color: #ffffff;
-    opacity: 0.8; /* Slightly transparent placeholder */
+    color: rgba(255, 255, 255, 0.7);
+    opacity: 1;
 }
 
 .donate .donate-form .form-control:-ms-input-placeholder,
 .donate .donate-form .form-control::-ms-input-placeholder {
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.7);
+}
+/* Foco para inputs del formulario de donación */
+.donate .donate-form .form-control:focus {
+    border-color: var(--white) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25) !important;
 }
 
 .donate .donate-form .btn-group {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 25px; /* Increased margin */
+    margin-bottom: var(--spacing-md);
 }
 
 .donate .donate-form .btn.btn-custom {
     padding: 15px 0;
     width: 100%;
     height: 60px;
-    color: #e67e22; /* Accent color for text */
-    background: #ffffff; /* White background */
-    border: 1px solid #ffffff; /* White border */
-    box-shadow: none; /* No shadow */
+    color: var(--primary-color);
+    background: var(--white);
+    border: 1px solid var(--white);
+    box-shadow: none;
 }
 
 .donate .donate-form .btn.btn-custom:hover,
 .donate .donate-form .btn.btn-custom.active {
-    color: #ffffff; /* White text on hover */
-    background: #2c3e50; /* Dark blue-grey on hover */
-    border: 1px solid #2c3e50; /* Dark blue-grey border on hover */
-    box-shadow: none;
+    color: var(--white);
+    background: var(--dark-blue-grey);
+    border: 1px solid var(--dark-blue-grey);
 }
-
 
 
 /*******************************/
@@ -957,7 +972,7 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 .causes {
     position: relative;
     width: 100%;
-    padding: 90px 0; /* Increased padding */
+    padding: var(--spacing-xxl) 0;
 }
 
 .causes .causes-carousel {
@@ -967,12 +982,17 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 }
 
 .causes .causes-item {
-    margin: 0 15px;
+    margin: 0 var(--spacing-sm);
     overflow: hidden;
-    background: #ffffff; /* White background for causes item */
-    border: 1px solid #eeeeee; /* Light border */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow */
-    border-radius: 8px; /* Rounded corners */
+    background: var(--white);
+    border: 1px solid #eeeeee;
+    box-shadow: 0 2px 5px var(--shadow-light);
+    border-radius: 8px;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+.causes .causes-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px var(--shadow-medium);
 }
 
 .causes .causes-img {
@@ -981,26 +1001,25 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
 .causes .causes-img img {
     width: 100%;
-    height: auto; /* Mantiene la proporción */
-    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin estirarse */
-    object-position: center; /* Centra la imagen */
-    transition: .3s;
+    height: 250px; /* Altura fija para consistencia en todas las tarjetas */
+    object-fit: cover;
+    object-position: center;
+    transition: transform var(--transition-speed);
 }
 
 .causes .causes-item:hover img {
     transform: scale(1.1);
 }
 
-
 .causes .causes-progress {
     width: 100%;
     margin-top: 32px;
-    padding: 30px 30px 20px 30px;
+    padding: var(--spacing-md) var(--spacing-md) 20px var(--spacing-md);
 }
 
 .causes .progress {
     height: 10px;
-    border-radius: 5px; /* Rounded progress bar */
+    border-radius: 5px;
     background: #dddddd;
     overflow: visible;
 }
@@ -1008,10 +1027,10 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 .causes .progress .progress-bar {
     position: relative;
     width: 0px;
-    background: #e67e22; /* Accent color for progress bar (was #FDBE33) */
+    background: var(--primary-color);
     overflow: visible;
-    transition: 2s;
-    border-radius: 5px; /* Ensure rounded ends */
+    transition: width 2s; /* Asegura la animación del progreso */
+    border-radius: 5px;
 }
 
 .causes .progress-bar span {
@@ -1021,9 +1040,10 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     height: 23px;
     display: inline-block;
     padding: 2px 6px;
-    background: #e67e22; /* Accent color for progress text background (was #FDBE33) */
-    color: #ffffff; /* White text for contrast (was #20212B) */
-    border-radius: 4px; /* Slightly rounded */
+    background: var(--primary-color);
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 13px; /* Tamaño de fuente más pequeño para el porcentaje */
 }
 
 .causes .progress-bar span::after {
@@ -1034,7 +1054,7 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     top: 23px;
     left: calc(50% - 6px);
     border: 6px solid;
-    border-color: #e67e22 transparent transparent transparent; /* Accent color for pointer (was #FDBE33) */
+    border-color: var(--primary-color) transparent transparent transparent;
 }
 
 .causes .progress-text {
@@ -1045,22 +1065,23 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
 .causes .progress-text p {
     margin: 0;
-    color: #444444; /* Consistent text color */
+    color: var(--text-color);
+    font-size: 15px; /* Tamaño de fuente más legible */
 }
 
 .causes .causes-text {
-    padding: 0 30px;
+    padding: 0 var(--spacing-md);
 }
 
 .causes .causes-text h3 {
     font-size: 22px;
     font-weight: 700;
-    color: #2c3e50; /* Consistent dark blue-grey for headings */
+    color: var(--dark-blue-grey);
 }
 
 .causes .causes-text p {
     margin: 0;
-    color: #444444; /* Consistent text color */
+    color: var(--text-color);
 }
 
 .causes .causes-btn {
@@ -1075,14 +1096,14 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 }
 
 .causes .causes-btn .btn:last-child {
-    color: #ffffff; /* White text */
-    background: #e67e22; /* Accent color for button (was #FDBE33) */
-    border-color: #e67e22; /* Accent color for border */
+    color: var(--white);
+    background: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
 .causes .causes-btn .btn:last-child:hover {
-    color: #ffffff; /* White text on hover */
-    background: #d35400; /* Darker accent on hover */
+    color: var(--white);
+    background: #d35400;
     border-color: #d35400;
 }
 
@@ -1095,49 +1116,47 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     position: relative;
     width: 100%;
     min-height: 400px;
-    margin: 90px 0; /* Increased margin */
+    margin: var(--spacing-xxl) 0;
     display: flex;
     align-items: center;
-    background: rgba(0, 0, 0, .6); /* Darker overlay */
-    padding: 90px 0; /* Added vertical padding */
-}
-/* Asegura que la imagen de fondo del parallax se comporte bien */
-.facts[data-parallax="scroll"] {
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('../img/facts.jpg') no-repeat center center; /* Fondo con imagen */
     background-size: cover;
-    background-position: center;
+    background-attachment: fixed;
+    padding: var(--spacing-xxl) 0;
 }
-
 
 .facts .facts-item {
     display: flex;
     flex-direction: row;
-    margin: 25px 0;
+    margin: var(--spacing-md) 0;
+    align-items: center; /* Centrar elementos dentro del item */
 }
 
 .facts .facts-item i {
     margin-top: 10px;
     font-size: 60px;
     line-height: 60px;
-    color: #e67e22; /* Accent color for icons (was #FDBE33) */
+    color: var(--primary-color);
+    flex-shrink: 0; /* Evita que el icono se encoja */
 }
 
 .facts .facts-text {
-    padding-left: 20px;
+    padding-left: var(--spacing-md);
 }
 
 .facts .facts-text h3 {
     position: relative;
     display: inline-block;
-    color: #ffffff;
+    color: var(--white);
     font-size: 45px;
     font-weight: 700;
-    margin-bottom: 5px; /* Adjusted margin for consistency */
+    margin-bottom: 5px;
 }
 
 .facts .facts-text h3::after {
     position: absolute;
     top: 0px;
-    color: #ffffff;
+    color: var(--white);
     font-size: 25px;
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
@@ -1154,7 +1173,7 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 }
 
 .facts .facts-text p {
-    color: #ffffff;
+    color: var(--white);
     font-size: 22px;
     font-weight: 600;
     margin: 0;
@@ -1167,13 +1186,23 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 .team {
     position: relative;
     width: 100%;
-    padding: 90px 0 60px 0; /* Increased padding */
+    padding: var(--spacing-xxl) 0 var(--spacing-xl) 0;
 }
 
 .team .team-item {
     position: relative;
-    margin-bottom: 45px; /* Increased margin */
+    margin-bottom: var(--spacing-lg);
+    background: var(--white); /* Fondo para las tarjetas del equipo */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px var(--shadow-light);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
+.team .team-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px var(--shadow-medium);
+}
+
 
 .team .team-img {
     position: relative;
@@ -1182,16 +1211,17 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
 .team .team-img img {
     width: 100%;
-    height: auto; /* Mantiene la proporción */
-    object-fit: cover; /* Recorta la imagen para cubrir el área, evitando estiramientos */
-    object-position: center top; /* Centra la imagen pero con preferencia al top para caras */
+    height: 300px; /* Altura fija para las imágenes del equipo */
+    object-fit: cover;
+    object-position: center top;
     transform: scale(1.1);
-    margin-bottom: -15px; /* Ajuste para la animación */
-    transition: .3s;
+    margin-bottom: -15px;
+    transition: all var(--transition-speed);
 }
 
 .team .team-item:hover img {
     margin: -15px 0 0 0;
+    transform: scale(1.0); /* Zoom out en hover */
 }
 
 .team .team-text {
@@ -1202,22 +1232,22 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     left: 20px;
     padding: 22px 0;
     text-align: center;
-    background: #ffffff;
-    transition: .3s;
+    background: var(--white);
+    transition: height var(--transition-speed);
     overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow for team text box */
-    border-radius: 4px; /* Slightly rounded */
+    box-shadow: 0 2px 5px var(--shadow-light);
+    border-radius: 4px;
 }
 
 .team .team-text h2 {
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 10px;
-    color: #2c3e50; /* Consistent dark blue-grey for names */
+    color: var(--dark-blue-grey);
 }
 
 .team .team-text p {
-    color: #444444; /* Consistent text color (was previously a lighter gray) */
+    color: var(--text-color);
     margin-bottom: 20px;
 }
 
@@ -1234,19 +1264,21 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     padding: 5px 0;
     text-align: center;
     font-size: 14px;
-    color: #2c3e50; /* Dark blue-grey for social icons (was #4a4c70) */
-    border: 2px solid #e67e22; /* Accent color border (was #FDBE33) */
-    border-radius: 50%; /* Make social icons round */
-    transition: .3s;
+    color: var(--dark-blue-grey);
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    transition: all var(--transition-speed);
 }
 
 .team .team-social a:hover {
-    color: #ffffff; /* White on hover */
-    background: #e67e22; /* Accent background on hover (was #FDBE33) */
+    color: var(--white);
+    background: var(--primary-color);
 }
 
 .team .team-item:hover .team-text {
     height: 160px;
+    /* Ajusta este padding o margin si los botones sociales quedan muy cerca del texto */
+    padding-bottom: 5px; /* Pequeño ajuste para dar más espacio a los botones */
 }
 
 
@@ -1255,17 +1287,22 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 .music-section {
     position: relative;
     width: 100%;
-    padding: 90px 0 60px 0; /* Mantener la consistencia con otras secciones */
+    padding: var(--spacing-xxl) 0 var(--spacing-xl) 0;
 }
 
 .music-item {
     position: relative;
-    margin-bottom: 45px;
-    background: #ffffff; /* White background for music item */
-    border: 1px solid #eeeeee; /* Light border */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow */
-    border-radius: 8px; /* Rounded corners */
-    overflow: hidden; /* Asegura que la imagen no se desborde al hacer zoom */
+    margin-bottom: var(--spacing-lg);
+    background: var(--white);
+    border: 1px solid #eeeeee;
+    box-shadow: 0 2px 5px var(--shadow-light);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+.music-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px var(--shadow-medium);
 }
 
 .music-img {
@@ -1275,19 +1312,39 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
 .music-img img {
     width: 100%;
-    height: auto; /* Mantiene la proporción */
-    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin estirarse */
-    object-position: center; /* Centra la imagen */
-    transform: scale(1.0); /* Estado normal, sin zoom */
-    transition: .3s;
+    height: 350px; /* Altura fija para la carátula */
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.0);
+    transition: transform var(--transition-speed);
 }
 
 .music-item:hover .music-img img {
-    transform: scale(1.05); /* Zoom sutil al pasar el ratón */
+    transform: scale(1.05);
 }
-
+/* Estilos para los reproductores de audio individuales */
+.card {
+    border: 1px solid #e0e0e0; /* Borde más sutil para las tarjetas de audio */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03); /* Sombra muy sutil */
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+.card-title {
+    color: var(--dark-blue-grey);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+}
+audio {
+    width: 100%;
+    margin-top: var(--spacing-xs);
+    background-color: var(--light-grey-bg);
+    border-radius: 4px;
+}
 /* Fin de Estilos para la sección de Música */
-/*******************************/
 
 
 /*******************************/
@@ -1296,7 +1353,7 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 .testimonial {
     position: relative;
     width: 100%;
-    padding: 90px 0; /* Increased padding */
+    padding: var(--spacing-xxl) 0;
 }
 
 .testimonial .testimonials-carousel {
@@ -1308,29 +1365,37 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 .testimonial .testimonial-item {
     position: relative;
     width: 100%;
-    padding: 0 15px;
+    padding: 0 var(--spacing-sm);
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    background: var(--white); /* Fondo para los testimonios */
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px var(--shadow-light);
+    padding: var(--spacing-md);
 }
 
 .testimonial .testimonial-profile {
     display: flex;
     align-items: center;
-    margin-bottom: 20px; /* Increased margin */
-    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm); /* Añadido padding para la línea */
+    border-bottom: 1px solid var(--border-light);
 }
 
 .testimonial .testimonial-profile img {
     width: 80px;
-    height: 80px; /* Asegura una altura fija para la imagen de perfil */
-    object-fit: cover; /* Recorta y cubre el área */
-    object-position: center; /* Centra la imagen */
-    margin-bottom: -1px;
+    height: 80px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%; /* Imágenes de perfil redondas */
+    border: 3px solid var(--primary-color); /* Borde de color de acento */
+    flex-shrink: 0;
 }
 
 .testimonial .testimonial-name {
-    padding-left: 15px;
+    padding-left: var(--spacing-sm);
     width: calc(100% - 95px);
 }
 
@@ -1338,22 +1403,22 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 5px;
-    color: #2c3e50; /* Consistent dark blue-grey */
+    color: var(--dark-blue-grey);
 }
 
 .testimonial .testimonial-name p {
     margin: 0;
     font-style: italic;
-    color: #444444; /* Consistent text color */
+    color: var(--text-color);
 }
 
 .testimonial .testimonial-text p {
     margin: 0;
-    color: #444444; /* Consistent text color */
+    color: var(--text-color);
 }
 
 .testimonial .owl-dots {
-    margin-top: 30px; /* Increased margin */
+    margin-top: var(--spacing-md);
     text-align: center;
 }
 
@@ -1362,12 +1427,13 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     margin: 0 5px;
     width: 12px;
     height: 12px;
-    border-radius: 50%; /* Round dots */
-    background: #cccccc; /* Lighter gray for inactive dots */
+    border-radius: 50%;
+    background: #cccccc;
+    transition: background var(--transition-speed);
 }
 
 .testimonial .owl-dot.active {
-    background: #e67e22; /* Accent color for active dot (was #20212B) */
+    background: var(--primary-color);
 }
 
 
@@ -1377,84 +1443,95 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 .volunteer {
     position: relative;
     width: 100%;
-    margin: 90px 0; /* Increased margin */
-    background: rgba(0, 0, 0, .6); /* Darker overlay */
+    margin: var(--spacing-xxl) 0;
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('../img/volunteer-bg.jpg') no-repeat center center; /* Fondo con imagen */
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .volunteer .volunteer-content {
-    padding: 60px 0 90px 0; /* Increased padding */
+    padding: var(--spacing-xl) 0 var(--spacing-xxl) 0;
 }
 
-.container .volunteer {
-    margin: 90px 0; /* Consistent with section margin */
+.container .volunteer { /* Revisar si este selector es necesario */
+    margin: var(--spacing-xxl) 0;
 }
 
 .container .volunteer .volunteer-content {
-    padding: 60px 45px 30px 45px; /* Increased horizontal padding */
+    padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-md) var(--spacing-lg);
 }
 
 .volunteer .volunteer-content .section-header {
-    margin-bottom: 45px; /* Increased margin */
+    margin-bottom: var(--spacing-lg);
 }
 
 .volunteer .volunteer-content .section-header h2 {
-    color: #ffffff;
+    color: var(--white);
 }
 
 .volunteer .volunteer-text p {
-    color: #ffffff;
+    color: var(--white);
     font-size: 18px;
 }
 
 .volunteer .volunteer-form {
-    padding: 90px 45px; /* Increased horizontal padding */
-    background: #e67e22; /* Accent color for form background (was #FDBE33) */
-    border-radius: 4px; /* Rounded corners for the form */
+    padding: var(--spacing-xxl) var(--spacing-lg);
+    background: var(--primary-color);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .volunteer .volunteer-form .control-group {
-    margin-bottom: 25px; /* Increased margin */
+    margin-bottom: var(--spacing-md);
 }
 
 .volunteer .volunteer-form .form-control {
     height: 60px;
-    color: #ffffff;
-    padding: 0 15px;
-    border-radius: 4px; /* Slightly rounded */
-    border: 1px solid rgba(255, 255, 255, 0.5); /* Softer white border */
+    color: var(--white);
+    padding: 0 var(--spacing-sm);
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
     background: transparent;
+    transition: border-color var(--transition-speed), background-color var(--transition-speed);
 }
 
 .volunteer .volunteer-form textarea.form-control {
     height: 120px;
-    padding: 15px;
+    padding: var(--spacing-sm);
 }
 
 .volunteer .volunteer-form .form-control::placeholder {
-    color: #ffffff;
-    opacity: 0.8; /* Slightly transparent placeholder */
+    color: rgba(255, 255, 255, 0.7);
+    opacity: 1;
 }
 
 .volunteer .volunteer-form .form-control:-ms-input-placeholder,
 .volunteer .volunteer-form .form-control::-ms-input-placeholder {
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.7);
 }
+
+/* Foco para inputs del formulario de voluntariado */
+.volunteer .volunteer-form .form-control:focus {
+    border-color: var(--white) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25) !important;
+}
+
 
 .volunteer .volunteer-form .btn-custom {
     padding: 15px 0;
     width: 100%;
     height: 60px;
-    color: #e67e22; /* Accent color text */
-    background: #ffffff; /* White background */
-    border: 1px solid #ffffff; /* White border */
+    color: var(--primary-color);
+    background: var(--white);
+    border: 1px solid var(--white);
     box-shadow: none;
 }
 
 .volunteer .volunteer-form .btn-custom:hover {
-    color: #ffffff; /* White text on hover */
-    background: #2c3e50; /* Dark blue-grey on hover */
-    border: 1px solid #2c3e50; /* Dark blue-grey border on hover */
-    box-shadow: none;
+    color: var(--white);
+    background: var(--dark-blue-grey);
+    border: 1px solid var(--dark-blue-grey);
 }
 
 
@@ -1464,33 +1541,45 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 .event {
     position: relative;
     width: 100%;
-    padding: 90px 0 60px 0; /* Increased padding */
+    padding: var(--spacing-xxl) 0 var(--spacing-xl) 0;
 }
 
 .event .event-item {
-    margin-bottom: 45px; /* Increased margin */
-    background: #ffffff; /* White background for event item */
-    border: 1px solid #eeeeee; /* Light border */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow */
-    border-radius: 8px; /* Rounded corners */
+    margin-bottom: var(--spacing-lg);
+    background: var(--white);
+    border: 1px solid #eeeeee;
+    box-shadow: 0 2px 5px var(--shadow-light);
+    border-radius: 8px;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+.event .event-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px var(--shadow-medium);
 }
 
 .event .event-item img {
     width: 100%;
-    height: auto; /* Mantiene la proporción */
-    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin estirarse */
-    object-position: center; /* Centra la imagen */
+    height: 220px; /* Altura fija para las imágenes de eventos */
+    object-fit: cover;
+    object-position: center;
+    border-top-left-radius: 8px; /* Redondez para las esquinas superiores */
+    border-top-right-radius: 8px;
 }
 
 .event .event-content {
-    padding: 30px;
+    padding: var(--spacing-md);
     display: flex;
+    align-items: flex-start; /* Alinea el contenido al inicio */
 }
 
 .event .event-meta {
-    margin-bottom: 15px;
+    margin-bottom: var(--spacing-sm);
     display: flex;
     flex-direction: column;
+    flex-shrink: 0; /* Evita que la meta se encoja */
+    margin-right: var(--spacing-md); /* Espacio entre meta y texto */
+    padding-right: var(--spacing-md); /* Padding para la línea vertical */
+    border-right: 1px solid var(--border-light); /* Borde vertical */
 }
 
 .event .event-meta p {
@@ -1498,79 +1587,80 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     margin-bottom: 8px;
     padding-bottom: 8px;
     white-space: nowrap;
-    border-bottom: 1px solid rgba(0, 0, 0, .1); /* Softer border */
-    color: #444444; /* Consistent text color */
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-color);
+    font-size: 15px; /* Tamaño de fuente más legible */
 }
 
 .event .event-meta p:last-child {
     border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .event .event-meta i {
-    color: #e67e22; /* Accent color for icons (was #4a4c70) */
+    color: var(--primary-color);
     width: 25px;
+    text-align: center; /* Centrar icono */
 }
 
 .event .event-text {
     position: relative;
-    margin-left: 20px;
-    padding-left: 20px;
+    margin-left: 0; /* No es necesario el margin-left con el border-right en meta */
+    padding-left: 0; /* No es necesario el padding-left */
+    flex-grow: 1; /* Permite que el texto ocupe el espacio restante */
 }
+/* Se eliminan los pseudo-elementos ::before y ::after si ya se usa border-right en event-meta */
+/* .event .event-text::before, .event .event-text::after { display: none; } */
 
-.event .event-text::before {
-    position: absolute;
-    content: "";
-    width: 1px;
-    height: calc(100% - 5px);
-    top: 6px;
-    left: 0;
-    background: rgba(0, 0, 0, .1); /* Softer line */
-}
-
-.event .event-text::after {
-    position: absolute;
-    content: "";
-    width: 3px;
-    height: 40px;
-    top: calc(50% - 20px);
-    left: -1px;
-    background: #e67e22; /* Accent color for text line (was #FDBE33) */
-}
 
 .event .event-text h3 {
     font-size: 25px;
     font-weight: 700;
-    margin-bottom: 10px;
-    color: #2c3e50; /* Consistent dark blue-grey for headings */
+    margin-bottom: var(--spacing-xs); /* Ajustado para mejor espaciado */
+    color: var(--dark-blue-grey);
 }
 
 .event .event-text p {
     margin: 0;
-    color: #444444; /* Consistent text color */
+    color: var(--text-color);
 }
 
 .event .btn-custom {
-    margin-top: 20px;
+    margin-top: var(--spacing-md);
     padding: 8px 30px;
 }
 
 @media (max-width: 575.98px) {
     .event .event-content {
         flex-direction: column;
+        padding: var(--spacing-md); /* Ajustar padding para móviles */
     }
 
     .event .event-meta {
         flex-direction: row;
+        flex-wrap: wrap; /* Permitir que los ítems de meta se envuelvan */
+        justify-content: center; /* Centrar ítems de meta */
+        margin-right: 0;
+        padding-right: 0;
+        border-right: none;
+        margin-bottom: var(--spacing-md);
+        padding-bottom: var(--spacing-sm);
+        border-bottom: 1px solid var(--border-light);
     }
 
     .event .event-meta p {
         font-size: 14px;
-        padding-right: 7px;
+        padding: 0 7px; /* Padding reducido */
+        border-right: 1px solid var(--border-light); /* Borde entre ítems de meta */
+        border-bottom: none; /* Eliminar el borde inferior aquí */
+        margin-bottom: 0; /* Eliminar margen inferior */
+        line-height: 1; /* Ajustar línea para alineación vertical */
+    }
+    .event .event-meta p:last-child {
+        border-right: none;
     }
 
-    .event .event-meta p:last-child {
-        border-bottom: 1px solid rgba(0, 0, 0, .1); /* Softer border */
-    }
 
     .event .event-meta i {
         width: 18px;
@@ -1579,6 +1669,7 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     .event .event-text {
         margin: 0;
         padding: 0;
+        text-align: center; /* Centrar texto en móvil */
     }
 
     .event .event-text::before,
@@ -1588,70 +1679,85 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 }
 
 
-
 /*******************************/
 /*********** Blog CSS **********/
 /*******************************/
 .blog {
     position: relative;
     width: 100%;
-    padding: 90px 0 60px 0; /* Increased padding */
+    padding: var(--spacing-xxl) 0 var(--spacing-xl) 0;
 }
 
 .blog .blog-item {
-    margin-bottom: 45px; /* Increased margin */
-    padding-bottom: 30px;
-    background: #ffffff; /* White background for blog item */
-    border: 1px solid #eeeeee; /* Light border */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow */
-    border-radius: 8px; /* Rounded corners */
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    background: var(--white);
+    border: 1px solid #eeeeee;
+    box-shadow: 0 2px 5px var(--shadow-light);
+    border-radius: 8px;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+.blog .blog-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px var(--shadow-medium);
 }
 
 .blog .blog-img {
     width: 100%;
+    overflow: hidden; /* Asegura que las esquinas redondeadas funcionen */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
 .blog .blog-img img {
     width: 100%;
-    height: auto; /* Mantiene la proporción */
-    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin estirarse */
-    object-position: center; /* Centra la imagen */
+    height: 250px; /* Altura fija para las imágenes del blog */
+    object-fit: cover;
+    object-position: center;
+    transition: transform var(--transition-speed);
+}
+.blog .blog-item:hover img {
+    transform: scale(1.05); /* Zoom sutil en hover */
 }
 
+
 .blog .blog-text {
-    padding: 30px 30px 15px 30px;
+    padding: var(--spacing-md) var(--spacing-md) var(--spacing-sm) var(--spacing-md);
 }
 
 .blog .blog-text h3 {
     font-size: 22px;
     font-weight: 700;
+    margin-bottom: var(--spacing-sm); /* Ajustado */
 }
 
 .blog .blog-text h3 a {
-    color: #2c3e50; /* Dark blue-grey for blog title link (was #4a4c70) */
+    color: var(--dark-blue-grey);
 }
 
 .blog .blog-text h3 a:hover {
-    color: #e67e22; /* Accent color on hover (was #FDBE33) */
+    color: var(--primary-color);
 }
 
 .blog .blog-text p {
     margin: 0;
-    color: #444444; /* Consistent text color */
+    color: var(--text-color);
 }
 
 .blog .blog-meta {
-    margin: 0 30px;
-    padding-top: 15px;
+    margin: 0 var(--spacing-md);
+    padding-top: var(--spacing-sm);
     display: flex;
-    border-top: 1px solid rgba(0, 0, 0, .1); /* Softer border */
+    border-top: 1px solid var(--border-light);
+    flex-wrap: wrap; /* Permitir que los meta ítems se envuelvan */
 }
 
 .blog .blog-meta p {
     margin: 0;
-    color: #777777; /* Changed from previous attempt to be consistent with other similar elements, maintaining contrast. If this is on a dark background, this should be #FFFFFF. */
-    padding: 0 30px;
-    border-right: 1px solid rgba(0, 0, 0, .1); /* Softer border */
+    color: var(--text-color);
+    padding: 0 var(--spacing-md);
+    border-right: 1px solid var(--border-light);
+    font-size: 15px; /* Ajuste para legibilidad */
 }
 
 .blog .blog-meta p:first-child {
@@ -1664,25 +1770,28 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 }
 
 .blog .blog-meta i {
-    color: #e67e22; /* Accent color for icons (was #4a4c70) */
+    color: var(--primary-color);
     margin-right: 8px
 }
 
 .blog .pagination {
-    margin-bottom: 15px;
+    margin-bottom: var(--spacing-sm);
+    justify-content: center; /* Centrar paginación */
+    display: flex; /* Asegura flex para justify-content */
 }
 
 .blog .pagination .page-link {
-    color: #2c3e50; /* Dark blue-grey for pagination link (was #4a4c70) */
-    border-radius: 4px; /* Slightly rounded */
-    border-color: #2c3e50; /* Dark blue-grey border */
+    color: var(--dark-blue-grey);
+    border-radius: 4px;
+    border-color: var(--dark-blue-grey);
+    transition: all var(--transition-speed);
 }
 
 .blog .pagination .page-link:hover,
 .blog .pagination .page-item.active .page-link {
-    color: #ffffff; /* White text on active/hover */
-    background: #e67e22; /* Accent color background (was #4a4c70) */
-    border-color: #e67e22; /* Accent color border */
+    color: var(--white);
+    background: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
 .blog .pagination .disabled .page-link {
@@ -1696,19 +1805,21 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 .contact {
     position: relative;
     width: 100%;
-    padding: 90px 0; /* Increased padding */
+    padding: var(--spacing-xxl) 0;
 }
 
 .contact .contact-img {
     position: relative;
     width: 100%;
+    height: 500px; /* Altura fija para la imagen del contacto */
+    overflow: hidden;
 }
 
 .contact .contact-img img {
     width: 100%;
-    height: auto; /* Mantiene la proporción */
-    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin estirarse */
-    object-position: center; /* Centra la imagen */
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .contact .contact-form {
@@ -1717,10 +1828,11 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     max-width: 700px;
     margin: 0 auto;
     margin-top: -220px;
-    padding: 40px; /* Increased padding */
-    background: #ffffff; /* White background for contact form */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* More prominent shadow */
-    border-radius: 8px; /* Rounded corners */
+    padding: var(--spacing-lg);
+    background: var(--white);
+    box-shadow: 0 5px 15px var(--shadow-medium);
+    border-radius: 8px;
+    z-index: 10; /* Asegura que esté sobre la imagen */
 }
 
 @media (max-width: 991.98px) {
@@ -1732,55 +1844,64 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 @media (max-width: 767.98px) {
     .contact .contact-form {
         max-width: 400px;
+        margin-top: -150px; /* Ajustar margen para móviles */
+        padding: var(--spacing-md);
+    }
+    .contact .contact-img {
+        height: 300px; /* Ajustar altura para móviles */
     }
 }
 
 @media (max-width: 575.98px) {
     .contact .contact-form {
         max-width: 300px;
+        margin-top: -100px; /* Ajustar margen para móviles pequeños */
+        padding: var(--spacing-sm);
+        box-shadow: none; /* Quitar sombra para móviles muy pequeños */
+        border: none;
+    }
+    .contact .contact-img {
+        height: 200px; /* Altura aún menor para móviles muy pequeños */
     }
 }
 
-.contact .contact-form input {
-    padding: 15px;
-    background: #f8f9fa; /* Light gray background for inputs */
-    border-radius: 4px; /* Rounded */
-    border: 1px solid #eeeeee; /* Light border */
-    color: #444444; /* Dark text color */
+
+.contact .contact-form input,
+.contact .contact-form textarea {
+    padding: var(--spacing-sm);
+    background: var(--light-grey-bg);
+    border-radius: 4px;
+    border: 1px solid #eeeeee;
+    color: var(--text-color);
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+/* Foco para inputs del formulario de contacto */
+.contact .contact-form input:focus,
+.contact .contact-form textarea:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 0.2rem rgba(230, 126, 34, 0.25) !important;
 }
 
 .contact .contact-form textarea {
     height: 150px;
-    padding: 8px 15px;
-    background: #f8f9fa; /* Light gray background for textarea */
-    border-radius: 4px; /* Rounded */
-    border: 1px solid #eeeeee; /* Light border */
-    color: #444444; /* Dark text color */
-}
-
-.contact .contact-form input:focus,
-.contact .contact-form textarea:focus {
-    /* box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25); Ya lo cubre el selector *:focus si no hay !important*/
-    /* outline: none; Ya lo cubre el selector *:focus si no hay !important*/
 }
 
 .contact .contact-form .btn-custom {
     width: 100%;
-    background-color: #e67e22; /* Accent color for button */
-    color: #ffffff; /* White text */
+    background-color: var(--primary-color);
+    color: var(--white);
     border: none;
 }
 
 .contact .contact-form .btn-custom:hover {
-    background-color: #d35400; /* Darker accent on hover */
-    color: #ffffff;
+    background-color: #d35400;
 }
 
 .contact .help-block ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
-    color: #e74c3c; /* Red for error messages */
+    color: #e74c3c;
     font-size: 14px;
 }
 
@@ -1790,31 +1911,33 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 /*******************************/
 .single {
     position: relative;
-    padding: 90px 0; /* Increased padding */
+    padding: var(--spacing-xxl) 0;
 }
 
 .single .single-content {
     position: relative;
-    margin-bottom: 60px; /* Increased margin */
+    margin-bottom: var(--spacing-xl);
     overflow: hidden;
-    background: #ffffff; /* White background */
-    border: 1px solid #eeeeee; /* Light border */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow */
-    border-radius: 8px; /* Rounded corners */
-    padding: 30px; /* Add padding for content */
+    background: var(--white);
+    border: 1px solid #eeeeee;
+    box-shadow: 0 2px 5px var(--shadow-light);
+    border-radius: 8px;
+    padding: var(--spacing-md);
 }
 
 .single .single-content img {
-    max-width: 100%; /* Asegura que la imagen no se desborde */
-    height: auto; /* Mantiene la proporción */
-    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin estirarse */
-    object-position: center; /* Centra la imagen */
-    margin-bottom: 25px; /* Increased margin */
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: var(--spacing-md);
+    border-radius: 4px; /* Pequeño redondeo para imágenes internas */
 }
 
 .single .single-tags {
     margin: -5px -5px 41px -5px;
     font-size: 0;
+    padding: 0 var(--spacing-md); /* Añadir padding para que los tags no se peguen a los bordes */
 }
 
 .single .single-tags a {
@@ -1823,65 +1946,68 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     padding: 7px 15px;
     font-size: 14px;
     font-weight: 500;
-    color: #2c3e50; /* Dark blue-grey for tag text (was #4a4c70) */
-    border: 1px solid #95a5a6; /* Softer gray border for tags */
-    border-radius: 4px; /* Rounded tags */
+    color: var(--dark-blue-grey);
+    border: 1px solid #95a5a6;
+    border-radius: 4px;
+    transition: all var(--transition-speed);
 }
 
 .single .single-tags a:hover {
-    color: #ffffff; /* White text on hover */
-    background: #e67e22; /* Accent background on hover (was #FDBE33) */
-    border-color: #e67e22; /* Accent border on hover */
+    color: var(--white);
+    background: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
 .single .single-bio {
-    margin-bottom: 60px; /* Increased margin */
-    padding: 30px;
-    background: #f8f9fa; /* Light gray background for bio */
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-md);
+    background: var(--light-grey-bg);
     display: flex;
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow */
+    align-items: center; /* Alineación vertical para imagen y texto */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px var(--shadow-light);
 }
 
 .single .single-bio-img {
-    width: 100%;
-    max-width: 100px;
+    width: 100px; /* Ancho fijo para la imagen de bio */
+    flex-shrink: 0;
+    margin-right: var(--spacing-md);
 }
 
 .single .single-bio-img img {
     width: 100%;
-    height: 100px; /* Altura fija para mantener la consistencia */
-    object-fit: cover; /* Asegura que la imagen cubra el área */
-    object-position: center; /* Centra la imagen */
-    border: 5px solid #ffffff; /* Thinner white border */
-    border-radius: 50%; /* Round image */
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
+    border: 3px solid var(--white);
+    border-radius: 50%;
 }
 
 .single .single-bio-text {
-    padding-left: 30px;
+    padding-left: 0; /* Ya se maneja con margin-right en single-bio-img */
 }
 
 .single .single-bio-text h3 {
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 3px;
-    color: #2c3e50; /* Consistent dark blue-grey */
+    color: var(--dark-blue-grey);
 }
 
 .single .single-bio-text p {
     margin: 0;
-    color: #444444; /* Consistent text color */
+    color: var(--text-color);
 }
 
 .single .single-related {
-    margin-bottom: 60px; /* Increased margin */
+    margin-bottom: var(--spacing-xl);
 }
 
 .single .single-related h2 {
     font-size: 30px;
     font-weight: 700;
-    margin-bottom: 35px; /* Increased margin */
-    color: #2c3e50; /* Consistent dark blue-grey */
+    margin-bottom: 35px;
+    color: var(--dark-blue-grey);
 }
 
 .single .related-slider {
@@ -1891,50 +2017,59 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 }
 
 .single .related-slider .post-item {
-    margin: 0 15px;
+    margin: 0 var(--spacing-sm);
 }
 
 .single .post-item {
     display: flex;
     align-items: center;
-    margin-bottom: 20px; /* Increased margin */
-    background: #ffffff; /* White background for related posts */
-    border: 1px solid #eeeeee; /* Light border */
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Subtle shadow */
-    border-radius: 4px; /* Rounded corners */
-    padding: 10px;
+    margin-bottom: var(--spacing-md);
+    background: var(--white);
+    border: 1px solid #eeeeee;
+    box-shadow: 0 1px 3px var(--shadow-light);
+    border-radius: 4px;
+    padding: var(--spacing-xs);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+.single .post-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 3px 8px var(--shadow-light);
 }
 
 .single .post-item .post-img {
-    width: 100%;
-    max-width: 80px;
+    width: 80px; /* Ancho fijo para las imágenes de post relacionados */
+    height: 80px; /* Altura fija */
+    flex-shrink: 0;
+    overflow: hidden;
 }
 
 .single .post-item .post-img img {
     width: 100%;
-    height: 80px; /* Altura fija para mantener la consistencia */
-    object-fit: cover; /* Asegura que la imagen cubra el área */
-    object-position: center; /* Centra la imagen */
-    border-radius: 4px; /* Rounded image corners */
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 4px;
 }
 
 .single .post-item .post-text {
-    padding-left: 15px;
+    padding-left: var(--spacing-sm);
+    flex-grow: 1;
 }
 
 .single .post-item .post-text a {
     font-size: 16px;
     font-weight: 600;
-    color: #2c3e50; /* Dark blue-grey for link */
+    color: var(--dark-blue-grey);
 }
 
 .single .post-item .post-text a:hover {
-    color: #e67e22; /* Accent color on hover (was #FDBE33) */
+    color: var(--primary-color);
 }
 
 .single .post-item .post-meta {
     display: flex;
     margin-top: 8px;
+    flex-wrap: wrap;
 }
 
 .single .post-item .post-meta p {
@@ -1944,7 +2079,7 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     font-size: 14px;
     font-weight: 500;
     font-style: italic;
-    color: #777777; /* Softer gray text */
+    color: var(--text-color);
 }
 
 .single .post-item .post-meta p a {
@@ -1959,41 +2094,41 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     position: absolute;
     width: 90px;
     top: -55px;
-    right: 15px;
+    right: var(--spacing-sm);
     display: flex;
 }
 
 .single .related-slider .owl-nav .owl-prev,
 .single .related-slider .owl-nav .owl-next {
-    margin-left: 15px;
+    margin-left: var(--spacing-sm);
     width: 30px;
     height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #ffffff; /* White icon */
-    background: #3498db; /* Friendly blue background (was #FDBE33) */
+    color: var(--white);
+    background: var(--primary-color);
     font-size: 16px;
-    transition: .3s;
-    border-radius: 50%; /* Round buttons */
+    transition: all var(--transition-speed);
+    border-radius: 50%;
 }
 
 .single .related-slider .owl-nav .owl-prev:hover,
 .single .related-slider .owl-nav .owl-next:hover {
-    color: #ffffff; /* White icon on hover */
-    background: #2980b9; /* Darker blue on hover (was #4a4c70) */
+    color: var(--white);
+    background: #d35400;
 }
 
 .single .single-comment {
     position: relative;
-    margin-bottom: 60px; /* Increased margin */
+    margin-bottom: var(--spacing-xl);
 }
 
 .single .single-comment h2 {
     font-size: 30px;
     font-weight: 700;
-    margin-bottom: 35px; /* Increased margin */
-    color: #2c3e50; /* Consistent dark blue-grey */
+    margin-bottom: 35px;
+    color: var(--dark-blue-grey);
 }
 
 .single .comment-list {
@@ -2003,40 +2138,47 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
 .single .comment-child {
     list-style: none;
+    padding-left: var(--spacing-md); /* Sangría para comentarios anidados */
+    margin-top: var(--spacing-md);
 }
 
 .single .comment-body {
     display: flex;
-    margin-bottom: 30px;
-    background: #ffffff; /* White background */
-    border: 1px solid #eeeeee; /* Light border */
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Subtle shadow */
-    border-radius: 8px; /* Rounded corners */
-    padding: 20px;
+    margin-bottom: var(--spacing-md);
+    background: var(--white);
+    border: 1px solid #eeeeee;
+    box-shadow: 0 1px 3px var(--shadow-light);
+    border-radius: 8px;
+    padding: var(--spacing-md);
+    align-items: flex-start; /* Alinea al inicio del comentario */
 }
 
 .single .comment-img {
     width: 60px;
+    height: 60px; /* Altura fija para la imagen del comentario */
+    flex-shrink: 0;
+    overflow: hidden;
+    margin-right: var(--spacing-sm);
 }
 
 .single .comment-img img {
     width: 100%;
-    height: 60px; /* Altura fija para consistencia */
-    object-fit: cover; /* Asegura que la imagen cubra el área */
-    object-position: center; /* Centra la imagen */
-    border-radius: 50%; /* Round image */
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
 }
 
 .single .comment-text {
-    padding-left: 15px;
-    width: calc(100% - 60px);
+    padding-left: 0; /* Ajustado con margin-right en comment-img */
+    width: calc(100% - 75px); /* Ajustado según el nuevo margin */
 }
 
 .single .comment-text h3 {
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 3px;
-    color: #2c3e50; /* Consistent dark blue-grey */
+    color: var(--dark-blue-grey);
 }
 
 .single .comment-text span {
@@ -2044,20 +2186,21 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     font-size: 14px;
     font-weight: 500;
     margin-bottom: 5px;
-    color: #777777; /* Softer gray */
+    color: var(--text-color);
 }
 
 .single .comment-text .btn {
     padding: 3px 10px;
     font-size: 14px;
     font-weight: 500;
-    color: #ffffff; /* White text */
-    background: #3498db; /* Friendly blue background (was #dddddd) */
-    border-radius: 4px; /* Rounded */
+    color: var(--white);
+    background: var(--primary-color);
+    border-radius: 4px;
+    transition: background var(--transition-speed);
 }
 
 .single .comment-text .btn:hover {
-    background: #2980b9; /* Darker blue on hover (was #FDBE33) */
+    background: #d35400;
 }
 
 .single .comment-form {
@@ -2067,15 +2210,15 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 .single .comment-form h2 {
     font-size: 30px;
     font-weight: 700;
-    margin-bottom: 35px; /* Increased margin */
-    color: #2c3e50; /* Consistent dark blue-grey */
+    margin-bottom: 35px;
+    color: var(--dark-blue-grey);
 }
 
 .single .comment-form form {
-    padding: 30px;
-    background: #ffffff; /* White background for comment form */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow */
-    border-radius: 8px; /* Rounded corners */
+    padding: var(--spacing-md);
+    background: var(--white);
+    box-shadow: 0 2px 5px var(--shadow-light);
+    border-radius: 8px;
 }
 
 .single .comment-form form .form-group:last-child {
@@ -2084,25 +2227,26 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
 .single .comment-form input,
 .single .comment-form textarea {
-    border-radius: 4px; /* Rounded */
-    border: 1px solid #eeeeee; /* Light border */
-    color: #444444; /* Dark text */
+    border-radius: 4px;
+    border: 1px solid #eeeeee;
+    color: var(--text-color);
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
 }
-
+/* Foco para inputs del formulario de comentarios */
 .single .comment-form input:focus,
 .single .comment-form textarea:focus {
-    /* box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25); Ya lo cubre el selector *:focus si no hay !important*/
-    /* outline: none; Ya lo cubre el selector *:focus si no hay !important*/
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 0.2rem rgba(230, 126, 34, 0.25) !important;
 }
 
 .single .comment-form .btn-custom {
     width: 100%;
-    background-color: #e67e22; /* Accent color */
-    color: #ffffff; /* White text */
+    background-color: var(--primary-color);
+    color: var(--white);
     border: none;
 }
 .single .comment-form .btn-custom:hover {
-    background-color: #d35400; /* Darker accent on hover */
+    background-color: #d35400;
 }
 
 
@@ -2116,27 +2260,27 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
 @media(max-width: 991.98px) {
     .sidebar {
-        margin-top: 45px;
+        margin-top: var(--spacing-lg);
     }
 }
 
 .sidebar .sidebar-widget {
     position: relative;
-    margin-bottom: 45px;
-    background: #ffffff; /* White background for widgets */
-    border: 1px solid #eeeeee; /* Light border */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow */
-    border-radius: 8px; /* Rounded corners */
-    padding: 30px; /* Add internal padding */
+    margin-bottom: var(--spacing-lg);
+    background: var(--white);
+    border: 1px solid #eeeeee;
+    box-shadow: 0 2px 5px var(--shadow-light);
+    border-radius: 8px;
+    padding: var(--spacing-md);
 }
 
 .sidebar .sidebar-widget .widget-title {
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: var(--spacing-md);
     padding-bottom: 5px;
     font-size: 25px;
     font-weight: 700;
-    color: #2c3e50; /* Consistent dark blue-grey */
+    color: var(--dark-blue-grey);
 }
 
 .sidebar .sidebar-widget .widget-title::after {
@@ -2146,7 +2290,7 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     height: 2px;
     bottom: 0;
     left: 0;
-    background: #e67e22; /* Accent color for line (was #FDBE33) */
+    background: var(--primary-color);
 }
 
 .sidebar .sidebar-widget .search-widget {
@@ -2156,32 +2300,35 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 .sidebar .search-widget input {
     height: 50px;
     border: 1px solid #dddddd;
-    border-radius: 4px; /* Rounded */
-    background: #f8f9fa; /* Light gray input background */
-    color: #444444; /* Dark text */
+    border-radius: 4px;
+    background: var(--light-grey-bg);
+    color: var(--text-color);
+    padding-right: 60px; /* Espacio para el icono de búsqueda */
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
 }
-
+/* Foco para input de búsqueda */
 .sidebar .search-widget input:focus {
-    /* box-shadow: none; Ya lo cubre el selector *:focus si no hay !important*/
-    /* border-color: #3498db; Ya lo cubre el selector *:focus si no hay !important*/
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 0.2rem rgba(230, 126, 34, 0.25) !important;
 }
 
 .sidebar .search-widget .btn {
     position: absolute;
-    top: 6px;
+    top: 50%; /* Centrar verticalmente */
     right: 15px;
+    transform: translateY(-50%); /* Ajuste para centrado vertical */
     height: 40px;
     padding: 0;
     font-size: 25px;
-    color: #e67e22; /* Accent color for search icon (was #FDBE33) */
+    color: var(--primary-color);
     background: none;
     border-radius: 0;
     border: none;
-    transition: .3s;
+    transition: color var(--transition-speed);
 }
 
 .sidebar .search-widget .btn:hover {
-    color: #2c3e50; /* Dark blue-grey on hover (was #4a4c70) */
+    color: var(--dark-blue-grey);
 }
 
 .sidebar .sidebar-widget .recent-post {
@@ -2193,24 +2340,20 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 }
 
 .sidebar .tab-post .nav.nav-pills .nav-link {
-    color: #ffffff; /* White text */
-    background: #3498db; /* Friendly blue for tab background (was #FDBE33) */
-    border-radius: 4px; /* Rounded */
-}
-
-.sidebar .tab-post .nav.nav-pills .nav-link:focus { /* Añadido para accesibilidad */
-    outline: 3px solid #f39c12 !important;
-    outline-offset: 2px;
+    color: var(--white);
+    background: var(--primary-color);
+    border-radius: 4px;
+    transition: all var(--transition-speed);
 }
 
 .sidebar .tab-post .nav.nav-pills .nav-link:hover,
 .sidebar .tab-post .nav.nav-pills .nav-link.active {
-    color: #ffffff; /* White text on hover/active (was #FDBE33) */
-    background: #2c3e50; /* Dark blue-grey on hover/active (was #4a4c70) */
+    color: var(--white);
+    background: #d35400;
 }
 
 .sidebar .tab-post .tab-content {
-    padding: 15px 0 0 0;
+    padding: var(--spacing-sm) 0 0 0;
     background: transparent;
 }
 
@@ -2230,6 +2373,7 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 
 .sidebar .category-widget ul li {
     margin: 0 0 12px 22px;
+    position: relative; /* Para posicionar el pseudo-elemento */
 }
 
 .sidebar .category-widget ul li:last-child {
@@ -2239,10 +2383,11 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 .sidebar .category-widget ul li a {
     display: inline-block;
     line-height: 23px;
-    color: #444444; /* Consistent text color */
+    color: var(--text-color);
+    transition: color var(--transition-speed);
 }
 .sidebar .category-widget ul li a:hover {
-    color: #e67e22; /* Accent color on hover */
+    color: var(--primary-color);
 }
 
 
@@ -2251,14 +2396,16 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     content: '\f105';
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
-    color: #e67e22; /* Accent color for icon (was #FDBE33) */
-    left: 1px;
+    color: var(--primary-color);
+    left: -22px; /* Alineado con el margen izquierdo de la lista */
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .sidebar .category-widget ul li span {
     display: inline-block;
     float: right;
-    color: #777777; /* Softer gray for count */
+    color: #777777;
 }
 
 .sidebar .sidebar-widget .tag-widget {
@@ -2266,36 +2413,38 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     margin: -5px -5px;
 }
 
-.single .tag-widget a {
+.single .tag-widget a { /* Reutilización de estilos de tags del single post */
     margin: 5px;
     display: inline-block;
     padding: 7px 15px;
     font-size: 14px;
     font-weight: 500;
-    color: #2c3e50; /* Dark blue-grey for tag text (was #4a4c70) */
-    border: 1px solid #95a5a6; /* Softer gray border for tags */
-    border-radius: 4px; /* Rounded tags */
+    color: var(--dark-blue-grey);
+    border: 1px solid #95a5a6;
+    border-radius: 4px;
+    transition: all var(--transition-speed);
 }
 
 .single .tag-widget a:hover {
-    color: #ffffff; /* White text on hover */
-    background: #e67e22; /* Accent background on hover (was #FDBE33) */
-    border-color: #e67e22; /* Accent border on hover */
+    color: var(--white);
+    background: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
 .sidebar .image-widget {
     display: block;
     width: 100%;
     overflow: hidden;
-    border-radius: 8px; /* Rounded corners */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px var(--shadow-light); /* Sombra sutil para la imagen del sidebar */
 }
 
 .sidebar .image-widget img {
     max-width: 100%;
-    height: auto; /* Mantiene la proporción */
-    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin estirarse */
-    object-position: center; /* Centra la imagen */
-    transition: .3s;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    transition: transform var(--transition-speed);
 }
 
 .sidebar .image-widget img:hover {
@@ -2308,33 +2457,42 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 /*******************************/
 .footer {
     position: relative;
-    margin-top: 90px; /* Increased margin */
-    padding-top: 90px;
-    background: #2c3e50; /* Darker blue-grey for footer (was #20212B) */
+    margin-top: var(--spacing-xxl);
+    padding-top: var(--spacing-xxl);
+    background: var(--dark-blue-grey);
 }
 
 .footer .footer-contact,
 .footer .footer-link,
 .footer .footer-newsletter {
     position: relative;
-    margin-bottom: 45px;
-    color: #ffffff;
+    margin-bottom: var(--spacing-lg);
+    color: var(--white);
 }
 
 .footer .footer-contact h2,
 .footer .footer-link h2,
 .footer .footer-newsletter h2 {
-    margin-bottom: 30px;
+    margin-bottom: var(--spacing-md);
     font-size: 22px;
     font-weight: 700;
-    color: #f39c12; /* Accent color for footer headings (was #FDBE33) */
+    color: var(--secondary-color);
 }
+/* Reemplazar div con ul/li para footer-link */
+.footer .footer-link ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer .footer-link li {
+    margin-bottom: var(--spacing-xs);
+}
+
 
 .footer .footer-link a {
     display: block;
-    margin-bottom: 10px;
-    color: #ffffff; /* White for links */
-    transition: .3s;
+    color: var(--white);
+    transition: all var(--transition-speed);
 }
 
 .footer .footer-link a::before {
@@ -2346,34 +2504,57 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 }
 
 .footer .footer-link a:hover {
-    color: #e67e22; /* Accent color on hover (was #FDBE33) */
+    color: var(--primary-color);
     letter-spacing: 1px;
 }
 
+.footer .footer-contact p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
 .footer .footer-contact p i {
     width: 25px;
-    color: #f39c12; /* Accent color for contact icons */
+    color: var(--secondary-color);
+    flex-shrink: 0;
+    text-align: center; /* Centrar iconos de contacto */
 }
+.footer .footer-contact p a {
+    color: var(--white);
+    transition: color var(--transition-speed);
+    margin-left: 5px; /* Espacio entre icono y texto */
+}
+.footer .footer-contact p a:hover {
+    color: var(--primary-color);
+}
+
 
 .footer .footer-social {
     position: relative;
-    margin-top: 20px;
+    margin-top: var(--spacing-md);
+    display: flex;
+    gap: var(--spacing-xs); /* Espacio entre los iconos sociales */
+    flex-wrap: wrap; /* Permitir que se envuelvan en pantallas pequeñas */
 }
 
 .footer .footer-social a {
     width: 40px;
     height: 40px;
     padding: 6px 0;
-    background: #e67e22; /* Accent background for social icons (was #FDBE33) */
-    color: #ffffff; /* White icon */
-    border: 2px solid #e67e22; /* Accent border */
-    border-radius: 50%; /* Round social icons */
-    transition: .3s;
+    background: var(--primary-color);
+    color: var(--white);
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    transition: all var(--transition-speed);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px; /* Tamaño del icono */
 }
 
 .footer .footer-social a:hover {
-    background: #d35400; /* Darker accent on hover */
-    border-color: #d35400; /* Darker accent border on hover */
+    background: #d35400;
+    border-color: #d35400;
 }
 
 .footer .footer-newsletter form {
@@ -2382,21 +2563,28 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 }
 
 .footer .footer-newsletter input {
-    margin-bottom: 15px;
+    margin-bottom: var(--spacing-sm);
     height: 60px;
     border: none;
-    border-radius: 4px; /* Rounded */
-    background: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
-    color: #ffffff; /* White text */
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    padding: 0 var(--spacing-sm);
+    transition: all var(--transition-speed);
 }
-
 .footer .footer-newsletter input::placeholder {
-    color: rgba(255, 255, 255, 0.7); /* Lighter placeholder */
+    color: rgba(255, 255, 255, 0.7);
     opacity: 1;
 }
+/* Foco para input de newsletter */
+.footer .footer-newsletter input:focus {
+    background: rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25) !important;
+}
+
 
 .footer .footer-newsletter label {
-    color: #ffffff; /* Changed from gray to white for better visibility on dark background */
+    color: var(--white);
     margin-top: 5px;
     font-size: 14px;
     letter-spacing: 1px;
@@ -2405,28 +2593,28 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 .footer .footer-newsletter .btn-custom {
     width: 100%;
     padding: 15px 0;
-    background-color: #ffffff; /* White background for button */
-    color: #e67e22; /* Accent color text */
+    background-color: var(--white);
+    color: var(--primary-color);
     border: none;
 }
 
 .footer .footer-newsletter .btn-custom:hover {
-    background-color: #f8f9fa; /* Slightly off-white hover */
-    color: #e67e22;
+    background-color: var(--light-grey-bg);
+    color: var(--primary-color);
 }
 
 .footer .copyright {
-    padding: 0 30px;
+    padding: 0 var(--spacing-md);
 }
 
 .footer .copyright .row {
     padding-top: 25px;
     padding-bottom: 25px;
-    border-top: 1px solid rgba(255, 255, 255, .1); /* Softer border */
+    border-top: 1px solid var(--border-dark);
 }
 
 .footer .copyright p {
-    color: #ffffff; /* Changed from gray to white for better visibility on dark background */
+    color: var(--white);
     margin: 0;
 }
 
@@ -2435,11 +2623,12 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 }
 
 .footer .copyright p a {
-    color: #ffffff; /* White for links */
+    color: var(--white);
+    transition: color var(--transition-speed);
 }
 
 .footer .copyright p a:hover {
-    color: #e67e22; /* Accent color on hover (was #FDBE33) */
+    color: var(--primary-color);
 }
 
 @media (max-width: 767.98px) {
@@ -2450,52 +2639,48 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     }
 }
 
-/*** FWathshap ***/
+/*** WhatsApp Button ***/
 .btn-whatsapp {
     position: fixed;
     width: 60px;
     height: 60px;
-    bottom: 30px;
-    left: 15px;
-    border-radius:60px;
-    text-align:center;
-    font-size:0px;
-    z-index:100;
-    background-color: #25d366; /* Standard WhatsApp green */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Subtle shadow */
+    bottom: var(--spacing-md);
+    left: var(--spacing-sm);
+    border-radius: 50%; /* Hacemos el botón redondo */
+    text-align: center;
+    font-size: 0px;
+    z-index: 1000; /* Asegurar que esté por encima de todo */
+    background-color: #25d366;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    transition: transform .2s ease-out, box-shadow .2s ease-out; /* Transición para efecto hover */
+    display: flex; /* Para centrar la imagen */
+    align-items: center;
+    justify-content: center;
+}
+.btn-whatsapp:hover {
+    transform: scale(1.1); /* Efecto de crecimiento en hover */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .btn-whatsapp img {
-    width: 40px; /* Adjust size of the image within the button */
+    width: 40px;
     height: 40px;
-    margin-top: 10px; /* Center the image vertically */
+    margin-top: 0; /* Centrar la imagen, no necesita margin-top */
 }
 
 /* ---------------------------------------------------- */
-/* Ajustes Específicos para Responsividad     */
+/* Media Queries para Responsividad                       */
 /* ---------------------------------------------------- */
 
 /* Ajustes para pantallas Medianas (Tablets en orientación vertical, algunos desktops pequeños) */
 @media (min-width: 768px) and (max-width: 991.98px) {
     body {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-
-    /* Reducir padding en secciones para tabletas */
-    .about, .service, .causes, .team, .music-section, .testimonial, .event, .blog, .contact, .single, .sidebar {
-        padding-top: 75px;
-        padding-bottom: 75px;
-    }
-    .donate, .volunteer, .facts {
-        margin-top: 75px;
-        margin-bottom: 75px;
-        padding-top: 75px;
-        padding-bottom: 75px;
+        padding-left: var(--spacing-sm);
+        padding-right: var(--spacing-sm);
     }
 
     .section-header {
-        margin-bottom: 45px;
+        margin-bottom: var(--spacing-lg);
     }
 
     .section-header h2 {
@@ -2508,25 +2693,28 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     .carousel .carousel-text p {
         font-size: 18px;
     }
-    /* Ajustes de imagen para el carrusel en tablets */
     .carousel .carousel-img {
-        height: 400px; /* Altura más apropiada para tablets */
+        height: 400px;
     }
 
 
     .about .about-img {
-        max-height: 400px; /* Ajustar altura para tablets */
+        max-height: 400px;
     }
 
     .contact .contact-form {
-        margin-top: -180px; /* Ajustar posición del formulario de contacto */
-        padding: 30px;
+        margin-top: -180px;
+        padding: var(--spacing-md);
     }
+    .contact .contact-img {
+        height: 400px;
+    }
+
 
     .footer .footer-contact,
     .footer .footer-link,
     .footer .footer-newsletter {
-        margin-bottom: 30px;
+        margin-bottom: var(--spacing-md);
     }
 }
 
@@ -2534,65 +2722,53 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
 /* Ajustes para pantallas Pequeñas (Móviles) */
 @media (max-width: 767.98px) {
     body {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-
-    /* Reducir padding en secciones para móviles */
-    .about, .service, .causes, .team, .music-section, .testimonial, .event, .blog, .contact, .single, .sidebar {
-        padding-top: 45px;
-        padding-bottom: 45px;
-    }
-    .donate, .volunteer, .facts {
-        margin-top: 45px;
-        margin-bottom: 45px;
-        padding-top: 45px;
-        padding-bottom: 45px;
+        padding-left: var(--spacing-xs);
+        padding-right: var(--spacing-xs);
     }
 
     .section-header {
-        margin-bottom: 30px;
+        margin-bottom: var(--spacing-md);
     }
 
     .section-header h2 {
-        font-size: 30px; /* Reducir tamaño de fuente de encabezados de sección */
+        font-size: 30px;
     }
 
     .carousel {
-        margin-bottom: 45px;
+        margin-bottom: var(--spacing-lg);
     }
     .carousel .carousel-img {
-        height: 250px; /* Altura más apropiada para móviles */
+        height: 250px;
     }
     .carousel .carousel-text h1 {
-        font-size: 30px; /* Reducir tamaño de fuente del encabezado del carrusel */
-        margin-bottom: 15px;
+        font-size: 30px;
+        margin-bottom: var(--spacing-sm);
     }
     .carousel .carousel-text p {
         font-size: 15px;
-        margin-bottom: 20px;
+        margin-bottom: var(--spacing-md);
     }
     .carousel .carousel-btn .btn {
         padding: 10px 20px;
         font-size: 14px;
     }
     .carousel .owl-nav {
-        display: none; /* Ocultar flechas de navegación en móviles si el espacio es muy limitado */
+        display: none;
     }
 
     .about .about-img {
-        height: 250px; /* Ajustar altura de la imagen en "Acerca de" para móviles */
+        height: 250px;
         max-height: 250px;
-        margin-bottom: 30px; /* Espacio debajo de la imagen cuando se apila */
+        margin-bottom: var(--spacing-md);
     }
     .about .section-header {
-        text-align: center; /* Centrar encabezado en móviles */
+        text-align: center;
     }
     .about .about-tab .nav.nav-pills {
-        flex-direction: column; /* Apilar pestañas en móviles */
+        flex-direction: column;
     }
     .about .about-tab .nav.nav-pills .nav-item {
-        margin-bottom: 10px;
+        margin-bottom: var(--spacing-xs);
     }
 
 
@@ -2600,10 +2776,10 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
         flex-direction: column;
         align-items: center;
         text-align: center;
-        margin: 15px 0;
+        margin: var(--spacing-sm) 0;
     }
     .facts .facts-item i {
-        margin-bottom: 10px;
+        margin-bottom: var(--spacing-xs);
     }
     .facts .facts-text {
         padding-left: 0;
@@ -2612,25 +2788,25 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
         font-size: 35px;
     }
     .facts .facts-text h3::after {
-        right: -15px; /* Ajustar posición de los signos + y $ */
+        right: -15px;
     }
 
 
     .team .team-item {
-        margin-bottom: 30px;
+        margin-bottom: var(--spacing-md);
     }
     .team .team-img img {
-        height: 250px; /* Altura más controlada para imágenes del equipo en móvil */
-        object-position: center top; /* Asegurar que las caras se vean bien */
+        height: 250px;
+        object-position: center top;
     }
     .team .team-text {
-        height: auto; /* Permitir que el texto se expanda */
-        position: static; /* Eliminar posicionamiento absoluto para apilar */
+        height: auto;
+        position: static;
         width: 100%;
-        padding: 15px;
+        padding: var(--spacing-sm);
     }
     .team .team-item:hover .team-text {
-        height: auto; /* Asegurar que no se limite la altura al pasar el ratón */
+        height: auto;
     }
     .team .team-social a {
         width: 30px;
@@ -2638,39 +2814,38 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
         font-size: 12px;
     }
     .team .team-social a i {
-        padding-top: 8px; /* Centrar icono */
+        padding-top: 8px;
     }
 
     .music-section .music-item {
-        margin-bottom: 30px;
+        margin-bottom: var(--spacing-md);
     }
     .music-img img {
-        height: 250px; /* Altura más controlada para la carátula de música en móvil */
+        height: 250px;
     }
 
 
     .contact .contact-img {
-        display: none; /* Ocultar la imagen grande del formulario de contacto en móviles */
+        display: none;
     }
     .contact .contact-form {
-        margin-top: 0; /* Eliminar el margen negativo en móviles para que se apile bien */
-        padding: 20px;
-        box-shadow: none; /* Eliminar sombra pesada en móviles para un diseño más limpio */
-        border: none; /* Eliminar borde para un diseño más limpio */
+        margin-top: 0;
+        padding: var(--spacing-md);
+        box-shadow: none;
+        border: none;
     }
 
     .footer .footer-contact,
     .footer .footer-link,
     .footer .footer-newsletter {
-        margin-bottom: 30px;
-        text-align: center; /* Centrar contenido del footer */
+        margin-bottom: var(--spacing-md);
+        text-align: center;
     }
     .footer .footer-contact p {
-        justify-content: center; /* Centrar iconos y texto de contacto */
-        display: flex; /* Asegurar que los iconos y el texto estén en línea */
+        justify-content: center;
     }
     .footer .footer-social {
-        justify-content: center; /* Centrar iconos sociales */
+        justify-content: center;
     }
     .footer .copyright .col-md-6:last-child p {
         text-align: center;
@@ -2685,20 +2860,11 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
     .btn-whatsapp img {
         width: 30px;
         height: 30px;
-        margin-top: 10px;
     }
 
-    /* Ajustes para elementos de audio */
     .card-body audio {
-        margin-top: 10px; /* Espacio entre título y reproductor */
+        margin-top: var(--spacing-xs);
     }
-    /* Asegurar que las imágenes de audio (si las hubiera en las tarjetas) también sean responsive */
-    .card-body img {
-        max-width: 100%;
-        height: auto;
-        object-fit: contain;
-    }
-
 }
 
 /* Ajustes adicionales para pantallas muy pequeñas (Ej: iPhone 5/SE) */
@@ -2722,17 +2888,17 @@ a:focus:not(.btn) { /* Aplicar solo a enlaces que no tienen la clase .btn */
         font-size: 14px;
     }
     .carousel .carousel-img {
-        height: 200px; /* Altura aún más pequeña para móviles muy pequeños */
+        height: 200px;
     }
 
 
     .about .about-tab .nav.nav-pills .nav-link {
-        padding: 10px 15px; /* Más pequeño para pantallas muy estrechas */
+        padding: 10px 15px;
         font-size: 15px;
     }
 
     .contact .contact-form {
-        padding: 15px;
+        padding: var(--spacing-sm);
     }
 
     .facts .facts-text h3 {
