@@ -3,8 +3,8 @@
 /*******************************/
 :root {
     /* Define variables para colores y espaciado para fácil mantenimiento */
-    --primary-color: #e67e22; /* Naranja principal (anteriormente #e67e22) */
-    --secondary-color: #f39c12; /* Naranja secundario/acento (anteriormente #f39c12) */
+    --primary-color: #e67e22; /* Naranja principal */
+    --secondary-color: #f39c12; /* Naranja secundario/acento */
     --dark-blue-grey: #2c3e50; /* Azul-gris oscuro para encabezados y fondos */
     --text-color: #444444; /* Gris oscuro para texto general */
     --light-grey-bg: #f8f9fa; /* Gris claro para fondos */
@@ -27,7 +27,7 @@ body {
     font-weight: 500;
     background: var(--light-grey-bg);
     font-family: 'Quicksand', sans-serif;
-    padding-left: var(--spacing-sm); /* Reducido ligeramente el padding inicial */
+    padding-left: var(--spacing-sm);
     padding-right: var(--spacing-sm);
     line-height: 1.6;
     overflow-x: hidden; /* Evita el scroll horizontal no deseado */
@@ -39,39 +39,75 @@ body, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea, select {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* Skip link para accesibilidad */
+.skip-link {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: var(--spacing-xs);
+    z-index: 9999;
+    border-radius: 4px;
+    font-weight: 600;
+}
+.skip-link:focus {
+    top: var(--spacing-xs);
+    left: var(--spacing-xs);
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.7), 0 0 0 6px var(--primary-color);
+}
+/* Screen reader text para elementos visualmente ocultos */
+.screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    word-wrap: normal !important;
+}
+
+
 h1, h2, h3, h4, h5, h6 {
     color: var(--dark-blue-grey);
-    margin-bottom: var(--spacing-sm); /* Consistente con variables */
+    margin-bottom: var(--spacing-sm);
     line-height: 1.2;
 }
 
 p {
-    margin-bottom: var(--spacing-md); /* Aumento para mejor legibilidad */
+    margin-bottom: var(--spacing-md);
 }
 
 a {
-    color: var(--primary-color); /* Enlaces con color primario */
+    color: var(--primary-color);
     transition: color var(--transition-speed);
 }
 
 a:hover,
-a:active,
-a:focus {
-    color: var(--secondary-color); /* Color de acento para hover/active/focus */
-    outline: none;
+a:active { /* active es importante para el click down */
+    color: var(--secondary-color);
     text-decoration: none;
 }
 
 /* Mejora de la visibilidad del foco para la navegación por teclado */
 *:focus {
-    outline: 3px solid var(--secondary-color) !important; /* Usar color de acento */
+    outline: 3px solid var(--secondary-color) !important;
     outline-offset: 2px;
-    box-shadow: 0 0 0 0.2rem rgba(243, 156, 18, 0.25); /* Sombra que coincide con el color de acento */
+    box-shadow: 0 0 0 0.2rem rgba(243, 156, 18, 0.25);
+    /* Transición para el foco para una experiencia más suave */
+    transition: outline var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 /* Revertir box-shadow para elementos que Bootstrap ya maneja bien, si es necesario */
 .form-control:focus {
-    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25); /* Mantener sombra estándar de Bootstrap para inputs */
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+/* Asegurar que los botones personalizados tengan un foco con su color de acento */
+.btn.btn-custom:focus {
+    outline: 3px solid var(--primary-color) !important; /* Foco que coincide con el color del botón */
+    outline-offset: 2px;
+    box-shadow: 0 0 0 0.2rem rgba(230, 126, 34, 0.25) !important;
 }
 
 .btn.btn-custom {
@@ -89,8 +125,9 @@ a:focus {
 
 .btn.btn-custom:hover {
     color: var(--white);
-    background-color: #d35400; /* Un naranja más oscuro para hover */
+    background-color: #d35400; /* Naranja más oscuro en hover */
     border-color: #d35400;
+    box-shadow: none;
 }
 
 .container-fluid {
@@ -156,31 +193,36 @@ a:focus {
     font-size: 22px;
     right: var(--spacing-sm);
     bottom: var(--spacing-sm);
-    transition: background var(--transition-speed);
-    z-index: 99; /* Z-index más alto para que sea visible */
+    transition: background var(--transition-speed), transform var(--transition-speed);
+    z-index: 99;
     border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra sutil para destacarlo */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    /* Centrar icono visualmente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .back-to-top i {
     color: var(--white);
-    padding-top: var(--spacing-xs); /* Ajustado para centrar mejor el icono */
 }
 
 .back-to-top:hover {
-    background: #d35400; /* Naranja más oscuro en hover */
+    background: #d35400;
+    transform: translateY(-3px); /* Pequeño efecto de levantamiento */
 }
+
 
 /**********************************/
 /********** Top Bar CSS ***********/
 /**********************************/
 .top-bar {
-    position: relative; /* Cambiado a relative para fluir mejor con el navbar si no es absoluto */
+    position: relative;
     height: 45px;
     width: 100%;
     background-color: var(--dark-blue-grey);
     border-bottom: 1px solid var(--border-dark);
-    display: flex; /* Asegura que los elementos internos se distribuyan bien */
+    display: flex;
     align-items: center;
 }
 
@@ -256,13 +298,14 @@ a:focus {
     }
 }
 
+
 /**********************************/
 /*********** Nav Bar CSS **********/
 /**********************************/
 .navbar {
     position: relative;
     transition: all .5s ease;
-    z-index: 99; /* Asegura que el navbar esté sobre el contenido */
+    z-index: 99;
 }
 
 .navbar.nav-sticky {
@@ -270,7 +313,7 @@ a:focus {
     top: 0;
     width: 100%;
     box-shadow: 0 2px 5px var(--shadow-medium);
-    background: var(--dark-blue-grey) !important; /* Asegura que sea oscuro al hacer sticky */
+    background: var(--dark-blue-grey) !important;
 }
 
 .navbar .navbar-brand {
@@ -281,7 +324,7 @@ a:focus {
     font-weight: 700;
     letter-spacing: 5px;
     text-transform: uppercase;
-    display: flex; /* Para alinear el logo y el texto si hubiera */
+    display: flex;
     align-items: center;
 }
 
@@ -296,9 +339,8 @@ a:focus {
     color: var(--white);
     transition: color var(--transition-speed);
 }
-/* Agrupadas para mejor consistencia y reducción de código */
+
 .navbar-dark .navbar-nav .nav-link:hover,
-.navbar-dark .navbar-nav .nav-link:focus,
 .navbar-dark .navbar-nav .nav-link.active {
     color: var(--secondary-color);
 }
@@ -315,7 +357,7 @@ a:focus {
     transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 .navbar .dropdown-item:hover,
-.navbar .dropdown-item:focus { /* Añadido foco para accesibilidad */
+.navbar .dropdown-item:focus {
     background-color: var(--light-grey-bg);
     color: var(--primary-color);
 }
@@ -370,9 +412,9 @@ a:focus {
 .carousel {
     position: relative;
     width: 100%;
-    min-height: 200px; /* Asegura un mínimo en cualquier caso */
+    min-height: 200px;
     background: var(--white);
-    margin-bottom: var(--spacing-xl); /* Consistente con variables */
+    margin-bottom: var(--spacing-xl);
 }
 
 .carousel .container-fluid {
@@ -392,7 +434,7 @@ a:focus {
 .carousel .carousel-img {
     position: relative;
     width: 100%;
-    height: 100%; /* Ajustado para móviles, se controlará con media queries */
+    height: 100%;
     min-height: 200px;
     overflow: hidden;
 }
@@ -411,7 +453,7 @@ a:focus {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(0, 0, 0, .65); /* Un poco más oscuro para mejor contraste del texto */
+    background: rgba(0, 0, 0, .65);
     z-index: 1;
 }
 
@@ -423,8 +465,8 @@ a:focus {
     justify-content: center;
     flex-direction: column;
     z-index: 2;
-    padding: 0 var(--spacing-sm); /* Añadir padding para texto en móviles */
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Sombra de texto sutil para legibilidad */
+    padding: 0 var(--spacing-sm);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .carousel .carousel-text h1 {
@@ -476,7 +518,7 @@ a:focus {
     background: rgba(256, 256, 256, .2);
     font-size: 22px;
     transition: all var(--transition-speed);
-    border-radius: 50%; /* Botones redondos para los controles */
+    border-radius: 50%;
 }
 
 .carousel .owl-nav .owl-prev:hover,
@@ -494,7 +536,6 @@ a:focus {
     animation-duration: 1s;
 }
 
-/* Reutilización para un solo modal de video */
 #videoModal .modal-dialog {
     position: relative;
     max-width: 800px;
@@ -504,7 +545,7 @@ a:focus {
 #videoModal .modal-body {
     position: relative;
     padding: 0px;
-    background-color: #000; /* Fondo negro para el modal de video */
+    background-color: #000;
 }
 
 #videoModal .close {
@@ -519,15 +560,14 @@ a:focus {
     color: var(--white);
     background: #000000;
     opacity: 1;
-    border-radius: 50%; /* Botón de cierre redondo */
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 #videoModal .close:hover {
-    background-color: var(--primary-color); /* Color de hover para el botón de cerrar */
+    background-color: var(--primary-color);
 }
-
 
 @media (max-width: 991.98px) {
     .carousel .carousel-text h1 {
@@ -578,7 +618,7 @@ a:focus {
     margin-bottom: var(--spacing-xl);
     padding: 210px 0 90px 0;
     text-align: center;
-    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../img/page-header.jpg); /* Más oscuro */
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../img/page-header.jpg);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -666,7 +706,7 @@ a:focus {
     position: relative;
     width: 100%;
     max-width: 700px;
-    margin: 0 auto var(--spacing-xl) auto; /* Consistente con variables */
+    margin: 0 auto var(--spacing-xl) auto;
     text-align: center;
 }
 
@@ -722,17 +762,17 @@ a:focus {
 
 .about .about-img {
     width: 100%;
-    /* Altura fluida con un máximo para evitar imágenes excesivamente altas */
     height: auto;
     max-height: 500px;
     object-fit: cover;
     object-position: center;
-    background-size: cover; /* Para el parallax */
-    background-position: center; /* Para el parallax */
-    min-height: 300px; /* Asegura una altura mínima para la imagen */
+    background-size: cover;
+    background-position: center;
+    min-height: 300px;
+    /* Add smooth transition for parallax background if it changes */
+    transition: background-position 0.8s ease-out;
 }
 
-/* Asegura que la imagen dentro del about-img también se comporte bien */
 .about .about-img img {
     max-width: 100%;
     height: auto;
@@ -804,10 +844,10 @@ a:focus {
     display: flex;
     justify-content: space-between;
     margin-bottom: var(--spacing-lg);
-    transition: transform var(--transition-speed); /* Transición para efectos de hover */
-    padding: var(--spacing-sm); /* Añadir padding para separación interna */
+    transition: transform var(--transition-speed);
+    padding: var(--spacing-sm);
 }
-/* Efecto sutil de levantamiento en hover */
+
 .service .service-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px var(--shadow-light);
@@ -816,7 +856,7 @@ a:focus {
 .service .service-icon {
     position: relative;
     width: 60px;
-    flex-shrink: 0; /* Evita que el icono se encoja */
+    flex-shrink: 0;
 }
 
 .service .service-icon i {
@@ -830,8 +870,8 @@ a:focus {
 
 .service .service-text {
     position: relative;
-    margin-left: var(--spacing-md); /* Aumentado para mejor separación */
-    padding-left: var(--spacing-md); /* Aumentado para mejor separación */
+    margin-left: var(--spacing-md);
+    padding-left: var(--spacing-md);
 }
 
 .service .service-text::before {
@@ -875,7 +915,7 @@ a:focus {
     position: relative;
     width: 100%;
     margin: var(--spacing-xxl) 0;
-    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('../img/donate-bg.jpg') no-repeat center center; /* Añadir imagen de fondo */
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('../img/donate-bg.jpg') no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
 }
@@ -884,9 +924,10 @@ a:focus {
     padding: var(--spacing-xxl) 0 var(--spacing-xl) 0;
 }
 
-.container .donate { /* Revisar si este selector es necesario, podría ser redundante */
+/* Considerar si esta regla es redundante con el selector principal .donate */
+/* .container .donate {
     margin: var(--spacing-xxl) 0;
-}
+} */
 
 .container .donate .donate-content {
     padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-md) var(--spacing-lg);
@@ -908,8 +949,8 @@ a:focus {
 .donate .donate-form {
     padding: var(--spacing-xxl) var(--spacing-lg);
     background: var(--primary-color);
-    border-radius: 8px; /* Mayor redondez para el formulario */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Sombra más pronunciada */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .donate .donate-form .control-group {
@@ -925,7 +966,7 @@ a:focus {
     background: transparent;
     transition: border-color var(--transition-speed), background-color var(--transition-speed);
 }
-/* Mejorar placeholder */
+
 .donate .donate-form .form-control::placeholder {
     color: rgba(255, 255, 255, 0.7);
     opacity: 1;
@@ -935,7 +976,7 @@ a:focus {
 .donate .donate-form .form-control::-ms-input-placeholder {
     color: rgba(255, 255, 255, 0.7);
 }
-/* Foco para inputs del formulario de donación */
+
 .donate .donate-form .form-control:focus {
     border-color: var(--white) !important;
     background: rgba(255, 255, 255, 0.1) !important;
@@ -1001,7 +1042,7 @@ a:focus {
 
 .causes .causes-img img {
     width: 100%;
-    height: 250px; /* Altura fija para consistencia en todas las tarjetas */
+    height: 250px;
     object-fit: cover;
     object-position: center;
     transition: transform var(--transition-speed);
@@ -1029,7 +1070,7 @@ a:focus {
     width: 0px;
     background: var(--primary-color);
     overflow: visible;
-    transition: width 2s; /* Asegura la animación del progreso */
+    transition: width 2s;
     border-radius: 5px;
 }
 
@@ -1043,7 +1084,7 @@ a:focus {
     background: var(--primary-color);
     color: var(--white);
     border-radius: 4px;
-    font-size: 13px; /* Tamaño de fuente más pequeño para el porcentaje */
+    font-size: 13px;
 }
 
 .causes .progress-bar span::after {
@@ -1066,7 +1107,7 @@ a:focus {
 .causes .progress-text p {
     margin: 0;
     color: var(--text-color);
-    font-size: 15px; /* Tamaño de fuente más legible */
+    font-size: 15px;
 }
 
 .causes .causes-text {
@@ -1119,7 +1160,7 @@ a:focus {
     margin: var(--spacing-xxl) 0;
     display: flex;
     align-items: center;
-    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('../img/facts.jpg') no-repeat center center; /* Fondo con imagen */
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('../img/facts.jpg') no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
     padding: var(--spacing-xxl) 0;
@@ -1129,7 +1170,7 @@ a:focus {
     display: flex;
     flex-direction: row;
     margin: var(--spacing-md) 0;
-    align-items: center; /* Centrar elementos dentro del item */
+    align-items: center;
 }
 
 .facts .facts-item i {
@@ -1137,7 +1178,7 @@ a:focus {
     font-size: 60px;
     line-height: 60px;
     color: var(--primary-color);
-    flex-shrink: 0; /* Evita que el icono se encoja */
+    flex-shrink: 0;
 }
 
 .facts .facts-text {
@@ -1192,7 +1233,7 @@ a:focus {
 .team .team-item {
     position: relative;
     margin-bottom: var(--spacing-lg);
-    background: var(--white); /* Fondo para las tarjetas del equipo */
+    background: var(--white);
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 5px var(--shadow-light);
@@ -1211,7 +1252,7 @@ a:focus {
 
 .team .team-img img {
     width: 100%;
-    height: 300px; /* Altura fija para las imágenes del equipo */
+    height: 300px;
     object-fit: cover;
     object-position: center top;
     transform: scale(1.1);
@@ -1221,7 +1262,7 @@ a:focus {
 
 .team .team-item:hover img {
     margin: -15px 0 0 0;
-    transform: scale(1.0); /* Zoom out en hover */
+    transform: scale(1.0);
 }
 
 .team .team-text {
@@ -1277,8 +1318,7 @@ a:focus {
 
 .team .team-item:hover .team-text {
     height: 160px;
-    /* Ajusta este padding o margin si los botones sociales quedan muy cerca del texto */
-    padding-bottom: 5px; /* Pequeño ajuste para dar más espacio a los botones */
+    padding-bottom: 5px;
 }
 
 
@@ -1312,7 +1352,7 @@ a:focus {
 
 .music-img img {
     width: 100%;
-    height: 350px; /* Altura fija para la carátula */
+    height: 350px;
     object-fit: cover;
     object-position: center;
     transform: scale(1.0);
@@ -1322,11 +1362,11 @@ a:focus {
 .music-item:hover .music-img img {
     transform: scale(1.05);
 }
-/* Estilos para los reproductores de audio individuales */
+
 .card {
-    border: 1px solid #e0e0e0; /* Borde más sutil para las tarjetas de audio */
+    border: 1px solid #e0e0e0;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.03); /* Sombra muy sutil */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 .card:hover {
@@ -1344,7 +1384,6 @@ audio {
     background-color: var(--light-grey-bg);
     border-radius: 4px;
 }
-/* Fin de Estilos para la sección de Música */
 
 
 /*******************************/
@@ -1369,7 +1408,7 @@ audio {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    background: var(--white); /* Fondo para los testimonios */
+    background: var(--white);
     border: 1px solid #eeeeee;
     border-radius: 8px;
     box-shadow: 0 2px 5px var(--shadow-light);
@@ -1380,7 +1419,7 @@ audio {
     display: flex;
     align-items: center;
     margin-bottom: var(--spacing-md);
-    padding-bottom: var(--spacing-sm); /* Añadido padding para la línea */
+    padding-bottom: var(--spacing-sm);
     border-bottom: 1px solid var(--border-light);
 }
 
@@ -1389,8 +1428,8 @@ audio {
     height: 80px;
     object-fit: cover;
     object-position: center;
-    border-radius: 50%; /* Imágenes de perfil redondas */
-    border: 3px solid var(--primary-color); /* Borde de color de acento */
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
     flex-shrink: 0;
 }
 
@@ -1444,7 +1483,7 @@ audio {
     position: relative;
     width: 100%;
     margin: var(--spacing-xxl) 0;
-    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('../img/volunteer-bg.jpg') no-repeat center center; /* Fondo con imagen */
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('../img/volunteer-bg.jpg') no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
 }
@@ -1453,9 +1492,10 @@ audio {
     padding: var(--spacing-xl) 0 var(--spacing-xxl) 0;
 }
 
-.container .volunteer { /* Revisar si este selector es necesario */
+/* Considerar si esta regla es redundante con el selector principal .volunteer */
+/* .container .volunteer {
     margin: var(--spacing-xxl) 0;
-}
+} */
 
 .container .volunteer .volunteer-content {
     padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-md) var(--spacing-lg);
@@ -1510,7 +1550,6 @@ audio {
     color: rgba(255, 255, 255, 0.7);
 }
 
-/* Foco para inputs del formulario de voluntariado */
 .volunteer .volunteer-form .form-control:focus {
     border-color: var(--white) !important;
     background: rgba(255, 255, 255, 0.1) !important;
@@ -1559,27 +1598,27 @@ audio {
 
 .event .event-item img {
     width: 100%;
-    height: 220px; /* Altura fija para las imágenes de eventos */
+    height: 220px;
     object-fit: cover;
     object-position: center;
-    border-top-left-radius: 8px; /* Redondez para las esquinas superiores */
+    border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
 
 .event .event-content {
     padding: var(--spacing-md);
     display: flex;
-    align-items: flex-start; /* Alinea el contenido al inicio */
+    align-items: flex-start;
 }
 
 .event .event-meta {
     margin-bottom: var(--spacing-sm);
     display: flex;
     flex-direction: column;
-    flex-shrink: 0; /* Evita que la meta se encoja */
-    margin-right: var(--spacing-md); /* Espacio entre meta y texto */
-    padding-right: var(--spacing-md); /* Padding para la línea vertical */
-    border-right: 1px solid var(--border-light); /* Borde vertical */
+    flex-shrink: 0;
+    margin-right: var(--spacing-md);
+    padding-right: var(--spacing-md);
+    border-right: 1px solid var(--border-light);
 }
 
 .event .event-meta p {
@@ -1589,7 +1628,7 @@ audio {
     white-space: nowrap;
     border-bottom: 1px solid var(--border-light);
     color: var(--text-color);
-    font-size: 15px; /* Tamaño de fuente más legible */
+    font-size: 15px;
 }
 
 .event .event-meta p:last-child {
@@ -1601,23 +1640,20 @@ audio {
 .event .event-meta i {
     color: var(--primary-color);
     width: 25px;
-    text-align: center; /* Centrar icono */
+    text-align: center;
 }
 
 .event .event-text {
     position: relative;
-    margin-left: 0; /* No es necesario el margin-left con el border-right en meta */
-    padding-left: 0; /* No es necesario el padding-left */
-    flex-grow: 1; /* Permite que el texto ocupe el espacio restante */
+    margin-left: 0;
+    padding-left: 0;
+    flex-grow: 1;
 }
-/* Se eliminan los pseudo-elementos ::before y ::after si ya se usa border-right en event-meta */
-/* .event .event-text::before, .event .event-text::after { display: none; } */
-
 
 .event .event-text h3 {
     font-size: 25px;
     font-weight: 700;
-    margin-bottom: var(--spacing-xs); /* Ajustado para mejor espaciado */
+    margin-bottom: var(--spacing-xs);
     color: var(--dark-blue-grey);
 }
 
@@ -1634,13 +1670,13 @@ audio {
 @media (max-width: 575.98px) {
     .event .event-content {
         flex-direction: column;
-        padding: var(--spacing-md); /* Ajustar padding para móviles */
+        padding: var(--spacing-md);
     }
 
     .event .event-meta {
         flex-direction: row;
-        flex-wrap: wrap; /* Permitir que los ítems de meta se envuelvan */
-        justify-content: center; /* Centrar ítems de meta */
+        flex-wrap: wrap;
+        justify-content: center;
         margin-right: 0;
         padding-right: 0;
         border-right: none;
@@ -1651,11 +1687,11 @@ audio {
 
     .event .event-meta p {
         font-size: 14px;
-        padding: 0 7px; /* Padding reducido */
-        border-right: 1px solid var(--border-light); /* Borde entre ítems de meta */
-        border-bottom: none; /* Eliminar el borde inferior aquí */
-        margin-bottom: 0; /* Eliminar margen inferior */
-        line-height: 1; /* Ajustar línea para alineación vertical */
+        padding: 0 7px;
+        border-right: 1px solid var(--border-light);
+        border-bottom: none;
+        margin-bottom: 0;
+        line-height: 1;
     }
     .event .event-meta p:last-child {
         border-right: none;
@@ -1669,7 +1705,7 @@ audio {
     .event .event-text {
         margin: 0;
         padding: 0;
-        text-align: center; /* Centrar texto en móvil */
+        text-align: center;
     }
 
     .event .event-text::before,
@@ -1704,20 +1740,20 @@ audio {
 
 .blog .blog-img {
     width: 100%;
-    overflow: hidden; /* Asegura que las esquinas redondeadas funcionen */
+    overflow: hidden;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
 
 .blog .blog-img img {
     width: 100%;
-    height: 250px; /* Altura fija para las imágenes del blog */
+    height: 250px;
     object-fit: cover;
     object-position: center;
     transition: transform var(--transition-speed);
 }
 .blog .blog-item:hover img {
-    transform: scale(1.05); /* Zoom sutil en hover */
+    transform: scale(1.05);
 }
 
 
@@ -1728,7 +1764,7 @@ audio {
 .blog .blog-text h3 {
     font-size: 22px;
     font-weight: 700;
-    margin-bottom: var(--spacing-sm); /* Ajustado */
+    margin-bottom: var(--spacing-sm);
 }
 
 .blog .blog-text h3 a {
@@ -1749,7 +1785,7 @@ audio {
     padding-top: var(--spacing-sm);
     display: flex;
     border-top: 1px solid var(--border-light);
-    flex-wrap: wrap; /* Permitir que los meta ítems se envuelvan */
+    flex-wrap: wrap;
 }
 
 .blog .blog-meta p {
@@ -1757,7 +1793,7 @@ audio {
     color: var(--text-color);
     padding: 0 var(--spacing-md);
     border-right: 1px solid var(--border-light);
-    font-size: 15px; /* Ajuste para legibilidad */
+    font-size: 15px;
 }
 
 .blog .blog-meta p:first-child {
@@ -1776,8 +1812,8 @@ audio {
 
 .blog .pagination {
     margin-bottom: var(--spacing-sm);
-    justify-content: center; /* Centrar paginación */
-    display: flex; /* Asegura flex para justify-content */
+    justify-content: center;
+    display: flex;
 }
 
 .blog .pagination .page-link {
@@ -1811,7 +1847,7 @@ audio {
 .contact .contact-img {
     position: relative;
     width: 100%;
-    height: 500px; /* Altura fija para la imagen del contacto */
+    height: 500px;
     overflow: hidden;
 }
 
@@ -1832,7 +1868,7 @@ audio {
     background: var(--white);
     box-shadow: 0 5px 15px var(--shadow-medium);
     border-radius: 8px;
-    z-index: 10; /* Asegura que esté sobre la imagen */
+    z-index: 10;
 }
 
 @media (max-width: 991.98px) {
@@ -1844,24 +1880,24 @@ audio {
 @media (max-width: 767.98px) {
     .contact .contact-form {
         max-width: 400px;
-        margin-top: -150px; /* Ajustar margen para móviles */
+        margin-top: -150px;
         padding: var(--spacing-md);
     }
     .contact .contact-img {
-        height: 300px; /* Ajustar altura para móviles */
+        height: 400px;
     }
 }
 
 @media (max-width: 575.98px) {
     .contact .contact-form {
         max-width: 300px;
-        margin-top: -100px; /* Ajustar margen para móviles pequeños */
+        margin-top: -100px;
         padding: var(--spacing-sm);
-        box-shadow: none; /* Quitar sombra para móviles muy pequeños */
+        box-shadow: none;
         border: none;
     }
     .contact .contact-img {
-        height: 200px; /* Altura aún menor para móviles muy pequeños */
+        height: 200px;
     }
 }
 
@@ -1875,7 +1911,7 @@ audio {
     color: var(--text-color);
     transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
 }
-/* Foco para inputs del formulario de contacto */
+
 .contact .contact-form input:focus,
 .contact .contact-form textarea:focus {
     border-color: var(--primary-color) !important;
@@ -1931,13 +1967,13 @@ audio {
     object-fit: cover;
     object-position: center;
     margin-bottom: var(--spacing-md);
-    border-radius: 4px; /* Pequeño redondeo para imágenes internas */
+    border-radius: 4px;
 }
 
 .single .single-tags {
     margin: -5px -5px 41px -5px;
     font-size: 0;
-    padding: 0 var(--spacing-md); /* Añadir padding para que los tags no se peguen a los bordes */
+    padding: 0 var(--spacing-md);
 }
 
 .single .single-tags a {
@@ -1963,13 +1999,13 @@ audio {
     padding: var(--spacing-md);
     background: var(--light-grey-bg);
     display: flex;
-    align-items: center; /* Alineación vertical para imagen y texto */
+    align-items: center;
     border-radius: 8px;
     box-shadow: 0 2px 5px var(--shadow-light);
 }
 
 .single .single-bio-img {
-    width: 100px; /* Ancho fijo para la imagen de bio */
+    width: 100px;
     flex-shrink: 0;
     margin-right: var(--spacing-md);
 }
@@ -1984,7 +2020,7 @@ audio {
 }
 
 .single .single-bio-text {
-    padding-left: 0; /* Ya se maneja con margin-right en single-bio-img */
+    padding-left: 0;
 }
 
 .single .single-bio-text h3 {
@@ -2037,8 +2073,8 @@ audio {
 }
 
 .single .post-item .post-img {
-    width: 80px; /* Ancho fijo para las imágenes de post relacionados */
-    height: 80px; /* Altura fija */
+    width: 80px;
+    height: 80px;
     flex-shrink: 0;
     overflow: hidden;
 }
@@ -2138,7 +2174,7 @@ audio {
 
 .single .comment-child {
     list-style: none;
-    padding-left: var(--spacing-md); /* Sangría para comentarios anidados */
+    padding-left: var(--spacing-md);
     margin-top: var(--spacing-md);
 }
 
@@ -2150,12 +2186,12 @@ audio {
     box-shadow: 0 1px 3px var(--shadow-light);
     border-radius: 8px;
     padding: var(--spacing-md);
-    align-items: flex-start; /* Alinea al inicio del comentario */
+    align-items: flex-start;
 }
 
 .single .comment-img {
     width: 60px;
-    height: 60px; /* Altura fija para la imagen del comentario */
+    height: 60px;
     flex-shrink: 0;
     overflow: hidden;
     margin-right: var(--spacing-sm);
@@ -2170,8 +2206,8 @@ audio {
 }
 
 .single .comment-text {
-    padding-left: 0; /* Ajustado con margin-right en comment-img */
-    width: calc(100% - 75px); /* Ajustado según el nuevo margin */
+    padding-left: 0;
+    width: calc(100% - 75px);
 }
 
 .single .comment-text h3 {
@@ -2232,7 +2268,7 @@ audio {
     color: var(--text-color);
     transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
 }
-/* Foco para inputs del formulario de comentarios */
+
 .single .comment-form input:focus,
 .single .comment-form textarea:focus {
     border-color: var(--primary-color) !important;
@@ -2303,10 +2339,10 @@ audio {
     border-radius: 4px;
     background: var(--light-grey-bg);
     color: var(--text-color);
-    padding-right: 60px; /* Espacio para el icono de búsqueda */
+    padding-right: 60px;
     transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
 }
-/* Foco para input de búsqueda */
+
 .sidebar .search-widget input:focus {
     border-color: var(--primary-color) !important;
     box-shadow: 0 0 0 0.2rem rgba(230, 126, 34, 0.25) !important;
@@ -2314,9 +2350,9 @@ audio {
 
 .sidebar .search-widget .btn {
     position: absolute;
-    top: 50%; /* Centrar verticalmente */
+    top: 50%;
     right: 15px;
-    transform: translateY(-50%); /* Ajuste para centrado vertical */
+    transform: translateY(-50%);
     height: 40px;
     padding: 0;
     font-size: 25px;
@@ -2373,7 +2409,7 @@ audio {
 
 .sidebar .category-widget ul li {
     margin: 0 0 12px 22px;
-    position: relative; /* Para posicionar el pseudo-elemento */
+    position: relative;
 }
 
 .sidebar .category-widget ul li:last-child {
@@ -2397,7 +2433,7 @@ audio {
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     color: var(--primary-color);
-    left: -22px; /* Alineado con el margen izquierdo de la lista */
+    left: -22px;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -2413,7 +2449,8 @@ audio {
     margin: -5px -5px;
 }
 
-.single .tag-widget a { /* Reutilización de estilos de tags del single post */
+/* Considerar si este selector es redundante o si se puede generalizar con .sidebar .tag-widget a */
+.single .tag-widget a {
     margin: 5px;
     display: inline-block;
     padding: 7px 15px;
@@ -2436,7 +2473,7 @@ audio {
     width: 100%;
     overflow: hidden;
     border-radius: 8px;
-    box-shadow: 0 2px 5px var(--shadow-light); /* Sombra sutil para la imagen del sidebar */
+    box-shadow: 0 2px 5px var(--shadow-light);
 }
 
 .sidebar .image-widget img {
@@ -2478,7 +2515,7 @@ audio {
     font-weight: 700;
     color: var(--secondary-color);
 }
-/* Reemplazar div con ul/li para footer-link */
+
 .footer .footer-link ul {
     list-style: none;
     padding: 0;
@@ -2487,7 +2524,6 @@ audio {
 .footer .footer-link li {
     margin-bottom: var(--spacing-xs);
 }
-
 
 .footer .footer-link a {
     display: block;
@@ -2517,12 +2553,12 @@ audio {
     width: 25px;
     color: var(--secondary-color);
     flex-shrink: 0;
-    text-align: center; /* Centrar iconos de contacto */
+    text-align: center;
 }
 .footer .footer-contact p a {
     color: var(--white);
     transition: color var(--transition-speed);
-    margin-left: 5px; /* Espacio entre icono y texto */
+    margin-left: 5px;
 }
 .footer .footer-contact p a:hover {
     color: var(--primary-color);
@@ -2533,8 +2569,8 @@ audio {
     position: relative;
     margin-top: var(--spacing-md);
     display: flex;
-    gap: var(--spacing-xs); /* Espacio entre los iconos sociales */
-    flex-wrap: wrap; /* Permitir que se envuelvan en pantallas pequeñas */
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
 }
 
 .footer .footer-social a {
@@ -2549,7 +2585,7 @@ audio {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px; /* Tamaño del icono */
+    font-size: 18px;
 }
 
 .footer .footer-social a:hover {
@@ -2576,7 +2612,7 @@ audio {
     color: rgba(255, 255, 255, 0.7);
     opacity: 1;
 }
-/* Foco para input de newsletter */
+
 .footer .footer-newsletter input:focus {
     background: rgba(255, 255, 255, 0.2) !important;
     box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25) !important;
@@ -2646,26 +2682,26 @@ audio {
     height: 60px;
     bottom: var(--spacing-md);
     left: var(--spacing-sm);
-    border-radius: 50%; /* Hacemos el botón redondo */
+    border-radius: 50%;
     text-align: center;
     font-size: 0px;
-    z-index: 1000; /* Asegurar que esté por encima de todo */
+    z-index: 1000;
     background-color: #25d366;
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    transition: transform .2s ease-out, box-shadow .2s ease-out; /* Transición para efecto hover */
-    display: flex; /* Para centrar la imagen */
+    transition: transform .2s ease-out, box-shadow .2s ease-out;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 .btn-whatsapp:hover {
-    transform: scale(1.1); /* Efecto de crecimiento en hover */
+    transform: scale(1.1);
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .btn-whatsapp img {
     width: 40px;
     height: 40px;
-    margin-top: 0; /* Centrar la imagen, no necesita margin-top */
+    margin-top: 0;
 }
 
 /* ---------------------------------------------------- */
