@@ -29,7 +29,7 @@ body {
     font-family: 'Quicksand', sans-serif;
     padding-left: var(--spacing-sm);
     padding-right: var(--spacing-sm);
-    line-height: 1.6;
+    line-height: 1.6; /* Mayor espaciado entre líneas para legibilidad */
     overflow-x: hidden; /* Evita el scroll horizontal no deseado */
 }
 
@@ -70,12 +70,22 @@ body, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea, select {
 
 h1, h2, h3, h4, h5, h6 {
     color: var(--dark-blue-grey);
-    margin-bottom: var(--spacing-sm);
-    line-height: 1.2;
+    margin-bottom: var(--spacing-sm); /* Espaciado consistente debajo de los encabezados */
+    line-height: 1.2; /* Línea más ajustada para encabezados */
+    font-weight: 700; /* Negrita para todos los encabezados */
 }
 
+/* Establecimiento de la jerarquía de tamaños de fuente para encabezados */
+h1 { font-size: 4.5rem; } /* Muy grande para títulos principales */
+h2 { font-size: 3rem; }   /* Grande para títulos de sección */
+h3 { font-size: 2rem; }   /* Mediano para subtítulos o títulos de cards */
+h4 { font-size: 1.5rem; } /* Pequeño para sub-subtítulos */
+h5 { font-size: 1.25rem; }/* Muy pequeño para detalles */
+h6 { font-size: 1rem; }   /* Más pequeño para texto auxiliar */
+
 p {
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-md); /* Mayor espaciado debajo de los párrafos */
+    font-size: 1.1rem; /* Ligeramente más grande para texto principal */
 }
 
 a {
@@ -84,28 +94,24 @@ a {
 }
 
 a:hover,
-a:active { /* active es importante para el click down */
+a:active {
     color: var(--secondary-color);
     text-decoration: none;
 }
 
-/* Mejora de la visibilidad del foco para la navegación por teclado */
 *:focus {
     outline: 3px solid var(--secondary-color) !important;
     outline-offset: 2px;
     box-shadow: 0 0 0 0.2rem rgba(243, 156, 18, 0.25);
-    /* Transición para el foco para una experiencia más suave */
     transition: outline var(--transition-speed), box-shadow var(--transition-speed);
 }
 
-/* Revertir box-shadow para elementos que Bootstrap ya maneja bien, si es necesario */
 .form-control:focus {
     box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
 }
 
-/* Asegurar que los botones personalizados tengan un foco con su color de acento */
 .btn.btn-custom:focus {
-    outline: 3px solid var(--primary-color) !important; /* Foco que coincide con el color del botón */
+    outline: 3px solid var(--primary-color) !important;
     outline-offset: 2px;
     box-shadow: 0 0 0 0.2rem rgba(230, 126, 34, 0.25) !important;
 }
@@ -125,7 +131,7 @@ a:active { /* active es importante para el click down */
 
 .btn.btn-custom:hover {
     color: var(--white);
-    background-color: #d35400; /* Naranja más oscuro en hover */
+    background-color: #d35400;
     border-color: #d35400;
     box-shadow: none;
 }
@@ -197,7 +203,6 @@ a:active { /* active es importante para el click down */
     z-index: 99;
     border-radius: 50%;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    /* Centrar icono visualmente */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -209,7 +214,7 @@ a:active { /* active es importante para el click down */
 
 .back-to-top:hover {
     background: #d35400;
-    transform: translateY(-3px); /* Pequeño efecto de levantamiento */
+    transform: translateY(-3px);
 }
 
 
@@ -260,7 +265,7 @@ a:active { /* active es importante para el click down */
 
 .top-bar .text p {
     color: var(--white);
-    font-size: 16px;
+    font-size: 16px; /* Tamaño de fuente para información secundaria */
     font-weight: 500;
     margin: 0;
 }
@@ -319,7 +324,7 @@ a:active { /* active es importante para el click down */
 .navbar .navbar-brand {
     margin: 0;
     color: var(--white);
-    font-size: 15px;
+    font-size: 15px; /* Tamaño del texto del brand, si lo hubiera */
     line-height: 0px;
     font-weight: 700;
     letter-spacing: 5px;
@@ -337,6 +342,8 @@ a:active { /* active es importante para el click down */
 .navbar-dark .navbar-nav .nav-link {
     padding: 10px var(--spacing-sm) 8px var(--spacing-sm);
     color: var(--white);
+    font-size: 1.1rem; /* Tamaño de fuente de los elementos de navegación */
+    font-weight: 600; /* Más negrita para los enlaces de navegación */
     transition: color var(--transition-speed);
 }
 
@@ -354,6 +361,7 @@ a:active { /* active es importante para el click down */
 }
 .navbar .dropdown-item {
     color: var(--text-color);
+    font-size: 1rem; /* Tamaño de fuente para elementos de dropdown */
     transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 .navbar .dropdown-item:hover,
@@ -472,7 +480,7 @@ a:active { /* active es importante para el click down */
 .carousel .carousel-text h1 {
     text-align: center;
     color: var(--white);
-    font-size: 60px;
+    font-size: 4.5rem; /* Asegura que el H1 del carrusel sea prominente */
     font-weight: 700;
     margin-bottom: var(--spacing-md);
 }
@@ -480,7 +488,7 @@ a:active { /* active es importante para el click down */
 .carousel .carousel-text p {
     color: var(--white);
     text-align: center;
-    font-size: 20px;
+    font-size: 1.5rem; /* Texto más grande y legible en el carrusel */
     margin-bottom: var(--spacing-md);
 }
 
@@ -628,7 +636,7 @@ a:active { /* active es importante para el click down */
 .page-header h2 {
     position: relative;
     color: var(--primary-color);
-    font-size: 60px;
+    font-size: 4rem; /* H2 prominente en el header de página */
     font-weight: 700;
     margin-bottom: var(--spacing-md);
     padding-bottom: 5px;
@@ -647,7 +655,7 @@ a:active { /* active es importante para el click down */
 .page-header a {
     position: relative;
     padding: 0 12px;
-    font-size: 22px;
+    font-size: 1.375rem; /* Tamaño de fuente para enlaces de navegación en header */
     color: var(--white);
 }
 
@@ -713,7 +721,7 @@ a:active { /* active es importante para el click down */
 .section-header p {
     margin-bottom: var(--spacing-xs);
     position: relative;
-    font-size: 22px;
+    font-size: 1.375rem; /* Párrafo introductorio más grande y notable */
     font-weight: 600;
     text-transform: capitalize;
     color: var(--primary-color);
@@ -721,7 +729,7 @@ a:active { /* active es importante para el click down */
 
 .section-header h2 {
     margin: 0;
-    font-size: 45px;
+    font-size: 3rem; /* Títulos de sección prominentes */
     font-weight: 700;
     color: var(--dark-blue-grey);
 }
@@ -769,7 +777,6 @@ a:active { /* active es importante para el click down */
     background-size: cover;
     background-position: center;
     min-height: 300px;
-    /* Add smooth transition for parallax background if it changes */
     transition: background-position 0.8s ease-out;
 }
 
@@ -789,7 +796,8 @@ a:active { /* active es importante para el click down */
 
 .about .about-tab .nav.nav-pills .nav-link {
     padding: 12px 20px;
-    font-weight: 600;
+    font-weight: 600; /* Negrita para las pestañas */
+    font-size: 1.1rem; /* Tamaño de fuente legible para las pestañas */
     background: none;
     border-radius: 0;
     border-bottom: 1px solid var(--border-light);
@@ -811,6 +819,10 @@ a:active { /* active es importante para el click down */
 
 .about .about-tab .tab-content .container {
     padding: 0;
+}
+
+.about .about-tab .tab-content p {
+    font-size: 1.05rem; /* Texto de contenido en pestañas ligeramente más grande */
 }
 
 @media (max-width: 991.98px) {
@@ -896,7 +908,7 @@ a:active { /* active es importante para el click down */
 
 .service .service-text h3 {
     margin-bottom: var(--spacing-xs);
-    font-size: 22px;
+    font-size: 1.375rem; /* Títulos de servicio más grandes */
     font-weight: 700;
     letter-spacing: 1px;
     color: var(--dark-blue-grey);
@@ -904,6 +916,7 @@ a:active { /* active es importante para el click down */
 
 .service .service-text p {
     margin: 0;
+    font-size: 1rem; /* Texto de servicio legible */
     color: var(--text-color);
 }
 
@@ -924,11 +937,6 @@ a:active { /* active es importante para el click down */
     padding: var(--spacing-xxl) 0 var(--spacing-xl) 0;
 }
 
-/* Considerar si esta regla es redundante con el selector principal .donate */
-/* .container .donate {
-    margin: var(--spacing-xxl) 0;
-} */
-
 .container .donate .donate-content {
     padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-md) var(--spacing-lg);
 }
@@ -943,7 +951,7 @@ a:active { /* active es importante para el click down */
 
 .donate .donate-text p {
     color: var(--white);
-    font-size: 18px;
+    font-size: 1.125rem; /* Texto en sección de donar */
 }
 
 .donate .donate-form {
@@ -1085,6 +1093,7 @@ a:active { /* active es importante para el click down */
     color: var(--white);
     border-radius: 4px;
     font-size: 13px;
+    font-weight: 600; /* Negrita para el porcentaje */
 }
 
 .causes .progress-bar span::after {
@@ -1107,7 +1116,7 @@ a:active { /* active es importante para el click down */
 .causes .progress-text p {
     margin: 0;
     color: var(--text-color);
-    font-size: 15px;
+    font-size: 1rem; /* Texto del progreso legible */
 }
 
 .causes .causes-text {
@@ -1115,13 +1124,14 @@ a:active { /* active es importante para el click down */
 }
 
 .causes .causes-text h3 {
-    font-size: 22px;
+    font-size: 1.375rem; /* Títulos de causa más grandes */
     font-weight: 700;
     color: var(--dark-blue-grey);
 }
 
 .causes .causes-text p {
     margin: 0;
+    font-size: 1rem; /* Texto de causa legible */
     color: var(--text-color);
 }
 
@@ -1189,7 +1199,7 @@ a:active { /* active es importante para el click down */
     position: relative;
     display: inline-block;
     color: var(--white);
-    font-size: 45px;
+    font-size: 3rem; /* Números grandes y legibles */
     font-weight: 700;
     margin-bottom: 5px;
 }
@@ -1215,7 +1225,7 @@ a:active { /* active es importante para el click down */
 
 .facts .facts-text p {
     color: var(--white);
-    font-size: 22px;
+    font-size: 1.375rem; /* Descripción de los hechos más grande */
     font-weight: 600;
     margin: 0;
 }
@@ -1281,7 +1291,7 @@ a:active { /* active es importante para el click down */
 }
 
 .team .team-text h2 {
-    font-size: 18px;
+    font-size: 1.25rem; /* Nombres del equipo más legibles */
     font-weight: 700;
     margin-bottom: 10px;
     color: var(--dark-blue-grey);
@@ -1289,6 +1299,7 @@ a:active { /* active es importante para el click down */
 
 .team .team-text p {
     color: var(--text-color);
+    font-size: 1rem; /* Rol del equipo legible */
     margin-bottom: 20px;
 }
 
@@ -1375,7 +1386,8 @@ a:active { /* active es importante para el click down */
 }
 .card-title {
     color: var(--dark-blue-grey);
-    font-size: 1.25rem;
+    font-size: 1.25rem; /* Títulos de canción legibles */
+    font-weight: 600;
     margin-bottom: var(--spacing-sm);
 }
 audio {
@@ -1439,7 +1451,7 @@ audio {
 }
 
 .testimonial .testimonial-name h3 {
-    font-size: 20px;
+    font-size: 1.25rem; /* Nombres de testimonios legibles */
     font-weight: 600;
     margin-bottom: 5px;
     color: var(--dark-blue-grey);
@@ -1448,11 +1460,13 @@ audio {
 .testimonial .testimonial-name p {
     margin: 0;
     font-style: italic;
+    font-size: 0.95rem; /* Rol o descripción pequeña */
     color: var(--text-color);
 }
 
 .testimonial .testimonial-text p {
     margin: 0;
+    font-size: 1.05rem; /* Contenido del testimonio legible */
     color: var(--text-color);
 }
 
@@ -1492,11 +1506,6 @@ audio {
     padding: var(--spacing-xl) 0 var(--spacing-xxl) 0;
 }
 
-/* Considerar si esta regla es redundante con el selector principal .volunteer */
-/* .container .volunteer {
-    margin: var(--spacing-xxl) 0;
-} */
-
 .container .volunteer .volunteer-content {
     padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-md) var(--spacing-lg);
 }
@@ -1511,7 +1520,7 @@ audio {
 
 .volunteer .volunteer-text p {
     color: var(--white);
-    font-size: 18px;
+    font-size: 1.125rem;
 }
 
 .volunteer .volunteer-form {
@@ -1628,7 +1637,7 @@ audio {
     white-space: nowrap;
     border-bottom: 1px solid var(--border-light);
     color: var(--text-color);
-    font-size: 15px;
+    font-size: 1rem; /* Texto de meta legible */
 }
 
 .event .event-meta p:last-child {
@@ -1651,7 +1660,7 @@ audio {
 }
 
 .event .event-text h3 {
-    font-size: 25px;
+    font-size: 1.5rem; /* Títulos de evento legibles */
     font-weight: 700;
     margin-bottom: var(--spacing-xs);
     color: var(--dark-blue-grey);
@@ -1659,6 +1668,7 @@ audio {
 
 .event .event-text p {
     margin: 0;
+    font-size: 1rem; /* Texto de evento legible */
     color: var(--text-color);
 }
 
@@ -1762,7 +1772,7 @@ audio {
 }
 
 .blog .blog-text h3 {
-    font-size: 22px;
+    font-size: 1.375rem; /* Títulos de blog legibles */
     font-weight: 700;
     margin-bottom: var(--spacing-sm);
 }
@@ -1777,6 +1787,7 @@ audio {
 
 .blog .blog-text p {
     margin: 0;
+    font-size: 1rem; /* Texto de blog legible */
     color: var(--text-color);
 }
 
@@ -1793,7 +1804,7 @@ audio {
     color: var(--text-color);
     padding: 0 var(--spacing-md);
     border-right: 1px solid var(--border-light);
-    font-size: 15px;
+    font-size: 1rem; /* Meta de blog legible */
 }
 
 .blog .blog-meta p:first-child {
@@ -1909,6 +1920,7 @@ audio {
     border-radius: 4px;
     border: 1px solid #eeeeee;
     color: var(--text-color);
+    font-size: 1rem; /* Texto de formulario legible */
     transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
 }
 
@@ -1938,7 +1950,7 @@ audio {
     padding: 0;
     list-style-type: none;
     color: #e74c3c;
-    font-size: 14px;
+    font-size: 0.9rem; /* Mensajes de error más pequeños pero claros */
 }
 
 
@@ -1980,7 +1992,7 @@ audio {
     margin: 5px;
     display: inline-block;
     padding: 7px 15px;
-    font-size: 14px;
+    font-size: 0.9rem; /* Tamaño de los tags legible */
     font-weight: 500;
     color: var(--dark-blue-grey);
     border: 1px solid #95a5a6;
@@ -2024,7 +2036,7 @@ audio {
 }
 
 .single .single-bio-text h3 {
-    font-size: 20px;
+    font-size: 1.25rem; /* Nombre del autor legible */
     font-weight: 700;
     margin-bottom: 3px;
     color: var(--dark-blue-grey);
@@ -2032,6 +2044,7 @@ audio {
 
 .single .single-bio-text p {
     margin: 0;
+    font-size: 1rem; /* Descripción del autor legible */
     color: var(--text-color);
 }
 
@@ -2040,7 +2053,7 @@ audio {
 }
 
 .single .single-related h2 {
-    font-size: 30px;
+    font-size: 1.875rem; /* Títulos de posts relacionados */
     font-weight: 700;
     margin-bottom: 35px;
     color: var(--dark-blue-grey);
@@ -2093,7 +2106,7 @@ audio {
 }
 
 .single .post-item .post-text a {
-    font-size: 16px;
+    font-size: 1rem; /* Título de post relacionado legible */
     font-weight: 600;
     color: var(--dark-blue-grey);
 }
@@ -2112,7 +2125,7 @@ audio {
     display: inline-block;
     margin: 0;
     padding: 0 3px;
-    font-size: 14px;
+    font-size: 0.875rem; /* Meta de post legible */
     font-weight: 500;
     font-style: italic;
     color: var(--text-color);
@@ -2121,7 +2134,7 @@ audio {
 .single .post-item .post-meta p a {
     margin-left: 5px;
     color: #999999;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 500;
     font-style: normal;
 }
@@ -2161,7 +2174,7 @@ audio {
 }
 
 .single .single-comment h2 {
-    font-size: 30px;
+    font-size: 1.875rem; /* Títulos de comentario */
     font-weight: 700;
     margin-bottom: 35px;
     color: var(--dark-blue-grey);
@@ -2211,7 +2224,7 @@ audio {
 }
 
 .single .comment-text h3 {
-    font-size: 20px;
+    font-size: 1.25rem; /* Nombre del comentador legible */
     font-weight: 600;
     margin-bottom: 3px;
     color: var(--dark-blue-grey);
@@ -2219,7 +2232,7 @@ audio {
 
 .single .comment-text span {
     display: block;
-    font-size: 14px;
+    font-size: 0.9rem; /* Fecha del comentario más pequeña */
     font-weight: 500;
     margin-bottom: 5px;
     color: var(--text-color);
@@ -2227,7 +2240,7 @@ audio {
 
 .single .comment-text .btn {
     padding: 3px 10px;
-    font-size: 14px;
+    font-size: 0.875rem; /* Botón de respuesta pequeño */
     font-weight: 500;
     color: var(--white);
     background: var(--primary-color);
@@ -2241,10 +2254,11 @@ audio {
 
 .single .comment-form {
     position: relative;
+    margin-top: var(--spacing-xl); /* Espacio antes del formulario de comentario */
 }
 
 .single .comment-form h2 {
-    font-size: 30px;
+    font-size: 1.875rem;
     font-weight: 700;
     margin-bottom: 35px;
     color: var(--dark-blue-grey);
@@ -2266,6 +2280,7 @@ audio {
     border-radius: 4px;
     border: 1px solid #eeeeee;
     color: var(--text-color);
+    font-size: 1rem;
     transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
 }
 
@@ -2314,7 +2329,7 @@ audio {
     position: relative;
     margin-bottom: var(--spacing-md);
     padding-bottom: 5px;
-    font-size: 25px;
+    font-size: 1.5rem; /* Títulos de widget legibles */
     font-weight: 700;
     color: var(--dark-blue-grey);
 }
@@ -2340,6 +2355,7 @@ audio {
     background: var(--light-grey-bg);
     color: var(--text-color);
     padding-right: 60px;
+    font-size: 1rem; /* Input de búsqueda legible */
     transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
 }
 
@@ -2379,6 +2395,7 @@ audio {
     color: var(--white);
     background: var(--primary-color);
     border-radius: 4px;
+    font-size: 1rem; /* Título de pestaña legible */
     transition: all var(--transition-speed);
 }
 
@@ -2420,6 +2437,7 @@ audio {
     display: inline-block;
     line-height: 23px;
     color: var(--text-color);
+    font-size: 1rem; /* Enlace de categoría legible */
     transition: color var(--transition-speed);
 }
 .sidebar .category-widget ul li a:hover {
@@ -2442,6 +2460,7 @@ audio {
     display: inline-block;
     float: right;
     color: #777777;
+    font-size: 0.9rem; /* Conteo de categoría más pequeño */
 }
 
 .sidebar .sidebar-widget .tag-widget {
@@ -2449,12 +2468,11 @@ audio {
     margin: -5px -5px;
 }
 
-/* Considerar si este selector es redundante o si se puede generalizar con .sidebar .tag-widget a */
 .single .tag-widget a {
     margin: 5px;
     display: inline-block;
     padding: 7px 15px;
-    font-size: 14px;
+    font-size: 0.9rem;
     font-weight: 500;
     color: var(--dark-blue-grey);
     border: 1px solid #95a5a6;
@@ -2511,7 +2529,7 @@ audio {
 .footer .footer-link h2,
 .footer .footer-newsletter h2 {
     margin-bottom: var(--spacing-md);
-    font-size: 22px;
+    font-size: 1.375rem; /* Títulos de footer legibles */
     font-weight: 700;
     color: var(--secondary-color);
 }
@@ -2528,6 +2546,7 @@ audio {
 .footer .footer-link a {
     display: block;
     color: var(--white);
+    font-size: 1rem; /* Enlaces de footer legibles */
     transition: all var(--transition-speed);
 }
 
@@ -2548,6 +2567,7 @@ audio {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+    font-size: 1rem; /* Texto de contacto legible */
 }
 .footer .footer-contact p i {
     width: 25px;
@@ -2606,6 +2626,7 @@ audio {
     background: rgba(255, 255, 255, 0.1);
     color: var(--white);
     padding: 0 var(--spacing-sm);
+    font-size: 1rem; /* Input de newsletter legible */
     transition: all var(--transition-speed);
 }
 .footer .footer-newsletter input::placeholder {
@@ -2622,7 +2643,7 @@ audio {
 .footer .footer-newsletter label {
     color: var(--white);
     margin-top: 5px;
-    font-size: 14px;
+    font-size: 0.875rem; /* Etiqueta pequeña */
     letter-spacing: 1px;
 }
 
@@ -2651,6 +2672,7 @@ audio {
 
 .footer .copyright p {
     color: var(--white);
+    font-size: 0.9rem; /* Texto de copyright más pequeño */
     margin: 0;
 }
 
@@ -2715,6 +2737,11 @@ audio {
         padding-right: var(--spacing-sm);
     }
 
+    h1 { font-size: 3.5rem; }
+    h2 { font-size: 2.5rem; }
+    h3 { font-size: 1.75rem; }
+    p { font-size: 1.05rem; }
+
     .section-header {
         margin-bottom: var(--spacing-lg);
     }
@@ -2761,6 +2788,11 @@ audio {
         padding-left: var(--spacing-xs);
         padding-right: var(--spacing-xs);
     }
+
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.25rem; }
+    p { font-size: 1rem; }
 
     .section-header {
         margin-bottom: var(--spacing-md);
@@ -2909,6 +2941,11 @@ audio {
         padding-left: 5px;
         padding-right: 5px;
     }
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.125rem; }
+    p { font-size: 0.95rem; }
 
     .section-header h2 {
         font-size: 26px;
