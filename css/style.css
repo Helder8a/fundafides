@@ -3,16 +3,25 @@
 /*******************************/
 :root {
     /* Define variables para colores y espaciado para fácil mantenimiento */
-    --primary-color: #e67e22; /* Naranja principal */
-    --secondary-color: #f39c12; /* Naranja secundario/acento */
-    --dark-blue-grey: #2c3e50; /* Azul-gris oscuro para encabezados y fondos */
-    --text-color: #444444; /* Gris oscuro para texto general */
-    --light-grey-bg: #f8f9fa; /* Gris claro para fondos */
+    --primary-color: #e67e22;
+    /* Naranja principal */
+    --secondary-color: #f39c12;
+    /* Naranja secundario/acento */
+    --dark-blue-grey: #2c3e50;
+    /* Azul-gris oscuro para encabezados y fondos */
+    --text-color: #444444;
+    /* Gris oscuro para texto general */
+    --light-grey-bg: #f8f9fa;
+    /* Gris claro para fondos */
     --white: #ffffff;
-    --border-light: rgba(0, 0, 0, .1); /* Borde suave */
-    --border-dark: rgba(255, 255, 255, .1); /* Borde suave oscuro */
-    --shadow-light: rgba(0, 0, 0, 0.05); /* Sombra sutil */
-    --shadow-medium: rgba(0, 0, 0, 0.1); /* Sombra media */
+    --border-light: rgba(0, 0, 0, .1);
+    /* Borde suave */
+    --border-dark: rgba(255, 255, 255, .1);
+    /* Borde suave oscuro */
+    --shadow-light: rgba(0, 0, 0, 0.05);
+    /* Sombra sutil */
+    --shadow-medium: rgba(0, 0, 0, 0.1);
+    /* Sombra media */
     --transition-speed: .3s;
     --spacing-xs: 10px;
     --spacing-sm: 15px;
@@ -29,12 +38,26 @@ body {
     font-family: 'Quicksand', sans-serif;
     padding-left: var(--spacing-sm);
     padding-right: var(--spacing-sm);
-    line-height: 1.6; /* Mayor espaciado entre líneas para legibilidad */
-    overflow-x: hidden; /* Evita el scroll horizontal no deseado */
+    line-height: 1.6;
+    /* Mayor espaciado entre líneas para legibilidad */
+    overflow-x: hidden;
+    /* Evita el scroll horizontal no deseado */
 }
 
 /* Mejora de la fuente para un rendering más suave */
-body, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea, select {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+button,
+input,
+textarea,
+select {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -51,12 +74,14 @@ body, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea, select {
     border-radius: 4px;
     font-weight: 600;
 }
+
 .skip-link:focus {
     top: var(--spacing-xs);
     left: var(--spacing-xs);
     outline: none !important;
-    box-shadow: 0 0 0 3px rgba(255,255,255,0.7), 0 0 0 6px var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.7), 0 0 0 6px var(--primary-color);
 }
+
 /* Screen reader text para elementos visualmente ocultos */
 .screen-reader-text {
     clip: rect(1px, 1px, 1px, 1px);
@@ -68,24 +93,58 @@ body, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea, select {
 }
 
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: var(--dark-blue-grey);
-    margin-bottom: var(--spacing-sm); /* Espaciado consistente debajo de los encabezados */
-    line-height: 1.2; /* Línea más ajustada para encabezados */
-    font-weight: 700; /* Negrita para todos los encabezados */
+    margin-bottom: var(--spacing-sm);
+    /* Espaciado consistente debajo de los encabezados */
+    line-height: 1.2;
+    /* Línea más ajustada para encabezados */
+    font-weight: 700;
+    /* Negrita para todos los encabezados */
 }
 
 /* Establecimiento de la jerarquía de tamaños de fuente para encabezados */
-h1 { font-size: 4.5rem; } /* Muy grande para títulos principales */
-h2 { font-size: 3rem; }   /* Grande para títulos de sección */
-h3 { font-size: 2rem; }   /* Mediano para subtítulos o títulos de cards */
-h4 { font-size: 1.5rem; } /* Pequeño para sub-subtítulos */
-h5 { font-size: 1.25rem; }/* Muy pequeño para detalles */
-h6 { font-size: 1rem; }   /* Más pequeño para texto auxiliar */
+h1 {
+    font-size: 4.5rem;
+}
+
+/* Muy grande para títulos principales */
+h2 {
+    font-size: 3rem;
+}
+
+/* Grande para títulos de sección */
+h3 {
+    font-size: 2rem;
+}
+
+/* Mediano para subtítulos o títulos de cards */
+h4 {
+    font-size: 1.5rem;
+}
+
+/* Pequeño para sub-subtítulos */
+h5 {
+    font-size: 1.25rem;
+}
+
+/* Muy pequeño para detalles */
+h6 {
+    font-size: 1rem;
+}
+
+/* Más pequeño para texto auxiliar */
 
 p {
-    margin-bottom: var(--spacing-md); /* Mayor espaciado debajo de los párrafos */
-    font-size: 1.1rem; /* Ligeramente más grande para texto principal */
+    margin-bottom: var(--spacing-md);
+    /* Mayor espaciado debajo de los párrafos */
+    font-size: 1.1rem;
+    /* Ligeramente más grande para texto principal */
 }
 
 a {
@@ -184,8 +243,13 @@ a:active {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .back-to-top {
@@ -202,7 +266,7 @@ a:active {
     transition: background var(--transition-speed), transform var(--transition-speed);
     z-index: 99;
     border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -265,7 +329,8 @@ a:active {
 
 .top-bar .text p {
     color: var(--white);
-    font-size: 16px; /* Tamaño de fuente para información secundaria */
+    font-size: 16px;
+    /* Tamaño de fuente para información secundaria */
     font-weight: 500;
     margin: 0;
 }
@@ -324,7 +389,8 @@ a:active {
 .navbar .navbar-brand {
     margin: 0;
     color: var(--white);
-    font-size: 15px; /* Tamaño del texto del brand, si lo hubiera */
+    font-size: 15px;
+    /* Tamaño del texto del brand, si lo hubiera */
     line-height: 0px;
     font-weight: 700;
     letter-spacing: 5px;
@@ -342,8 +408,10 @@ a:active {
 .navbar-dark .navbar-nav .nav-link {
     padding: 10px var(--spacing-sm) 8px var(--spacing-sm);
     color: var(--white);
-    font-size: 1.1rem; /* Tamaño de fuente de los elementos de navegación */
-    font-weight: 600; /* Más negrita para los enlaces de navegación */
+    font-size: 1.1rem;
+    /* Tamaño de fuente de los elementos de navegación */
+    font-weight: 600;
+    /* Más negrita para los enlaces de navegación */
     transition: color var(--transition-speed);
 }
 
@@ -359,11 +427,14 @@ a:active {
     background: var(--white);
     box-shadow: 0 2px 5px var(--shadow-medium);
 }
+
 .navbar .dropdown-item {
     color: var(--text-color);
-    font-size: 1rem; /* Tamaño de fuente para elementos de dropdown */
+    font-size: 1rem;
+    /* Tamaño de fuente para elementos de dropdown */
     transition: background-color var(--transition-speed), color var(--transition-speed);
 }
+
 .navbar .dropdown-item:hover,
 .navbar .dropdown-item:focus {
     background-color: var(--light-grey-bg);
@@ -474,22 +545,24 @@ a:active {
     flex-direction: column;
     z-index: 2;
     padding: 0 var(--spacing-sm);
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .carousel .carousel-text h1 {
     text-align: center;
     color: var(--white);
-    font-size: 4.5rem; /* Asegura que el H1 del carrusel sea prominente */
+    font-size: 4.5rem;
+    /* Asegura que el H1 del carrusel sea prominente */
     font-weight: 700;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm); /* AJUSTADO: Reducido a spacing-sm (15px) */
 }
 
 .carousel .carousel-text p {
     color: var(--white);
     text-align: center;
-    font-size: 1.5rem; /* Texto más grande y legible en el carrusel */
-    margin-bottom: var(--spacing-md);
+    font-size: 1.5rem;
+    /* Texto más grande y legible en el carrusel */
+    margin-bottom: var(--spacing-lg); /* AJUSTADO: Aumentado a spacing-lg (45px) */
 }
 
 .carousel .carousel-btn .btn.btn-custom {
@@ -573,6 +646,7 @@ a:active {
     align-items: center;
     justify-content: center;
 }
+
 #videoModal .close:hover {
     background-color: var(--primary-color);
 }
@@ -580,10 +654,12 @@ a:active {
 @media (max-width: 991.98px) {
     .carousel .carousel-text h1 {
         font-size: 35px;
+        margin-bottom: var(--spacing-xs); /* AJUSTADO: Ajuste más pequeño para móviles */
     }
 
     .carousel .carousel-text p {
         font-size: 16px;
+        margin-bottom: var(--spacing-md); /* AJUSTADO: Ajuste para móviles */
     }
 
     .carousel .carousel-text .btn {
@@ -596,6 +672,12 @@ a:active {
 @media (max-width: 767.98px) {
     .carousel .carousel-text h1 {
         font-size: 30px;
+        margin-bottom: var(--spacing-xs); /* AJUSTADO: Ajuste más pequeño para móviles */
+    }
+
+    .carousel .carousel-text p {
+        font-size: 16px;
+        margin-bottom: var(--spacing-md); /* AJUSTADO: Ajuste para móviles */
     }
 
     .carousel .carousel-text .btn {
@@ -608,6 +690,12 @@ a:active {
 @media (max-width: 575.98px) {
     .carousel .carousel-text h1 {
         font-size: 25px;
+        margin-bottom: var(--spacing-xs); /* AJUSTADO: Ajuste más pequeño para móviles */
+    }
+
+    .carousel .carousel-text p {
+        font-size: 14px;
+        margin-bottom: var(--spacing-md); /* AJUSTADO: Ajuste para móviles */
     }
 
     .carousel .carousel-text .btn {
@@ -636,7 +724,8 @@ a:active {
 .page-header h2 {
     position: relative;
     color: var(--primary-color);
-    font-size: 4rem; /* H2 prominente en el header de página */
+    font-size: 4rem;
+    /* H2 prominente en el header de página */
     font-weight: 700;
     margin-bottom: var(--spacing-md);
     padding-bottom: 5px;
@@ -655,7 +744,8 @@ a:active {
 .page-header a {
     position: relative;
     padding: 0 12px;
-    font-size: 1.375rem; /* Tamaño de fuente para enlaces de navegación en header */
+    font-size: 1.375rem;
+    /* Tamaño de fuente para enlaces de navegación en header */
     color: var(--white);
 }
 
@@ -721,7 +811,8 @@ a:active {
 .section-header p {
     margin-bottom: var(--spacing-xs);
     position: relative;
-    font-size: 1.375rem; /* Párrafo introductorio más grande y notable */
+    font-size: 1.375rem;
+    /* Párrafo introductorio más grande y notable */
     font-weight: 600;
     text-transform: capitalize;
     color: var(--primary-color);
@@ -729,7 +820,8 @@ a:active {
 
 .section-header h2 {
     margin: 0;
-    font-size: 3rem; /* Títulos de sección prominentes */
+    font-size: 3rem;
+    /* Títulos de sección prominentes */
     font-weight: 700;
     color: var(--dark-blue-grey);
 }
@@ -796,8 +888,10 @@ a:active {
 
 .about .about-tab .nav.nav-pills .nav-link {
     padding: 12px 20px;
-    font-weight: 600; /* Negrita para las pestañas */
-    font-size: 1.1rem; /* Tamaño de fuente legible para las pestañas */
+    font-weight: 600;
+    /* Negrita para las pestañas */
+    font-size: 1.1rem;
+    /* Tamaño de fuente legible para las pestañas */
     background: none;
     border-radius: 0;
     border-bottom: 1px solid var(--border-light);
@@ -822,17 +916,20 @@ a:active {
 }
 
 .about .about-tab .tab-content p {
-    font-size: 1.05rem; /* Texto de contenido en pestañas ligeramente más grande */
+    font-size: 1.05rem;
+    /* Texto de contenido en pestañas ligeramente más grande */
 }
 
 @media (max-width: 991.98px) {
     .about {
         padding: var(--spacing-xl) 0;
     }
+
     .about .section-header {
         margin-top: var(--spacing-md);
         text-align: center;
     }
+
     .about .about-img {
         height: 300px;
         max-height: 300px;
@@ -908,7 +1005,8 @@ a:active {
 
 .service .service-text h3 {
     margin-bottom: var(--spacing-xs);
-    font-size: 1.375rem; /* Títulos de servicio más grandes */
+    font-size: 1.375rem;
+    /* Títulos de servicio más grandes */
     font-weight: 700;
     letter-spacing: 1px;
     color: var(--dark-blue-grey);
@@ -916,7 +1014,8 @@ a:active {
 
 .service .service-text p {
     margin: 0;
-    font-size: 1rem; /* Texto de servicio legible */
+    font-size: 1rem;
+    /* Texto de servicio legible */
     color: var(--text-color);
 }
 
@@ -951,14 +1050,15 @@ a:active {
 
 .donate .donate-text p {
     color: var(--white);
-    font-size: 1.125rem; /* Texto en sección de donar */
+    font-size: 1.125rem;
+    /* Texto en sección de donar */
 }
 
 .donate .donate-form {
     padding: var(--spacing-xxl) var(--spacing-lg);
     background: var(--primary-color);
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .donate .donate-form .control-group {
@@ -1039,6 +1139,7 @@ a:active {
     border-radius: 8px;
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
+
 .causes .causes-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px var(--shadow-medium);
@@ -1093,7 +1194,8 @@ a:active {
     color: var(--white);
     border-radius: 4px;
     font-size: 13px;
-    font-weight: 600; /* Negrita para el porcentaje */
+    font-weight: 600;
+    /* Negrita para el porcentaje */
 }
 
 .causes .progress-bar span::after {
@@ -1116,7 +1218,8 @@ a:active {
 .causes .progress-text p {
     margin: 0;
     color: var(--text-color);
-    font-size: 1rem; /* Texto del progreso legible */
+    font-size: 1rem;
+    /* Texto del progreso legible */
 }
 
 .causes .causes-text {
@@ -1124,14 +1227,16 @@ a:active {
 }
 
 .causes .causes-text h3 {
-    font-size: 1.375rem; /* Títulos de causa más grandes */
+    font-size: 1.375rem;
+    /* Títulos de causa más grandes */
     font-weight: 700;
     color: var(--dark-blue-grey);
 }
 
 .causes .causes-text p {
     margin: 0;
-    font-size: 1rem; /* Texto de causa legible */
+    font-size: 1rem;
+    /* Texto de causa legible */
     color: var(--text-color);
 }
 
@@ -1199,7 +1304,8 @@ a:active {
     position: relative;
     display: inline-block;
     color: var(--white);
-    font-size: 3rem; /* Números grandes y legibles */
+    font-size: 3rem;
+    /* Números grandes y legibles */
     font-weight: 700;
     margin-bottom: 5px;
 }
@@ -1225,7 +1331,8 @@ a:active {
 
 .facts .facts-text p {
     color: var(--white);
-    font-size: 1.375rem; /* Descripción de los hechos más grande */
+    font-size: 1.375rem;
+    /* Descripción de los hechos más grande */
     font-weight: 600;
     margin: 0;
 }
@@ -1249,6 +1356,7 @@ a:active {
     box-shadow: 0 2px 5px var(--shadow-light);
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
+
 .team .team-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px var(--shadow-medium);
@@ -1291,7 +1399,8 @@ a:active {
 }
 
 .team .team-text h2 {
-    font-size: 1.25rem; /* Nombres del equipo más legibles */
+    font-size: 1.25rem;
+    /* Nombres del equipo más legibles */
     font-weight: 700;
     margin-bottom: 10px;
     color: var(--dark-blue-grey);
@@ -1299,7 +1408,8 @@ a:active {
 
 .team .team-text p {
     color: var(--text-color);
-    font-size: 1rem; /* Rol del equipo legible */
+    font-size: 1rem;
+    /* Rol del equipo legible */
     margin-bottom: 20px;
 }
 
@@ -1351,6 +1461,7 @@ a:active {
     overflow: hidden;
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
+
 .music-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px var(--shadow-medium);
@@ -1377,19 +1488,23 @@ a:active {
 .card {
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
+
 .card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
+
 .card-title {
     color: var(--dark-blue-grey);
-    font-size: 1.25rem; /* Títulos de canción legibles */
+    font-size: 1.25rem;
+    /* Títulos de canción legibles */
     font-weight: 600;
     margin-bottom: var(--spacing-sm);
 }
+
 audio {
     width: 100%;
     margin-top: var(--spacing-xs);
@@ -1451,7 +1566,8 @@ audio {
 }
 
 .testimonial .testimonial-name h3 {
-    font-size: 1.25rem; /* Nombres de testimonios legibles */
+    font-size: 1.25rem;
+    /* Nombres de testimonios legibles */
     font-weight: 600;
     margin-bottom: 5px;
     color: var(--dark-blue-grey);
@@ -1460,13 +1576,15 @@ audio {
 .testimonial .testimonial-name p {
     margin: 0;
     font-style: italic;
-    font-size: 0.95rem; /* Rol o descripción pequeña */
+    font-size: 0.95rem;
+    /* Rol o descripción pequeña */
     color: var(--text-color);
 }
 
 .testimonial .testimonial-text p {
     margin: 0;
-    font-size: 1.05rem; /* Contenido del testimonio legible */
+    font-size: 1.05rem;
+    /* Contenido del testimonio legible */
     color: var(--text-color);
 }
 
@@ -1527,7 +1645,7 @@ audio {
     padding: var(--spacing-xxl) var(--spacing-lg);
     background: var(--primary-color);
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .volunteer .volunteer-form .control-group {
@@ -1600,6 +1718,7 @@ audio {
     border-radius: 8px;
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
+
 .event .event-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px var(--shadow-medium);
@@ -1637,7 +1756,8 @@ audio {
     white-space: nowrap;
     border-bottom: 1px solid var(--border-light);
     color: var(--text-color);
-    font-size: 1rem; /* Texto de meta legible */
+    font-size: 1rem;
+    /* Texto de meta legible */
 }
 
 .event .event-meta p:last-child {
@@ -1660,7 +1780,8 @@ audio {
 }
 
 .event .event-text h3 {
-    font-size: 1.5rem; /* Títulos de evento legibles */
+    font-size: 1.5rem;
+    /* Títulos de evento legibles */
     font-weight: 700;
     margin-bottom: var(--spacing-xs);
     color: var(--dark-blue-grey);
@@ -1668,7 +1789,8 @@ audio {
 
 .event .event-text p {
     margin: 0;
-    font-size: 1rem; /* Texto de evento legible */
+    font-size: 1rem;
+    /* Texto de evento legible */
     color: var(--text-color);
 }
 
@@ -1703,6 +1825,7 @@ audio {
         margin-bottom: 0;
         line-height: 1;
     }
+
     .event .event-meta p:last-child {
         border-right: none;
     }
@@ -1743,6 +1866,7 @@ audio {
     border-radius: 8px;
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
+
 .blog .blog-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px var(--shadow-medium);
@@ -1762,6 +1886,7 @@ audio {
     object-position: center;
     transition: transform var(--transition-speed);
 }
+
 .blog .blog-item:hover img {
     transform: scale(1.05);
 }
@@ -1772,7 +1897,8 @@ audio {
 }
 
 .blog .blog-text h3 {
-    font-size: 1.375rem; /* Títulos de blog legibles */
+    font-size: 1.375rem;
+    /* Títulos de blog legibles */
     font-weight: 700;
     margin-bottom: var(--spacing-sm);
 }
@@ -1787,7 +1913,8 @@ audio {
 
 .blog .blog-text p {
     margin: 0;
-    font-size: 1rem; /* Texto de blog legible */
+    font-size: 1rem;
+    /* Texto de blog legible */
     color: var(--text-color);
 }
 
@@ -1804,7 +1931,8 @@ audio {
     color: var(--text-color);
     padding: 0 var(--spacing-md);
     border-right: 1px solid var(--border-light);
-    font-size: 1rem; /* Meta de blog legible */
+    font-size: 1rem;
+    /* Meta de blog legible */
 }
 
 .blog .blog-meta p:first-child {
@@ -1894,6 +2022,7 @@ audio {
         margin-top: -150px;
         padding: var(--spacing-md);
     }
+
     .contact .contact-img {
         height: 400px;
     }
@@ -1907,6 +2036,7 @@ audio {
         box-shadow: none;
         border: none;
     }
+
     .contact .contact-img {
         height: 200px;
     }
@@ -1920,7 +2050,8 @@ audio {
     border-radius: 4px;
     border: 1px solid #eeeeee;
     color: var(--text-color);
-    font-size: 1rem; /* Texto de formulario legible */
+    font-size: 1rem;
+    /* Texto de formulario legible */
     transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
 }
 
@@ -1950,7 +2081,8 @@ audio {
     padding: 0;
     list-style-type: none;
     color: #e74c3c;
-    font-size: 0.9rem; /* Mensajes de error más pequeños pero claros */
+    font-size: 0.9rem;
+    /* Mensajes de error más pequeños pero claros */
 }
 
 
@@ -1992,7 +2124,8 @@ audio {
     margin: 5px;
     display: inline-block;
     padding: 7px 15px;
-    font-size: 0.9rem; /* Tamaño de los tags legible */
+    font-size: 0.9rem;
+    /* Tamaño de los tags legible */
     font-weight: 500;
     color: var(--dark-blue-grey);
     border: 1px solid #95a5a6;
@@ -2036,7 +2169,8 @@ audio {
 }
 
 .single .single-bio-text h3 {
-    font-size: 1.25rem; /* Nombre del autor legible */
+    font-size: 1.25rem;
+    /* Nombre del autor legible */
     font-weight: 700;
     margin-bottom: 3px;
     color: var(--dark-blue-grey);
@@ -2044,7 +2178,8 @@ audio {
 
 .single .single-bio-text p {
     margin: 0;
-    font-size: 1rem; /* Descripción del autor legible */
+    font-size: 1rem;
+    /* Descripción del autor legible */
     color: var(--text-color);
 }
 
@@ -2053,7 +2188,8 @@ audio {
 }
 
 .single .single-related h2 {
-    font-size: 1.875rem; /* Títulos de posts relacionados */
+    font-size: 1.875rem;
+    /* Títulos de posts relacionados */
     font-weight: 700;
     margin-bottom: 35px;
     color: var(--dark-blue-grey);
@@ -2080,6 +2216,7 @@ audio {
     padding: var(--spacing-xs);
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
+
 .single .post-item:hover {
     transform: translateY(-3px);
     box-shadow: 0 3px 8px var(--shadow-light);
@@ -2106,7 +2243,8 @@ audio {
 }
 
 .single .post-item .post-text a {
-    font-size: 1rem; /* Título de post relacionado legible */
+    font-size: 1rem;
+    /* Título de post relacionado legible */
     font-weight: 600;
     color: var(--dark-blue-grey);
 }
@@ -2125,7 +2263,8 @@ audio {
     display: inline-block;
     margin: 0;
     padding: 0 3px;
-    font-size: 0.875rem; /* Meta de post legible */
+    font-size: 0.875rem;
+    /* Meta de post legible */
     font-weight: 500;
     font-style: italic;
     color: var(--text-color);
@@ -2174,7 +2313,8 @@ audio {
 }
 
 .single .single-comment h2 {
-    font-size: 1.875rem; /* Títulos de comentario */
+    font-size: 1.875rem;
+    /* Títulos de comentario */
     font-weight: 700;
     margin-bottom: 35px;
     color: var(--dark-blue-grey);
@@ -2224,7 +2364,8 @@ audio {
 }
 
 .single .comment-text h3 {
-    font-size: 1.25rem; /* Nombre del comentador legible */
+    font-size: 1.25rem;
+    /* Nombre del comentador legible */
     font-weight: 600;
     margin-bottom: 3px;
     color: var(--dark-blue-grey);
@@ -2232,7 +2373,8 @@ audio {
 
 .single .comment-text span {
     display: block;
-    font-size: 0.9rem; /* Fecha del comentario más pequeña */
+    font-size: 0.9rem;
+    /* Fecha del comentario más pequeña */
     font-weight: 500;
     margin-bottom: 5px;
     color: var(--text-color);
@@ -2240,7 +2382,8 @@ audio {
 
 .single .comment-text .btn {
     padding: 3px 10px;
-    font-size: 0.875rem; /* Botón de respuesta pequeño */
+    font-size: 0.875rem;
+    /* Botón de respuesta pequeño */
     font-weight: 500;
     color: var(--white);
     background: var(--primary-color);
@@ -2254,7 +2397,8 @@ audio {
 
 .single .comment-form {
     position: relative;
-    margin-top: var(--spacing-xl); /* Espacio antes del formulario de comentario */
+    margin-top: var(--spacing-xl);
+    /* Espacio antes del formulario de comentario */
 }
 
 .single .comment-form h2 {
@@ -2296,6 +2440,7 @@ audio {
     color: var(--white);
     border: none;
 }
+
 .single .comment-form .btn-custom:hover {
     background-color: #d35400;
 }
@@ -2329,7 +2474,8 @@ audio {
     position: relative;
     margin-bottom: var(--spacing-md);
     padding-bottom: 5px;
-    font-size: 1.5rem; /* Títulos de widget legibles */
+    font-size: 1.5rem;
+    /* Títulos de widget legibles */
     font-weight: 700;
     color: var(--dark-blue-grey);
 }
@@ -2355,7 +2501,8 @@ audio {
     background: var(--light-grey-bg);
     color: var(--text-color);
     padding-right: 60px;
-    font-size: 1rem; /* Input de búsqueda legible */
+    font-size: 1rem;
+    /* Input de búsqueda legible */
     transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
 }
 
@@ -2395,7 +2542,8 @@ audio {
     color: var(--white);
     background: var(--primary-color);
     border-radius: 4px;
-    font-size: 1rem; /* Título de pestaña legible */
+    font-size: 1rem;
+    /* Título de pestaña legible */
     transition: all var(--transition-speed);
 }
 
@@ -2437,9 +2585,11 @@ audio {
     display: inline-block;
     line-height: 23px;
     color: var(--text-color);
-    font-size: 1rem; /* Enlace de categoría legible */
+    font-size: 1rem;
+    /* Enlace de categoría legible */
     transition: color var(--transition-speed);
 }
+
 .sidebar .category-widget ul li a:hover {
     color: var(--primary-color);
 }
@@ -2460,7 +2610,8 @@ audio {
     display: inline-block;
     float: right;
     color: #777777;
-    font-size: 0.9rem; /* Conteo de categoría más pequeño */
+    font-size: 0.9rem;
+    /* Conteo de categoría más pequeño */
 }
 
 .sidebar .sidebar-widget .tag-widget {
@@ -2529,7 +2680,8 @@ audio {
 .footer .footer-link h2,
 .footer .footer-newsletter h2 {
     margin-bottom: var(--spacing-md);
-    font-size: 1.375rem; /* Títulos de footer legibles */
+    font-size: 1.375rem;
+    /* Títulos de footer legibles */
     font-weight: 700;
     color: var(--secondary-color);
 }
@@ -2539,6 +2691,7 @@ audio {
     padding: 0;
     margin: 0;
 }
+
 .footer .footer-link li {
     margin-bottom: var(--spacing-xs);
 }
@@ -2546,7 +2699,8 @@ audio {
 .footer .footer-link a {
     display: block;
     color: var(--white);
-    font-size: 1rem; /* Enlaces de footer legibles */
+    font-size: 1rem;
+    /* Enlaces de footer legibles */
     transition: all var(--transition-speed);
 }
 
@@ -2567,19 +2721,23 @@ audio {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-    font-size: 1rem; /* Texto de contacto legible */
+    font-size: 1rem;
+    /* Texto de contacto legible */
 }
+
 .footer .footer-contact p i {
     width: 25px;
     color: var(--secondary-color);
     flex-shrink: 0;
     text-align: center;
 }
+
 .footer .footer-contact p a {
     color: var(--white);
     transition: color var(--transition-speed);
     margin-left: 5px;
 }
+
 .footer .footer-contact p a:hover {
     color: var(--primary-color);
 }
@@ -2626,9 +2784,11 @@ audio {
     background: rgba(255, 255, 255, 0.1);
     color: var(--white);
     padding: 0 var(--spacing-sm);
-    font-size: 1rem; /* Input de newsletter legible */
+    font-size: 1rem;
+    /* Input de newsletter legible */
     transition: all var(--transition-speed);
 }
+
 .footer .footer-newsletter input::placeholder {
     color: rgba(255, 255, 255, 0.7);
     opacity: 1;
@@ -2643,7 +2803,8 @@ audio {
 .footer .footer-newsletter label {
     color: var(--white);
     margin-top: 5px;
-    font-size: 0.875rem; /* Etiqueta pequeña */
+    font-size: 0.875rem;
+    /* Etiqueta pequeña */
     letter-spacing: 1px;
 }
 
@@ -2672,7 +2833,8 @@ audio {
 
 .footer .copyright p {
     color: var(--white);
-    font-size: 0.9rem; /* Texto de copyright más pequeño */
+    font-size: 0.9rem;
+    /* Texto de copyright más pequeño */
     margin: 0;
 }
 
@@ -2690,6 +2852,7 @@ audio {
 }
 
 @media (max-width: 767.98px) {
+
     .footer .copyright p,
     .footer .copyright .col-md-6:last-child p {
         margin: 5px 0;
@@ -2709,15 +2872,16 @@ audio {
     font-size: 0px;
     z-index: 1000;
     background-color: #25d366;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     transition: transform .2s ease-out, box-shadow .2s ease-out;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .btn-whatsapp:hover {
     transform: scale(1.1);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .btn-whatsapp img {
@@ -2737,10 +2901,21 @@ audio {
         padding-right: var(--spacing-sm);
     }
 
-    h1 { font-size: 3.5rem; }
-    h2 { font-size: 2.5rem; }
-    h3 { font-size: 1.75rem; }
-    p { font-size: 1.05rem; }
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    h3 {
+        font-size: 1.75rem;
+    }
+
+    p {
+        font-size: 1.05rem;
+    }
 
     .section-header {
         margin-bottom: var(--spacing-lg);
@@ -2753,9 +2928,11 @@ audio {
     .carousel .carousel-text h1 {
         font-size: 45px;
     }
+
     .carousel .carousel-text p {
         font-size: 18px;
     }
+
     .carousel .carousel-img {
         height: 400px;
     }
@@ -2769,6 +2946,7 @@ audio {
         margin-top: -180px;
         padding: var(--spacing-md);
     }
+
     .contact .contact-img {
         height: 400px;
     }
@@ -2789,10 +2967,21 @@ audio {
         padding-right: var(--spacing-xs);
     }
 
-    h1 { font-size: 2.5rem; }
-    h2 { font-size: 2rem; }
-    h3 { font-size: 1.25rem; }
-    p { font-size: 1rem; }
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
 
     .section-header {
         margin-bottom: var(--spacing-md);
@@ -2805,21 +2994,26 @@ audio {
     .carousel {
         margin-bottom: var(--spacing-lg);
     }
+
     .carousel .carousel-img {
         height: 250px;
     }
+
     .carousel .carousel-text h1 {
         font-size: 30px;
         margin-bottom: var(--spacing-sm);
     }
+
     .carousel .carousel-text p {
         font-size: 15px;
         margin-bottom: var(--spacing-md);
     }
+
     .carousel .carousel-btn .btn {
         padding: 10px 20px;
         font-size: 14px;
     }
+
     .carousel .owl-nav {
         display: none;
     }
@@ -2829,12 +3023,15 @@ audio {
         max-height: 250px;
         margin-bottom: var(--spacing-md);
     }
+
     .about .section-header {
         text-align: center;
     }
+
     .about .about-tab .nav.nav-pills {
         flex-direction: column;
     }
+
     .about .about-tab .nav.nav-pills .nav-item {
         margin-bottom: var(--spacing-xs);
     }
@@ -2846,15 +3043,19 @@ audio {
         text-align: center;
         margin: var(--spacing-sm) 0;
     }
+
     .facts .facts-item i {
         margin-bottom: var(--spacing-xs);
     }
+
     .facts .facts-text {
         padding-left: 0;
     }
+
     .facts .facts-text h3 {
         font-size: 35px;
     }
+
     .facts .facts-text h3::after {
         right: -15px;
     }
@@ -2863,24 +3064,29 @@ audio {
     .team .team-item {
         margin-bottom: var(--spacing-md);
     }
+
     .team .team-img img {
         height: 250px;
         object-position: center top;
     }
+
     .team .team-text {
         height: auto;
         position: static;
         width: 100%;
         padding: var(--spacing-sm);
     }
+
     .team .team-item:hover .team-text {
         height: auto;
     }
+
     .team .team-social a {
         width: 30px;
         height: 30px;
         font-size: 12px;
     }
+
     .team .team-social a i {
         padding-top: 8px;
     }
@@ -2888,6 +3094,7 @@ audio {
     .music-section .music-item {
         margin-bottom: var(--spacing-md);
     }
+
     .music-img img {
         height: 250px;
     }
@@ -2896,6 +3103,7 @@ audio {
     .contact .contact-img {
         display: none;
     }
+
     .contact .contact-form {
         margin-top: 0;
         padding: var(--spacing-md);
@@ -2909,12 +3117,15 @@ audio {
         margin-bottom: var(--spacing-md);
         text-align: center;
     }
+
     .footer .footer-contact p {
         justify-content: center;
     }
+
     .footer .footer-social {
         justify-content: center;
     }
+
     .footer .copyright .col-md-6:last-child p {
         text-align: center;
     }
@@ -2925,6 +3136,7 @@ audio {
         width: 50px;
         height: 50px;
     }
+
     .btn-whatsapp img {
         width: 30px;
         height: 30px;
@@ -2942,14 +3154,26 @@ audio {
         padding-right: 5px;
     }
 
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.75rem; }
-    h3 { font-size: 1.125rem; }
-    p { font-size: 0.95rem; }
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.125rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+    }
 
     .section-header h2 {
         font-size: 26px;
     }
+
     .section-header p {
         font-size: 18px;
     }
@@ -2957,9 +3181,11 @@ audio {
     .carousel .carousel-text h1 {
         font-size: 24px;
     }
+
     .carousel .carousel-text p {
         font-size: 14px;
     }
+
     .carousel .carousel-img {
         height: 200px;
     }
