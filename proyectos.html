@@ -3,19 +3,17 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Proyectos de Desarrollo Ejecutados en Sucre y Córdoba | Fundación FIDES</title>
+    <title>Experiencia y Proyectos | Fundación FIDES Sucre</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    
-    <meta name="description" content="Conoce nuestros proyectos de construcción, apicultura, desarrollo social y apoyo a comunidades indígenas y afrodescendientes en Sucre, Córdoba y Bolívar.">
-    
-    <meta name="keywords" content="proyectos sociales, casos de éxito ONG, desarrollo comunitario, proyectos Ecopetrol, proyectos Unión Europea, proyectos OIM, Sucre, Córdoba, Bolívar, Colombia">
+    <meta name="description" content="Explore nuestra completa trayectoria de proyectos desde 1983. Conozca el impacto de la Fundación FIDES Sucre en desarrollo social, construcción, apicultura y más en la Costa Caribe de Colombia.">
+    <meta name="keywords" content="proyectos sociales, experiencia FIDES, trayectoria FIDES, desarrollo comunitario, Sucre, Córdoba, Bolívar, Ecopetrol, Unión Europea, OIM">
 
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://fundafidescol.org/proyectos.html" />
     <meta property="og:site_name" content="Fundación FIDES Sucre">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Proyectos de Desarrollo Ejecutados en Sucre y Córdoba | Fundación FIDES">
-    <meta property="og:description" content="Conoce nuestros proyectos de construcción, apicultura, desarrollo social y apoyo a comunidades indígenas y afrodescendientes en Sucre, Córdoba y Bolívar.">
+    <meta property="og:title" content="Experiencia y Proyectos | Fundación FIDES Sucre">
+    <meta property="og:description" content="Conozca la trayectoria y el listado completo de proyectos de desarrollo de la Fundación FIDES en la Costa Caribe Colombiana.">
     <meta property="og:url" content="https://fundafidescol.org/proyectos.html">
     <meta property="og:image" content="https://fundafidescol.org/img/logo_fundacion_fides_opengraph.jpg">
     <meta property="og:locale" content="es_LA">
@@ -66,7 +64,7 @@
     <div class="navbar navbar-expand-lg bg-dark navbar-dark">
         <div class="container-fluid">
             <a href="index.html" class="navbar-brand">
-                <img class="navbar-logo" src="img/logo-fundacion-fides-sucre.jpg" alt="Logo de la Fundación FIDES Sucre">
+                <img class="navbar-logo" src="img/logo fundacion para el desarrollo de sucre.jpg" alt="Logo de la Fundación FIDES Sucre">
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" aria-label="Alternar navegación">
                 <span class="navbar-toggler-icon"></span>
@@ -84,9 +82,7 @@
     <div class="page-header">
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <h1>Nuestra Experiencia</h1>
-                </div>
+                <div class="col-12"><h2>Nuestra Experiencia</h2></div>
                 <div class="col-12"><a href="index.html">Inicio</a><a href="proyectos.html">Proyectos</a></div>
             </div>
         </div>
@@ -94,35 +90,86 @@
     <div class="container my-5">
         <div class="section-header text-center">
             <p>Nuestra Trayectoria</p>
-            <h2>Casos de Éxito en la Región Caribe</h2>
-            <p class="mt-3">Desde 1983, hemos tenido el privilegio de colaborar con entidades nacionales e internacionales para ejecutar proyectos que generan un impacto real y duradero. Cada proyecto es una historia de colaboración y desarrollo. Explora nuestro historial para conocer a fondo el alcance de nuestro trabajo.</p>
+            <h2>Listado de Proyectos Ejecutados</h2>
         </div>
+
+        <div class="mb-3">
+            <strong>Ordenar por:</strong>
+            <button class="btn btn-sm btn-secondary" onclick="sortTable(1)">Año de Ejecución</button>
+            <button class="btn btn-sm btn-secondary" onclick="sortTable(4)">Ubicación (A-Z)</button>
+            <button class="btn btn-sm btn-secondary" onclick="sortTable(2)">Nombre del Proyecto (A-Z)</button>
+            <button class="btn btn-sm btn-secondary" onclick="sortTable(3)">Entidad Contratante (A-Z)</button>
+        </div>
+
         <div class="table-responsive">
-            <table class="table table-striped table-hover">
+            <table id="proyectosTable" class="table table-striped table-hover">
                 <thead class="thead-dark">
                     <tr>
+                        <th scope="col">#</th>
                         <th scope="col">Año</th>
                         <th scope="col">Nombre del Proyecto</th>
                         <th scope="col">Entidad Contratante</th>
                         <th scope="col">Ubicación</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr><td>2013</td><td><a href="proyectos/apoyo-actividades-artisticas-2013.html">Apoyo a Actividades Artísticas Culturales</a></td><td>MINISTERIO DE CULTURA</td><td>Sucre, Colombia</td></tr>
-                    <tr><td>2012</td><td><a href="proyectos/casa-reuniones-pueblecito-2012.html">Construcción de Casa de Reuniones, Cabildo Indígena Pueblecito</a></td><td>ECOPETROL</td><td>San Antonio, Sucre</td></tr>
-                    <tr><td>2012</td><td><a href="proyectos/construccion-acueducto-guazo-2012.html">Construcción de Sistema de Acueducto Guazo</a></td><td>ECOPETROL</td><td>Magangué, Bolívar</td></tr>
-                    <tr><td>2012</td><td><a href="proyectos/alianzas-productivas-apicultores-2012.html">Alianzas Productivas con 39 Apicultores del Municipio de Ovejas</a></td><td>FIDUCOLDEX</td><td>Carmen de Bolívar</td></tr>
-                    <tr><td>2010</td><td><a href="proyectos/fortalecimiento-apicultores-2010.html">Fortalecimiento Organizacional Productivo a 220 Apicultores</a></td><td>ACCION SOCIAL</td><td>Dpto. Sucre, Colombia</td></tr>
-                    <tr><td>2008</td><td><a href="proyectos/construccion-viviendas-ovejas-2008.html">Construcción de 100 Viviendas de Interés Social</a></td><td>UNIÓN EUROPEA</td><td>Ovejas, Sucre</td></tr>
-                    <tr><td>2008</td><td><a href="proyectos/estabilizacion-poblacion-desplazada-2008.html">Estabilización Socioeconómica de Población Desplazada (700 Hogares)</a></td><td>OIM</td><td>Sincelejo, Sucre</td></tr>
-                    <tr><td>2006</td><td><a href="proyectos/apoyo-poblacion-desplazada-2006.html">Apoyo Integral a Población Desplazada</a></td><td>Unión Europea</td><td>Dpto. Sucre, Colombia</td></tr>
-                    <tr><td>2005</td><td><a href="proyectos/construccion-aulas-policarpa-2005.html">Construcción de un bloque de 4 Aulas de Clases en I.E. Policarpa</a></td><td>Embajada de Japón</td><td>Sincelejo, Sucre</td></tr>
-                    </tbody>
+                <tbody id="proyectosBody">
+                    <tr><td>1</td><td>1986</td><td>Alternativas de producción para pequeños cultivadores de tabaco</td><td>KMB Austria.</td><td>Los Palmitos, Sucre</td></tr>
+                    <tr><td>2</td><td>1990</td><td>Capacitar a 600 Familias Campesinas en Producción de Hortalizas</td><td>Fundación Restrepo Barco.</td><td>Sucre, Colombia</td></tr>
+                    <tr><td>3</td><td>1993</td><td>Asesoría y Fondo de Crédito para la Producción de Yuca</td><td>Katholische Zentralstelle. Alemania</td><td>Sucre, Colombia</td></tr>
+                    <tr><td>4</td><td>1993</td><td>Asesoría legal, Control y Seguimiento de Formas Asociativas FAS</td><td>Desarrollo Rural Integrado DRI</td><td>Sucre, Colombia</td></tr>
+                    <tr><td>5</td><td>1994</td><td>Elaboración de Estudios Socioeconómicos C/miento Jegua</td><td>Municipio de San Benito</td><td>San Benito, Sucre</td></tr>
+                    <tr><td>6</td><td>1994</td><td>Fomentar la Vinculación de las Mujeres a la Producción Porcícola</td><td>IICA</td><td>Sucre, Colombia</td></tr>
+                    <tr><td>7</td><td>1994</td><td>Estudios de Estratificación Socioeconómica</td><td>Municipio de San Benito</td><td>San Benito, Sucre</td></tr>
+                    <tr><td>8</td><td>1994</td><td>Estudios de Estratificación Socioeconómica</td><td>Municipio de San Marcos</td><td>San Marcos, Sucre</td></tr>
+                    <tr><td>9</td><td>1995</td><td>Estudios de Estratificación Socioeconómica</td><td>Municipio de Majagual</td><td>Majagual, Sucre</td></tr>
+                    <tr><td>10</td><td>1995</td><td>Capacitación en Formación Empresarial</td><td>Coorp. para el Des. de la MiPyME</td><td>Dpto. Sucre, Colombia</td></tr>
+                    <tr><td>11</td><td>1996</td><td>Estudios sobre una Granja Agrointegral Agroecológica</td><td>FONADE</td><td>Dpto. Sucre, Colombia</td></tr>
+                    <tr><td>12</td><td>1996</td><td>Impulsar el Desarrollo Artesanal en el Dpto de Sucre</td><td>Artesanías de Colombia</td><td>Dpto. Sucre, Colombia</td></tr>
+                    <tr><td>13</td><td>2001</td><td>Generar Empleo a Desplazados</td><td>FUPAD</td><td>Dpto. Sucre, Colombia</td></tr>
+                    <tr><td>14</td><td>2001</td><td>Atención a Población Desplazada</td><td>FUPAD</td><td>Dpto. Sucre, Colombia</td></tr>
+                    <tr><td>15</td><td>2001</td><td>Establecimiento de Cultivos</td><td>CARSUCRE</td><td>Dpto. Sucre, Colombia</td></tr>
+                    <tr><td>16</td><td>2002</td><td>Mejoramiento Organizacional y Gestión de Asociaciones</td><td>GTZ, Alemania</td><td>Dpto. Sucre, Colombia</td></tr>
+                    <tr><td>17</td><td>2002</td><td>Plan de Desarrollo</td><td>Novid, Holanda</td><td>Dpto. Sucre, Colombia</td></tr>
+                    <tr><td>18</td><td>2002</td><td>Formación en Educación Ambiental a Niños y Jóvenes</td><td>Fondo para la Acción Ambiental</td><td>Dpto. Sucre, Colombia</td></tr>
+                    <tr><td>19</td><td>2003</td><td>Creación y Fortalecimiento de Microempresas Productoras de Miel</td><td>IICA</td><td>Dpto. Sucre, Colombia</td></tr>
+                    <tr><td>20</td><td>2004</td><td>Construcción de un bloque de 5 Aulas de Clases</td><td>Embajada de Japón</td><td>San Antonio, Sucre</td></tr>
+                    <tr><td>21</td><td>2004</td><td>Acciones Integrales para Atención a Población Desplazada</td><td>Unión Europea</td><td>Dpto. Sucre, Colombia</td></tr>
+                    <tr><td>22</td><td>2005</td><td>Construcción de un bloque de 4 Aulas de Clases en I.E. Policarpa</td><td>Embajada de Japón</td><td>Sincelejo, Sucre</td></tr>
+                    <tr><td>23</td><td>2006</td><td>Promover Alianzas Productivas entre Apicultores</td><td>Ministerio de Agricultura</td><td>Dpto. Sucre, Colombia</td></tr>
+                    <tr><td>24</td><td>2006</td><td>Apoyo Integral a Población Desplazada</td><td>Unión Europea</td><td>Dpto. Sucre, Colombia</td></tr>
+                    <tr><td>25</td><td>2007</td><td>Estabilización Socioeconómica de Población Desplazada (500 Hogares)</td><td>OIM</td><td>Sincelejo, Sucre</td></tr>
+                    <tr><td>26</td><td>2008</td><td>Establecimiento de Cultivos Agroecológicos</td><td>Corporación Ecofondo</td><td>Dpto. Sucre, Colombia</td></tr>
+                    <tr><td>27</td><td>2008</td><td>Construcción de Alcantarillado Sanitario, Dulce Nombre de Jesús</td><td>Municipio de Corozal</td><td>Corozal, Sucre</td></tr>
+                    <tr><td>28</td><td>2008</td><td>Estabilización Socioeconómica de Población Desplazada (700 Hogares)</td><td>OIM</td><td>Sincelejo, Sucre</td></tr>
+                    <tr><td>29</td><td>2008</td><td>Construcción de 100 Viviendas de Interés Social</td><td>UNIÓN EUROPEA</td><td>Ovejas, Sucre</td></tr>
+                    <tr><td>30</td><td>2009</td><td>Fortalecimiento Organizacional a 14 Familias de Productores Rurales</td><td>ECOPETROL</td><td>Morroa, Sucre</td></tr>
+                    <tr><td>31</td><td>2010</td><td>Fortalecimiento Organizacional Productivo a 220 Apicultores</td><td>ACCION SOCIAL</td><td>Dpto. Sucre, Colombia</td></tr>
+                    <tr><td>32</td><td>2010</td><td>Alianzas Productivas con 33 Apicultores del Municipio de Ovejas</td><td>FIDUCOLDEX</td><td>Ovejas, Sucre</td></tr>
+                    <tr><td>33</td><td>2012</td><td>Elaboración Plan de Desarrollo del Municipio de Ovejas</td><td>Municipio de Ovejas</td><td>Ovejas, Sucre</td></tr>
+                    <tr><td>34</td><td>2012</td><td>Alianzas Productivas con 39 Apicultores del Municipio de Ovejas</td><td>FIDUCOLDEX</td><td>Carmen de Bolívar</td></tr>
+                    <tr><td>35</td><td>2012</td><td>Apoyo para el Fortalecimiento Técnico a la Secretaría de Planeación</td><td>Municipio de Ovejas</td><td>Ovejas, Sucre</td></tr>
+                    <tr><td>36</td><td>2012</td><td>Apoyo a Construcción de Plan de Vida Indígena, Cabildo Pueblecito</td><td>ECOPETROL</td><td>San Antonio, Sucre</td></tr>
+                    <tr><td>37</td><td>2012</td><td>Diseño y Ejecución de un Programa de Capacitación</td><td>ECOPETROL</td><td>Sucre, Córdoba</td></tr>
+                    <tr><td>38</td><td>2012</td><td>Desarrollo Socioeconómico Tejido Verde</td><td>ECOPETROL</td><td>Sucre, Córdoba</td></tr>
+                    <tr><td>39</td><td>2012</td><td>Construcción y Recuperación de Parque Ecológico Pelinku</td><td>ECOPETROL</td><td>Ovejas, Sucre</td></tr>
+                    <tr><td>40</td><td>2012</td><td>Implementación de Compromisos Sociales</td><td>ECOPETROL</td><td>Córdoba, Sucre</td></tr>
+                    <tr><td>41</td><td>2012</td><td>Implementación de un Programa de Comunicación para el Desarrollo</td><td>ECOPETROL</td><td>Cesar, Colombia</td></tr>
+                    <tr><td>42</td><td>2012</td><td>Fortalecimiento Organizacional a Cultura Afrodescendiente</td><td>ECOPETROL</td><td>Coveñas, Sucre</td></tr>
+                    <tr><td>43</td><td>2012</td><td>Construcción y Rehabilitación de Vía Terciaria</td><td>ECOPETROL</td><td>Aserradero, Sucre</td></tr>
+                    <tr><td>44</td><td>2012</td><td>Primera Etapa de Megacolegio Flamenco</td><td>ECOPETROL</td><td>María La Baja, Bolívar</td></tr>
+                    <tr><td>45</td><td>2012</td><td>Estudios y Diseños Red Eléctrica Palenquillo</td><td>ECOPETROL</td><td>Tolú, Sucre</td></tr>
+                    <tr><td>46</td><td>2012</td><td>Apoyo a Rescate de Medicina Tradicional Indígena Zenú</td><td>ECOPETROL</td><td>Córdoba, Colombia</td></tr>
+                    <tr><td>47</td><td>2012</td><td>Construcción de Sistema de Acueducto Guazo</td><td>ECOPETROL</td><td>Magangué, Bolívar</td></tr>
+                    <tr><td>48</td><td>2012</td><td>Apoyo a Construcción Plan Vida Indígena, Cabildo Porvenir</td><td>ECOPETROL</td><td>San Antero, Córdoba</td></tr>
+                    <tr><td>49</td><td>2012</td><td>Construcción de Casa de Reuniones, Cabildo Indígena Porvenir</td><td>ECOPETROL</td><td>San Antero, Córdoba</td></tr>
+                    <tr><td>50</td><td>2012</td><td>Construcción de Casa de Reuniones, Cabildo Indígena Pueblecito</td><td>ECOPETROL</td><td>San Antonio, Sucre</td></tr>
+                    <tr><td>51</td><td>2013</td><td>Apoyo a Actividades Artísticas Culturales</td><td>MINISTERIO DE CULTURA</td><td>Sucre, Colombia</td></tr>
+                </tbody>
             </table>
         </div>
     </div>
 
-     <div class="footer">
+    <div class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
@@ -134,6 +181,7 @@
                         <div class="footer-social">
                             <a class="btn btn-custom" href="https://www.facebook.com/fidersucre/" aria-label="Facebook de FIDES"><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-custom" href="https://www.instagram.com/fidersucre/" aria-label="Instagram de FIDES"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-custom" href="https://open.spotify.com/intl-es/artist/3HHabEv6ZE3mfWGLm9ADw2?si=1WcAs60OSUqatFLbH-EMpA" target="_blank" rel="noopener noreferrer" aria-label="Spotify de FIDES"><i class="fab fa-spotify"></i></a>
                         </div>
                     </div>
                 </div>
@@ -146,12 +194,11 @@
                         <a href="contacto.html">Contacto</a>
                     </div>
                 </div>
-                 <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="footer-link">
                         <h2>Colaboradores</h2>
-                        <a href="#" rel="noopener noreferrer">Ecopetrol</a>
-                        <a href="#" rel="noopener noreferrer">Unión Europea</a>
-                        <a href="#" rel="noopener noreferrer">OIM</a>
+                        <a href="https://ejemplo-colaborador-1.org/" target="_blank" rel="noopener noreferrer">Colaborador Uno</a>
+                        <a href="https://ejemplo-colaborador-2.org/" target="_blank" rel="noopener noreferrer">Colaborador Dos</a>
                     </div>
                 </div>
             </div>
@@ -172,15 +219,54 @@
         <div class="loader"></div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/parallax/parallax.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" defer></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" defer></script>
+    <script src="lib/easing/easing.min.js" defer></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js" defer></script>
+    <script src="lib/waypoints/waypoints.min.js" defer></script>
+    <script src="lib/counterup/counterup.min.js" defer></script>
+    <script src="lib/parallax/parallax.min.js" defer></script>
     
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
+
+    <script>
+        let lastSortedColumn = -1;
+        let isAscending = true;
+
+        function sortTable(columnIndex) {
+            const tableBody = document.getElementById('proyectosBody');
+            const rows = Array.from(tableBody.querySelectorAll('tr'));
+
+            // Determinar la dirección del ordenamiento
+            if (columnIndex === lastSortedColumn) {
+                isAscending = !isAscending;
+            } else {
+                isAscending = true;
+            }
+            lastSortedColumn = columnIndex;
+
+            // Ordenar las filas
+            rows.sort((a, b) => {
+                const cellA = a.cells[columnIndex].innerText.trim();
+                const cellB = b.cells[columnIndex].innerText.trim();
+
+                // Comprobar si los valores son numéricos
+                const isNumeric = !isNaN(parseFloat(cellA)) && isFinite(cellA) && !isNaN(parseFloat(cellB)) && isFinite(cellB);
+                
+                let comparison = 0;
+                if (isNumeric) {
+                    comparison = parseFloat(cellA) - parseFloat(cellB);
+                } else {
+                    comparison = cellA.localeCompare(cellB, 'es', { sensitivity: 'base' });
+                }
+
+                return isAscending ? comparison : -comparison;
+            });
+
+            // Re-insertar las filas ordenadas en la tabla
+            rows.forEach(row => tableBody.appendChild(row));
+        }
+    </script>
 
 </body>
 </html>
