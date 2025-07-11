@@ -93,6 +93,10 @@
             <h2>Listado de Proyectos Ejecutados</h2>
         </div>
 
+        <div class="form-group">
+            <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Buscar en la tabla..." class="form-control">
+        </div>
+
         <div class="mb-3">
             <strong>Ordenar por:</strong>
             <button class="btn btn-sm btn-secondary" onclick="sortTable(1)">Año</button>
@@ -232,6 +236,29 @@
     <script src="js/main.js" defer></script>
 
     <script>
+        // --- FUNCIÓN PARA FILTRAR LA TABLA ---
+        function filterTable() {
+            const filter = document.getElementById('searchInput').value.toUpperCase();
+            const tableBody = document.getElementById('proyectosBody');
+            const rows = tableBody.getElementsByTagName('tr');
+
+            for (let i = 0; i < rows.length; i++) {
+                let rowVisible = false;
+                const cells = rows[i].getElementsByTagName('td');
+                for (let j = 0; j < cells.length; j++) {
+                    if (cells[j]) {
+                        if (cells[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                            rowVisible = true;
+                            break;
+                        }
+                    }
+                }
+                rows[i].style.display = rowVisible ? "" : "none";
+            }
+        }
+
+
+        // --- FUNCIÓN PARA ORDENAR LA TABLA ---
         let lastSortedColumn = -1;
         let isAscending = true;
 
