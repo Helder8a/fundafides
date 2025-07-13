@@ -59,6 +59,32 @@
       ]
     }
     </script>
+
+    <style>
+    .whatsapp-flotante {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 40px;
+        background-color: #25D366;
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 3px #999;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s;
+    }
+
+    .whatsapp-flotante:hover {
+        background-color: #128C7E;
+        color: #FFF;
+    }
+    </style>
 </head>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-557GV639W3"></script>
@@ -70,7 +96,6 @@
 
     <meta name="google-site-verification" content="EW3j6H-MJxVkgKPLd2fNIYnnH8Zxi59b6y4Zw6qKWfw" />
 </script>
-
 
 <body>
     <div class="top-bar d-none d-md-block">
@@ -285,7 +310,7 @@
         <div class="container copyright">
             <div class="row">
                 <div class="col-md-6">
-                    <p>&copy; <a href="https://fundafidescol.org/">Fundación FIDES Sucre</a>, Todos los Derechos Reservados.</p>
+                    <p>© <a href="https://fundafidescol.org/">Fundación FIDES Sucre</a>, Todos los Derechos Reservados.</p>
                 </div>
                 <div class="col-md-6">
                     <p>Diseñado por: <a href="https://www.hboconsulting.com/" target="_blank" rel="noopener noreferrer">HBO Consulting</a></p>
@@ -294,6 +319,10 @@
         </div>
     </div>
     <a href="#" class="back-to-top" aria-label="Volver arriba"><i class="fa fa-chevron-up"></i></a>
+
+    <a href="https://wa.me/573128284509" class="whatsapp-flotante" target="_blank" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <div id="loader" class="show">
         <div class="loader"></div>
