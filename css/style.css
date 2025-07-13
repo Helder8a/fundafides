@@ -2235,3 +2235,78 @@ a:focus {
     border-style: solid;
     border-color: transparent transparent transparent #128C7E;
 }
+
+/*******************************/
+/********* Gallery CSS *********/
+/*******************************/
+.gallery-page {
+    padding: 60px 0;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    
+    /* Se establece una altura fija para todos los contenedores de imagen */
+    height: 250px; 
+}
+
+.gallery-item img {
+    /* La imagen ocupa el 100% del contenedor */
+    width: 100%;
+    height: 100%;
+    
+    /* La clave: la imagen cubre el area, se recorta sin deformarse */
+    object-fit: cover; 
+    
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(74, 76, 112, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay h3 {
+    color: #FDBE33;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.gallery-overlay i {
+    font-size: 30px;
+    color: #ffffff;
+}
+
+/* Estilos para el Lightbox */
+.ekko-lightbox .modal-header {
+    border-bottom: none;
+}
+.ekko-lightbox .modal-footer {
+    border-top: none;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+}
