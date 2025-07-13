@@ -1,4 +1,7 @@
+# Directivas para todos los agentes de usuario (bots de búsqueda)
 User-agent: *
-Allow: /
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
 
+# Ubicación del mapa del sitio principal
 Sitemap: https://fundafidescol.org/sitemap.xml
