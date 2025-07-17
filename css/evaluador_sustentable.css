@@ -1,0 +1,88 @@
+/* Estilos para el Evaluador de Proyectos Ambientales */
+
+.category-card {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-left: 5px solid #FDBE33;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+
+.category-card h3 {
+    color: #4a4c70;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.category-card h3 i {
+    margin-right: 10px;
+    color: #FDBE33;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #555;
+}
+
+.form-control {
+    border-radius: 0;
+    border-color: #ced4da;
+}
+
+.form-control:focus {
+    border-color: #FDBE33;
+    box-shadow: none;
+}
+
+.results-sidebar {
+    background-color: #4a4c70;
+    color: #ffffff;
+    padding: 30px;
+    border-radius: 5px;
+    position: sticky;
+    top: 20px;
+}
+
+.results-sidebar h3 {
+    color: #FDBE33;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.score-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.score-container p {
+    margin: 0;
+    font-size: 18px;
+}
+
+.score-container #totalScore {
+    font-size: 48px;
+    font-weight: 700;
+    color: #FDBE33;
+}
+
+.progress-bar-container {
+    background-color: #777;
+    border-radius: 5px;
+    height: 20px;
+    overflow: hidden;
+}
+
+#progressBar {
+    background-color: #FDBE33;
+    height: 100%;
+    transition: width 0.5s ease-in-out;
+}
+
+#certificationLevel #levelText {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+}
