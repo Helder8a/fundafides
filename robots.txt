@@ -1,33 +1,6 @@
-# ===================================================================
-# Directivas para todos los agentes de usuario (bots de búsqueda)
-# ===================================================================
+# Permitir a todos los buscadores rastrear todo el sitio
 User-agent: *
+Disallow:
 
-# Bloquear el acceso al panel de administración de WordPress
-Disallow: /wp-admin/
-
-# Bloquear las páginas de resultados de búsqueda internos para evitar contenido duplicado
-Disallow: /?s=
-Disallow: /search/
-
-# Permitir el acceso a AJAX para el renderizado correcto de temas y plugins
-Allow: /wp-admin/admin-ajax.php
-
-
-# ===================================================================
-# Ubicación del mapa del sitio para ayudar a los bots a encontrar tu contenido
-# ===================================================================
-Sitemap: https://fundafidescol.org/sitemap.xml
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Ubicación del Sitemap para todos los buscadores
+Sitemap: https://artsoulcolibri.com/sitemap.xml
