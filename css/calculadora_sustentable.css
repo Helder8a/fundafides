@@ -1,9 +1,33 @@
-/* Estilos para Guía de Sostenibilidad */
+/* Estilos para Guía de Sostenibilidad - Mobile First */
+
+/* Estilos base para todas las pantallas (Móvil) */
 .main-content-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr; /* Una sola columna por defecto */
     gap: 30px;
 }
+
+.results-sidebar {
+    position: static; /* Cambiado de 'sticky' a 'static' para móviles */
+    margin-top: 30px;
+    background: #20212B;
+    color: #fff;
+    padding: 25px;
+    border-radius: 5px;
+}
+
+/* Estilos para pantallas grandes (Desktop) */
+@media (min-width: 992px) {
+    .main-content-grid {
+        grid-template-columns: 2fr 1fr; /* Dos columnas en pantallas anchas */
+    }
+    .results-sidebar {
+        position: sticky; /* Barra lateral fija en pantallas anchas */
+        top: 20px;
+    }
+}
+
+/* --- Resto de los estilos (sin cambios) --- */
 
 #evaluacion h2, #evaluacion h3 {
     font-size: 22px;
@@ -49,7 +73,6 @@
     box-shadow: none;
 }
 
-
 #evaluationForm .card-body {
     padding: 10px 20px;
     background-color: #fff;
@@ -77,7 +100,7 @@
 .cost-indicator { background-color: #6c757d; }
 .roi-indicator { background-color: #28a745; }
 
-.point-selector { display: flex; }
+.point-selector { display: flex; flex-wrap: wrap; }
 .point-selector .btn {
     min-width: 35px;
     height: 35px;
@@ -85,6 +108,7 @@
     background-color: #f8f9fa;
     color: #333;
     margin-right: 5px;
+    margin-bottom: 5px;
     transition: all 0.2s ease;
 }
 .point-selector .btn.active {
@@ -98,16 +122,6 @@
 }
 .point-selector .btn.active:hover {
     background-color: #fbc852;
-}
-
-
-.results-sidebar {
-    position: sticky;
-    top: 20px;
-    background: #20212B;
-    color: #fff;
-    padding: 25px;
-    border-radius: 5px;
 }
 
 .results-sidebar .results-title { font-size: 22px; font-weight: 700; color: #FDBE33; text-align: center; margin-bottom: 20px; }
@@ -146,7 +160,6 @@
     margin-right: 8px;
 }
 
-
 .modal-content { border-radius: 0; }
 .modal-header { background-color: #4a4c70; color: #FDBE33; }
 .modal-header .close { color: #fff; opacity: 1; }
@@ -164,11 +177,6 @@
     text-decoration: underline dotted #007bff;
     cursor: help;
     position: relative;
-}
-
-@media (max-width: 991.98px) {
-    .main-content-grid { grid-template-columns: 1fr; }
-    .results-sidebar { position: static; margin-top: 30px; }
 }
 
 .btn-donar-sidebar {
@@ -202,9 +210,6 @@
     100% { transform: scale(1); }
 }
 
-/* ... (Estilos anteriores sin cambios) ... */
-
-/* Estilos para el nuevo Módulo de Comparación */
 #comparisonModule {
     margin-top: 25px;
 }
@@ -243,6 +248,3 @@
     font-style: italic;
     margin-left: 8px;
 }
-
-
-/* ... (Resto de los estilos sin cambios) ... */
