@@ -1,7 +1,9 @@
 /*******************************/
 /********* General CSS *********/
 /*******************************/
+html,
 body {
+    overflow-x: hidden; /* <-- AÑADIDO: Evita el desbordamiento horizontal y el "rebote" en móviles */
     color: #777777;
     font-weight: 500;
     background: #ffffff;
