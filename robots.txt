@@ -1,6 +1,0 @@
-# Permitir a todos los buscadores rastrear todo el sitio
-User-agent: *
-Disallow:
-
-# Ubicación del Sitemap para todos los buscadores
-Sitemap: https://artsoulcolibri.com/sitemap.xml
