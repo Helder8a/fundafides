@@ -5,13 +5,13 @@
     <title>Evaluador Global de Sostenibilidad para Edificios: LEED, BREEAM, DGNB, WELL | FIDES</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <meta name="description" content="Herramienta interactiva y gratuita para evaluar la sostenibilidad de proyectos de edificación. Obtén un puntaje estimado y compara resultados entre certificaciones como LEED, BREEAM, DGNB, WELL, Green Star y CASBEE.">
-    <meta name="keywords" content="comparador certificaciones sostenibles, evaluador sostenibilidad, calculadora leed, guía breeam, certificación dgnb, well building standard, green star australia, casbee japón, construcción sostenible, fides sucre">
+    <meta name="description" content="Herramienta interactiva y gratuita para evaluar la sostenibilidad de proyectos de edificación. Obtén un puntaje estimado para certificaciones internacionales como LEED, BREEAM, DGNB, WELL, Green Star y CASBEE.">
+    <meta name="keywords" content="evaluador sostenibilidad, calculadora leed, guía breeam, certificación dgnb, well building standard, green star australia, casbee japón, construcción sostenible, edificación verde, fides sucre">
     <meta name="author" content="Fundación FIDES Sucre">
     <link rel="canonical" href="https://fundafidescol.org/evaluador_sustentable.html" />
 
-    <meta name="description" lang="en" content="Free interactive tool to assess and compare building sustainability. Get estimated scores for international certifications like LEED, BREEAM, DGNB, WELL, Green Star, and CASBEE.">
-    <meta name="keywords" lang="en" content="sustainability certification comparator, assessment tool, leed calculator, breeam guide, dgnb certification, well building standard, green star australia, casbee japan, green building">
+    <meta name="description" lang="en" content="Free interactive tool to assess the sustainability of building projects. Get an estimated score for international certifications like LEED, BREEAM, DGNB, WELL, Green Star, and CASBEE.">
+    <meta name="keywords" lang="en" content="sustainability assessment tool, leed calculator, breeam guide, dgnb certification, well building standard, green star australia, casbee japan, sustainable construction, green building">
     
     <link rel="alternate" hreflang="es" href="https://fundafidescol.org/evaluador_sustentable.html" />
     <link rel="alternate" hreflang="en" href="https://fundafidescol.org/evaluador_sustentable.html" />
@@ -28,6 +28,48 @@
 </head>
 
 <body>
+    <div class="top-bar d-none d-md-block">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="top-bar-left">
+                        <div class="text"><i class="fa fa-phone-alt"></i><p>+57 3128284509</p></div>
+                        <div class="text"><i class="fa fa-envelope"></i><p>fidessuc@gmail.com</p></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="top-bar-right">
+                        <div class="social">
+                            <a href="https://www.facebook.com/fidersucre/" aria-label="Visita nuestro Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/fidersucre/" aria-label="Visita nuestro Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand"><img class="navbar-logo" src="img/logo fundacion para el desarrollo de sucre.jpg" alt="Logo Fundación FIDES"></a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" aria-label="Alternar navegación"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto">
+                    <a href="index.html" class="nav-item nav-link">INICIO</a>
+                    <a href="proyectos.html" class="nav-item nav-link">PROYECTOS</a>
+                    <a href="galeria.html" class="nav-item nav-link">GALERÍA</a>
+                    <div class="nav-item dropdown active">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">HERRAMIENTAS WEB</a>
+                        <div class="dropdown-menu">
+                            <a href="evaluador_sustentable.html" class="dropdown-item">Evaluador de Sostenibilidad</a>
+                        </div>
+                    </div>
+                    <a href="blog.html" class="nav-item nav-link">BLOG</a>
+                    <a href="contacto.html" class="nav-item nav-link">CONTACTO</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <div class="page-header">
         <div class="container">
             <div class="row">
@@ -46,7 +88,7 @@
                     <h2 id="eval-heading" class="h3">1. Configure su Proyecto</h2>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="certificacionSelector"><strong>Certificación Principal:</strong></label>
+                            <label for="certificacionSelector"><strong>Certificación:</strong></label>
                             <select id="certificacionSelector" class="form-control" aria-label="Selector de certificación">
                                 <option value="leed">LEED v4.1 BD+C (Global)</option>
                                 <option value="breeam">BREEAM Int. New Construction 2016 (Global)</option>
@@ -80,23 +122,29 @@
                     <p id="levelText">Sin puntaje</p>
                 </div>
                 
+                <div class="disclaimer">
+                    <i class="fa fa-exclamation-triangle"></i>
+                    <p>Este es un puntaje estimado. La certificación oficial requiere documentación y revisión por una entidad autorizada.</p>
+                </div>
+
                 <div class="chart-container">
                     <canvas id="resultsChart"></canvas>
                 </div>
 
                 <div id="recommendations">
                     <h4><i class="fa fa-lightbulb"></i> Recomendaciones Estratégicas</h4>
-                    <ul id="recommendationsList"></ul>
-                </div>
-
-                <div id="comparisonModule">
-                    <h4><i class="fa fa-balance-scale"></i> Análisis Comparativo</h4>
-                    <button id="compareButton" class="btn btn-info btn-block"><i class="fa fa-sync-alt"></i> Comparar Certificaciones</button>
-                    <div id="comparisonResults" class="mt-3"></div>
+                    <ul id="recommendationsList">
+                        <li>Complete la evaluación para ver sugerencias.</li>
+                    </ul>
                 </div>
                 
-                <button id="exportPdfButton" class="btn btn-custom btn-block mt-3" type="button"><i class="fa fa-file-pdf"></i> Exportar Informe</button>
-                <button id="resetButton" class="btn btn-custom btn-block mt-2" type="button"><i class="fa fa-undo"></i> Reiniciar</button>
+                <div id="costBenefitAnalysis">
+                     <h4><i class="fa fa-dollar-sign"></i> Análisis Costo-Beneficio</h4>
+                     <p id="costBenefitText">Seleccione créditos para ver un análisis.</p>
+                </div>
+                
+                <button id="exportPdfButton" class="btn btn-custom btn-block" type="button"><i class="fa fa-file-pdf"></i> Exportar Informe</button>
+                <button id="resetButton" class="btn btn-custom btn-block mt-2" type="button"><i class="fa fa-sync-alt"></i> Reiniciar</button>
                 
                 <a href="donar.html" class="btn btn-donar-sidebar btn-block mt-3">
                     <i class="fa fa-heart"></i> Apoyar esta Herramienta
@@ -104,6 +152,33 @@
             </aside>
         </div>
     </main>
+
+    <div class="footer">
+        <div class="container copyright">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>© <a href="https://fundafidescol.org/">Fundación FIDES Sucre</a>, Todos los Derechos Reservados.</p>
+                </div>
+                <div class="col-md-6">
+                    <p>Diseñado por: <a href="#" target="_blank" rel="noopener noreferrer">HBO Consulting</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <div id="loader" class="show"><div class="loader"></div></div>
+    <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body" id="modalDescription"></div>
+                 <div class="modal-footer" id="modalDocs"></div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
