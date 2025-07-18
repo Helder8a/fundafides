@@ -3,7 +3,7 @@
 /*******************************/
 html,
 body {
-    overflow-x: hidden; /* Mantiene la página contenida, evitando el desbordamiento */
+    overflow-x: hidden; /* Evita el desbordamiento horizontal y el "rebote" en móviles */
     color: #777777;
     font-weight: 500;
     background: #ffffff;
@@ -591,7 +591,7 @@ a:focus {
 
 @media (max-width: 991.98px) {
     .page-header {
-        padding: 60px 0;
+        padding: 120px 0;
     }
     
     .page-header h2 {
@@ -605,7 +605,7 @@ a:focus {
 
 @media (max-width: 767.98px) {
     .page-header {
-        padding: 45px 0;
+        padding: 90px 0;
     }
     
     .page-header h2 {
@@ -643,19 +643,7 @@ a:focus {
     font-weight: 700;
 }
 
-@media (max-width: 991.98px) {
-    .section-header h2 {
-        font-size: 45px;
-    }
-}
-
 @media (max-width: 767.98px) {
-    .section-header h2 {
-        font-size: 40px;
-    }
-}
-
-@media (max-width: 575.98px) {
     .section-header h2 {
         font-size: 35px;
     }
@@ -2146,7 +2134,6 @@ a:focus {
 }
 
 @media (max-width: 767.98px) {
-    /* CORRECCIÓN: Reducir el padding horizontal en el footer para móviles */
     .footer .copyright {
         padding: 0 15px;
     }
