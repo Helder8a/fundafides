@@ -44,6 +44,14 @@
     border-radius: 5px;
 }
 
+#certification-description {
+    padding: 15px;
+    background-color: #fff;
+    border-left: 3px solid #FDBE33;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
 #evaluationForm .card {
     margin-bottom: 10px;
     border-radius: 0;
