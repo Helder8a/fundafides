@@ -1,13 +1,147 @@
 document.addEventListener('DOMContentLoaded', function () {
     const certificationData = {
         leed: {
-            // ... (Datos de LEED se mantienen igual que en la respuesta anterior)
+            name: "LEED v4.1 BD+C",
+            description: "Leadership in Energy and Environmental Design (LEED) es un sistema de certificación de edificios verdes reconocido internacionalmente, que proporciona una verificación por parte de terceros de que un edificio o comunidad fue diseñado y construido utilizando estrategias destinadas a mejorar el rendimiento en todas las métricas que más importan: ahorro de energía, eficiencia del agua, reducción de emisiones de CO2, mejora de la calidad ambiental interior y administración de recursos y sensibilidad a sus impactos.",
+            maxScore: 110,
+            scoreUnit: 'Puntos',
+            levels: [
+                { score: 80, name: 'Platino' },
+                { score: 60, name: 'Oro' },
+                { score: 50, name: 'Plata' },
+                { score: 40, name: 'Certificado' }
+            ],
+            glossary: {
+                'ACV': 'Análisis de Ciclo de Vida (Life Cycle Assessment).',
+            },
+            categories: {
+                'Ubicación y Transporte': {
+                    points: 0, max: 16,
+                    credits: [
+                        { name: 'Acceso a transporte de calidad', points: 5, cost: '$$', roi: true, info: 'Ubicación del proyecto cerca de varias opciones de transporte público.', docs: ['Mapa de transporte público', 'Cálculo de rutas'] },
+                        { name: 'Infraestructura para bicicletas', points: 1, cost: '$', roi: true, info: 'Provisión de estacionamiento para bicicletas y duchas.', docs: ['Planos de instalaciones para ciclistas'] }
+                    ]
+                },
+                'Sitios Sostenibles': {
+                    points: 0, max: 10,
+                    credits: [
+                        { name: 'Reducción del efecto isla de calor', points: 2, cost: '$$', roi: true, info: 'Uso de materiales con alto albedo en techos y pavimentos.', docs: ['Fichas técnicas de materiales reflectantes'] }
+                    ]
+                },
+                'Eficiencia del Agua': {
+                    points: 0, max: 11,
+                    credits: [
+                        { name: 'Reducción del uso de agua en interiores', points: 6, cost: '$', roi: true, info: 'Instalación de aparatos sanitarios de bajo consumo.', docs: ['Especificaciones de aparatos sanitarios'] }
+                    ]
+                },
+                'Energía y Atmósfera': {
+                    points: 0, max: 33,
+                    credits: [
+                        { name: 'Optimización del rendimiento energético', points: 18, cost: '$$$', roi: true, info: 'Mejora del rendimiento energético por encima de los estándares base.', docs: ['Simulación energética del edificio'] },
+                        { name: 'Energía renovable en el sitio', points: 5, cost: '$$$', roi: true, info: 'Instalación de sistemas de energía renovable como paneles solares.', docs: ['Cálculos de producción de energía renovable'] }
+                    ]
+                },
+                'Materiales y Recursos': {
+                    points: 0, max: 13,
+                    credits: [
+                         { name: 'Reducción del impacto del ACV del edificio', points: 5, cost: '$$', roi: false, info: 'Realizar un análisis de ciclo de vida para reducir los impactos ambientales de los materiales.', docs: ['Informe de ACV'] }
+                    ]
+                },
+                'Calidad Ambiental Interior': {
+                    points: 0, max: 16,
+                    credits: [
+                        { name: 'Materiales de bajas emisiones', points: 3, cost: '$', roi: true, info: 'Uso de pinturas, adhesivos, selladores y suelos con bajo contenido de VOC.', docs: ['Certificados de VOC de materiales'] }
+                    ]
+                },
+                'Innovación': {
+                    points: 0, max: 6,
+                    credits: [
+                        { name: 'Innovación', points: 5, cost: '$', roi: false, info: 'Lograr un rendimiento ejemplar en créditos existentes o aplicar una estrategia no cubierta por LEED.', docs: ['Narrativa y documentación de la estrategia de innovación'] }
+                    ]
+                },
+                'Prioridad Regional': {
+                    points: 0, max: 4,
+                    credits: [
+                        { name: 'Crédito de Prioridad Regional', points: 1, cost: '$', roi: false, info: 'Lograr créditos que han sido identificados como de especial importancia ambiental para la región del proyecto.', docs: ['Documentación específica del crédito de prioridad regional'] }
+                    ]
+                }
+            }
         },
         breeam: {
-            // ... (Datos de BREEAM se mantienen igual que en la respuesta anterior)
+            name: "BREEAM Int. New Construction 2016",
+            description: "Building Research Establishment Environmental Assessment Method (BREEAM) es el método de evaluación y certificación de la sostenibilidad de la edificación líder en el mundo. Mide una serie de factores, incluyendo energía, agua, uso del suelo, salud y bienestar, contaminación, transporte, materiales y residuos.",
+            maxScore: 100,
+            scoreUnit: '%',
+            levels: [
+                { score: 85, name: 'Excepcional' },
+                { score: 70, name: 'Excelente' },
+                { score: 55, name: 'Muy Bueno' },
+                { score: 45, name: 'Bueno' },
+                { score: 30, name: 'Aprobado' }
+            ],
+            glossary: {
+                'ACV': 'Análisis de Ciclo de Vida (Life Cycle Assessment).',
+            },
+            categories: {
+                'Gestión': {
+                    points: 0, max: 19, weight: 12,
+                    credits: [
+                        { name: 'Puesta en marcha y entrega', points: 4, cost: '$', roi: true, info: 'Asegurar que el edificio funcione según lo previsto.', docs: ['Plan de puesta en marcha'] }
+                    ]
+                },
+                'Salud y Bienestar': {
+                    points: 0, max: 15, weight: 15,
+                    credits: [
+                        { name: 'Calidad del aire interior', points: 4, cost: '$$', roi: true, info: 'Desarrollar e implementar un plan para mantener una alta calidad del aire interior.', docs: ['Plan de calidad del aire interior'] }
+                    ]
+                },
+                'Energía': {
+                    points: 0, max: 31, weight: 19,
+                    credits: [
+                        { name: 'Reducción de emisiones de carbono', points: 15, cost: '$$$', roi: true, info: 'Reducir las emisiones de CO2 relacionadas con la energía.', docs: ['Cálculo de emisiones de CO2'] }
+                    ]
+                },
+                'Transporte': {
+                    points: 0, max: 10, weight: 8,
+                    credits: [
+                        { name: 'Accesibilidad al transporte público', points: 3, cost: '$$$', roi: true, info: 'Buena accesibilidad al transporte público.', docs: ['Mapa de nodos de transporte'] }
+                    ]
+                },
+                'Agua': {
+                    points: 0, max: 9, weight: 6,
+                    credits: [
+                        { name: 'Reducción del consumo de agua', points: 5, cost: '$', roi: true, info: 'Instalación de aparatos sanitarios eficientes.', docs: ['Cálculos de consumo de agua'] }
+                    ]
+                },
+                'Materiales': {
+                    points: 0, max: 14, weight: 12.5,
+                    credits: [
+                        { name: 'Impactos del ciclo de vida (ACV)', points: 6, cost: '$$', roi: false, info: 'Uso de un ACV para guiar la selección de materiales.', docs: ['Informe de ACV'] }
+                    ]
+                },
+                'Residuos': {
+                    points: 0, max: 10, weight: 7.5,
+                    credits: [
+                        { name: 'Gestión de residuos de construcción', points: 3, cost: '$', roi: true, info: 'Desviar los residuos de construcción del vertedero.', docs: ['Plan de gestión de residuos de construcción'] }
+                    ]
+                },
+                'Uso del Suelo y Ecología': {
+                    points: 0, max: 10, weight: 10,
+                    credits: [
+                        { name: 'Valor ecológico del sitio', points: 2, cost: '$$', roi: false, info: 'Mejorar el valor ecológico del sitio.', docs: ['Informe de ecólogo'] }
+                    ]
+                },
+                'Contaminación': {
+                    points: 0, max: 13, weight: 10,
+                    credits: [
+                        { name: 'Impacto de los refrigerantes', points: 3, cost: '$', roi: true, info: 'Uso de refrigerantes con bajo potencial de calentamiento global.', docs: ['Especificaciones del sistema HVAC'] }
+                    ]
+                }
+            }
         },
         dgnb: {
             name: "DGNB System Version 2018",
+            description: "El sistema de la Deutsche Gesellschaft für Nachhaltiges Bauen (DGNB) se basa en el concepto de sostenibilidad integral, que incluye por igual los aspectos medioambientales, económicos y socioculturales. La evaluación se basa en el ciclo de vida completo de un edificio.",
             maxScore: 100,
             scoreUnit: '%',
             levels: [
@@ -60,6 +194,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         well: {
             name: "WELL v2",
+            description: "El WELL Building Standard es un sistema basado en el rendimiento para medir, certificar y supervisar las características del entorno construido que repercuten en la salud y el bienestar humanos, a través del aire, el agua, la nutrición, la luz, la forma física, el confort y la mente.",
             maxScore: 100,
             scoreUnit: 'Puntos',
             levels: [
@@ -102,6 +237,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         greenstar: {
             name: "Green Star Buildings v1",
+            description: "Green Star es un sistema de calificación de la sostenibilidad para edificios, acondicionamientos y comunidades de Australia. El sistema evalúa los atributos de diseño, construcción y funcionamiento de los edificios y las comunidades.",
             maxScore: 100,
             scoreUnit: 'Puntos',
             levels: [
@@ -135,6 +271,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         casbee: {
             name: "CASBEE for New Construction",
+            description: "Comprehensive Assessment System for Built Environment Efficiency (CASBEE) es un método para evaluar y calificar el comportamiento medioambiental de los edificios y el entorno construido. CASBEE se desarrolló en Japón y ahora se utiliza en varios países asiáticos.",
             maxScore: 5, // La puntuación es un ranking de eficiencia (BEE) de 1 a 5
             scoreUnit: ' (BEE)',
             levels: [
@@ -179,11 +316,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    // ... (El resto del código JS no necesita cambios, solo se han añadido los datos de las nuevas certificaciones)
-
     const form = document.getElementById('evaluationForm');
     const selector = document.getElementById('certificacionSelector');
     const contextContainer = document.getElementById('context-selector-container');
+    const certificationDescriptionEl = document.getElementById('certification-description');
     const totalScoreEl = document.getElementById('totalScore');
     const maxScoreEl = document.getElementById('maxScore');
     const scoreUnitEl = document.getElementById('scoreUnit');
@@ -198,6 +334,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const data = certificationData[cert];
         maxScoreEl.textContent = data.maxScore;
         scoreUnitEl.textContent = data.scoreUnit || 'Puntos';
+        certificationDescriptionEl.innerHTML = `<p>${data.description}</p>`;
         
         // Crear selector de contexto si es necesario
         contextContainer.innerHTML = '';
@@ -354,7 +491,6 @@ document.addEventListener('DOMContentLoaded', function () {
         updateChart(data);
     }
     
-    // ... (El resto del código como updateChart, recommendations, export, etc. no necesita cambios)
     function updateChart(data) {
         let chartDisplayData = [];
         let label = 'Puntos';
@@ -568,208 +704,5 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    init();
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-    const certificationData = {
-        // MATRIZ DE EQUIVALENCIA A TRAVÉS DE 'mappingId'
-        // Cada crédito ahora tiene un ID único que representa la acción de sostenibilidad.
-        leed: {
-            name: "LEED v4.1 BD+C",
-            maxScore: 110,
-            scoreUnit: 'Puntos',
-            levels: [
-                //... niveles sin cambios
-            ],
-            categories: {
-                'Ubicación y Transporte': {
-                    credits: [
-                        { name: 'Acceso a transporte de calidad', points: 5, cost: '$$', roi: true, info: '...', docs: [], mappingId: 'transport_access' },
-                        // ... otros créditos con su mappingId
-                    ]
-                },
-                'Eficiencia del Agua': {
-                    credits: [
-                        { name: 'Reducción del uso de agua en interiores', points: 6, cost: '$', roi: true, info: '...', docs: [], mappingId: 'water_indoor_reduction' },
-                        // ...
-                    ]
-                },
-                 'Energía y Atmósfera': {
-                    credits: [
-                        { name: 'Optimización del rendimiento energético', points: 18, cost: '$$$', roi: true, info: '...', docs: [], mappingId: 'energy_performance' },
-                        { name: 'Energía renovable en el sitio', points: 5, cost: '$$$', roi: true, info: '...', docs: [], mappingId: 'renewable_energy' },
-                    ]
-                },
-                 'Materiales y Recursos': {
-                    credits: [
-                         { name: 'Reducción del impacto del ACV del edificio', points: 5, cost: '$$', roi: false, info: '...', docs: [], mappingId: 'lca_impact_reduction' }
-                    ]
-                }
-            }
-        },
-        breeam: {
-            name: "BREEAM Int. New Construction 2016",
-            maxScore: 100,
-            scoreUnit: '%',
-             levels: [
-                //... niveles sin cambios
-            ],
-            categories: {
-                'Energía': {
-                    weight: 19,
-                    credits: [
-                        { name: 'Reducción de emisiones de carbono', points: 15, cost: '$$$', roi: true, info: '...', docs: [], mappingId: 'energy_performance' },
-                    ]
-                },
-                'Agua': {
-                    weight: 6,
-                    credits: [
-                        { name: 'Reducción del consumo de agua', points: 5, cost: '$', roi: true, info: '...', docs: [], mappingId: 'water_indoor_reduction' },
-                    ]
-                },
-                'Transporte': {
-                    weight: 8,
-                    credits: [
-                        { name: 'Accesibilidad al transporte público', points: 3, cost: '$$$', roi: true, info: '...', docs: [], mappingId: 'transport_access' },
-                    ]
-                },
-                 'Materiales': {
-                    weight: 12.5,
-                    credits: [
-                        { name: 'Impactos del ciclo de vida (ACV)', points: 6, cost: '$$', roi: false, info: '...', docs: [], mappingId: 'lca_impact_reduction' }
-                    ]
-                }
-            }
-        },
-        // ... Datos para DGNB, WELL, GREENSTAR, CASBEE con sus `mappingId` correspondientes
-    };
-
-    // ... (Variables iniciales sin cambios)
-
-    const compareButton = document.getElementById('compareButton');
-    const comparisonResultsContainer = document.getElementById('comparisonResults');
-
-    function createForm(cert) {
-        // ... (Función createForm sin cambios)
-    }
-
-    function calculateScore() {
-        // ... (Función calculateScore sin cambios, pero ahora se llama desde el botón de comparación también)
-    }
-    
-    // --- NUEVA FUNCIONALIDAD DE COMPARACIÓN ---
-    function calculateComparativeScores() {
-        const currentCertKey = selector.value;
-        const currentData = certificationData[currentCertKey];
-        
-        // 1. Obtener los mappingIds de los créditos seleccionados en la certificación actual
-        const selectedMappingIds = new Set();
-        form.querySelectorAll('.point-selector').forEach(selector => {
-            const selectedButton = selector.querySelector('.btn.active');
-            const points = selectedButton ? parseInt(selectedButton.dataset.value, 10) : 0;
-            if (points > 0) {
-                const categoryName = selector.dataset.category;
-                const creditName = selector.dataset.credit;
-                const credit = currentData.categories[categoryName].credits.find(c => c.name === creditName);
-                if (credit && credit.mappingId) {
-                    selectedMappingIds.add(credit.mappingId);
-                }
-            }
-        });
-
-        // 2. Calcular el puntaje para las otras certificaciones
-        const comparativeResults = {};
-        Object.keys(certificationData).forEach(certKey => {
-            if (certKey === currentCertKey) return; // No comparar consigo mismo
-
-            const data = certificationData[certKey];
-            let totalScore = 0;
-            const categoryPoints = {};
-
-            Object.keys(data.categories).forEach(catName => {
-                categoryPoints[catName] = { points: 0, max: data.categories[catName].max, weight: data.categories[catName].weight };
-                data.categories[catName].credits.forEach(credit => {
-                    if (selectedMappingIds.has(credit.mappingId)) {
-                        // Asignar el puntaje máximo del crédito equivalente
-                        categoryPoints[catName].points += credit.points;
-                    }
-                });
-            });
-
-            // Aplicar la lógica de puntuación específica de cada certificación
-            if (certKey === 'breeam' || certKey === 'dgnb') {
-                Object.values(categoryPoints).forEach(cat => {
-                    totalScore += (cat.points / cat.max) * cat.weight;
-                });
-            } else if (certKey === 'casbee') {
-                 let Q = 0;
-                 Object.values(categoryPoints).forEach(cat => { Q += (cat.points / cat.max) * 25; });
-                 totalScore = Q / 35;
-            }
-            else { // LEED, WELL, Green Star
-                Object.values(categoryPoints).forEach(cat => { totalScore += cat.points; });
-            }
-            
-            totalScore = parseFloat(totalScore.toFixed(1));
-            
-            let level = 'Sin Calificación';
-            for (let i = 0; i < data.levels.length; i++) {
-                if (totalScore >= data.levels[i].score) {
-                    level = data.levels[i].name;
-                    break;
-                }
-            }
-            
-            comparativeResults[certKey] = {
-                score: totalScore,
-                level: level,
-                name: data.name
-            };
-        });
-
-        displayComparativeResults(comparativeResults);
-    }
-
-    function displayComparativeResults(results) {
-        comparisonResultsContainer.innerHTML = '';
-        Object.values(results).forEach(result => {
-            const item = document.createElement('div');
-            item.className = 'comparison-item';
-            item.innerHTML = `
-                <span class="cert-name">${result.name.split('(')[0].trim()}</span>
-                <div>
-                    <span class="cert-score">${result.score}</span>
-                    <span class="cert-level">${result.level}</span>
-                </div>
-            `;
-            comparisonResultsContainer.appendChild(item);
-        });
-    }
-
-
-    // ... (Resto de funciones: updateUI, updateChart, etc. se mantienen igual)
-
-    // --- EVENT LISTENERS ---
-    selector.addEventListener('change', () => {
-        init();
-        comparisonResultsContainer.innerHTML = ''; // Limpiar resultados al cambiar
-    });
-
-    resetButton.addEventListener('click', () => {
-        init();
-        comparisonResultsContainer.innerHTML = ''; // Limpiar resultados al reiniciar
-    });
-    
-    compareButton.addEventListener('click', calculateComparativeScores);
-
-    // ... (Resto de los event listeners se mantienen igual)
-    
-    function init() {
-        const cert = selector.value;
-        createForm(cert);
-        calculateScore();
-    }
-    
     init();
 });
