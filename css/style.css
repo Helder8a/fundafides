@@ -646,6 +646,29 @@ a:focus {
     }
 }
 
+/* =============================================== */
+/* ===== CÓDIGO PARA UNIFICAR TAMAÑO DE CARRUSEL ===== */
+/* =============================================== */
+
+.carousel .carousel-item .carousel-img {
+    height: 60vh; /* Altura base para móviles (60% de la altura de la pantalla) */
+    min-height: 450px; /* Altura mínima para evitar que sea muy pequeño */
+}
+
+.carousel .carousel-item .carousel-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* CLAVE: La imagen cubre el espacio, se recorta si es necesario pero no se deforma */
+}
+
+/* Ajuste para pantallas más grandes */
+@media (min-width: 768px) {
+    .carousel .carousel-item .carousel-img {
+        height: 80vh; /* Aumenta la altura en tabletas y escritorio */
+        min-height: 600px;
+    }
+}
+
 /* --- AJUSTES PARA ESCRITORIO (A PARTIR DE
 
 
