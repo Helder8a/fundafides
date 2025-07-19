@@ -2407,17 +2407,3 @@ body {
         margin-bottom: 30px; /* Espacio debajo de la imagen en móvil */
     }
 }
-
-/* --- Estilos para Botones de Idioma --- */
-.top-bar .social a.lang-btn {
-    color: #ffffff;
-    padding: 0 8px;
-    font-weight: 700;
-    font-size: 14px;
-    border-right: 1px solid rgba(255, 255, 255, .3);
-}
-
-.top-bar .social a.lang-btn:hover {
-    color: #FDBE33;
-    background: none;
-}
