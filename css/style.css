@@ -254,10 +254,12 @@ a:focus {
     margin: 0;
     color: #ffffff;
     font-size: 15px;
-    line-height: 0px;
+    line-height: normal; /* Cambiado para un espaciado de línea adecuado */
     font-weight: 700;
-    letter-spacing: 5px;
-    text-transform: uppercase;
+    letter-spacing: 1px; /* Ajustado para mejor legibilidad */
+    text-transform: none; /* Eliminado el texto en mayúsculas */
+    display: flex; /* Añadido para alinear logo y texto */
+    align-items: center; /* Añadido para alinear verticalmente */
 }
 
 .navbar .navbar-brand img {
@@ -2315,4 +2317,34 @@ a:focus {
     border-top: none;
     background: rgba(0,0,0,0.8);
     color: #fff;
+}
+
+.foundation-name {
+    margin-left: 15px; /* Espacio entre el logo y el texto */
+    line-height: 1.2; /* Espaciado entre las dos líneas de texto */
+}
+
+/**********************************/
+/***** Language Switcher CSS ******/
+/**********************************/
+.top-bar .language-switcher {
+    display: flex;
+    align-items: center;
+    height: 45px;
+    padding: 0 10px;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-right: 1px solid rgba(255, 255, 255, .3);
+}
+
+.top-bar .language-switcher a {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0 5px;
+    text-decoration: none;
+}
+
+.top-bar .language-switcher a:hover,
+.top-bar .language-switcher a.active {
+    color: #FDBE33;
 }
