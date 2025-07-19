@@ -544,6 +544,18 @@ a:focus {
     background-size: cover;
 }
 
+.page-header_evaluador_sustentable {
+    position: relative;
+    margin-bottom: 45px;
+    padding: 210px 0 90px 0;
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../img/header_evaluador_sustentable.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .page-header h2 {
     position: relative;
     color: #FDBE33;
@@ -615,6 +627,10 @@ a:focus {
     .page-header a {
         font-size: 18px;
     }
+}
+
+.page-header_evaluador_sustentable h2 {
+    color: #ffffff;
 }
 
 
