@@ -1,39 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="utf-8">
     <title>Evaluador Global de Sostenibilidad para Edificios: LEED, BREEAM, DGNB, WELL | FIDES</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-    <meta name="description" content="Herramienta interactiva y gratuita para evaluar la sostenibilidad de proyectos de edificación. Obtén un puntaje estimado para certificaciones internacionales como LEED, BREEAM, DGNB, WELL, Green Star y CASBEE.">
-    <meta name="keywords" content="evaluador sostenibilidad, calculadora leed, guía breeam, certificación dgnb, well building standard, green star australia, casbee japón, construcción sostenible, edificación verde, fides sucre">
+    <meta name="description"
+        content="Herramienta interactiva y gratuita para evaluar la sostenibilidad de proyectos de edificación. Obtén un puntaje estimado para certificaciones internacionales como LEED, BREEAM, DGNB, WELL, Green Star y CASBEE.">
+    <meta name="keywords"
+        content="evaluador sostenibilidad, calculadora leed, guía breeam, certificación dgnb, well building standard, green star australia, casbee japón, construcción sostenible, edificación verde, fides sucre">
     <meta name="author" content="Fundación FIDES Sucre">
     <link rel="canonical" href="https://fundafidescol.org/evaluador_sustentable.html" />
-
-    <meta name="description" lang="en" content="Free interactive tool to assess the sustainability of building projects. Get an estimated score for international certifications like LEED, BREEAM, DGNB, WELL, Green Star, and CASBEE.">
-    <meta name="keywords" lang="en" content="sustainability assessment tool, leed calculator, breeam guide, dgnb certification, well building standard, green star australia, casbee japan, sustainable construction, green building">
-    
-    <link rel="alternate" hreflang="es" href="https://fundafidescol.org/evaluador_sustentable.html" />
-    <link rel="alternate" hreflang="en" href="https://fundafidescol.org/evaluador_sustentable.html" />
-    <link rel="alternate" hreflang="x-default" href="https://fundafidescol.org/evaluador_sustentable.html" />
-
-
     <link rel="icon" href="img/favicon.ico.png">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    
     <link href="css/style.css" rel="stylesheet">
     <link href="css/calculadora_sustentable.css" rel="stylesheet">
 </head>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-557GV639W3"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-557GV639W3');
-</script>
 
 <body>
     <div class="top-bar d-none d-md-block">
@@ -41,15 +26,25 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="top-bar-left">
-                        <div class="text"><i class="fa fa-phone-alt"></i><p>+57 3128284509</p></div>
-                        <div class="text"><i class="fa fa-envelope"></i><p>fidessuc@gmail.com</p></div>
+                        <div class="text"><i class="fa fa-phone-alt"></i>
+                            <p data-key="top_bar_phone">+57 3128284509</p>
+                        </div>
+                        <div class="text"><i class="fa fa-envelope"></i>
+                            <p data-key="top_bar_email">fidessuc@gmail.com</p>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="top-bar-right">
                         <div class="social">
-                            <a href="https://www.facebook.com/fidersucre/" aria-label="Visita nuestro Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://www.instagram.com/fidersucre/" aria-label="Visita nuestro Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/fidersucre/" aria-label="Visita nuestro Facebook"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/fidersucre/" aria-label="Visita nuestro Instagram"><i
+                                    class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="language-switcher">
+                            <a href="#" id="lang-es">ES</a>
+                            <a href="#" id="lang-en">EN</a>
                         </div>
                     </div>
                 </div>
@@ -58,46 +53,53 @@
     </div>
     <div class="navbar navbar-expand-lg bg-dark navbar-dark">
         <div class="container-fluid">
-            <a href="index.html" class="navbar-brand"><img class="navbar-logo" src="img/logo fundacion para el desarrollo de sucre.jpg" alt="Logo Fundación FIDES"></a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" aria-label="Alternar navegación"><span class="navbar-toggler-icon"></span></button>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-label="Alternar navegación"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav ml-auto">
-                    <a href="index.html" class="nav-item nav-link">INICIO</a>
-                    <a href="proyectos.html" class="nav-item nav-link">PROYECTOS</a>
-                    <a href="galeria.html" class="nav-item nav-link">GALERÍA</a>
+                    <a href="index.html" class="nav-item nav-link" data-key="nav_home">INICIO</a>
+                    <a href="proyectos.html" class="nav-item nav-link" data-key="nav_projects">PROYECTOS</a>
+                    <a href="galeria.html" class="nav-item nav-link" data-key="nav_gallery">GALERÍA</a>
                     <div class="nav-item dropdown active">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">HERRAMIENTAS WEB</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                            data-key="nav_web_tools">HERRAMIENTAS WEB</a>
                         <div class="dropdown-menu">
-                            <a href="evaluador_sustentable.html" class="dropdown-item">Evaluador de Sostenibilidad</a>
+                            <a href="evaluador_sustentable.html" class="dropdown-item"
+                                data-key="nav_sustainability_evaluator">Evaluador de Sostenibilidad</a>
                         </div>
                     </div>
-                    <a href="blog.html" class="nav-item nav-link">BLOG</a>
-                    <a href="contacto.html" class="nav-item nav-link">CONTACTO</a>
+                    <a href="blog.html" class="nav-item nav-link" data-key="nav_blog">BLOG</a>
+                    <a href="contacto.html" class="nav-item nav-link" data-key="nav_contact">CONTACTO</a>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <div class="page-header1">
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2>Evaluador Global de Sostenibilidad</h2>
+                    <h2 data-key="page_header_evaluator">Evaluador Global de Sostenibilidad</h2>
                 </div>
-                <div class="col-12"><a href="index.html">Inicio</a><a href="evaluador_sustentable.html">Evaluador de Sostenibilidad</a></div>
+                <div class="col-12">
+                    <a href="index.html" data-key="breadcrumb_home">Inicio</a>
+                    <a href="evaluador_sustentable.html" data-key="breadcrumb_evaluator">Evaluador de Sostenibilidad</a>
+                </div>
             </div>
         </div>
     </div>
-    
+
     <main class="container my-5">
         <div class="main-content-grid">
             <section id="evaluacion" aria-labelledby="eval-heading">
                 <div class="config-container">
-                    <h2 id="eval-heading" class="h3">1. Configure su Proyecto</h2>
+                    <h2 id="eval-heading" class="h3" data-key="evaluator_config_project">1. Configure su Proyecto</h2>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="certificacionSelector"><strong>Certificación:</strong></label>
-                            <select id="certificacionSelector" class="form-control" aria-label="Selector de certificación">
+                            <label for="certificacionSelector"><strong
+                                    data-key="evaluator_certification">Certificación:</strong></label>
+                            <select id="certificacionSelector" class="form-control"
+                                aria-label="Selector de certificación">
                                 <option value="leed">LEED v4.1 BD+C (Global)</option>
                                 <option value="breeam">BREEAM Int. New Construction 2016 (Global)</option>
                                 <option value="dgnb">DGNB System Version 2018 (Alemania/Int.)</option>
@@ -107,33 +109,37 @@
                             </select>
                         </div>
                         <div class="form-group col-md-6" id="context-selector-container">
-                            </div>
+                        </div>
                     </div>
                     <div id="certification-description" class="mt-3"></div>
                 </div>
 
-                <h2 class="mt-4 h3">2. Evalúe los Créditos</h2>
+                <h2 class="mt-4 h3" data-key="evaluator_evaluate_credits">2. Evalúe los Créditos</h2>
                 <div id="evaluationForm" class="accordion"></div>
             </section>
-    
+
             <aside id="resultados" class="results-sidebar" aria-labelledby="results-heading">
-                <h3 id="results-heading" class="results-title">Resultados del Proyecto</h3>
+                <h3 id="results-heading" class="results-title" data-key="evaluator_results_title">Resultados del
+                    Proyecto</h3>
                 <div class="score-container">
-                    <p>Puntaje Estimado</p>
+                    <p data-key="evaluator_estimated_score">Puntaje Estimado</p>
                     <span id="totalScore">0</span>
-                    <p>/ <span id="maxScore">110</span> <span id="scoreUnit">Puntos</span></p>
+                    <p>/ <span id="maxScore">110</span> <span id="scoreUnit"
+                            data-key="evaluator_score_unit">Puntos</span></p>
                 </div>
                 <div class="progress-bar-container">
-                    <div id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="110"></div>
+                    <div id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="110">
+                    </div>
                 </div>
                 <div id="certificationLevel">
-                    <h4>Nivel de Certificación</h4>
-                    <p id="levelText">Sin puntaje</p>
+                    <h4 data-key="evaluator_cert_level">Nivel de Certificación</h4>
+                    <p id="levelText" data-key="evaluator_no_score">Sin puntaje</p>
                 </div>
-                
+
                 <div class="disclaimer">
                     <i class="fa fa-exclamation-triangle"></i>
-                    <p>Este es un puntaje estimado. La certificación oficial requiere documentación y revisión por una entidad autorizada.</p>
+                    <p data-key="evaluator_disclaimer">Este es un puntaje estimado. La certificación oficial requiere
+                        documentación y revisión por una entidad autorizada.</p>
                 </div>
 
                 <div class="chart-container">
@@ -141,22 +147,29 @@
                 </div>
 
                 <div id="recommendations">
-                    <h4><i class="fa fa-lightbulb"></i> Recomendaciones Estratégicas</h4>
+                    <h4 data-key="evaluator_recommendations"><i class="fa fa-lightbulb"></i> Recomendaciones
+                        Estratégicas</h4>
                     <ul id="recommendationsList">
-                        <li>Complete la evaluación para ver sugerencias.</li>
+                        <li data-key="evaluator_recommendations_placeholder">Complete la evaluación para ver
+                            sugerencias.</li>
                     </ul>
                 </div>
-                
+
                 <div id="costBenefitAnalysis">
-                     <h4><i class="fa fa-dollar-sign"></i> Análisis Costo-Beneficio</h4>
-                     <p id="costBenefitText">Seleccione créditos para ver un análisis.</p>
+                    <h4 data-key="evaluator_cost_benefit"><i class="fa fa-dollar-sign"></i> Análisis Costo-Beneficio
+                    </h4>
+                    <p id="costBenefitText" data-key="evaluator_cost_benefit_placeholder">Seleccione créditos para ver
+                        un análisis.</p>
                 </div>
-                
-                <button id="exportPdfButton" class="btn btn-custom btn-block" type="button"><i class="fa fa-file-pdf"></i> Exportar Informe</button>
-                <button id="resetButton" class="btn btn-custom btn-block mt-2" type="button"><i class="fa fa-sync-alt"></i> Reiniciar</button>
-                
+
+                <button id="exportPdfButton" class="btn btn-custom btn-block" type="button"><i
+                        class="fa fa-file-pdf"></i> <span data-key="evaluator_export_report">Exportar
+                        Informe</span></button>
+                <button id="resetButton" class="btn btn-custom btn-block mt-2" type="button"><i
+                        class="fa fa-sync-alt"></i> <span data-key="evaluator_reset">Reiniciar</span></button>
+
                 <a href="donar.html" class="btn btn-donar-sidebar btn-block mt-3">
-                    <i class="fa fa-heart"></i> Apoyar esta Herramienta
+                    <i class="fa fa-heart"></i> <span data-key="evaluator_support_tool">Apoyar esta Herramienta</span>
                 </a>
             </aside>
         </div>
@@ -166,25 +179,30 @@
         <div class="container copyright">
             <div class="row">
                 <div class="col-md-6">
-                    <p>© <a href="https://fundafidescol.org/">Fundación FIDES Sucre</a>, Todos los Derechos Reservados.</p>
+                    <p data-key="footer_copyright">© <a href="https://fundafidescol.org/">Fundación FIDES Sucre</a>,
+                        Todos los Derechos Reservados.</p>
                 </div>
                 <div class="col-md-6">
-                    <p>Diseñado por: <a href="#" target="_blank" rel="noopener noreferrer">HBO Consulting</a></p>
+                    <p data-key="footer_designed_by">Diseñado por: <a href="#" target="_blank"
+                            rel="noopener noreferrer">HBO Consulting</a></p>
                 </div>
             </div>
         </div>
     </div>
     <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-    <div id="loader" class="show"><div class="loader"></div></div>
+    <div id="loader" class="show">
+        <div class="loader"></div>
+    </div>
     <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalTitle"></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span
+                            aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body" id="modalDescription"></div>
-                 <div class="modal-footer" id="modalDocs"></div>
+                <div class="modal-footer" id="modalDocs"></div>
             </div>
         </div>
     </div>
@@ -196,6 +214,7 @@
     <script src="lib/easing/easing.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/calculadora_sustentable.js"></script>
-    
+    <script src="js/translation.js"></script>
 </body>
+
 </html>
