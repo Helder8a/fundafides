@@ -3,7 +3,8 @@
 /*******************************/
 html,
 body {
-    overflow-x: hidden; /* Evita el desbordamiento horizontal y el "rebote" en móviles */
+    overflow-x: hidden;
+    /* Evita el desbordamiento horizontal y el "rebote" en móviles */
     color: #777777;
     font-weight: 500;
     background: #ffffff;
@@ -11,10 +12,10 @@ body {
 }
 
 h1,
-h2, 
-h3, 
+h2,
+h3,
 h4,
-h5, 
+h5,
 h6 {
     color: #4a4c70;
 }
@@ -34,8 +35,8 @@ a:focus {
 
 .btn.btn-custom {
     padding: 12px 20px;
-    text-align: center; 
-   font-size: 16px;
+    text-align: center;
+    font-size: 16px;
     font-weight: 500;
     color: #777777;
     border-radius: 0;
@@ -60,8 +61,10 @@ a:focus {
     max-width: 1366px;
 }
 
-[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
-[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+[class^="flaticon-"]:before,
+[class*=" flaticon-"]:before,
+[class^="flaticon-"]:after,
+[class*=" flaticon-"]:after {
     font-size: inherit;
     margin-left: 0;
 }
@@ -108,13 +111,23 @@ a:focus {
 }
 
 @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .back-to-top {
@@ -268,7 +281,8 @@ a:focus {
 /* Regla anadida para el logo */
 .navbar-logo {
     width: 120px;
-    height: auto; /* Mantener la proporcion */
+    height: auto;
+    /* Mantener la proporcion */
 }
 
 .navbar-dark .navbar-nav .nav-link,
@@ -302,17 +316,17 @@ a:focus {
         border-bottom: 1px solid rgba(255, 255, 255, .3);
         z-index: 9;
     }
-    
+
     .navbar.nav-sticky {
         padding: 10px 60px;
         background: #20212B !important;
         border-bottom: none;
     }
-    
+
     .page .navbar {
         background: #20212B !important;
     }
-    
+
     .navbar a.nav-link {
         padding: 8px 15px;
         font-size: 16px;
@@ -320,16 +334,16 @@ a:focus {
     }
 }
 
-@media (max-width: 991.98px) {   
+@media (max-width: 991.98px) {
     .navbar {
         padding: 15px;
         background: #20212B !important;
     }
-    
+
     .navbar a.nav-link {
         padding: 5px;
     }
-    
+
     .navbar .dropdown-menu {
         box-shadow: none;
     }
@@ -492,11 +506,11 @@ a:focus {
     .carousel .carousel-text h1 {
         font-size: 35px;
     }
-    
+
     .carousel .carousel-text p {
         font-size: 16px;
     }
-    
+
     .carousel .carousel-text .btn {
         padding: 12px 30px;
         font-size: 15px;
@@ -508,7 +522,7 @@ a:focus {
     .carousel .carousel-text h1 {
         font-size: 30px;
     }
-    
+
     .carousel .carousel-text .btn {
         padding: 10px 25px;
         font-size: 15px;
@@ -520,7 +534,7 @@ a:focus {
     .carousel .carousel-text h1 {
         font-size: 25px;
     }
-    
+
     .carousel .carousel-text .btn {
         padding: 8px 20px;
         font-size: 14px;
@@ -532,34 +546,40 @@ a:focus {
 /*******************************/
 /******* Page Header CSS *******/
 /*******************************/
-.page-header {
-    position: relative;
-    margin-bottom: 45px;
-    padding: 210px 0 90px 0;
-    text-align: center;
-    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../img/page-header.jpg);
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 
+/* --- ESTILOS BASE (PARA MÓVILES) --- */
+.page-header,
 .page-header_evaluador_sustentable {
     position: relative;
     margin-bottom: 45px;
-    padding: 210px 0 90px 0;
+    padding: 100px 0;
+    /* Relleno reducido para móviles */
     text-align: center;
-    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../img/header_evaluador_sustentable.jpg);
-    background-attachment: fixed;
-    background-position: center;
+
+    /* --- Propiedades clave para la imagen de fondo --- */
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    /* CLAVE: Asegura que la imagen siempre cubra el espacio sin deformarse */
+    background-attachment: scroll;
+    /* CLAVE: Elimina el efecto 'fixed' en móviles para evitar el zoom y el desenfoque */
 }
 
+/* Asigna la imagen de fondo específica a cada tipo de encabezado */
+.page-header {
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../img/page-header.jpg);
+}
+
+.page-header_evaluador_sustentable {
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../img/header_evaluador_sustentable.jpg);
+}
+
+/* --- ESTILOS DEL TEXTO DEL ENCABEZADO (PARA MÓVILES) --- */
 .page-header h2 {
     position: relative;
     color: #FDBE33;
-    font-size: 60px;
+    font-size: 35px;
+    /* Tamaño de fuente más pequeño para móviles */
     font-weight: 700;
     margin-bottom: 20px;
     padding-bottom: 5px;
@@ -568,17 +588,19 @@ a:focus {
 .page-header h2::after {
     position: absolute;
     content: "";
-    width: 100px;
+    width: 80px;
+    /* Ancho de la línea reducido */
     height: 2px;
-    left: calc(50% - 50px);
+    left: calc(50% - 40px);
     bottom: 0;
     background: #FDBE33;
 }
 
 .page-header a {
     position: relative;
-    padding: 0 12px;
-    font-size: 22px;
+    padding: 0 10px;
+    font-size: 18px;
+    /* Tamaño de fuente más pequeño para móviles */
     color: #ffffff;
 }
 
@@ -601,69 +623,30 @@ a:focus {
     display: none;
 }
 
-@media (max-width: 991.98px) {
-    .page-header {
-        padding: 120px 0;
+.page-header_evaluador_sustentable h2 {
+    color: #ffffff;
+}
+
+/* --- AJUSTES PARA TABLETAS (A PARTIR DE 768px) --- */
+@media (min-width: 768px) {
+
+    .page-header,
+    .page-header_evaluador_sustentable {
+        padding: 140px 0;
+        /* Aumenta el relleno para tabletas */
     }
-    
+
     .page-header h2 {
         font-size: 45px;
+        /* Aumenta el tamaño del título */
     }
-    
+
     .page-header a {
         font-size: 20px;
     }
 }
 
-@media (max-width: 767.98px) {
-    .page-header {
-        padding: 90px 0;
-    }
-    
-    .page-header h2 {
-        font-size: 35px;
-    }
-    
-    .page-header a {
-        font-size: 18px;
-    }
-}
-
-.page-header_evaluador_sustentable h2 {
-    color: #ffffff;
-}
-
-
-/*******************************/
-/******* Section Header ********/
-/*******************************/
-.section-header {
-    position: relative;
-    width: 100%;
-    max-width: 700px;
-    margin: 0 auto 45px auto;
-}
-
-.section-header p {
-    margin-bottom: 5px;
-    position: relative;
-    font-size: 22px;
-    font-weight: 600;
-    text-transform: capitalize;
-    color: #FDBE33;
-}
-
-.section-header h2 {
-    margin: 0;
-    font-size: 45px;
-    font-weight: 700;
-}
-
-@media (max-width: 767.98px) {
-    .section-header h2 {
-        font-size: 35px;
-    }
-}
+/* --- AJUSTES PARA ESCRITORIO (A PARTIR DE
 
 
 /*******************************/
@@ -1397,29 +1380,29 @@ a:focus {
     .event .event-content {
         flex-direction: column;
     }
-    
+
     .event .event-meta {
         flex-direction: row;
     }
-    
+
     .event .event-meta p {
         font-size: 14px;
         padding-right: 7px;
     }
-    
+
     .event .event-meta p:last-child {
         border-bottom: 1px solid rgba(0, 0, 0, .15);
     }
-    
+
     .event .event-meta i {
         width: 18px;
     }
-    
+
     .event .event-text {
         margin: 0;
         padding: 0;
     }
-    
+
     .event .event-text::before,
     .event .event-text::after {
         display: none;
@@ -1968,11 +1951,11 @@ a:focus {
 }
 
 .sidebar .category-widget ul li {
-    margin: 0 0 12px 22px; 
+    margin: 0 0 12px 22px;
 }
 
 .sidebar .category-widget ul li:last-child {
-    margin-bottom: 0; 
+    margin-bottom: 0;
 }
 
 .sidebar .category-widget ul li a {
@@ -2153,6 +2136,7 @@ a:focus {
     .footer .copyright {
         padding: 0 15px;
     }
+
     .footer .copyright p,
     .footer .copyright .col-md-6:last-child p {
         margin: 5px 0;
@@ -2194,7 +2178,7 @@ a:focus {
     border-radius: 50px;
     text-align: center;
     font-size: 30px;
-    box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
     z-index: 100;
     display: flex;
     align-items: center;
@@ -2220,7 +2204,8 @@ a:focus {
     padding: 5px 10px;
     position: absolute;
     z-index: 1;
-    right: 110%; /* Posiciona el texto a la izquierda del botón */
+    right: 110%;
+    /* Posiciona el texto a la izquierda del botón */
     top: 50%;
     margin-top: -16px;
     opacity: 0;
@@ -2238,7 +2223,8 @@ a:focus {
     content: "";
     position: absolute;
     top: 50%;
-    left: 100%; /* Posiciona la flecha a la derecha del tooltip */
+    left: 100%;
+    /* Posiciona la flecha a la derecha del tooltip */
     margin-top: -5px;
     border-width: 5px;
     border-style: solid;
@@ -2257,20 +2243,20 @@ a:focus {
     overflow: hidden;
     margin-bottom: 30px;
     border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
     /* Se establece una altura fija para todos los contenedores de imagen */
-    height: 250px; 
+    height: 250px;
 }
 
 .gallery-item img {
     /* La imagen ocupa el 100% del contenedor */
     width: 100%;
     height: 100%;
-    
+
     /* La clave: la imagen cubre el area, se recorta sin deformarse */
-    object-fit: cover; 
-    
+    object-fit: cover;
+
     transition: transform 0.4s ease;
 }
 
@@ -2314,11 +2300,13 @@ a:focus {
 .ekko-lightbox .modal-header {
     border-bottom: none;
 }
+
 .ekko-lightbox .modal-footer {
     border-top: none;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.8);
     color: #fff;
 }
+
 /* Estilos generales del body (puedes adaptarlos a tu diseño) */
 body {
     font-family: Arial, sans-serif;
@@ -2338,41 +2326,54 @@ body {
 /* --- Estilos de la Sección "About Us" --- */
 
 .about-section {
-    padding: 60px 0; /* Espaciado superior e inferior */
-    background-color: #fff; /* Fondo blanco para la sección */
+    padding: 60px 0;
+    /* Espaciado superior e inferior */
+    background-color: #fff;
+    /* Fondo blanco para la sección */
 }
 
 .about-content {
     display: flex;
-    align-items: center; /* Centra verticalmente los items */
-    gap: 40px; /* Espacio entre la imagen y el texto */
+    align-items: center;
+    /* Centra verticalmente los items */
+    gap: 40px;
+    /* Espacio entre la imagen y el texto */
 }
 
 .about-image {
-    flex: 1; /* La imagen tomará 1 parte del espacio */
+    flex: 1;
+    /* La imagen tomará 1 parte del espacio */
 }
 
 .about-image img {
-    width: 100%; /* La imagen se ajusta al contenedor */
-    max-width: 450px; /* Tamaño máximo para la imagen */
+    width: 100%;
+    /* La imagen se ajusta al contenedor */
+    max-width: 450px;
+    /* Tamaño máximo para la imagen */
     height: auto;
-    border-radius: 8px; /* Bordes redondeados para un look moderno */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    border-radius: 8px;
+    /* Bordes redondeados para un look moderno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil */
 }
 
 .about-text {
-    flex: 1.5; /* El texto tomará 1.5 partes, un poco más que la imagen */
+    flex: 1.5;
+    /* El texto tomará 1.5 partes, un poco más que la imagen */
 }
 
 .about-text h2 {
-    font-size: 2.5rem; /* Tamaño del título */
+    font-size: 2.5rem;
+    /* Tamaño del título */
     margin-bottom: 20px;
-    color: #0056b3; /* Un color de acento, ajústalo al tuyo */
+    color: #0056b3;
+    /* Un color de acento, ajústalo al tuyo */
 }
 
 .about-text p {
     font-size: 1rem;
-    line-height: 1.6; /* Altura de línea para mejor legibilidad */
+    line-height: 1.6;
+    /* Altura de línea para mejor legibilidad */
     margin-bottom: 20px;
 }
 
@@ -2395,8 +2396,10 @@ body {
 
 @media (max-width: 768px) {
     .about-content {
-        flex-direction: column; /* Cambia la dirección a vertical */
-        text-align: center; /* Centra el texto */
+        flex-direction: column;
+        /* Cambia la dirección a vertical */
+        text-align: center;
+        /* Centra el texto */
     }
 
     .about-text h2 {
@@ -2404,6 +2407,79 @@ body {
     }
 
     .about-image {
-        margin-bottom: 30px; /* Espacio debajo de la imagen en móvil */
+        margin-bottom: 30px;
+        /* Espacio debajo de la imagen en móvil */
+    }
+}
+
+/* --- Estilos para Botones de Idioma en la Barra de Navegación --- */
+.lang-switcher {
+    padding-left: 15px;
+    /* Añade espacio a la izquierda en escritorio */
+}
+
+.lang-btn-nav {
+    color: #ffffff;
+    font-weight: 700;
+    padding: 0 5px;
+    font-size: 14px;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.lang-btn-nav:hover {
+    color: #FDBE33;
+    text-decoration: none;
+}
+
+/* Ajustes para la vista móvil (cuando el menú está colapsado) */
+@media (max-width: 991.98px) {
+    .lang-switcher {
+        padding-left: 5px;
+        /* Reduce el espacio en el menú desplegable */
+        margin-top: 10px;
+        /* Añade espacio arriba */
+        margin-bottom: 5px;
+        /* Añade espacio abajo */
+    }
+}
+
+.top-bar .social a.lang-btn:hover {
+    color: #FDBE33;
+    background: none;
+}
+
+/* =============================================== */
+/* ===== CÓDIGO DE CORRECCIÓN RESPONSIVA FINAL ===== */
+/* =============================================== */
+
+/* 1. Asegura que el tamaño de los elementos sea consistente en todos los navegadores */
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+/* 2. Solución para la imagen de fondo del encabezado en móviles (especialmente iPhone) */
+.page-header,
+.page-header_evaluador_sustentable {
+    /* Clave: Desactiva el efecto 'fixed' que causa el zoom indeseado en móviles */
+    background-attachment: scroll !important;
+}
+
+/* 3. Ajuste de tamaño de texto para mejor lectura en móviles */
+@media (max-width: 767.98px) {
+    .page-header h2 {
+        font-size: 32px;
+        /* Reducimos un poco más el título */
+    }
+
+    .page-header a {
+        font-size: 16px;
+        /* Reducimos el texto del breadcrumb */
     }
 }
