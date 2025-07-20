@@ -621,36 +621,41 @@
             </div>
         </div>
     </main>
+
     <div class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-contact">
-                        <h2>Oficina Principal</h2>
-                        <p><i class="fa fa-map-marker-alt"></i>Colombia</p>
-                        <p><i class="fa fa-envelope"></i>fidessuc@gmail.com</p>
+                        <h2 data-key="footer_office">Oficina Principal</h2>
+                        <p><i class="fa fa-map-marker-alt"></i><span data-key="footer_location">Colombia</span></p>
+                        <p><i class="fa fa-envelope"></i><span data-key="email">fidessuc@gmail.com</span></p>
                         <div class="footer-social">
                             <a class="btn btn-custom" href="https://www.facebook.com/fidersucre/"
                                 aria-label="Facebook de FIDES"><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-custom" href="https://www.instagram.com/fidersucre/"
                                 aria-label="Instagram de FIDES"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-custom" href="https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M"
+                                aria-label="Spotify de FIDES"><i class="fab fa-spotify"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-link">
-                        <h2>Enlaces Rápidos</h2>
-                        <a href="index.html">Inicio</a>
-                        <a href="proyectos.html">Proyectos</a>
-                        <a href="blog.html">Blog</a>
-                        <a href="contacto.html">Contacto</a>
+                        <h2 data-key="footer_quicklinks">Enlaces Rápidos</h2>
+                        <a href="index.html" data-key="nav_inicio">Inicio</a>
+                        <a href="proyectos.html" data-key="nav_proyectos">Proyectos</a>
+                        <a href="galeria.html" data-key="nav_galeria">Galería</a>
+                        <a href="evaluador_sustentable.html" data-key="nav_herramientas">Herramientas Web</a>
+                        <a href="blog.html" data-key="nav_blog">Blog</a>
+                        <a href="contacto.html" data-key="nav_contacto">Contacto</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-link">
-                        <h2>Colaboradores</h2>
-                        <a href="#">Colaborador</a>
-                        <a href="#">Colaborador.</a>
+                        <h2 data-key="footer_collaborators">Colaboradores</h2>
+                        <a href="#" target="_blank" rel="noopener noreferrer">Colaborador</a>
+                        <a href="#" target="_blank" rel="noopener noreferrer">Colaborador.</a>
                     </div>
                 </div>
             </div>
@@ -658,10 +663,12 @@
         <div class="container copyright">
             <div class="row">
                 <div class="col-md-6">
-                    <p data-key="footer_designed_by">Diseñado por: <a href="https://hbo-consulting.com/" target="_blank" rel="noopener noreferrer">HBO Consulting</a></p>
+                    <p data-key="footer_copyright">© Fundación FIDES Sucre, Todos los Derechos Reservados.
+                    </p>
                 </div>
                 <div class="col-md-6">
-                    <p>Diseñado por: <a href="#" target="_blank" rel="noopener noreferrer">HBO Consulting</a></p>
+                    <p data-key="footer_designed_by">Diseñado por: <a href="https://hbo-consulting.com/" target="_blank"
+                            rel="noopener noreferrer">HBO Consulting</a></p>
                 </div>
             </div>
         </div>
@@ -674,7 +681,6 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
@@ -683,21 +689,8 @@
 
     <script src="js/main.js"></script>
 
-    <script>
-        $(document).on('click', '[data-toggle="lightbox"]', function (event) {
-            event.preventDefault();
-            $(this).ekkoLightbox();
-        });
-    </script>
-
-    <script src="js/main.js"></script>
-
     <script src="js/translations.js"></script>
     <script src="js/language.js"></script>
-
-</body>
-
-</html>
 
 </body>
 
