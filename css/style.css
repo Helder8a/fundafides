@@ -567,7 +567,7 @@ a:focus {
 
 /* Asigna la imagen de fondo específica a cada tipo de encabezado */
 .page-header {
-    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../img/page-header.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../img/header_1.webp);
 }
 
 .page-header_evaluador_sustentable {
