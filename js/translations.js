@@ -15,7 +15,7 @@ const translations = {
     nav_proyectos: "PROYECTOS",
     nav_galeria: "GALERÍA",
     nav_herramientas: "HERRAMIENTAS WEB",
-    nav_evaluador: "Evaluador de Sostenibilidad",
+    nav_evaluador: "Evaluador de Sostenibilidad para Edificios",
     nav_blog: "BLOG",
     nav_contacto: "CONTACTO",
 
@@ -54,8 +54,8 @@ const translations = {
     galeria_overlay_title: "Transformando Vidas",
 
     // ---- EVALUADOR_SUSTENTABLE.HTML ----
-    evaluador_page_meta_title: "Evaluador Global de Sostenibilidad para Edificios: LEED, BREEAM, DGNB, WELL | FIDES",
-    evaluador_page_title: "Evaluador Global de Sostenibilidad",
+    evaluador_page_meta_title: "Evaluador de Sostenibilidad para Edificios | FIDES",
+    evaluador_page_title: "Evaluador de Sostenibilidad para Edificios",
     evaluador_main_title_1: "1. Configure su Proyecto",
     evaluador_cert_label: "Certificación:",
     evaluador_main_title_2: "2. Evalúe los Créditos",
@@ -142,7 +142,7 @@ const translations = {
     nav_proyectos: "PROJECTS",
     nav_galeria: "GALLERY",
     nav_herramientas: "WEB TOOLS",
-    nav_evaluador: "Sustainability Evaluator",
+    nav_evaluador: "Building Sustainability Evaluator",
     nav_blog: "BLOG",
     nav_contacto: "CONTACT",
 
@@ -181,8 +181,8 @@ const translations = {
     galeria_overlay_title: "Transforming Lives",
 
     // ---- EVALUADOR_SUSTENTABLE.HTML ----
-    evaluador_page_meta_title: "Global Sustainability Evaluator for Buildings: LEED, BREEAM, DGNB, WELL | FIDES",
-    evaluador_page_title: "Global Sustainability Evaluator",
+    evaluador_page_meta_title: "Building Sustainability Evaluator | FIDES",
+    evaluador_page_title: "Building Sustainability Evaluator",
     evaluador_main_title_1: "1. Configure Your Project",
     evaluador_cert_label: "Certification:",
     evaluador_main_title_2: "2. Evaluate Credits",
