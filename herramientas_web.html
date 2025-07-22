@@ -8,7 +8,7 @@
     <meta name="description"
         content="Descubre los aplicativos y herramientas ambientales que la Fundación FIDES Sucre pone a tu disposición para promover la sostenibilidad y el cuidado del medio ambiente en la Costa Caribe de Colombia.">
     <meta name="keywords"
-        content="aplicativos ambientales, herramientas, sostenibilidad, FIDES Sucre, medio ambiente, calculadora de carbono, evaluador de sostenibilidad, calculadora solar, Colombia">
+        content="aplicativos ambientales, herramientas, sostenibilidad, FIDES Sucre, medio ambiente, Colombia">
 
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://fundafidescol.org/herramientas_web.html" />
@@ -20,40 +20,11 @@
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
     <link href="css/style.css" rel="stylesheet">
-    <style>
-        .tool-card {
-            background-color: #f8f9fa;
-            border-left: 5px solid var(--primary-color);
-            padding: 25px;
-            border-radius: 8px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            margin-bottom: 25px;
-            height: 100%;
-        }
-        .tool-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            text-decoration: none;
-            color: inherit;
-        }
-        .tool-card h3 {
-            color: var(--secondary-color);
-            margin-bottom: 10px;
-        }
-        .lang-btn-nav.active {
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-        .intro-text {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: #555;
-        }
-    </style>
 </head>
 
 <body>
@@ -95,16 +66,13 @@
                     <a href="index.html" class="nav-item nav-link" data-key="nav_inicio">INICIO</a>
                     <a href="proyectos.html" class="nav-item nav-link" data-key="nav_proyectos">PROYECTOS</a>
                     <a href="galeria.html" class="nav-item nav-link" data-key="nav_galeria">GALERÍA</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown"
+
+                    <div class="nav-item dropdown active">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
                             data-key="nav_herramientas">HERRAMIENTAS WEB</a>
                         <div class="dropdown-menu">
                             <a href="evaluador_sustentable.html" class="dropdown-item"
-                                data-key="nav_evaluador">Evaluador de Sostenibilidad</a>
-                            <a href="calculadora_carbono.html" class="dropdown-item"
-                                data-key="nav_calculadora_carbono">Calculadora de Carbono</a>
-                            <a href="calculadora_solar.html" class="dropdown-item"
-                                data-key="nav_calculadora_solar">Calculadora Solar</a>
+                                data-key="nav_evaluador">Evaluador de Proyectos Sustentables</a>
                         </div>
                     </div>
                     <a href="blog.html" class="nav-item nav-link" data-key="nav_blog">BLOG</a>
@@ -133,44 +101,55 @@
             <h2 data-key="herramientas_section_subtitle">Nuestros Aplicativos</h2>
         </div>
         <div class="row">
-            <div class="col-md-10 offset-md-1">
-                <p data-key="herramientas_p1" class="text-center mb-5 intro-text">
-                    En FIDES, creemos que la información es poder. Por eso, hemos desarrollado un conjunto de herramientas interactivas y gratuitas para ayudarte a tomar decisiones más conscientes y sostenibles. Ya sea que estés planificando un nuevo edificio, evaluando tu impacto ambiental personal o considerando una inversión en energía solar, nuestros aplicativos te proporcionarán datos valiosos y una guía clara. Explora, calcula y únete a nosotros en la construcción de un futuro más verde.
-                </p>
-                
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <a href="evaluador_sustentable.html" class="tool-card">
-                            <h3 data-key="herramientas_evaluador_title">Evaluador de Sostenibilidad</h3>
-                            <p data-key="herramientas_evaluador_desc">Analiza la viabilidad de tu proyecto de edificación para obtener certificaciones como LEED o BREEAM y descubre estrategias clave para mejorar su rendimiento ambiental.</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <a href="calculadora_carbono.html" class="tool-card">
-                            <h3 data-key="herramientas_carbono_title">Calculadora de Carbono</h3>
-                            <p data-key="herramientas_carbono_desc">Mide tu huella de carbono personal a partir de tu estilo de vida (hogar, transporte y consumo) y recibe consejos prácticos para reducir tu impacto en el planeta.</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <a href="calculadora_solar.html" class="tool-card">
-                            <h3 data-key="herramientas_solar_title">Calculadora Solar</h3>
-                            <p data-key="herramientas_solar_desc">Estima el tamaño, el costo y el ahorro potencial de un sistema de paneles solares para tu hogar o negocio. ¡Descubre el poder del sol y planifica tu inversión en energía limpia!</p>
-                        </a>
-                    </div>
-                </div>
+            <div class="col-12">
+                <p data-key="herramientas_p1">En esta sección, encontrarás recursos y aplicativos enfocados en la
+                    protección y conservación del medio ambiente. Estamos trabajando para ofrecerte información valiosa
+                    y herramientas prácticas que te ayudarán a tomar decisiones más sostenibles en tu día a día.</p>
+                <p data-key="herramientas_p2">¡Vuelve pronto para descubrir nuestros nuevos aplicativos ambientales!</p>
             </div>
         </div>
     </main>
 
     <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-contact">
+                        <h2 data-key="footer_office">Oficina Principal</h2>
+                        <p><i class="fa fa-map-marker-alt"></i><span data-key="footer_location">Colombia</span></p>
+                        <p><i class="fa fa-envelope"></i><span data-key="email">fidessuc@gmail.com</span></p>
+                        <div class="footer-social">
+                            <a class="btn btn-custom" href="https://www.facebook.com/fidersucre/"
+                                aria-label="Facebook de FIDES"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-custom" href="https://www.instagram.com/fidersucre/"
+                                aria-label="Instagram de FIDES"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-link">
+                        <h2 data-key="footer_quicklinks">Enlaces Rápidos</h2>
+                        <a href="index.html" data-key="nav_inicio">Inicio</a>
+                        <a href="proyectos.html" data-key="nav_proyectos">Proyectos</a>
+                        <a href="galeria.html" data-key="nav_galeria">Galería</a>
+                        <a href="evaluador_sustentable.html" data-key="nav_herramientas">Herramientas Web</a>
+                        <a href="blog.html" data-key="nav_blog">Blog</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-link">
+                        <h2 data-key="footer_collaborators">Colaboradores</h2>
+                        <a href="#">Colaborador</a>
+                        <a href="#">Colaborador.</a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container copyright">
             <div class="row">
                 <div class="col-md-6">
                     <p data-key="footer_copyright">© <a href="https://fundafidescol.org/">Fundación FIDES Sucre</a>,
                         Todos los Derechos Reservados.</p>
-                </div>
-                 <div class="col-md-6">
-                    <p data-key="footer_designed_by">Diseñado por: HBO Consulting</p>
                 </div>
             </div>
         </div>
@@ -181,10 +160,20 @@
         <div class="loader"></div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" defer></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" defer></script>
+    <script src="lib/easing/easing.min.js" defer></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js" defer></script>
+    <script src="lib/waypoints/waypoints.min.js" defer></script>
+    <script src="lib/counterup/counterup.min.js" defer></script>
+    <script src="lib/parallax/parallax.min.js" defer></script>
+
+    <script src="js/main.js" defer></script>
+
+    <script src="js/translations.js"></script>
+    <script src="js/language.js"></script>
+
 
 </body>
+
 </html>
