@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title data-key="meta_title">Calculadora Avanzada de Huella de Carbono | FIDES</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+    <meta name="description" data-key="meta_desc" content="Calcula tu huella de carbono con nuestra herramienta avanzada. Analiza tu hogar, transporte, dieta y consumo para obtener un informe personalizado, consejos para reducir tu impacto y metas de reducción.">
+    <meta name="keywords" content="carbon footprint calculator, calculadora huella de carbono, CO2 calculator, sustainability tool, FIDES, desarrollo sostenible, cambio climático, reducir emisiones">
+    <meta name="author" content="Fundación FIDES Sucre">
+
+    <link rel="canonical" href="https://fundafidescol.org/calculadora_carbono.html" />
+    <link rel="alternate" hreflang="es" href="https://fundafidescol.org/calculadora_carbono.html" />
+    <link rel="alternate" hreflang="en" href="https://fundafidescol.org/calculadora_carbono.html?lang=en" />
+    <link rel="alternate" hreflang="x-default" href="https://fundafidescol.org/calculadora_carbono.html" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Calculadora Avanzada de Huella de Carbono",
+      "description": "Herramienta interactiva para calcular, comprender y reducir la huella de carbono personal, con consejos personalizados y metas de reducción.",
+      "inLanguage": ["es", "en"],
+      "url": "https://fundafidescol.org/calculadora_carbono.html",
+      "publisher": {
+        "@type": "NGO",
+        "name": "Fundación para la Investigación y el Desarrollo de Sucre (FIDES)"
+      }
+    }
+    </script>
+    
+    <link rel="icon" href="img/favicon.ico.png">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* --- CSS COMBINADO Y CORREGIDO --- */
+        :root {
+            --primary-color: #FDBE33; --secondary-color: #4a4c70;
+            --dark-color: #20212B; --light-color: #ffffff;
+            --text-color: #777777; --light-bg: #f3f6ff;
+            --success-color: #28a745; --info-color: #17a2b8;
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Quicksand', sans-serif; color: var(--text-color); }
+        .navbar { background: var(--dark-color) !important; padding: 15px; }
+        .navbar .navbar-brand .navbar-logo { max-height: 40px; }
+        @media (min-width: 992px) { .navbar { padding: 10px 60px; } }
+        .btn.btn-custom { padding: 12px 20px; font-size: 16px; font-weight: 700; color: var(--dark-color); background-color: var(--primary-color); border: 2px solid var(--primary-color); border-radius: 5px; transition: all 0.3s; }
+        .btn.btn-custom:hover { background-color: var(--secondary-color); border-color: var(--secondary-color); color: var(--light-color); }
+        .lang-btn-nav { color: white; cursor: pointer; text-decoration: none !important; }
+        .lang-btn-nav.active { color: var(--primary-color); font-weight: bold; }
+        
+        /* --- Estilos Calculadora --- */
+        .calculator-main { padding: 40px 15px; background-color: var(--light-bg); }
+        .calculator-container { background-color: var(--light-color); padding: 25px; border-radius: 12px; box-shadow: 0 12px 24px rgba(0, 0, 0, 0.07); max-width: 850px; margin: auto; border-top: 5px solid var(--primary-color); }
+        .calculator-header h1 { color: var(--secondary-color); font-size: clamp(1.8em, 4vw, 2.2em); font-weight: 700; }
+        .progress-container { display: flex; justify-content: space-between; position: relative; margin-bottom: 30px; }
+        .progress-container::before { content: ''; background-color: #e0e0e0; position: absolute; top: 50%; left: 0; transform: translateY(-50%); height: 4px; width: 100%; z-index: 1; }
+        .progress { background-color: var(--primary-color); position: absolute; top: 50%; left: 0; transform: translateY(-50%); height: 4px; width: 0%; z-index: 2; transition: 0.4s ease; }
+        .circle { background-color: #fff; color: #999; border-radius: 50%; height: 35px; width: 35px; display: flex; align-items: center; justify-content: center; border: 3px solid #e0e0e0; transition: 0.4s ease; font-size: 14px; font-weight: bold; z-index: 3; }
+        .circle.active { border-color: var(--primary-color); color: var(--primary-color); }
+        .form-step { display: none; animation: fadeIn 0.5s; }
+        .form-step.active { display: block; }
+        .calculator-card { background: #fdfdfd; border: 1px solid #e9ecef; border-radius: 10px; padding: 25px; margin-bottom: 25px; }
+        .calculator-card h2 { color: var(--secondary-color); font-size: 1.5em; font-weight: 600; margin-bottom: 20px; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; }
+        .input-group-calc { display: grid; grid-template-columns: 1fr; gap: 8px; align-items: center; margin-bottom: 15px; }
+        @media (min-width: 600px) { .input-group-calc { grid-template-columns: 2fr 1fr; } }
+        .input-group-calc label { margin-bottom: 0; font-weight: 500; }
+        .real-time-info { font-size: 0.8em; color: var(--info-color); grid-column: 1 / -1; text-align: right; }
+        
+        #resultado h2, #resultado h3, #resultado h4 { color: var(--secondary-color); font-weight: 700; }
+        .total-emission { font-size: 2.8em; font-weight: 700; color: var(--primary-color); }
+        .results-breakdown { display: grid; grid-template-columns: 1fr; gap: 30px; margin-top: 25px; align-items: center; }
+        @media (min-width: 768px) { .results-breakdown { grid-template-columns: 1fr 1fr; } }
+        .comparison-item { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center; margin-bottom: 12px; }
+        .bar-track { height: 18px; background-color: #e9ecef; border-radius: 9px; }
+        .bar { height: 100%; border-radius: 9px; transition: width 1.2s ease-out; width: 0; }
+        .your-bar { background-color: var(--primary-color); }
+        .average-bar { background-color: #6c757d; }
+        .goal-bar { background-color: var(--success-color); }
+        .nav-tabs .nav-link.active { background-color: var(--secondary-color); color: var(--light-color); border-color: var(--secondary-color); }
+        
+        .advice-card { background-color: #fff; padding: 15px; border-left: 4px solid var(--info-color); margin-bottom: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        #reduction-summary { background-color: var(--light-bg); padding: 15px; border-radius: 8px; text-align: center; border: 1px solid var(--success-color); }
+        #new-footprint-value { color: var(--success-color); font-size: 1.5em; font-weight: 700; }
+        .social-share-buttons a { font-size: 2.5em; margin: 0 15px; color: var(--secondary-color); transition: color 0.3s; }
+        .social-share-buttons a:hover { color: var(--primary-color); }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+
+<body>
+    <div class="top-bar d-none d-md-block">
+        <div class="container-fluid"><div class="row"><div class="col-md-8"><div class="top-bar-left"><div class="text"><i class="fa fa-envelope"></i><p>fidessuc@gmail.com</p></div></div></div><div class="col-md-4"><div class="top-bar-right"><div class="social"><a href="https://www.facebook.com/fidersucre/"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/fidersucre/"><i class="fab fa-instagram"></i></a></div></div></div></div></div>
+    </div>
+    <div class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand"><img class="navbar-logo" src="img/logo fundacion para el desarrollo de sucre.jpg" alt="Logo FIDES"></a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto">
+                    <a href="index.html" class="nav-item nav-link" data-key="nav_home">INICIO</a>
+                    <a href="proyectos.html" class="nav-item nav-link" data-key="nav_projects">PROYECTOS</a>
+                    <a href="galeria.html" class="nav-item nav-link" data-key="nav_gallery">GALERÍA</a>
+                     <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown"
+                            data-key="nav_herramientas">HERRAMIENTAS WEB</a>
+                        <div class="dropdown-menu">
+                            <a href="evaluador_sustentable.html" class="dropdown-item"
+                                data-key="nav_evaluador">Evaluador de Sostenibilidad</a>
+                            <a href="calculadora_carbono.html" class="dropdown-item active"
+                                data-key="nav_calculadora_carbono">Calculadora de Carbono</a>
+                            <a href="calculadora_solar.html" class="dropdown-item"
+                                data-key="nav_calculadora_solar">Calculadora Solar</a>
+                        </div>
+                    </div>
+                    <a href="blog.html" class="nav-item nav-link" data-key="nav_blog">BLOG</a>
+                    <div class="nav-item d-flex align-items-center lang-switcher ml-lg-3">
+                        <a href="#" class="lang-btn-nav active" id="lang-es">ES</a>
+                        <span class="text-white mx-1">|</span>
+                        <a href="#" class="lang-btn-nav" id="lang-en">EN</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <main class="calculator-main">
+        <div class="calculator-container">
+            <div class="calculator-header text-center mb-4">
+                <h1 data-key="calc_title"></h1>
+                <p data-key="calc_subtitle"></p>
+            </div>
+    
+            <div class="progress-container">
+                <div class="progress" id="progress"></div>
+                <div class="circle active" data-key-title="step1_title"><i class="fas fa-flag"></i></div>
+                <div class="circle" data-key-title="step2_title"><i class="fas fa-home"></i></div>
+                <div class="circle" data-key-title="step3_title"><i class="fas fa-car"></i></div>
+                <div class="circle" data-key-title="step4_title"><i class="fas fa-shopping-cart"></i></div>
+            </div>
+    
+            <form id="carbonForm">
+                <div class="form-step active" data-step="1">
+                    <div class="calculator-card">
+                        <h2 data-key="card_title_step1"></h2>
+                        <div class="input-group-calc"><label for="countrySelector" data-key="label_country"></label><select id="countrySelector" class="form-control"></select></div>
+                        <div class="input-group-calc"><label for="peopleInHome" data-key="label_people"></label><input type="number" id="peopleInHome" min="1" value="1" class="form-control"></div>
+                        <div class="real-time-info" data-key="info_people"></div>
+                    </div>
+                </div>
+                <div class="form-step" data-step="2">
+                    <div class="calculator-card">
+                        <h2 data-key="card_title_step2"></h2>
+                        <div class="input-group-calc"><label for="electricidad" data-key="label_electricity"></label><input type="number" id="electricidad" min="0" placeholder="e.g., 250" class="form-control"></div>
+                        <div class="input-group-calc"><label for="heatingType" data-key="label_heating"></label>
+                            <select id="heatingType" class="form-control">
+                                <option value="gas_natural" data-key="heating_gas"></option>
+                                <option value="electrica" data-key="heating_electric"></option>
+                                <option value="biomasa" data-key="heating_biomass"></option>
+                                <option value="ninguna" data-key="heating_none"></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-step" data-step="3">
+                    <div class="calculator-card">
+                         <h2 data-key="card_title_step3_1"></h2>
+                        <div class="input-group-calc"><label for="carFuel" data-key="label_fuel"></label>
+                            <select id="carFuel" class="form-control">
+                                <option value="gasolina" data-key="fuel_gasoline"></option>
+                                <option value="diesel" data-key="fuel_diesel"></option>
+                                <option value="hibrido" data-key="fuel_hybrid"></option>
+                                <option value="electrico" data-key="fuel_electric"></option>
+                                <option value="ninguno" data-key="fuel_none"></option>
+                            </select>
+                        </div>
+                        <div class="input-group-calc"><label for="carKm" data-key="label_car_dist"></label><input type="number" id="carKm" min="0" value="0" class="form-control"></div>
+                    </div>
+                    <div class="calculator-card">
+                        <h2 data-key="card_title_step3_2"></h2>
+                        <div class="input-group-calc"><label for="busKm" data-key="label_bus_dist"></label><input type="number" id="busKm" min="0" value="0" class="form-control"></div>
+                        <div class="input-group-calc"><label for="trainKm" data-key="label_train_dist"></label><input type="number" id="trainKm" min="0" value="0" class="form-control"></div>
+                        <div class="input-group-calc"><label for="flights" data-key="label_flights"></label><input type="number" id="flights" min="0" value="0" class="form-control"></div>
+                    </div>
+                </div>
+                <div class="form-step" data-step="4">
+                    <div class="calculator-card">
+                        <h2 data-key="card_title_step4"></h2>
+                        <div class="form-group"><label for="diet" data-key="label_diet"></label><input type="range" id="diet" min="1" max="5" value="3" class="form-control-range"><div class="d-flex justify-content-between small"><span data-key="range_low_diet"></span><span data-key="range_high_diet"></span></div></div>
+                        <div class="form-group"><label for="goods" data-key="label_goods"></label><input type="range" id="goods" min="1" max="5" value="3" class="form-control-range"><div class="d-flex justify-content-between small"><span data-key="range_low_goods"></span><span data-key="range_high_goods"></span></div></div>
+                    </div>
+                </div>
+    
+                <div class="btn-container d-flex justify-content-between mt-4">
+                     <button type="button" class="btn btn-secondary" id="prev" disabled data-key="btn_prev"></button>
+                     <button type="button" class="btn btn-custom" id="next" data-key="btn_next"></button>
+                     <button type="button" class="btn btn-custom" id="calculate" style="display: none;" data-key="btn_calculate"></button>
+                </div>
+            </form>
+    
+            <div id="resultado" class="mt-4" style="display: none;"></div>
+        </div>
+    </main>
+
+    <div class="modal fade" id="methodologyModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header"><h5 class="modal-title" data-key="modal_title"></h5><button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button></div>
+          <div class="modal-body">
+            <p data-key="modal_p1"></p>
+            <ul>
+                <li data-key="modal_li1"></li>
+                <li data-key="modal_li2"></li>
+                <li data-key="modal_li3"></li>
+                <li data-key="modal_li4"></li>
+            </ul>
+            <p class="small text-muted" data-key="modal_disclaimer"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // --- 1. OBJETO DE TRADUCCIONES ---
+        const translations = {
+            es: {
+                meta_title: "Calculadora Avanzada de Huella de Carbono | FIDES",
+                meta_desc: "Calcula tu huella de carbono con nuestra herramienta avanzada. Analiza tu hogar, transporte, dieta y consumo para obtener un informe personalizado.",
+                nav_home: "INICIO", nav_projects: "PROYECTOS", nav_gallery: "GALERÍA", nav_calculator: "CALCULADORA DE CARBONO", nav_blog: "BLOG",
+                calc_title: "Calculadora Avanzada de Huella de Carbono",
+                calc_subtitle: "Una herramienta completa para entender, reducir y neutralizar tu impacto ambiental.",
+                step1_title: "Inicio", step2_title: "Hogar", step3_title: "Transporte", step4_title: "Consumo",
+                card_title_step1: '<i class="fas fa-globe-americas"></i> Configuración Inicial', label_country: "País:", label_people: "Personas en tu hogar:", info_people: "La huella del hogar se dividirá entre este número.",
+                card_title_step2: '<i class="fas fa-lightbulb"></i> Energía del Hogar', label_electricity: "Consumo eléctrico mensual (kWh):", label_heating: "Tipo de calefacción:", heating_gas: "Gas Natural", heating_electric: "Eléctrica", heating_biomass: "Biomasa", heating_none: "Sin calefacción",
+                card_title_step3_1: '<i class="fas fa-car-side"></i> Vehículo Privado', label_fuel: "Tipo de combustible:", fuel_gasoline: "Gasolina", fuel_diesel: "Diésel", fuel_hybrid: "Híbrido", fuel_electric: "Eléctrico", fuel_none: "No uso vehículo", label_car_dist: "Distancia semanal (km):",
+                card_title_step3_2: '<i class="fas fa-bus"></i> Transporte Público y Vuelos', label_bus_dist: "Distancia semanal en autobús (km):", label_train_dist: "Distancia semanal en tren/metro (km):", label_flights: "Vuelos de corta distancia (menos de 3h) al año:",
+                card_title_step4: '<i class="fas fa-utensils"></i> Alimentación y Consumo', label_diet: "Nivel de consumo de carne roja:", label_goods: "Nivel de compras (ropa, electrónicos, etc.):",
+                range_low_diet: "Poco", range_high_diet: "Mucho", range_low_goods: "Bajo", range_high_goods: "Alto",
+                btn_prev: "Anterior", btn_next: "Siguiente", btn_calculate: "¡Calcular mi Huella!",
+                results_title: "Tu Huella de Carbono Anual es:", results_unit: "toneladas de CO₂e por persona",
+                tab_summary: "Resumen", tab_advice: "Consejos", tab_goals: "Metas", tab_share: "Comparte",
+                summary_compare_title: "Comparativa Anual (tCO₂e)", summary_your: "Tu Huella", summary_avg: "Promedio", summary_world: "Promedio Mundial", summary_goal: "Objetivo 2030",
+                modal_link: "Ver metodología y fuentes",
+                advice_title: '<i class="fas fa-leaf"></i> Tus Próximos Pasos',
+                goals_title: '<i class="fas fa-bullseye"></i> Fija tus Metas de Reducción', goals_subtitle: "Selecciona los cambios que te comprometes a hacer y mira el impacto.",
+                share_title: '<i class="fas fa-share-alt"></i> ¡Inspira a Otros!', share_subtitle: "Comparte tu resultado y anima a tus amigos y familiares a medir su impacto.",
+                goal_diet: "Reducir mi consumo de carne roja a la mitad", goal_car: "Reducir el uso del coche en un 10%", goal_flights: "Reemplazar 1 vuelo corto por un viaje en tren",
+                reduction_summary_title: "Con estos cambios, tu nueva huella sería:", reduction_summary_subtitle: "¡Una reducción de {reduction} toneladas al año!",
+                modal_title: "Metodología y Fuentes de Datos", modal_p1: "Nuestra calculadora utiliza factores de emisión de fuentes reconocidas internacionalmente para proporcionar una estimación precisa.", modal_li1: "<strong>Electricidad:</strong> Factores de emisión por país (IEA).", modal_li2: "<strong>Transporte:</strong> Emisiones promedio por tipo de combustible (EPA).", modal_li3: "<strong>Vuelos:</strong> Factores de emisión para distancias cortas (IPCC).", modal_li4: "<strong>Alimentación:</strong> Huella de carbono de diferentes dietas (Our World in Data).", modal_disclaimer: "Esta herramienta es para fines educativos. Los resultados son una estimación."
+            },
+            en: {
+                meta_title: "Advanced Carbon Footprint Calculator | FIDES",
+                meta_desc: "Calculate your carbon footprint with our advanced tool. Analyze your home, transport, diet, and consumption to get a personalized report.",
+                nav_home: "HOME", nav_projects: "PROJECTS", nav_gallery: "GALLERY", nav_calculator: "CARBON CALCULATOR", nav_blog: "BLOG",
+                calc_title: "Advanced Carbon Footprint Calculator",
+                calc_subtitle: "A complete tool to understand, reduce, and offset your environmental impact.",
+                step1_title: "Start", step2_title: "Home", step3_title: "Transport", step4_title: "Consumption",
+                card_title_step1: '<i class="fas fa-globe-americas"></i> Initial Setup', label_country: "Country:", label_people: "People in your household:", info_people: "The household footprint will be divided by this number.",
+                card_title_step2: '<i class="fas fa-lightbulb"></i> Home Energy', label_electricity: "Monthly electricity consumption (kWh):", label_heating: "Main heating type:", heating_gas: "Natural Gas", heating_electric: "Electric", heating_biomass: "Biomass", heating_none: "No heating",
+                card_title_step3_1: '<i class="fas fa-car-side"></i> Private Vehicle', label_fuel: "Fuel type:", fuel_gasoline: "Gasoline", fuel_diesel: "Diesel", fuel_hybrid: "Hybrid", fuel_electric: "Electric", fuel_none: "I don't use a car", label_car_dist: "Weekly distance (km):",
+                card_title_step3_2: '<i class="fas fa-bus"></i> Public Transport & Flights', label_bus_dist: "Weekly bus distance (km):", label_train_dist: "Weekly train/metro distance (km):", label_flights: "Short-haul flights (under 3h) per year:",
+                card_title_step4: '<i class="fas fa-utensils"></i> Diet & Consumption', label_diet: "Red meat consumption level:", label_goods: "Shopping level (clothes, etc.):",
+                range_low_diet: "Little", range_high_diet: "A lot", range_low_goods: "Low", range_high_goods: "High",
+                btn_prev: "Previous", btn_next: "Next", btn_calculate: "Calculate My Footprint!",
+                results_title: "Your Annual Carbon Footprint is:", results_unit: "tonnes of CO₂e per person",
+                tab_summary: "Summary", tab_advice: "Advice", tab_goals: "Goals", tab_share: "Share",
+                summary_compare_title: "Annual Comparison (tCO₂e)", summary_your: "Your Footprint", summary_avg: "Average", summary_world: "World Average", summary_goal: "2030 Goal",
+                modal_link: "View methodology and sources",
+                advice_title: '<i class="fas fa-leaf"></i> Your Next Steps',
+                goals_title: '<i class="fas fa-bullseye"></i> Set Your Reduction Goals', goals_subtitle: "Select the changes you commit to and see the impact.",
+                share_title: '<i class="fas fa-share-alt"></i> Inspire Others!', share_subtitle: "Share your result and encourage friends and family to measure their impact.",
+                goal_diet: "Reduce my red meat consumption by half", goal_car: "Reduce car usage by 10%", goal_flights: "Replace 1 short flight with a train trip",
+                reduction_summary_title: "With these changes, your new footprint would be:", reduction_summary_subtitle: "A reduction of {reduction} tonnes per year!",
+                modal_title: "Methodology & Data Sources", modal_p1: "Our calculator uses emission factors from recognized sources for an accurate estimate.", modal_li1: "<strong>Electricity:</strong> Emission factors by country (IEA).", modal_li2: "<strong>Transport:</strong> Average emissions by fuel type (EPA).", modal_li3: "<strong>Flights:</strong> Emission factors for short distances (IPCC).", modal_li4: "<strong>Diet:</strong> Carbon footprint of different diets (Our World in Data).", modal_disclaimer: "This tool is for educational purposes. Results are an estimate."
+            }
+        };
+
+        // --- 2. LÓGICA DE LA CALCULADORA (VARIABLES GLOBALES) ---
+        let lastCalculation = {};
+        let currentStep = 1;
+        let breakdownChart;
+        const dom = {
+            prevBtn: document.getElementById('prev'), nextBtn: document.getElementById('next'),
+            calculateBtn: document.getElementById('calculate'), progress: document.getElementById('progress'),
+            formSteps: document.querySelectorAll('.form-step'), progressCircles: document.querySelectorAll('.circle'),
+            form: document.getElementById('carbonForm'), resultDiv: document.getElementById('resultado'),
+            countrySelector: document.getElementById('countrySelector')
+        };
+        const EMISSION_FACTORS = {
+            'CO': { name: 'Colombia', electricity: 0.192, avgFootprint: 1.8 },
+            'US': { name: 'United States', electricity: 0.37, avgFootprint: 14.4 },
+            'ES': { name: 'España', electricity: 0.19, avgFootprint: 5.4 },
+            'world': { name: 'World', electricity: 0.43, avgFootprint: 4.7 }
+        };
+        const GENERAL_FACTORS = { car: { gasolina: 0.192, diesel: 0.171, hibrido: 0.120, electrico: 0.0 }, transport: { bus: 0.105, train: 0.041 }, flights_per_trip: 250, heating: { gas_natural: 1.2, electrica: 0.8, biomasa: 0.2, ninguna: 0 }, diet: [0, 600, 1300, 2000, 2800, 3800], goods: [0, 400, 900, 1500, 2500, 4000]};
+        const GOAL_2030 = 2.0;
+        
+        // --- 3. FUNCIONES DE LA APLICACIÓN ---
+        
+        const setLanguage = (lang) => {
+            if (!translations[lang]) lang = 'es';
+            localStorage.setItem('language', lang);
+            document.documentElement.lang = lang;
+            
+            // **INICIO DE LA CORRECCIÓN**
+            // Actualizar título de la página y meta descripción
+            if (translations[lang].meta_title) {
+                document.title = translations[lang].meta_title;
+            }
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc && translations[lang].meta_desc) {
+                metaDesc.setAttribute('content', translations[lang].meta_desc);
+            }
+
+            // Actualizar todos los elementos con data-key
+            document.querySelectorAll('[data-key]').forEach(elem => {
+                const key = elem.getAttribute('data-key');
+                if (translations[lang][key] !== undefined) elem.innerHTML = translations[lang][key];
+            });
+
+            // Actualizar los títulos (tooltips)
+            document.querySelectorAll('[data-key-title]').forEach(elem => {
+                const key = elem.getAttribute('data-key-title');
+                if (translations[lang][key] !== undefined) elem.title = translations[lang][key];
+            });
+            
+            // Actualizar los placeholders
+             document.querySelectorAll('[data-key-placeholder]').forEach(elem => {
+                const key = elem.getAttribute('data-key-placeholder');
+                if (translations[lang][key] !== undefined) elem.placeholder = translations[lang][key];
+            });
+            // **FIN DE LA CORRECCIÓN**
+
+            document.querySelectorAll('.lang-btn-nav').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`lang-${lang}`).classList.add('active');
+
+            if (lastCalculation.total !== undefined) {
+                displayResults();
+            }
+        };
+
+        const updateStep = (change) => {
+            currentStep = Math.max(1, Math.min(dom.formSteps.length, currentStep + change));
+            updateWizard();
+        };
+
+        const updateWizard = () => {
+            dom.formSteps.forEach(step => step.classList.toggle('active', parseInt(step.dataset.step) === currentStep));
+            dom.progressCircles.forEach((circle, index) => circle.classList.toggle('active', index < currentStep));
+            dom.progress.style.width = ((currentStep - 1) / (dom.progressCircles.length - 1)) * 100 + '%';
+            dom.prevBtn.disabled = currentStep === 1;
+            dom.nextBtn.style.display = currentStep === dom.formSteps.length ? 'none' : 'inline-block';
+            dom.calculateBtn.style.display = currentStep === dom.formSteps.length ? 'inline-block' : 'none';
+        };
+
+        const performCalculation = () => {
+            const userInput = {
+                countryCode: dom.countrySelector.value,
+                peopleInHome: parseInt(document.getElementById('peopleInHome').value) || 1,
+                electricidad: parseFloat(document.getElementById('electricidad').value) || 0,
+                heatingType: document.getElementById('heatingType').value,
+                carFuel: document.getElementById('carFuel').value,
+                carKm: parseFloat(document.getElementById('carKm').value) || 0,
+                busKm: parseFloat(document.getElementById('busKm').value) || 0,
+                trainKm: parseFloat(document.getElementById('trainKm').value) || 0,
+                flights: parseInt(document.getElementById('flights').value) || 0,
+                diet: parseInt(document.getElementById('diet').value),
+                goods: parseInt(document.getElementById('goods').value)
+            };
+            
+            const countryFactors = EMISSION_FACTORS[userInput.countryCode];
+            const electricFactor = countryFactors.electricity;
+            let emissions = {
+                hogar: ((userInput.electricidad * 12 * electricFactor) / 1000 + GENERAL_FACTORS.heating[userInput.heatingType]) / userInput.peopleInHome,
+                transporte: 0,
+                consumo: (GENERAL_FACTORS.diet[userInput.diet] + GENERAL_FACTORS.goods[userInput.goods]) / 1000
+            };
+            let carEmission = 0;
+            if (userInput.carFuel !== 'ninguno') {
+                let carFactor = GENERAL_FACTORS.car[userInput.carFuel];
+                if (userInput.carFuel === 'electrico') carFactor = electricFactor * 0.15;
+                carEmission = (userInput.carKm * 52 * carFactor) / 1000;
+            }
+            emissions.transporte = carEmission +
+                (((userInput.busKm * 52 * GENERAL_FACTORS.transport.bus) + (userInput.trainKm * 52 * GENERAL_FACTORS.transport.train)) / 1000) +
+                ((userInput.flights * GENERAL_FACTORS.flights_per_trip) / 1000);
+
+            const total = Object.values(emissions).reduce((sum, val) => sum + val, 0);
+            lastCalculation = { total, emissions, factors: countryFactors };
+
+            dom.form.style.display = 'none';
+            document.querySelector('.progress-container').style.display = 'none';
+            dom.resultDiv.style.display = 'block';
+            displayResults();
+            window.scrollTo({ top: dom.resultDiv.offsetTop - 80, behavior: 'smooth' });
+        };
+        
+        const displayResults = () => {
+            const lang = localStorage.getItem('language') || 'es';
+            const t = translations[lang];
+            const { total, factors } = lastCalculation;
+
+            dom.resultDiv.innerHTML = `
+                <div class="text-center mb-4">
+                    <p class="h5">${t.results_title}</p>
+                    <div class="total-emission">${total.toFixed(2)}</div>
+                    <p class="text-muted">${t.results_unit}</p>
+                </div>
+                <ul class="nav nav-tabs nav-fill mb-3" id="resultTabs" role="tablist">
+                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#summary">${t.tab_summary}</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#advice">${t.tab_advice}</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#goals">${t.tab_goals}</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#share">${t.tab_share}</a></li>
+                </ul>
+                <div class="tab-content" id="resultTabsContent">
+                    <div class="tab-pane fade show active" id="summary" role="tabpanel">
+                        <div class="results-breakdown">
+                            <div class="chart-container"><canvas id="breakdownChart"></canvas></div>
+                            <div class="comparison-container">
+                                <h4>${t.summary_compare_title}</h4>
+                                <div class="comparison-item"><span>${t.summary_your}</span><div class="bar-track"><div class="bar your-bar" id="yourBar"></div></div><span>${total.toFixed(1)}</span></div>
+                                <div class="comparison-item"><span>${t.summary_avg} ${factors.name}</span><div class="bar-track"><div class="bar average-bar" id="avgBar"></div></div><span>${factors.avgFootprint.toFixed(1)}</span></div>
+                                <div class="comparison-item"><span>${t.summary_world}</span><div class="bar-track"><div class="bar average-bar" id="worldAvgBar"></div></div><span>${EMISSION_FACTORS.world.avgFootprint.toFixed(1)}</span></div>
+                                <div class="comparison-item"><span>${t.summary_goal}</span><div class="bar-track"><div class="bar goal-bar" id="goalBar"></div></div><span>${GOAL_2030.toFixed(1)}</span></div>
+                            </div>
+                        </div>
+                        <p class="text-center mt-3 small"><a href="#" data-toggle="modal" data-target="#methodologyModal">${t.modal_link}</a></p>
+                    </div>
+                    <div class="tab-pane fade" id="advice" role="tabpanel"><h3 class="mb-3">${t.advice_title}</h3><div id="personalized-advice"></div></div>
+                    <div class="tab-pane fade" id="goals" role="tabpanel"><h3 class="mb-3">${t.goals_title}</h3><p>${t.goals_subtitle}</p><div id="goal-setting"></div><div id="reduction-summary" class="mt-3"></div></div>
+                    <div class="tab-pane fade" id="share" role="tabpanel"><div class="text-center p-4"><h3>${t.share_title}</h3><p>${t.share_subtitle}</p><div class="social-share-buttons" id="social-share"></div></div></div>
+                </div>`;
+            
+            renderSummary();
+            renderPersonalizedAdvice();
+            renderGoalSetting();
+            renderShareButtons();
+        };
+
+        const renderSummary = () => {
+            const { total, emissions, factors } = lastCalculation;
+            const maxBarValue = Math.max(total, factors.avgFootprint, GOAL_2030, EMISSION_FACTORS.world.avgFootprint) * 1.2;
+            setTimeout(() => {
+                $('#yourBar').css('width', (total / maxBarValue) * 100 + '%');
+                $('#avgBar').css('width', (factors.avgFootprint / maxBarValue) * 100 + '%');
+                $('#worldAvgBar').css('width', (EMISSION_FACTORS.world.avgFootprint / maxBarValue) * 100 + '%');
+                $('#goalBar').css('width', (GOAL_2030 / maxBarValue) * 100 + '%');
+            }, 100);
+            
+            const lang = localStorage.getItem('language') || 'es';
+            const chartLabels = lang === 'es' ? {'hogar': 'Hogar', 'transporte': 'Transporte', 'consumo': 'Consumo'} : {'hogar': 'Home', 'transporte': 'Transport', 'consumo': 'Consumption'};
+            if (breakdownChart) breakdownChart.destroy();
+            breakdownChart = new Chart($('#breakdownChart'), { type: 'doughnut', data: { labels: Object.keys(emissions).map(k => chartLabels[k]), datasets: [{ data: Object.values(emissions).map(v => v.toFixed(2)), backgroundColor: ['#FDBE33', '#4a4c70', '#8BC34A'] }] }, options: { responsive: true, maintainAspectRatio: false, legend: { position: 'bottom' } } });
+        };
+        
+        const renderPersonalizedAdvice = () => {
+             const lang = localStorage.getItem('language') || 'es';
+             const { emissions, total, factors } = lastCalculation;
+             const mainCategory = Object.keys(emissions).reduce((a, b) => emissions[a] > emissions[b] ? a : b);
+             const adviceDb = { es: { hogar: "<strong>Hogar es tu mayor impacto.</strong> Considera cambiar a un proveedor de energía renovable, mejora el aislamiento y utiliza electrodomésticos eficientes.", transporte: "<strong>El transporte es tu área clave.</strong> Prioriza caminar, la bicicleta o el transporte público. Si necesitas un coche, considera un modelo eléctrico o híbrido.", consumo: "<strong>Tu consumo marca la diferencia.</strong> Reducir el consumo de carne roja y lácteos es una de las acciones más efectivas. Compra menos, pero de mejor calidad y duradero." }, en: { hogar: "<strong>Home is your biggest impact.</strong> Consider switching to a renewable energy provider, improve insulation, and use energy-efficient appliances.", transporte: "<strong>Transportation is your key area.</strong> Prioritize walking, cycling, or public transport. If you need a car, consider an electric or hybrid model.", consumo: "<strong>Your consumption makes a difference.</strong> Reducing red meat and dairy is one of the most effective actions. Buy less, but better quality and more durable items." } };
+             let statusAdvice = { es: "Tu huella es superior al promedio. ¡No te preocupes! Enfocarte en tu área de mayor impacto es el primer gran paso.", en: "Your footprint is above average. Don't worry! Focusing on your biggest impact area is the first great step." };
+             if (total < GOAL_2030) statusAdvice = { es: "¡Felicidades! Tu huella está por debajo del objetivo 2030. Eres un ejemplo a seguir.", en: "Congratulations! Your footprint is below the 2030 goal. You are a role model." };
+             else if (total < factors.avgFootprint) statusAdvice = { es: "¡Vas por buen camino! Estás por debajo del promedio de tu país.", en: "You're on the right track! You are below your country's average." };
+             $('#personalized-advice').html(`<div class="advice-card">${adviceDb[lang][mainCategory]}</div><div class="advice-card">${statusAdvice[lang]}</div>`);
+        };
+        
+        const renderGoalSetting = () => {
+            const lang = localStorage.getItem('language') || 'es';
+            const t = translations[lang];
+            $('#goal-setting').html(`<div class="goal-item"><div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="goal-diet"><label class="custom-control-label" for="goal-diet">${t.goal_diet}</label></div></div><div class="goal-item"><div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="goal-car"><label class="custom-control-label" for="goal-car">${t.goal_car}</label></div></div><div class="goal-item"><div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="goal-flights"><label class="custom-control-label" for="goal-flights">${t.goal_flights}</label></div></div>`).find('input').on('change', calculateNewFootprint);
+            calculateNewFootprint();
+        };
+
+        const calculateNewFootprint = () => {
+            if (lastCalculation.total === undefined) return;
+            let reduction = 0;
+            const { total, emissions } = lastCalculation;
+            if ($('#goal-diet').is(':checked')) reduction += emissions.consumo * 0.3;
+            if ($('#goal-car').is(':checked')) reduction += (emissions.transporte * 0.1);
+            if ($('#goal-flights').is(':checked')) reduction += 0.2;
+            const newTotal = total - reduction;
+            const lang = localStorage.getItem('language') || 'es';
+            const t = translations[lang];
+            const summaryText = t.reduction_summary_subtitle.replace('{reduction}', reduction.toFixed(2));
+            $('#reduction-summary').html(`<p>${t.reduction_summary_title}</p><div id="new-footprint-value">${newTotal.toFixed(2)} tCO₂e</div><p class="text-success font-weight-bold">${summaryText}</p>`);
+        };
+
+        const renderShareButtons = () => {
+            if (lastCalculation.total === undefined) return;
+            const { total } = lastCalculation;
+            const text = encodeURIComponent(`¡He calculado mi huella de carbono y es de ${total.toFixed(2)} tCO₂e! Descubre la tuya con la herramienta de FIDES.`);
+            const url = encodeURIComponent(window.location.href.split('?')[0]);
+            $('#social-share').html(`<a href="https://www.facebook.com/sharer/sharer.php?u=${url}" target="_blank" title="Compartir en Facebook"><i class="fab fa-facebook-square"></i></a><a href="https://twitter.com/intent/tweet?url=${url}&text=${text}" target="_blank" title="Compartir en X"><i class="fab fa-twitter-square"></i></a><a href="https://wa.me/?text=${text} ${url}" target="_blank" title="Compartir en WhatsApp"><i class="fab fa-whatsapp-square"></i></a>`);
+        };
+
+        // --- 4. INICIO DE LA APLICACIÓN ---
+        function initializeApp() {
+            dom.countrySelector.innerHTML = Object.keys(EMISSION_FACTORS).map(code => `<option value="${code}">${EMISSION_FACTORS[code].name}</option>`).join('');
+            
+            dom.nextBtn.addEventListener('click', () => updateStep(1));
+            dom.prevBtn.addEventListener('click', () => updateStep(-1));
+            dom.calculateBtn.addEventListener('click', performCalculation);
+            
+            document.getElementById('lang-es').addEventListener('click', (e) => { e.preventDefault(); setLanguage('es'); });
+            document.getElementById('lang-en').addEventListener('click', (e) => { e.preventDefault(); setLanguage('en'); });
+
+            updateWizard();
+            const urlParams = new URLSearchParams(window.location.search);
+            const lang = urlParams.get('lang') || localStorage.getItem('language') || 'es';
+            setLanguage(lang);
+        }
+
+        initializeApp();
+    });
+    </script>
+</body>
+</html>

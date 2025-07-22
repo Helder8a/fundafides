@@ -1,0 +1,19 @@
+# Permitir que todos los rastreadores accedan a todo el contenido
+User-agent: *
+Allow: /
+
+# Ubicación del mapa del sitio
+Sitemap: https://fundafidescol.org/sitemap.xml
+
+
+
+
+
+
+
+
+
+
+
+
+
