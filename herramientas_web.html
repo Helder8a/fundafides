@@ -8,7 +8,7 @@
     <meta name="description"
         content="Descubre los aplicativos y herramientas ambientales que la Fundación FIDES Sucre pone a tu disposición para promover la sostenibilidad y el cuidado del medio ambiente en la Costa Caribe de Colombia.">
     <meta name="keywords"
-        content="aplicativos ambientales, herramientas, sostenibilidad, FIDES Sucre, medio ambiente, Colombia">
+        content="aplicativos ambientales, herramientas, sostenibilidad, FIDES Sucre, medio ambiente, calculadora de carbono, evaluador de sostenibilidad, Colombia">
 
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://fundafidescol.org/herramientas_web.html" />
@@ -25,6 +25,30 @@
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <link href="css/style.css" rel="stylesheet">
+    <style>
+        .tool-card {
+            background-color: #f8f9fa;
+            border-left: 5px solid var(--primary-color);
+            padding: 25px;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            margin-bottom: 25px;
+            height: 100%;
+        }
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: inherit;
+        }
+        .tool-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -66,13 +90,14 @@
                     <a href="index.html" class="nav-item nav-link" data-key="nav_inicio">INICIO</a>
                     <a href="proyectos.html" class="nav-item nav-link" data-key="nav_proyectos">PROYECTOS</a>
                     <a href="galeria.html" class="nav-item nav-link" data-key="nav_galeria">GALERÍA</a>
-
-                    <div class="nav-item dropdown active">
+                    <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
                             data-key="nav_herramientas">HERRAMIENTAS WEB</a>
                         <div class="dropdown-menu">
                             <a href="evaluador_sustentable.html" class="dropdown-item"
-                                data-key="nav_evaluador">Evaluador de Proyectos Sustentables</a>
+                                data-key="nav_evaluador">Evaluador de Sostenibilidad</a>
+                            <a href="calculadora_carbono.html" class="dropdown-item"
+                                data-key="nav_calculadora_carbono">Calculadora de Carbono</a>
                         </div>
                     </div>
                     <a href="blog.html" class="nav-item nav-link" data-key="nav_blog">BLOG</a>
@@ -101,50 +126,29 @@
             <h2 data-key="herramientas_section_subtitle">Nuestros Aplicativos</h2>
         </div>
         <div class="row">
-            <div class="col-12">
-                <p data-key="herramientas_p1">En esta sección, encontrarás recursos y aplicativos enfocados en la
-                    protección y conservación del medio ambiente. Estamos trabajando para ofrecerte información valiosa
-                    y herramientas prácticas que te ayudarán a tomar decisiones más sostenibles en tu día a día.</p>
-                <p data-key="herramientas_p2">¡Vuelve pronto para descubrir nuestros nuevos aplicativos ambientales!</p>
+            <div class="col-md-8 offset-md-2">
+                <p data-key="herramientas_p1" class="text-center mb-5">En esta sección, encontrarás recursos y aplicativos enfocados en la
+                    protección y conservación del medio ambiente. Estas herramientas prácticas te ayudarán a tomar decisiones más sostenibles en tu día a día.</p>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <a href="evaluador_sustentable.html" class="tool-card">
+                            <h3>Evaluador de Sostenibilidad</h3>
+                            <p>Analiza la sostenibilidad de tus proyectos de edificación según estándares internacionales como LEED y BREEAM.</p>
+                        </a>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <a href="calculadora_carbono.html" class="tool-card">
+                            <h3>Calculadora de Carbono</h3>
+                            <p>Mide tu huella de carbono personal basada en tu consumo de energía, transporte y residuos. Descubre tu impacto y cómo reducirlo.</p>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
 
     <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-contact">
-                        <h2 data-key="footer_office">Oficina Principal</h2>
-                        <p><i class="fa fa-map-marker-alt"></i><span data-key="footer_location">Colombia</span></p>
-                        <p><i class="fa fa-envelope"></i><span data-key="email">fidessuc@gmail.com</span></p>
-                        <div class="footer-social">
-                            <a class="btn btn-custom" href="https://www.facebook.com/fidersucre/"
-                                aria-label="Facebook de FIDES"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-custom" href="https://www.instagram.com/fidersucre/"
-                                aria-label="Instagram de FIDES"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-link">
-                        <h2 data-key="footer_quicklinks">Enlaces Rápidos</h2>
-                        <a href="index.html" data-key="nav_inicio">Inicio</a>
-                        <a href="proyectos.html" data-key="nav_proyectos">Proyectos</a>
-                        <a href="galeria.html" data-key="nav_galeria">Galería</a>
-                        <a href="evaluador_sustentable.html" data-key="nav_herramientas">Herramientas Web</a>
-                        <a href="blog.html" data-key="nav_blog">Blog</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-link">
-                        <h2 data-key="footer_collaborators">Colaboradores</h2>
-                        <a href="#">Colaborador</a>
-                        <a href="#">Colaborador.</a>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="container copyright">
             <div class="row">
                 <div class="col-md-6">
@@ -160,8 +164,8 @@
         <div class="loader"></div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" defer></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="lib/easing/easing.min.js" defer></script>
     <script src="lib/owlcarousel/owl.carousel.min.js" defer></script>
     <script src="lib/waypoints/waypoints.min.js" defer></script>
@@ -169,11 +173,7 @@
     <script src="lib/parallax/parallax.min.js" defer></script>
 
     <script src="js/main.js" defer></script>
-
-    <script src="js/translations.js"></script>
-    <script src="js/language.js"></script>
-
+    <script src="js/app.js" defer></script>
 
 </body>
-
 </html>
