@@ -34,6 +34,27 @@
     <link href="css/style.css" rel="stylesheet">
 
     <link rel="icon" href="img/favicon.ico.png">
+
+    <style>
+        .table-responsive {
+            border: 1px solid #dee2e6;
+            border-radius: .25rem;
+        }
+
+        #proyectosTable thead th {
+            white-space: nowrap; /* Evita que los títulos de la tabla se partan */
+        }
+
+        @media (max-width: 767.98px) {
+            .section-header h2 {
+                font-size: 28px; /* Reduce el tamaño del título en móviles */
+            }
+
+            #proyectosTable {
+                font-size: 14px; /* Reduce el tamaño de la fuente de la tabla para mejor legibilidad */
+            }
+        }
+    </style>
 </head>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-557GV639W3"></script>
@@ -50,21 +71,16 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="top-bar-left">
-                        <div class="text"><i class="fa fa-phone-alt"></i>
-                            <p>+57 3128284509</p>
-                        </div>
                         <div class="text"><i class="fa fa-envelope"></i>
-                            <p>fidessuc@gmail.com</p>
+                            <p data-key="email">fidessuc@gmail.com</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="top-bar-right">
                         <div class="social">
-                            <a href="https://www.facebook.com/fidersucre/" aria-label="Visita nuestro Facebook"><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a href="https://www.instagram.com/fidersucre/" aria-label="Visita nuestro Instagram"><i
-                                    class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/fidersucre/" aria-label="Visita nuestro Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/fidersucre/" aria-label="Visita nuestro Instagram"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -83,17 +99,22 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav ml-auto">
-                    <a href="index.html" class="nav-item nav-link">INICIO</a>
-                    <a href="proyectos.html" class="nav-item nav-link active">PROYECTOS</a>
-                    <a href="galeria.html" class="nav-item nav-link">GALERÍA</a>
+                    <a href="index.html" class="nav-item nav-link" data-key="nav_inicio">INICIO</a>
+                    <a href="proyectos.html" class="nav-item nav-link active" data-key="nav_proyectos">PROYECTOS</a>
+                    <a href="galeria.html" class="nav-item nav-link" data-key="nav_galeria">GALERÍA</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">HERRAMIENTAS WEB</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-key="nav_herramientas">HERRAMIENTAS WEB</a>
                         <div class="dropdown-menu">
-                            <a href="evaluador_sustentable.html" class="dropdown-item">Evaluador de Sostenibilidad</a>
+                            <a href="evaluador_sustentable.html" class="dropdown-item" data-key="nav_evaluador">Evaluador de Sostenibilidad</a>
                         </div>
                     </div>
-                    <a href="blog.html" class="nav-item nav-link">BLOG</a>
-                    <a href="contacto.html" class="nav-item nav-link">CONTACTO</a>
+                    <a href="blog.html" class="nav-item nav-link" data-key="nav_blog">BLOG</a>
+                    <a href="contacto.html" class="nav-item nav-link" data-key="nav_contacto">CONTACTO</a>
+                    <div class="nav-item d-flex align-items-center lang-switcher">
+                         <a href="#" onclick="setLanguage('es')" class="lang-btn-nav">ES</a>
+                         <span class="text-white mx-1">|</span>
+                         <a href="#" onclick="setLanguage('en')" class="lang-btn-nav">EN</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -102,34 +123,34 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2>Nuestra Experiencia</h2>
+                    <h2 data-key="proyectos_page_title">Nuestra Experiencia</h2>
                 </div>
             </div>
         </div>
     </div>
     <div class="container my-5">
         <div class="section-header text-center">
-            <p>Nuestra Trayectoria</p>
-            <h2>Listado de Proyectos</h2>
+            <p data-key="proyectos_section_title">Nuestra Trayectoria</p>
+            <h2 data-key="proyectos_section_subtitle">Listado de Proyectos</h2>
         </div>
 
-        <div class="row mb-3">
-            <div class="col-md-4">
-                <input type="text" id="searchInput" onkeyup="applyFilters()" placeholder="Buscar por palabra clave..."
+        <div class="row mb-4">
+            <div class="col-lg-4 col-md-12 mb-3">
+                <input type="text" id="searchInput" onkeyup="applyFilters()" data-key-placeholder="proyectos_search_placeholder" placeholder="Buscar por palabra clave..."
                     class="form-control">
             </div>
-            <div class="col-md-3">
+            <div class="col-lg-3 col-md-6 mb-3">
                 <select id="categoryFilter" onchange="applyFilters()" class="form-control">
-                    <option value="">Todas las Categorías</option>
+                    <option value="" data-key="proyectos_category_all">Todas las Categorías</option>
                 </select>
             </div>
-            <div class="col-md-3">
+            <div class="col-lg-3 col-md-6 mb-3">
                 <select id="yearFilter" onchange="applyFilters()" class="form-control">
-                    <option value="">Todos los Años</option>
+                    <option value="" data-key="proyectos_year_all">Todos los Años</option>
                 </select>
             </div>
-            <div class="col-md-2">
-                <button class="btn btn-block btn-info" onclick="clearAllFilters()">Limpiar Todo</button>
+            <div class="col-lg-2 col-md-12">
+                <button class="btn btn-block btn-info" onclick="clearAllFilters()" data-key="proyectos_clear_button">Limpiar Todo</button>
             </div>
         </div>
 
@@ -137,12 +158,12 @@
             <table id="proyectosTable" class="table table-striped table-hover">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col" style="cursor: pointer;" onclick="sortTable(0)"># <span id="sortIcon-0"></span></th>
-                        <th scope="col" style="cursor: pointer;" onclick="sortTable(1)">Año <span id="sortIcon-1"></span></th>
-                        <th scope="col" style="cursor: pointer;" onclick="sortTable(2)">Nombre del Proyecto <span id="sortIcon-2"></span></th>
-                        <th scope="col" style="cursor: pointer;" onclick="sortTable(3)">Entidad Contratante <span id="sortIcon-3"></span></th>
-                        <th scope="col" style="cursor: pointer;" onclick="sortTable(4)">Ubicación <span id="sortIcon-4"></span></th>
-                        <th scope="col" style="cursor: pointer;" onclick="sortTable(5)">Categoría <span id="sortIcon-5"></span></th>
+                        <th scope="col" style="cursor: pointer;" onclick="sortTable(0)"><span data-key="proyectos_table_header_num">#</span> <span id="sortIcon-0"></span></th>
+                        <th scope="col" style="cursor: pointer;" onclick="sortTable(1)"><span data-key="proyectos_table_header_year">Año</span> <span id="sortIcon-1"></span></th>
+                        <th scope="col" style="cursor: pointer;" onclick="sortTable(2)"><span data-key="proyectos_table_header_name">Nombre del Proyecto</span> <span id="sortIcon-2"></span></th>
+                        <th scope="col" style="cursor: pointer;" onclick="sortTable(3)"><span data-key="proyectos_table_header_client">Entidad Contratante</span> <span id="sortIcon-3"></span></th>
+                        <th scope="col" style="cursor: pointer;" onclick="sortTable(4)"><span data-key="proyectos_table_header_location">Ubicación</span> <span id="sortIcon-4"></span></th>
+                        <th scope="col" style="cursor: pointer;" onclick="sortTable(5)"><span data-key="proyectos_table_header_category">Categoría</span> <span id="sortIcon-5"></span></th>
                     </tr>
                 </thead>
                 <tbody id="proyectosBody">
@@ -677,17 +698,16 @@
                 </tbody>
             </table>
         </div>
-    </div>
+        </div>
 
     <div class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-contact">
-                        <h2>Oficina Principal</h2>
-                        <p><i class="fa fa-map-marker-alt"></i>Sincelejo, Sucre, Colombia</p>
-                        <p><i class="fa fa-phone-alt"></i>+57 3128284509</p>
-                        <p><i class="fa fa-envelope"></i>fidessuc@gmail.com</p>
+                        <h2 data-key="footer_office">Oficina Principal</h2>
+                        <p><i class="fa fa-map-marker-alt"></i><span data-key="footer_location">Colombia</span></p>
+                        <p><i class="fa fa-envelope"></i><span data-key="email">fidessuc@gmail.com</span></p>
                         <div class="footer-social">
                             <a class="btn btn-custom" href="https://www.facebook.com/fidersucre/"
                                 aria-label="Facebook de FIDES"><i class="fab fa-facebook-f"></i></a>
@@ -698,20 +718,20 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-link">
-                        <h2>Enlaces Rápidos</h2>
-                        <a href="index.html">Inicio</a>
-                        <a href="proyectos.html">Proyectos</a>
-                        <a href="galeria.html">Galería</a>
-                        <a href="evaluador_sustentable.html">Herramientas Web</a>
-                        <a href="blog.html">Blog</a>
-                        <a href="contacto.html">Contacto</a>
+                        <h2 data-key="footer_quicklinks">Enlaces Rápidos</h2>
+                        <a href="index.html" data-key="nav_inicio">Inicio</a>
+                        <a href="proyectos.html" data-key="nav_proyectos">Proyectos</a>
+                        <a href="galeria.html" data-key="nav_galeria">Galería</a>
+                        <a href="evaluador_sustentable.html" data-key="nav_herramientas">Herramientas Web</a>
+                        <a href="blog.html" data-key="nav_blog">Blog</a>
+                        <a href="contacto.html" data-key="nav_contacto">Contacto</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-link">
-                        <h2>Colaboradores</h2>
-                        <a href="#" target="_blank" rel="noopener noreferrer">Colaborador Uno</a>
-                        <a href="#" target="_blank" rel="noopener noreferrer">Colaborador Dos</a>
+                        <h2 data-key="footer_collaborators">Colaboradores</h2>
+                        <a href="#" target="_blank" rel="noopener noreferrer">Colaborador</a>
+                        <a href="#" target="_blank" rel="noopener noreferrer">Colaborador.</a>
                     </div>
                 </div>
             </div>
@@ -719,11 +739,11 @@
         <div class="container copyright">
             <div class="row">
                 <div class="col-md-6">
-                    <p>© <a href="https://fundafidescol.org/">Fundación FIDES Sucre</a>, Todos los Derechos Reservados.
+                    <p data-key="footer_copyright">© <a href="https://fundafidescol.org/">Fundación FIDES Sucre</a>, Todos los Derechos Reservados.
                     </p>
                 </div>
                 <div class="col-md-6">
-                    <p>Diseñado por: <a href="#" target="_blank"
+                    <p data-key="footer_designed_by">Diseñado por: <a href="#" target="_blank"
                             rel="noopener noreferrer">HBO Consulting</a></p>
                 </div>
             </div>
@@ -743,6 +763,9 @@
     <script src="lib/counterup/counterup.min.js" defer></script>
     <script src="lib/parallax/parallax.min.js" defer></script>
     <script src="js/main.js" defer></script>
+
+    <script src="js/translations.js"></script>
+    <script src="js/language.js"></script>
 
     <script defer>
         document.addEventListener('DOMContentLoaded', function () {
@@ -844,4 +867,5 @@
         }
     </script>
 </body>
+
 </html>

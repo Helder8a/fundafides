@@ -46,7 +46,6 @@
       "logo": "https://fundafidescol.org/img/logo%20fundacion%20para%20el%20desarrollo%20de%20sucre.jpg",
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+57-312-828-4509",
         "contactType": "Customer Service",
         "areaServed": "CO",
         "availableLanguage": "es"
@@ -71,8 +70,6 @@
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-557GV639W3');
-
-    <meta name="google-site-verification" content="EW3j6H-MJxVkgKPLd2fNIYnnH8Zxi59b6y4Zw6qKWfw" />
 </script>
 
 
@@ -84,11 +81,11 @@
                     <div class="top-bar-left">
                         <div class="text">
                             <i class="fa fa-phone-alt"></i>
-                            <p>+57 3128284509</p>
+                            <p data-key="phone">+57 3128284509</p>
                         </div>
                         <div class="text">
                             <i class="fa fa-envelope"></i>
-                            <p>fidessuc@gmail.com</p>
+                            <p data-key="email">fidessuc@gmail.com</p>
                         </div>
                     </div>
                 </div>
@@ -117,17 +114,24 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav ml-auto">
-                    <a href="index.html" class="nav-item nav-link active">INICIO</a>
-                    <a href="proyectos.html" class="nav-item nav-link">PROYECTOS</a>
-                    <a href="galeria.html" class="nav-item nav-link">GALERÍA</a>
+                    <a href="index.html" class="nav-item nav-link active" data-key="nav_inicio">INICIO</a>
+                    <a href="proyectos.html" class="nav-item nav-link" data-key="nav_proyectos">PROYECTOS</a>
+                    <a href="galeria.html" class="nav-item nav-link" data-key="nav_galeria">GALERÍA</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">HERRAMIENTAS WEB</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                            data-key="nav_herramientas">HERRAMIENTAS WEB</a>
                         <div class="dropdown-menu">
-                            <a href="evaluador_sustentable.html" class="dropdown-item">Evaluador de Sostenibilidad</a>
+                            <a href="evaluador_sustentable.html" class="dropdown-item"
+                                data-key="nav_evaluador">Evaluador de Sostenibilidad</a>
                         </div>
                     </div>
-                    <a href="blog.html" class="nav-item nav-link">BLOG</a>
-                    <a href="contacto.html" class="nav-item nav-link">CONTACTO</a>
+                    <a href="blog.html" class="nav-item nav-link" data-key="nav_blog">BLOG</a>
+                    <a href="contacto.html" class="nav-item nav-link" data-key="nav_contacto">CONTACTO</a>
+                    <div class="nav-item d-flex align-items-center lang-switcher">
+                        <a href="#" onclick="setLanguage('es')" class="lang-btn-nav">ES</a>
+                        <span class="text-white mx-1">|</span>
+                        <a href="#" onclick="setLanguage('en')" class="lang-btn-nav">EN</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -137,130 +141,37 @@
             <div class="owl-carousel">
                 <div class="carousel-item">
                     <div class="carousel-img">
-                        <img src="img/fundacion-fides-sucre-comunidades1.jpg.jpg"
-                            alt="Comunidad beneficiada por los proyectos de la fundación.">
+                        <img src="img/carrusell_0.webp" alt="Comunidad beneficiada por los proyectos de la fundación.">
                     </div>
                     <div class="carousel-text">
-                        <h1>Amigables con el Medio Ambiente</h1>
+                        <h1 data-key="carousel_title_1">Amigables con el Medio Ambiente</h1>
                         <div class="carousel-btn">
-                            <a class="btn btn-custom" href="proyectos.html">Nuestros Proyectos</a>
+                            <a class="btn btn-custom" href="proyectos.html" data-key="carousel_button">Nuestros
+                                Proyectos</a>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <div class="carousel-img">
-                        <img src="img/fundacion-fides-sucre-comunidades2.jpg.jpg"
-                            alt="Mujeres artesanas tejiendo productos locales.">
+                        <img src="img/carrusell_1.jpg" alt="Mujeres artesanas tejiendo productos locales.">
                     </div>
                     <div class="carousel-text">
-                        <h1>Más de 40 años transformando vidas</h1>
+                        <h1 data-key="carousel_title_2">Más de 40 años transformando vidas</h1>
                         <div class="carousel-btn">
-                            <a class="btn btn-custom" href="proyectos.html">Nuestros Proyectos</a>
+                            <a class="btn btn-custom" href="proyectos.html" data-key="carousel_button">Nuestros
+                                Proyectos</a>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <div class="carousel-img">
-                        <img src="img/fundacion-fides-sucre-comunidades3.jpg.jpg"
-                            alt="Mujeres artesanas tejiendo productos locales.">
+                        <img src="img/carrusell_2.jpg" alt="Mujeres artesanas tejiendo productos locales.">
                     </div>
                     <div class="carousel-text">
-                        <h1>Amigables con el Medio Ambiente</h1>
+                        <h1 data-key="carousel_title_1">Amigables con el Medio Ambiente</h1>
                         <div class="carousel-btn">
-                            <a class="btn btn-custom" href="proyectos.html">Nuestros Proyectos</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="about">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="about-img" data-parallax="scroll" data-image-src="img/about.jpg"
-                        alt="Voluntarios de la Fundación FIDES trabajando en un proyecto comunitario."></div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="section-header">
-                        <p>Quiénes Somos</p>
-                        <h2>Nuestra Labor</h2>
-                    </div>
-                    <div class="about-tab">
-                        <ul class="nav nav-pills nav-justified">
-                            <li class="nav-item">
-                                <a class="nav-link active" data-toggle="pill" href="#tab-content-1">Nosotros</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="pill" href="#tab-content-2">Misión</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="pill" href="#tab-content-3">Visión</a>
-                            </li>
-                        </ul>
-                        <div class="tab-content">
-                            <div id="tab-content-1" class="container tab-pane active">
-                                La Fundación para la Investigación y el Desarrollo de Sucre (FIDES) fue constituida el
-                                16 de marzo de 1983. Somos una organización no gubernamental (ONG) enfocada en el
-                                desarrollo. Nuestra población objetivo incluye campesinos, microempresarios, artesanos,
-                                desplazados, pescadores, mujeres, jóvenes y niños de los estratos 1 y 2 de la Costa
-                                Caribe Colombiana.
-                            </div>
-                            <div id="tab-content-2" class="container tab-pane fade">
-                                Nuestra preocupación fundamental es contribuir al Desarrollo Humano Integral y
-                                Sostenible de los sectores con menos oportunidades en Sucre y la Costa Caribe. Lo
-                                hacemos mediante programas y proyectos sociales, económicos y culturales con criterios
-                                de equidad, competitividad, sostenibilidad y participación comunitaria, buscando siempre
-                                el disfrute pleno de los derechos humanos.
-                            </div>
-                            <div id="tab-content-3" class="container tab-pane fade">
-                                Para el año 2025, la Fundación FIDES será la ONG de mayor reconocimiento a nivel
-                                departamental, destacada por contribuir al desarrollo humano sostenible de los sectores
-                                más vulnerables y excluidos de la región, a través de la ejecución de planes, programas
-                                y proyectos sociales, económicos, culturales y ambientales.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="facts" data-parallax="scroll" data-image-src="img/facts.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="facts-item">
-                        <i class="flaticon-home"></i>
-                        <div class="facts-text">
-                            <h3 class="facts-plus" data-toggle="counter-up">5</h3>
-                            <p>Departamentos</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="facts-item">
-                        <i class="flaticon-charity"></i>
-                        <div class="facts-text">
-                            <h3 class="facts-plus" data-toggle="counter-up">50</h3>
-                            <p>Proyectos</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="facts-item">
-                        <i class="flaticon-kindness"></i>
-                        <div class="facts-text">
-                            <h3 class="facts-plus" data-toggle="counter-up">10000</h3>
-                            <p>Beneficiarios</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="facts-item">
-                        <i class="flaticon-donation"></i>
-                        <div class="facts-text">
-                            <h3 class="facts-plus" data-toggle="counter-up">40</h3>
-                            <p>Años de historia</p>
+                            <a class="btn btn-custom" href="proyectos.html" data-key="carousel_button">Nuestros
+                                Proyectos</a>
                         </div>
                     </div>
                 </div>
@@ -268,13 +179,49 @@
         </div>
     </div>
 
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="img/about.jpg" alt="Imagen representativa de nosotros">
+                </div>
+                <div class="about-text">
+                    <h2 data-key="about_title">Sobre Nosotros</h2>
+                    <p data-key="about_p1">
+                        La Fundación para la Investigación y el Desarrollo de Sucre (FIDES) fue constituida el
+                        16 de marzo de 1983. Somos una organización no gubernamental (ONG) enfocada en el
+                        desarrollo. Nuestra población objetivo incluye campesinos, microempresarios, artesanos,
+                        desplazados, pescadores, mujeres, jóvenes y niños de los estratos 1 y 2 de la Costa
+                        Caribe Colombiana.
+                    </p>
+                    <p data-key="about_p2">
+                        Nuestra preocupación fundamental es contribuir al Desarrollo Humano Integral y
+                        Sostenible de los sectores con menos oportunidades en Sucre y la Costa Caribe. Lo
+                        hacemos mediante programas y proyectos sociales, económicos y culturales con criterios
+                        de equidad, competitividad, sostenibilidad y participación comunitaria, buscando siempre
+                        el disfrute pleno de los derechos humanos.
+                    </p>
+                    <p data-key="about_p3">
+                        Para el año 2025, la Fundación FIDES será la ONG de mayor reconocimiento a nivel
+                        departamental, destacada por contribuir al desarrollo humano sostenible de los sectores
+                        más vulnerables y excluidos de la región, a través de la ejecución de planes, programas
+                        y proyectos sociales, económicos, culturales y ambientales.
+                    </p>
+                    <a href="contacto.html" class="cta-button" data-key="about_button">Contáctanos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <div class="team">
         <div class="container">
             <div class="section-header text-center">
-                <p>JUGLARES DE SABANAS</p>
-                <h3>FIDES & Inter-American Foundation</h3>
-                <h5>Comparte Nuestra Musica</h5>
+                <p data-key="juglares_title">JUGLARES DE SABANAS</p>
+                <h3 data-key="juglares_subtitle">FIDES & Inter-American Foundation</h3>
+                <h5 data-key="juglares_share">Comparte Nuestra Musica</h5>
             </div>
+
             <iframe data-testid="embed-iframe" style="border-radius:12px"
                 src="https://open.spotify.com/embed/artist/3HHabEv6ZE3mfWGLm9ADw2?utm_source=generator" width="100%"
                 height="352" frameBorder="0" allowfullscreen=""
@@ -282,42 +229,42 @@
                 loading="lazy"></iframe>
         </div>
     </div>
+
     <div class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-contact">
-                        <h2>Oficina Principal</h2>
-                        <p><i class="fa fa-map-marker-alt"></i>Sincelejo, Sucre, Colombia</p>
-                        <p><i class="fa fa-phone-alt"></i>+57 3128284509</p>
-                        <p><i class="fa fa-envelope"></i>fidessuc@gmail.com</p>
+                        <h2 data-key="footer_office">Oficina Principal</h2>
+                        <p><i class="fa fa-map-marker-alt"></i><span data-key="footer_location">Colombia</span></p>
+                        <p><i class="fa fa-envelope"></i><span data-key="email">fidessuc@gmail.com</span></p>
                         <div class="footer-social">
                             <a class="btn btn-custom" href="https://www.facebook.com/fidersucre/"
                                 aria-label="Facebook de FIDES"><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-custom" href="https://www.instagram.com/fidersucre/"
                                 aria-label="Instagram de FIDES"><i class="fab fa-instagram"></i></a>
                             <a class="btn btn-custom"
-                                href="https://open.spotify.com/playlist/0i52I8225e2aYjY9gWjRjY?si=a985b9e0f63a4e9e"
+                                href="https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M?si=3b4b5b7e2c1f4b3c"
                                 aria-label="Spotify de FIDES"><i class="fab fa-spotify"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-link">
-                        <h2>Enlaces Rápidos</h2>
-                        <a href="index.html">Inicio</a>
-                        <a href="proyectos.html">Proyectos</a>
-                        <a href="galeria.html">Galería</a>
-                        <a href="evaluador_sustentable.html">Herramientas Web</a>
-                        <a href="blog.html">Blog</a>
-                        <a href="contacto.html">Contacto</a>
+                        <h2 data-key="footer_quicklinks">Enlaces Rápidos</h2>
+                        <a href="index.html" data-key="nav_inicio">Inicio</a>
+                        <a href="proyectos.html" data-key="nav_proyectos">Proyectos</a>
+                        <a href="galeria.html" data-key="nav_galeria">Galería</a>
+                        <a href="evaluador_sustentable.html" data-key="nav_herramientas">Herramientas Web</a>
+                        <a href="blog.html" data-key="nav_blog">Blog</a>
+                        <a href="contacto.html" data-key="nav_contacto">Contacto</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-link">
-                        <h2>Colaboradores</h2>
-                        <a href="#" target="_blank" rel="noopener noreferrer">Colaborador Uno</a>
-                        <a href="#" target="_blank" rel="noopener noreferrer">Colaborador Dos</a>
+                        <h2 data-key="footer_collaborators">Colaboradores</h2>
+                        <a href="https://www.ecopetrol.com.co/" target="_blank" rel="noopener noreferrer">Ecopetrol</a>
+                        <a href="https://www.iaf.gov/" target="_blank" rel="noopener noreferrer">IAF</a>
                     </div>
                 </div>
             </div>
@@ -325,12 +272,11 @@
         <div class="container copyright">
             <div class="row">
                 <div class="col-md-6">
-                    <p>© <a href="https://fundafidescol.org/">Fundación FIDES Sucre</a>, Todos los Derechos Reservados.
+                    <p data-key="footer_copyright">© 2025 Fundación FIDES Sucre, Todos los Derechos Reservados.
                     </p>
                 </div>
                 <div class="col-md-6">
-                    <p>Diseñado por: <a href="#" target="_blank"
-                            rel="noopener noreferrer">HBO Consulting</a></p>
+                    <p data-key="footer_designed_by">Diseñado por: HBO Consulting</p>
                 </div>
             </div>
         </div>
@@ -351,6 +297,9 @@
 
     <script src="js/main.js"></script>
 
-    
+    <script src="js/translations.js"></script>
+    <script src="js/language.js"></script>
+
 </body>
+
 </html>
