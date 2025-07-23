@@ -2714,3 +2714,35 @@ html {
     color: #777777;
     font-weight: 500;
 }
+
+/* --- Estilos para el nuevo logo redondo en la barra de navegación --- */
+.navbar-logo-round {
+    max-height: 50px; /* Ajusta la altura del logo */
+    border-radius: 50%; /* Asegura que la imagen sea perfectamente redonda */
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease; /* Transición suave para el efecto */
+}
+
+/* --- Estilos para el logo de la barra de navegación --- */
+.navbar-brand img {
+  max-height: 50px; /* Define una altura máxima para el logo */
+  width: auto;      /* Mantiene la proporción original */
+  transition: transform 0.3s ease; /* Transición suave */
+}
+
+.navbar-brand img:hover {
+  transform: scale(1.1); /* Agranda ligeramente el logo al pasar el mouse */
+}
+
+/* ========================================================= */
+/* ===== ESTILOS PARA RESALTAR TÍTULOS EN ENCABEZADOS ===== */
+/* ========================================================= */
+
+.page-header h1,
+.page-header h2 {
+    color: #FDBE33; /* Color amarillo corporativo */
+}
+
+/* También nos aseguramos de que el título del evaluador de sostenibilidad tenga el mismo estilo */
+.page-header_evaluador_sustentable h2 {
+    color: #FDBE33 !important; /* Usamos !important para asegurar que sobreescriba otros estilos */
+}
