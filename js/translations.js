@@ -55,7 +55,7 @@ const translations = {
 
     // ---- EVALUADOR_SUSTENTABLE.HTML ----
     evaluador_page_meta_title: "Evaluador Global de Sostenibilidad para Edificios: LEED, BREEAM, DGNB, WELL | FIDES",
-    evaluador_page_title: "Evaluador Global de Sostenibilidad para edificios",
+    evaluador_page_title: "Evaluador Global de Sostenibilidad para Edificios",
     evaluador_main_title_1: "1. Configure su Proyecto",
     evaluador_cert_label: "Certificación:",
     evaluador_main_title_2: "2. Evalúe los Créditos",
