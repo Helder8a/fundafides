@@ -24,8 +24,9 @@
     <meta property="og:locale" content="es_LA">
     <meta name="Audience" content="All">
 
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -101,11 +102,35 @@
         </div>
     </div>
     <div class="navbar navbar-expand-lg bg-dark navbar-dark">
-        <div class="container-fluid">
-            <a href="index.html" class="navbar-brand">
-                <img class="navbar-logo" src="img/logo-fundacion-para-el-desarrollo-de-sucre.webp"
-                    alt="Logo de la Fundación FIDES Sucre">
-            </a>
+    <div class="container-fluid">
+        <a href="index.html" class="navbar-brand">
+            <img src="img/logo_fides_redondo.png" alt="Logo de la Fundación FIDES Sucre">
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto">
+                <a href="index.html" class="nav-item nav-link" data-key="nav_inicio">INICIO</a>
+                <a href="proyectos.html" class="nav-item nav-link" data-key="nav_proyectos">PROYECTOS</a>
+                <a href="galeria.html" class="nav-item nav-link" data-key="nav_galeria">GALERÍA</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-key="nav_herramientas">HERRAMIENTAS WEB</a>
+                    <div class="dropdown-menu">
+                        <a href="evaluador_sustentable.html" class="dropdown-item" data-key="nav_evaluador">Evaluador de Sostenibilidad</a>
+                    </div>
+                </div>
+                <a href="blog.html" class="nav-item nav-link" data-key="nav_blog">BLOG</a>
+                <div class="nav-item d-flex align-items-center lang-switcher">
+                    <a href="#" onclick="setLanguage('es')" class="lang-btn-nav">ES</a>
+                    <span class="text-white mx-1">|</span>
+                    <a href="#" onclick="setLanguage('en')" class="lang-btn-nav">EN</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse"
                 aria-label="Alternar navegación">
                 <span class="navbar-toggler-icon"></span>
@@ -134,47 +159,48 @@
         </div>
     </div>
     <div class="carousel">
-        <div class="container-fluid">
-            <div class="owl-carousel">
-                <div class="carousel-item">
-                    <div class="carousel-img">
-                        <img src="img/carrusell_0.webp" alt="Comunidad beneficiada por los proyectos de la fundación.">
-                    </div>
-                    <div class="carousel-text">
-                        <h1 data-key="carousel_title_1">Amigables con el Medio Ambiente</h1>
-                        <div class="carousel-btn">
-                            <a class="btn btn-custom" href="proyectos.html" data-key="carousel_button">Nuestros
-                                Proyectos</a>
-                        </div>
+    <div class="container-fluid">
+        <div class="owl-carousel">
+            <div class="carousel-item">
+                <div class="carousel-img">
+                    <img src="img/carrusell_0.webp" alt="Manos unidas en señal de comunidad y sostenibilidad.">
+                </div>
+                <div class="carousel-text">
+                    <h1 data-key="carousel_title_1">Impacto Sostenible</h1>
+                    <p data-key="carousel_subtitle_1">Generamos cambio real, protegiendo nuestro entorno y fortaleciendo comunidades.</p>
+                    <div class="carousel-btn">
+                        <a class="btn btn-custom" href="proyectos.html" data-key="carousel_button_discover">Descubre Cómo</a>
+                        <a class="btn btn-custom" href="donar.html" data-key="carousel_button_join">Únete al Cambio</a>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <div class="carousel-img">
-                        <img src="img/carrusell_1.webp" alt="Mujeres artesanas tejiendo productos locales.">
-                    </div>
-                    <div class="carousel-text">
-                        <h1 data-key="carousel_title_2">Más de 40 años transformando vidas</h1>
-                        <div class="carousel-btn">
-                            <a class="btn btn-custom" href="proyectos.html" data-key="carousel_button">Nuestros
-                                Proyectos</a>
-                        </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-img">
+                    <img src="img/carrusell_1.webp" alt="Niños de la comunidad sonriendo.">
+                </div>
+                <div class="carousel-text">
+                    <h1 data-key="carousel_title_2">4 Décadas de Progreso</h1>
+                    <p data-key="carousel_subtitle_2">Desde 1983, transformando vidas y construyendo un futuro mejor en la Costa Caribe.</p>
+                    <div class="carousel-btn">
+                        <a class="btn btn-custom" href="proyectos.html" data-key="carousel_button_history">Conoce Nuestra Historia</a>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <div class="carousel-img">
-                        <img src="img/carrusell_2.webp" alt="Mujeres artesanas tejiendo productos locales.">
-                    </div>
-                    <div class="carousel-text">
-                        <h1 data-key="carousel_title_1">Amigables con el Medio Ambiente</h1>
-                        <div class="carousel-btn">
-                            <a class="btn btn-custom" href="proyectos.html" data-key="carousel_button">Nuestros
-                                Proyectos</a>
-                        </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-img">
+                    <img src="img/carrusell_2.webp" alt="Niña de una comunidad rural con una tablet.">
+                </div>
+                <div class="carousel-text">
+                    <h1 data-key="carousel_title_3">Futuro y Oportunidad</h1>
+                    <p data-key="carousel_subtitle_3">Impulsamos la educación y la tecnología para cerrar brechas y abrir puertas.</p>
+                    <div class="carousel-btn">
+                        <a class="btn btn-custom" href="donar.html" data-key="carousel_button_support">Apoya la Educación</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
     <section id="about" class="about-section-improved">
     <div class="about-overlay"></div>
@@ -202,7 +228,7 @@
                             Sostenible de los sectores con menos oportunidades en Sucre y la Costa Caribe, mediante programas 
                             y proyectos con criterios de equidad, competitividad y participación comunitaria.
                         </p>
-                        <a class="btn btn-custom" href="proyectos.html" data-key="carousel_button">Nuestros Proyectos</a>
+                        <a class="btn btn-custom" href="proyectos.html" data-key="carousel_button_discover">Nuestros Proyectos</a>
                     </div>
                 </div>
             </div>
