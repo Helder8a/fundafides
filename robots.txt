@@ -3,31 +3,14 @@
 # ===================================================================
 User-agent: *
 
-# Bloquear el acceso al panel de administración de WordPress
-Disallow: /wp-admin/
+# Permitir el rastreo de todo el sitio por defecto
+Allow: /
 
-# Bloquear las páginas de resultados de búsqueda internos para evitar contenido duplicado
-Disallow: /?s=
-Disallow: /search/
-
-# Permitir el acceso a AJAX para el renderizado correcto de temas y plugins
-Allow: /wp-admin/admin-ajax.php
-
+# Bloquear directorios que no deben ser rastreados
+Disallow: /lib/
+Disallow: /mail/
 
 # ===================================================================
-# Ubicación del mapa del sitio para ayudar a los bots a encontrar tu contenido
+# Ubicación del mapa del sitio
 # ===================================================================
 Sitemap: https://fundafidescol.org/sitemap.xml
-
-
-
-
-
-
-
-
-
-
-
-
-
