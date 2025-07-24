@@ -8,7 +8,7 @@
             // Se añade un pequeño retardo para que la animación sea visible
             setTimeout(function() {
                 $('#loader').removeClass('show');
-            }, 500); // 500 milisegundos = 0.5 segundos
+            }, 500); // 0.5 segundos de retardo
         }
     });
     // --- FIN DEL CÓDIGO CORREGIDO ---
