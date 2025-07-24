@@ -69,16 +69,21 @@
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" aria-label="Alternar navegación"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav ml-auto">
-                    <a href="index.html" class="nav-item nav-link active">INICIO</a>
-                    <a href="proyectos.html" class="nav-item nav-link">PROYECTOS</a>
-                    <a href="galeria.html" class="nav-item nav-link">GALERÍA</a>
+                    <a href="index.html" class="nav-item nav-link active" data-key="nav_inicio">INICIO</a>
+                    <a href="proyectos.html" class="nav-item nav-link" data-key="nav_proyectos">PROYECTOS</a>
+                    <a href="galeria.html" class="nav-item nav-link" data-key="nav_galeria">GALERÍA</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">HERRAMIENTAS WEB</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-key="nav_herramientas">HERRAMIENTAS WEB</a>
                         <div class="dropdown-menu">
-                            <a href="evaluador_sustentable.html" class="dropdown-item">Evaluador de Sostenibilidad</a>
+                            <a href="evaluador_sustentable.html" class="dropdown-item" data-key="nav_evaluador">Evaluador de Sostenibilidad</a>
                         </div>
                     </div>
-                    <a href="blog.html" class="nav-item nav-link">BLOG</a>
+                    <a href="blog.html" class="nav-item nav-link" data-key="nav_blog">BLOG</a>
+                    <div class="nav-item d-flex align-items-center lang-switcher">
+                        <a href="#" onclick="setLanguage('es')" class="lang-btn-nav">ES</a>
+                        <span class="text-white mx-1">|</span>
+                        <a href="#" onclick="setLanguage('en')" class="lang-btn-nav">EN</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -91,49 +96,49 @@
                     <div class="carousel-item">
                         <div class="carousel-img"><img src="img/carrusell_1.webp" alt="Un grupo de personas uniendo sus manos en señal de unidad y trabajo en equipo." loading="lazy"></div>
                         <div class="carousel-text">
-                            <h1>Amigables con el Medio Ambiente</h1>
-                            <div class="carousel-btn"><a class="btn btn-custom" href="proyectos.html">Nuestros Proyectos</a></div>
+                            <h1 data-key="carousel_title_1">Amigables con el Medio Ambiente</h1>
+                            <div class="carousel-btn"><a class="btn btn-custom" href="proyectos.html" data-key="carousel_button">Nuestros Proyectos</a></div>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="carousel-img"><img src="img/carrusell_2.webp" alt="Niños de una comunidad vulnerable sonriendo, representando la esperanza y el futuro." loading="lazy"></div>
                         <div class="carousel-text">
-                            <h1>Más de 40 años transformando vidas</h1>
-                            <div class="carousel-btn"><a class="btn btn-custom" href="proyectos.html">Nuestros Proyectos</a></div>
+                            <h1 data-key="carousel_title_2">Más de 40 años transformando vidas</h1>
+                            <div class="carousel-btn"><a class="btn btn-custom" href="proyectos.html" data-key="carousel_button">Nuestros Proyectos</a></div>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="carousel-img"><img src="img/carrusell_3.webp" alt="Una niña de una comunidad rural sosteniendo una tablet, simbolizando el acceso a la educación y la tecnología." loading="lazy"></div>
                         <div class="carousel-text">
                             <h1>Educación para un Futuro Mejor</h1>
-                            <div class="carousel-btn"><a class="btn btn-custom" href="proyectos.html">Nuestros Proyectos</a></div>
+                            <div class="carousel-btn"><a class="btn btn-custom" href="proyectos.html" data-key="carousel_button">Nuestros Proyectos</a></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <section id="about" class="about-section" aria-labelledby="about-heading">
+        <section id="about" class="about-section wow fadeInUp" data-wow-delay="0.1s" aria-labelledby="about-heading">
             <div class="container">
                 <div class="about-content">
                     <div class="about-image">
                         <img src="img/about_fides.webp" alt="Collage de imágenes que muestran los diversos proyectos de la Fundación FIDES, incluyendo acuicultura, construcción y trabajo comunitario." loading="lazy">
                     </div>
                     <div class="about-text">
-                        <h2 id="about-heading">Sobre Nosotros</h2>
-                        <p>La Fundación para la Investigación y el Desarrollo de Sucre (FIDES) fue constituida el 16 de marzo de 1983...</p>
-                        <a href="donar.html" class="btn btn-custom">Apoya Nuestra Causa</a>
+                        <h2 id="about-heading" data-key="about_title">Sobre Nosotros</h2>
+                        <p data-key="about_p1">La Fundación para la Investigación y el Desarrollo de Sucre (FIDES) fue constituida el 16 de marzo de 1983...</p>
+                        <a href="donar.html" class="btn btn-custom" data-key="donar_page_title">Apoya Nuestra Causa</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="team" aria-labelledby="music-heading">
+        <section class="team wow fadeInUp" data-wow-delay="0.2s" aria-labelledby="music-heading">
             <div class="container">
                 <div class="section-header text-center">
-                    <p id="music-heading">JUGLARES DE SABANAS</p>
-                    <h3>FIDES & Inter-American Foundation</h3>
-                    <h5>Comparte Nuestra Musica</h5>
+                    <p id="music-heading" data-key="juglares_title">JUGLARES DE SABANAS</p>
+                    <h3 data-key="juglares_subtitle">FIDES & Inter-American Foundation</h3>
+                    <h5 data-key="juglares_share">Comparte Nuestra Musica</h5>
                 </div>
                 <iframe title="Playlist de Spotify de Juglares de Sabanas" style="border-radius:12px" src="https://open.spotify.com/embed/artist/3j2xJ2oYomNgGYS84d2s5v?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
@@ -150,6 +155,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" defer></script>
     <script src="lib/easing/easing.min.js" defer></script>
     <script src="lib/owlcarousel/owl.carousel.min.js" defer></script>
+    <script src="lib/wow/wow.min.js" defer></script>
     <script src="js/main.js" defer></script>
+    <script src="js/translations.js" defer></script>
+    <script src="js/language.js" defer></script>
 </body>
 </html>
