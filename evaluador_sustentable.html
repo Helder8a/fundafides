@@ -3,35 +3,53 @@
 
 <head>
     <meta charset="utf-8">
-    <title data-key="evaluador_page_meta_title">Evaluador Global de Sostenibilidad para Edificios: LEED, BREEAM, DGNB,
-        WELL | FIDES</title>
+    <title>Evaluador Global de Sostenibilidad para Edificios | FIDES</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
     <meta name="description"
-        content="Herramienta interactiva y gratuita para evaluar la sostenibilidad de proyectos de edificación. Obtén un puntaje estimado para certificaciones internacionales como LEED, BREEAM, DGNB, WELL, Green Star y CASBEE.">
+        content="Herramienta interactiva y gratuita para evaluar la sostenibilidad de proyectos de edificación. Obtén un puntaje estimado para certificaciones como LEED, BREEAM, DGNB, WELL, Green Star y CASBEE.">
     <meta name="keywords"
         content="evaluador sostenibilidad, calculadora leed, guía breeam, certificación dgnb, well building standard, green star australia, casbee japón, construcción sostenible, edificación verde, fides sucre">
-    <meta name="author" content="Fundación FIDES Sucre">
     <link rel="canonical" href="https://fundafidescol.org/evaluador_sustentable.html" />
 
-    <meta name="description" lang="en"
-        content="Free interactive tool to assess the sustainability of building projects. Get an estimated score for international certifications like LEED, BREEAM, DGNB, WELL, Green Star, and CASBEE.">
-    <meta name="keywords" lang="en"
-        content="sustainability assessment tool, leed calculator, breeam guide, dgnb certification, well building standard, green star australia, casbee japan, sustainable construction, green building">
-
-    <link rel="alternate" hreflang="es" href="https://fundafidescol.org/evaluador_sustentable.html" />
-    <link rel="alternate" hreflang="en" href="https://fundafidescol.org/evaluador_sustentable.html" />
-    <link rel="alternate" hreflang="x-default" href="https://fundafidescol.org/evaluador_sustentable.html" />
-
-
-    <link rel="icon" href="img/favicon.ico.png">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
     <link href="css/style.css" rel="stylesheet">
     <link href="css/calculadora_sustentable.css" rel="stylesheet">
+    <link rel="icon" href="img/favicon.ico.png">
+
+    <style>
+        :root {
+            --primary-dark: #000000; /* Negro Intenso */
+            --primary-accent: #FDBE33;
+            --secondary-accent: #27ae60;
+            --text-color: #555555;
+            --light-bg: #f8f9fa;
+            --white-color: #ffffff;
+        }
+        .navbar.bg-dark, .footer, .top-bar {
+            background: var(--primary-dark) !important;
+        }
+        .btn.btn-custom {
+            border-color: var(--primary-accent);
+            color: var(--primary-dark);
+            background-color: var(--white-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            font-weight: 600;
+            border-radius: 5px;
+        }
+        .btn.btn-custom:hover {
+            background-color: var(--primary-accent);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        .results-sidebar {
+             background: var(--primary-dark);
+        }
+    </style>
 </head>
 
 <body>
@@ -78,12 +96,6 @@
                         </div>
                     </div>
                     <a href="blog.html" class="nav-item nav-link" data-key="nav_blog">BLOG</a>
-                    <a href="contacto.html" class="nav-item nav-link" data-key="nav_contacto">CONTACTO</a>
-                    <div class="nav-item d-flex align-items-center lang-switcher">
-                        <a href="#" onclick="setLanguage('es')" class="lang-btn-nav">ES</a>
-                        <span class="text-white mx-1">|</span>
-                        <a href="#" onclick="setLanguage('en')" class="lang-btn-nav">EN</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -211,13 +223,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/calculadora_sustentable.js"></script>
-
-    <script src="js/translations.js"></script>
-    <script src="js/language.js"></script>
-
 </body>
-
 </html>
