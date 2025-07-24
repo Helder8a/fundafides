@@ -1,0 +1,16 @@
+# ===================================================================
+# Directivas para todos los agentes de usuario (bots de búsqueda)
+# ===================================================================
+User-agent: *
+
+# Permitir el rastreo de todo el sitio por defecto
+Allow: /
+
+# Bloquear directorios que no deben ser rastreados
+Disallow: /lib/
+Disallow: /mail/
+
+# ===================================================================
+# Ubicación del mapa del sitio
+# ===================================================================
+Sitemap: https://fundafidescol.org/sitemap.xml

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Blog y Noticias | Fundacion FIDES</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description"
+        content="Mantente al día con las últimas noticias, convocatorias de cooperación internacional y oportunidades de desarrollo de la Fundación FIDES Sucre.">
+    <meta name="keywords"
+        content="blog ONG, convocatorias cooperación, noticias desarrollo social, FIDES Sucre, periodismo científico, Colombia">
+    <link rel="canonical" href="https://fundafidescol.org/blog.html" />
+    <link rel="icon" href="img/favicon.ico.png">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-dark: #000000;
+            --primary-accent: #FDBE33;
+            --primary-accent-hover: #e0ac28;
+            --light-bg: #f8f9fa;
+        }
+        .navbar.bg-dark, .footer, .top-bar { background: var(--primary-dark) !important; }
+        .btn.btn-custom:hover {
+            background-color: var(--primary-accent-hover);
+            border-color: var(--primary-accent-hover);
+        }
+        .blog .blog-item {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+            background-color: #ffffff;
+        }
+        .blog .blog-item:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .loader-logo {
+            width: 80px;
+            height: 80px;
+            animation: spin 1.5s linear infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-bar d-none d-md-block">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="top-bar-left">
+                        <div class="text"><i class="fa fa-phone-alt"></i><p>+57 3128284509</p></div>
+                        <div class="text"><i class="fa fa-envelope"></i><p>fidessuc@gmail.com</p></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="top-bar-right">
+                        <div class="social">
+                            <a href="https://www.facebook.com/fidersucre/"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/fidersucre/"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand"><img class="navbar-logo-round" src="img/logo_fides_redondofondoblanco.webp" alt="Logo Fundación FIDES"></a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto">
+                    <a href="index.html" class="nav-item nav-link">INICIO</a>
+                    <a href="proyectos.html" class="nav-item nav-link">PROYECTOS</a>
+                    <a href="galeria.html" class="nav-item nav-link">GALERÍA</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">HERRAMIENTAS WEB</a>
+                        <div class="dropdown-menu">
+                            <a href="evaluador_sustentable.html" class="dropdown-item">Evaluador de Sostenibilidad</a>
+                        </div>
+                    </div>
+                    <a href="blog.html" class="nav-item nav-link active">BLOG</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Blog</h2>
+                </div>
+                <div class="col-12">
+                    <a href="index.html">Inicio</a>
+                    <a href="blog.html">Blog</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="blog" style="background-color: var(--light-bg); padding: 60px 0;">
+        <div class="container">
+             <div class="section-header text-center">
+                <p>Noticias y Convocatorias</p>
+                <h2>Nuestro Blog</h2>
+            </div>
+            <section class="row justify-content-center">
+                <article class="col-lg-8 mb-4" id="post-1">
+                    <div class="blog-item">
+                        <div class="blog-text p-4">
+                            <h3>Premios de Periodismo Científico AAAS Kavli 2025</h3>
+                            <p>La American Association for the Advancement of Science (AAAS) invita a periodistas de todo el mundo a postularse a los prestigiosos Premios Kavli, que celebran la excelencia en el periodismo científico.</p>
+                            <ul>
+                                <li><strong>Institución responsable:</strong> American Association for the Advancement of Science (AAAS)</li>
+                                <li><strong>Fecha de cierre:</strong> 1 de agosto de 2025</li>
+                                <li><strong>Beneficio:</strong> Reconocimiento internacional.</li>
+                            </ul>
+                        </div>
+                        <div class="blog-meta p-3 bg-light text-right">
+                            <a class="btn btn-custom" href="https://apply.nextgenforesight.org/register" target="_blank" rel="noopener noreferrer">Postulación</a>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </div>
+    </main>
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-contact">
+                        <h2>Oficina Principal</h2>
+                        <p><i class="fa fa-map-marker-alt"></i>Colombia</p>
+                        <p><i class="fa fa-phone-alt"></i>+57 3128284509</p>
+                        <p><i class="fa fa-envelope"></i>fidessuc@gmail.com</p>
+                        <div class="footer-social">
+                            <a class="btn btn-custom" href="https://www.facebook.com/fidersucre/"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-custom" href="https://www.instagram.com/fidersucre/"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-link">
+                        <h2>Enlaces Rápidos</h2>
+                        <a href="index.html">Inicio</a>
+                        <a href="proyectos.html">Proyectos</a>
+                        <a href="galeria.html">Galería</a>
+                        <a href="blog.html">Blog</a>
+                        <a href="donar.html">Donar</a>
+                    </div>
+                </div>
+                 <div class="col-lg-4 col-md-6">
+                    <div class="footer-link">
+                        <h2>Colaboradores</h2>
+                        <a href="#">Colaborador Uno</a>
+                        <a href="#">Colaborador Dos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container copyright">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>© <a href="#">Fundación FIDES Sucre</a>, Todos los Derechos Reservados.</p>
+                </div>
+                <div class="col-md-6">
+                    <p>Diseñado por: <a href="#">HBO Consulting</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <div id="loader" class="show">
+        <img class="loader-logo" src="img/logo_fides_redondofondoblanco.webp" alt="Cargando...">
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" defer></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" defer></script>
+    <script src="lib/easing/easing.min.js" defer></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js" defer></script>
+    <script src="lib/waypoints/waypoints.min.js" defer></script>
+    <script src="lib/counterup/counterup.min.js" defer></script>
+    <script src="lib/parallax/parallax.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+</body>
+</html>

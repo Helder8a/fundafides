@@ -29,23 +29,41 @@
             --primary-accent-hover: #e0ac28;
             --text-on-accent: #000000;
         }
-
-        .navbar.bg-dark,
-        .footer,
-        .top-bar {
-            background: var(--primary-dark) !important;
-        }
-
+        .navbar.bg-dark, .footer, .top-bar { background: var(--primary-dark) !important; }
         .btn.btn-custom {
             background-color: var(--primary-accent);
             color: var(--text-on-accent);
             border: 2px solid var(--primary-accent);
             font-weight: 700;
         }
-
         .btn.btn-custom:hover {
             background-color: var(--primary-accent-hover);
             border-color: var(--primary-accent-hover);
+        }
+        .top-bar, .navbar { position: relative !important; }
+        @media (min-width: 992px) {
+            .navbar {
+                top: auto !important;
+                background: #000000 !important;
+            }
+        }
+        .about-text h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #4a4c70;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        /* Estilos del nuevo cargador con el logo */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .loader-logo {
+            width: 80px;
+            height: 80px;
+            animation: spin 1.5s linear infinite;
         }
     </style>
 </head>
@@ -56,21 +74,15 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="top-bar-left">
-                        <div class="text"><i class="fa fa-phone-alt"></i>
-                            <p>+57 3128284509</p>
-                        </div>
-                        <div class="text"><i class="fa fa-envelope"></i>
-                            <p>fidessuc@gmail.com</p>
-                        </div>
+                        <div class="text"><i class="fa fa-phone-alt"></i><p>+57 3128284509</p></div>
+                        <div class="text"><i class="fa fa-envelope"></i><p>fidessuc@gmail.com</p></div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="top-bar-right">
                         <div class="social">
-                            <a href="https://www.facebook.com/fidersucre/" aria-label="Visita nuestro Facebook"><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a href="https://www.instagram.com/fidersucre/" aria-label="Visita nuestro Instagram"><i
-                                    class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/fidersucre/" aria-label="Visita nuestro Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/fidersucre/" aria-label="Visita nuestro Instagram"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -79,10 +91,8 @@
     </div>
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark" role="navigation" aria-label="Menú Principal">
         <div class="container-fluid">
-            <a href="index.html" class="navbar-brand"><img class="navbar-logo-round"
-                    src="img/logo_fides_redondofondoblanco.webp" alt="Logo de la Fundación FIDES Sucre"></a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse"
-                aria-label="Alternar navegación"><span class="navbar-toggler-icon"></span></button>
+            <a href="index.html" class="navbar-brand"><img class="navbar-logo-round" src="img/logo_fides_redondofondoblanco.webp" alt="Logo de la Fundación FIDES Sucre"></a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" aria-label="Alternar navegación"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav ml-auto">
                     <a href="index.html" class="nav-item nav-link active">INICIO</a>
@@ -105,33 +115,24 @@
             <div class="container-fluid">
                 <div class="owl-carousel">
                     <div class="carousel-item">
-                        <div class="carousel-img"><img src="img/carrusell_1.webp"
-                                alt="Un grupo de personas uniendo sus manos en señal de unidad y trabajo en equipo."
-                                loading="lazy"></div>
+                        <div class="carousel-img"><img src="img/carrusell_1.webp" alt="Un grupo de personas uniendo sus manos en señal de unidad y trabajo en equipo." loading="lazy"></div>
                         <div class="carousel-text">
                             <h1>Amigables con el Medio Ambiente</h1>
-                            <div class="carousel-btn"><a class="btn btn-custom" href="proyectos.html">Nuestros
-                                    Proyectos</a></div>
+                            <div class="carousel-btn"><a class="btn btn-custom" href="proyectos.html">Nuestros Proyectos</a></div>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div class="carousel-img"><img src="img/carrusell_2.webp"
-                                alt="Niños de una comunidad vulnerable sonriendo, representando la esperanza y el futuro."
-                                loading="lazy"></div>
+                        <div class="carousel-img"><img src="img/carrusell_2.webp" alt="Niños de una comunidad vulnerable sonriendo, representando la esperanza y el futuro." loading="lazy"></div>
                         <div class="carousel-text">
                             <h1>Más de 40 años transformando vidas</h1>
-                            <div class="carousel-btn"><a class="btn btn-custom" href="proyectos.html">Nuestros
-                                    Proyectos</a></div>
+                            <div class="carousel-btn"><a class="btn btn-custom" href="proyectos.html">Nuestros Proyectos</a></div>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div class="carousel-img"><img src="img/carrusell_3.webp"
-                                alt="Una niña de una comunidad rural sosteniendo una tablet, simbolizando el acceso a la educación y la tecnología."
-                                loading="lazy"></div>
+                        <div class="carousel-img"><img src="img/carrusell_3.webp" alt="Una niña de una comunidad rural sosteniendo una tablet, simbolizando el acceso a la educación y la tecnología." loading="lazy"></div>
                         <div class="carousel-text">
                             <h1>Educación para un Futuro Mejor</h1>
-                            <div class="carousel-btn"><a class="btn btn-custom" href="proyectos.html">Nuestros
-                                    Proyectos</a></div>
+                            <div class="carousel-btn"><a class="btn btn-custom" href="proyectos.html">Nuestros Proyectos</a></div>
                         </div>
                     </div>
                 </div>
@@ -142,15 +143,16 @@
             <div class="container">
                 <div class="about-content">
                     <div class="about-image">
-                        <img src="img/about_fides.webp"
-                            alt="Collage de imágenes que muestran los diversos proyectos de la Fundación FIDES, incluyendo acuicultura, construcción y trabajo comunitario."
-                            loading="lazy">
+                        <img src="img/about_fides.webp" alt="Collage de imágenes que muestran los diversos proyectos de la Fundación FIDES." loading="lazy">
                     </div>
                     <div class="about-text">
                         <h2 id="about-heading">Sobre Nosotros</h2>
-                        <p>La Fundación para la Investigación y el Desarrollo de Sucre (FIDES) fue constituida el 16 de
-                            marzo de 1983...</p>
-                        <a href="donar.html" class="btn btn-custom">Apoya Nuestra Causa</a>
+                        <h3>Nuestra Historia</h3>
+                        <p>La Fundación para la Investigación y el Desarrollo de Sucre (FIDES) fue constituida el 16 de marzo de 1983. Somos una organización no gubernamental (ONG) enfocada en el desarrollo. Nuestra población objetivo incluye campesinos, microempresarios, artesanos, desplazados, pescadores, mujeres, jóvenes y niños de los estratos 1 y 2 de la Costa Caribe Colombiana.</p>
+                        <h3>Misión</h3>
+                        <p>Nuestra preocupación fundamental es contribuir al Desarrollo Humano Integral y Sostenible de los sectores con menos oportunidades en Sucre y la Costa Caribe. Lo hacemos mediante programas y proyectos sociales, económicos y culturales con criterios de equidad, competitividad, sostenibilidad y participación comunitaria, buscando siempre el disfrute pleno de los derechos humanos.</p>
+                        <h3>Visión</h3>
+                        <p>Para el año 2025, la Fundación FIDES será la ONG de mayor reconocimiento a nivel departamental, destacada por contribuir al desarrollo humano sostenible de los sectores más vulnerables y excluidos de la región, a través de la ejecución de planes, programas y proyectos sociales, económicos, culturales y ambientales.</p>
                     </div>
                 </div>
             </div>
@@ -163,11 +165,7 @@
                     <h3>FIDES & Inter-American Foundation</h3>
                     <h5>Comparte Nuestra Musica</h5>
                 </div>
-                <iframe data-testid="embed-iframe" style="border-radius:12px"
-                    src="https://open.spotify.com/embed/artist/3HHabEv6ZE3mfWGLm9ADw2?utm_source=generator" width="100%"
-                    height="352" frameBorder="0" allowfullscreen=""
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"></iframe>
+                <iframe title="Album de Spotify de Juglares de Sabanas" data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/3HHabEv6ZE3mfWGLm9ADw2?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
         </section>
     </main>
@@ -182,10 +180,8 @@
                         <p><i class="fa fa-phone-alt"></i>+57 3128284509</p>
                         <p><i class="fa fa-envelope"></i>fidessuc@gmail.com</p>
                         <div class="footer-social">
-                            <a class="btn btn-custom" href="https://www.facebook.com/fidersucre/"><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-custom" href="https://www.instagram.com/fidersucre/"><i
-                                    class="fab fa-instagram"></i></a>
+                            <a class="btn btn-custom" href="https://www.facebook.com/fidersucre/"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-custom" href="https://www.instagram.com/fidersucre/"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -222,18 +218,17 @@
 
     <a href="#" class="back-to-top" aria-label="Volver arriba"><i class="fa fa-chevron-up"></i></a>
     <div id="loader" class="show">
-        <div class="loader"></div>
+        <img class="loader-logo" src="img/logo_fides_redondofondoblanco.webp" alt="Cargando...">
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/parallax/parallax.min.js"></script>
-
-    <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" defer></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" defer></script>
+    <script src="lib/easing/easing.min.js" defer></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js" defer></script>
+    <script src="lib/waypoints/waypoints.min.js" defer></script>
+    <script src="lib/counterup/counterup.min.js" defer></script>
+    <script src="lib/parallax/parallax.min.js" defer></script>
+    <script src="js/main.js" defer></script>
 </body>
 
 </html>

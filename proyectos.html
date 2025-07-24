@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Experiencia y Proyectos | Fundación FIDES</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description"
+        content="Explore nuestra completa trayectoria de proyectos desde 1983. Conozca el impacto de la Fundación FIDES Sucre en la Costa Caribe de Colombia.">
+    <meta name="keywords"
+        content="proyectos sociales, experiencia FIDES, desarrollo comunitario, Sucre, Córdoba, Bolívar, Ecopetrol, Unión Europea, OIM">
+    <link rel="canonical" href="https://fundafidescol.org/proyectos.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" media="all" onload="this.media='all'">
+    <link rel="icon" href="img/favicon.ico.png">
+    <style>
+        :root {
+            --primary-dark: #000000;
+            --primary-accent: #FDBE33;
+            --primary-accent-hover: #e0ac28;
+            --white-color: #ffffff;
+        }
+        .navbar.bg-dark, .footer, .top-bar { background: var(--primary-dark) !important; }
+        .btn.btn-custom:hover {
+            background-color: var(--primary-accent-hover);
+            border-color: var(--primary-accent-hover);
+        }
+        #proyectosTable thead th {
+            color: var(--white-color) !important;
+        }
+        #proyectosTable thead th .sort-icon {
+            color: var(--primary-accent) !important;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .loader-logo {
+            width: 80px;
+            height: 80px;
+            animation: spin 1.5s linear infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-bar d-none d-md-block">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="top-bar-left">
+                        <div class="text"><i class="fa fa-phone-alt"></i><p>+57 3128284509</p></div>
+                        <div class="text"><i class="fa fa-envelope"></i><p>fidessuc@gmail.com</p></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="top-bar-right">
+                        <div class="social">
+                            <a href="https://www.facebook.com/fidersucre/" aria-label="Visita nuestro Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/fidersucre/" aria-label="Visita nuestro Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand"><img class="navbar-logo-round" src="img/logo_fides_redondofondoblanco.webp" alt="Logo de la Fundación FIDES Sucre"></a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" aria-label="Alternar navegación"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto">
+                    <a href="index.html" class="nav-item nav-link">INICIO</a>
+                    <a href="proyectos.html" class="nav-item nav-link active">PROYECTOS</a>
+                    <a href="galeria.html" class="nav-item nav-link">GALERÍA</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">HERRAMIENTAS WEB</a>
+                        <div class="dropdown-menu">
+                            <a href="evaluador_sustentable.html" class="dropdown-item">Evaluador de Sostenibilidad</a>
+                        </div>
+                    </div>
+                    <a href="blog.html" class="nav-item nav-link">BLOG</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Proyectos</h2>
+                </div>
+                <div class="col-12">
+                    <a href="index.html">Inicio</a>
+                    <a href="proyectos.html">Proyectos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main role="main">
+        <div class="container my-5">
+            <div class="section-header text-center wow fadeInUp" data-wow-delay="0.1s">
+                <p>Nuestra Trayectoria</p>
+                <h2>Listado de Proyectos</h2>
+            </div>
+
+            <div class="row mb-4 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="col-lg-4 col-md-12 mb-3">
+                    <input type="text" id="searchInput" onkeyup="applyFilters()" placeholder="Buscar por palabra clave..." class="form-control">
+                </div>
+                <div class="col-lg-3 col-md-6 mb-3">
+                    <select id="categoryFilter" onchange="applyFilters()" class="form-control">
+                        <option value="">Todas las Categorías</option>
+                    </select>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-3">
+                    <select id="yearFilter" onchange="applyFilters()" class="form-control">
+                        <option value="">Todos los Años</option>
+                    </select>
+                </div>
+                <div class="col-lg-2 col-md-12">
+                    <button class="btn btn-info btn-block" onclick="clearAllFilters()">Limpiar Todo</button>
+                </div>
+            </div>
+
+            <div class="table-responsive wow fadeInUp" data-wow-delay="0.3s">
+                <table id="proyectosTable" class="table table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col" onclick="sortTable(0)">#<span id="sortIcon-0" class="sort-icon"></span></th>
+                            <th scope="col" onclick="sortTable(1)">Año<span id="sortIcon-1" class="sort-icon"></span></th>
+                            <th scope="col" onclick="sortTable(2)">Nombre del Proyecto<span id="sortIcon-2" class="sort-icon"></span></th>
+                            <th scope="col" onclick="sortTable(3)">Entidad Contratante<span id="sortIcon-3" class="sort-icon"></span></th>
+                            <th scope="col" onclick="sortTable(4)">Ubicación<span id="sortIcon-4" class="sort-icon"></span></th>
+                            <th scope="col" onclick="sortTable(5)">Categoría<span id="sortIcon-5" class="sort-icon"></span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="proyectosBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-contact">
+                        <h2>Oficina Principal</h2>
+                        <p><i class="fa fa-map-marker-alt"></i>Colombia</p>
+                        <p><i class="fa fa-phone-alt"></i>+57 3128284509</p>
+                        <p><i class="fa fa-envelope"></i>fidessuc@gmail.com</p>
+                        <div class="footer-social">
+                            <a class="btn btn-custom" href="https://www.facebook.com/fidersucre/"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-custom" href="https://www.instagram.com/fidersucre/"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-link">
+                        <h2>Enlaces Rápidos</h2>
+                        <a href="index.html">Inicio</a>
+                        <a href="proyectos.html">Proyectos</a>
+                        <a href="galeria.html">Galería</a>
+                        <a href="blog.html">Blog</a>
+                        <a href="donar.html">Donar</a>
+                    </div>
+                </div>
+                 <div class="col-lg-4 col-md-6">
+                    <div class="footer-link">
+                        <h2>Colaboradores</h2>
+                        <a href="#">Colaborador Uno</a>
+                        <a href="#">Colaborador Dos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container copyright">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>© <a href="#">Fundación FIDES Sucre</a>, Todos los Derechos Reservados.</p>
+                </div>
+                <div class="col-md-6">
+                    <p>Diseñado por: <a href="#">HBO Consulting</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <a href="#" class="back-to-top" aria-label="Volver arriba"><i class="fa fa-chevron-up"></i></a>
+    <div id="loader" class="show">
+        <img class="loader-logo" src="img/logo_fides_redondofondoblanco.webp" alt="Cargando...">
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" defer></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" defer></script>
+    <script src="lib/easing/easing.min.js" defer></script>
+    <script src="lib/wow/wow.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/proyectos.js" defer></script>
+</body>
+</html>
