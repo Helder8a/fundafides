@@ -74,6 +74,7 @@ a:focus {
 /****** Loader & Back to Top ******/
 /**********************************/
 /* --- Estilos para el cargador de página (Loader) --- */
+/* --- Estilos para el cargador de página (Loader) --- */
 #loader {
     position: fixed;
     top: 0;
@@ -89,7 +90,7 @@ a:focus {
     -webkit-transition: opacity .3s ease-out, visibility 0s linear .3s;
     -o-transition: opacity .3s ease-out, visibility 0s linear .3s;
     transition: opacity .3s ease-out, visibility 0s linear .3s;
-    z-index: 9999; /* Aseguramos que esté por encima de todo */
+    z-index: 9999;
 }
 
 #loader.show {
@@ -100,14 +101,12 @@ a:focus {
     opacity: 1;
 }
 
-/* Nuevo estilo para la imagen del logo en el cargador */
 #loader .loader-logo {
-    width: 80px;  /* Tamaño del logo giratorio */
+    width: 80px;
     height: 80px;
-    animation: spin 1.5s linear infinite; /* Animación de giro */
+    animation: spin 1.5s linear infinite;
 }
 
-/* Animación de giro (reemplaza la anterior) */
 @keyframes spin {
     0% {
         transform: rotate(0deg);
