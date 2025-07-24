@@ -73,6 +73,7 @@ a:focus {
 /**********************************/
 /****** Loader & Back to Top ******/
 /**********************************/
+/* --- Estilos para el cargador de página (Loader) --- */
 #loader {
     position: fixed;
     top: 0;
@@ -88,7 +89,7 @@ a:focus {
     -webkit-transition: opacity .3s ease-out, visibility 0s linear .3s;
     -o-transition: opacity .3s ease-out, visibility 0s linear .3s;
     transition: opacity .3s ease-out, visibility 0s linear .3s;
-    z-index: 999;
+    z-index: 9999; /* Aseguramos que esté por encima de todo */
 }
 
 #loader.show {
@@ -99,32 +100,18 @@ a:focus {
     opacity: 1;
 }
 
-#loader .loader {
-    position: relative;
-    width: 45px;
-    height: 45px;
-    border: 5px solid #dddddd;
-    border-top: 5px solid #FDBE33;
-    border-radius: 50%;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
+/* Nuevo estilo para la imagen del logo en el cargador */
+#loader .loader-logo {
+    width: 80px;  /* Tamaño del logo giratorio */
+    height: 80px;
+    animation: spin 1.5s linear infinite; /* Animación de giro */
 }
 
-@-webkit-keyframes spin {
-    0% {
-        -webkit-transform: rotate(0deg);
-    }
-
-    100% {
-        -webkit-transform: rotate(360deg);
-    }
-}
-
+/* Animación de giro (reemplaza la anterior) */
 @keyframes spin {
     0% {
         transform: rotate(0deg);
     }
-
     100% {
         transform: rotate(360deg);
     }
@@ -2502,4 +2489,31 @@ html {
         font-size: 16px;
         /* Reducimos el texto del breadcrumb */
     }
+}
+
+/* --- Estilos para el nuevo logo redondo en la barra de navegación --- */
+.navbar-brand img.navbar-logo-round {
+    max-height: 50px; /* Altura máxima del logo, se ajustará automáticamente */
+    width: auto;      /* El ancho se ajusta para mantener la proporción */
+    border-radius: 50%; /* Asegura que la imagen sea perfectamente redonda */
+    transition: all 0.3s ease;
+    animation: pulse-effect 2.5s infinite; /* Aplica la animación de pulso */
+}
+
+/* Efecto de pulso para llamar la atención */
+@keyframes pulse-effect {
+    0% {
+        box-shadow: 0 0 0 0 rgba(253, 190, 51, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(253, 190, 51, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(253, 190, 51, 0);
+    }
+}
+
+/* Ajuste para la barra de navegación fija (sticky) */
+.navbar.nav-sticky .navbar-brand img.navbar-logo-round {
+    max-height: 40px; /* Reduce ligeramente el tamaño al hacer scroll */
 }
