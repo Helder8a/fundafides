@@ -24,9 +24,8 @@
     <meta property="og:locale" content="es_LA">
     <meta name="Audience" content="All">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -47,6 +46,7 @@
       "logo": "https://fundafidescol.org/img/logo%20fundacion%20para%20el%20desarrollo%20de%20sucre.jpg",
       "contactPoint": {
         "@type": "ContactPoint",
+        "telephone": "+57-312-828-4509",
         "contactType": "Customer Service",
         "areaServed": "CO",
         "availableLanguage": "es"
@@ -93,8 +93,10 @@
                 <div class="col-md-4">
                     <div class="top-bar-right">
                         <div class="social">
-                            <a href="https://www.facebook.com/fidersucre/" aria-label="Visita nuestro Facebook" title="Visita nuestro Facebook"><i class="fab fa-facebook-f"></i></a>
-<a href="https://www.instagram.com/fidersucre/" aria-label="Visita nuestro Instagram" title="Visita nuestro Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/fidersucre/" aria-label="Visita nuestro Facebook"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/fidersucre/" aria-label="Visita nuestro Instagram"><i
+                                    class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -102,35 +104,11 @@
         </div>
     </div>
     <div class="navbar navbar-expand-lg bg-dark navbar-dark">
-    <div class="container-fluid">
-        <a href="index.html" class="navbar-brand">
-            <img src="img/logo_fides_redondo.png" alt="Logo de la Fundación FIDES Sucre">
-        </a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-            <div class="navbar-nav ml-auto">
-                <a href="index.html" class="nav-item nav-link" data-key="nav_inicio">INICIO</a>
-                <a href="proyectos.html" class="nav-item nav-link" data-key="nav_proyectos">PROYECTOS</a>
-                <a href="galeria.html" class="nav-item nav-link" data-key="nav_galeria">GALERÍA</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-key="nav_herramientas">HERRAMIENTAS WEB</a>
-                    <div class="dropdown-menu">
-                        <a href="evaluador_sustentable.html" class="dropdown-item" data-key="nav_evaluador">Evaluador de Sostenibilidad</a>
-                    </div>
-                </div>
-                <a href="blog.html" class="nav-item nav-link" data-key="nav_blog">BLOG</a>
-                <div class="nav-item d-flex align-items-center lang-switcher">
-                    <a href="#" onclick="setLanguage('es')" class="lang-btn-nav">ES</a>
-                    <span class="text-white mx-1">|</span>
-                    <a href="#" onclick="setLanguage('en')" class="lang-btn-nav">EN</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand">
+                <img class="navbar-logo" src="img/logo fundacion para el desarrollo de sucre.jpg"
+                    alt="Logo de la Fundación FIDES Sucre">
+            </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse"
                 aria-label="Alternar navegación">
                 <span class="navbar-toggler-icon"></span>
@@ -149,6 +127,7 @@
                         </div>
                     </div>
                     <a href="blog.html" class="nav-item nav-link" data-key="nav_blog">BLOG</a>
+                    <a href="contacto.html" class="nav-item nav-link" data-key="nav_contacto">CONTACTO</a>
                     <div class="nav-item d-flex align-items-center lang-switcher">
                         <a href="#" onclick="setLanguage('es')" class="lang-btn-nav">ES</a>
                         <span class="text-white mx-1">|</span>
@@ -159,81 +138,84 @@
         </div>
     </div>
     <div class="carousel">
-    <div class="container-fluid">
-        <div class="owl-carousel">
-            <div class="carousel-item">
-                <div class="carousel-img">
-                    <img src="img/carrusell_0.webp" alt="Manos unidas en señal de comunidad y sostenibilidad.">
-                </div>
-                <div class="carousel-text">
-                    <h1 data-key="carousel_title_1">Fundacion para la Investigacion y Desarrollo de Sucre</h1>
-                    <p data-key="carousel_subtitle_1">FIDES</p>
-                    <div class="carousel-btn">
-                        <a class="btn btn-custom" href="proyectos.html" data-key="carousel_button_discover">Descubre Cómo</a>
+        <div class="container-fluid">
+            <div class="owl-carousel">
+                <div class="carousel-item">
+                    <div class="carousel-img">
+                        <img src="img/carrusell_0.webp"
+                            alt="Comunidad beneficiada por los proyectos de la fundación.">
                     </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="carousel-img">
-                    <img src="img/carrusell_1.webp" alt="Niños de la comunidad sonriendo.">
-                </div>
-                <div class="carousel-text">
-                    <h1 data-key="carousel_title_2">4 Décadas de Progreso</h1>
-                    <p data-key="carousel_subtitle_2">FIDES</p>
-                    <div class="carousel-btn">
-                        <a class="btn btn-custom" href="proyectos.html" data-key="carousel_button_history">Conoce Nuestra Historia</a>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="carousel-img">
-                    <img src="img/carrusell_2.webp" alt="Niña de una comunidad rural con una tablet.">
-                </div>
-                <div class="carousel-text">
-                    <h1 data-key="carousel_title_3">Futuro y Oportunidad</h1>
-                    <p data-key="carousel_subtitle_3">FIDES</p>
-                    <div class="carousel-btn">
-                        <a class="btn btn-custom" href="donar.html" data-key="carousel_button_support">Apoyanos</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-    <section id="about" class="about-section-improved">
-    <div class="about-overlay"></div>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="about-content-wrapper">
-                    <div class="about-image-improved">
-                        <img src="img/about.jpg" alt="Collage de proyectos de la Fundación FIDES">
-                    </div>
-                    <div class="about-text-improved">
-                        <div class="section-header-left">
-                            <p data-key="about_title">Sobre Nosotros</p>
-                            <h2>Más de 40 Años<br>Construyendo Futuro</h2>
+                    <div class="carousel-text">
+                        <h1 data-key="carousel_title_1">Amigables con el Medio Ambiente</h1>
+                        <div class="carousel-btn">
+                            <a class="btn btn-custom" href="proyectos.html" data-key="carousel_button">Nuestros
+                                Proyectos</a>
                         </div>
-                        <p data-key="about_p1">
-                            La Fundación para la Investigación y el Desarrollo de Sucre (FIDES) fue constituida el
-                            16 de marzo de 1983. Somos una organización no gubernamental (ONG) enfocada en el
-                            desarrollo. Nuestra población objetivo incluye campesinos, microempresarios, artesanos,
-                            desplazados, pescadores, mujeres, jóvenes y niños de los estratos 1 y 2 de la Costa
-                            Caribe Colombiana.
-                        </p>
-                        <p data-key="about_p2">
-                            Nuestra preocupación fundamental es contribuir al Desarrollo Humano Integral y
-                            Sostenible de los sectores con menos oportunidades en Sucre y la Costa Caribe, mediante programas 
-                            y proyectos con criterios de equidad, competitividad y participación comunitaria.
-                        </p>
-                        <a class="btn btn-custom" href="proyectos.html" data-key="carousel_button_discover">Nuestros Proyectos</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-img">
+                        <img src="img/carrusell_1.jpg"
+                            alt="Mujeres artesanas tejiendo productos locales.">
+                    </div>
+                    <div class="carousel-text">
+                        <h1 data-key="carousel_title_2">Más de 40 años transformando vidas</h1>
+                        <div class="carousel-btn">
+                            <a class="btn btn-custom" href="proyectos.html" data-key="carousel_button">Nuestros
+                                Proyectos</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-img">
+                        <img src="img/carrusell_2.jpg"
+                            alt="Mujeres artesanas tejiendo productos locales.">
+                    </div>
+                    <div class="carousel-text">
+                        <h1 data-key="carousel_title_1">Amigables con el Medio Ambiente</h1>
+                        <div class="carousel-btn">
+                            <a class="btn btn-custom" href="proyectos.html" data-key="carousel_button">Nuestros
+                                Proyectos</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="img/about.jpg" alt="Imagen representativa de nosotros">
+                </div>
+                <div class="about-text">
+                    <h2 data-key="about_title">Sobre Nosotros</h2>
+                    <p data-key="about_p1">
+                        La Fundación para la Investigación y el Desarrollo de Sucre (FIDES) fue constituida el
+                        16 de marzo de 1983. Somos una organización no gubernamental (ONG) enfocada en el
+                        desarrollo. Nuestra población objetivo incluye campesinos, microempresarios, artesanos,
+                        desplazados, pescadores, mujeres, jóvenes y niños de los estratos 1 y 2 de la Costa
+                        Caribe Colombiana.
+                    </p>
+                    <p data-key="about_p2">
+                        Nuestra preocupación fundamental es contribuir al Desarrollo Humano Integral y
+                        Sostenible de los sectores con menos oportunidades en Sucre y la Costa Caribe. Lo
+                        hacemos mediante programas y proyectos sociales, económicos y culturales con criterios
+                        de equidad, competitividad, sostenibilidad y participación comunitaria, buscando siempre
+                        el disfrute pleno de los derechos humanos.
+                    </p>
+                    <p data-key="about_p3">
+                        Para el año 2025, la Fundación FIDES será la ONG de mayor reconocimiento a nivel
+                        departamental, destacada por contribuir al desarrollo humano sostenible de los sectores
+                        más vulnerables y excluidos de la región, a través de la ejecución de planes, programas
+                        y proyectos sociales, económicos, culturales y ambientales.
+                    </p>
+                    <a href="contacto.html" class="cta-button" data-key="about_button">Contáctanos</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     <div class="team">
@@ -258,13 +240,16 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-contact">
                         <h2 data-key="footer_office">Oficina Principal</h2>
-                        <p><i class="fa fa-map-marker-alt"></i>Colombia</p>
+                        <p><i class="fa fa-map-marker-alt"></i><span data-key="footer_location">Sincelejo, Sucre,
+                                Colombia</span></p>
+                        <p><i class="fa fa-phone-alt"></i><span data-key="phone">+57 3128284509</span></p>
                         <p><i class="fa fa-envelope"></i><span data-key="email">fidessuc@gmail.com</span></p>
                         <div class="footer-social">
-                            <a class="btn btn-custom" href="https://www.facebook.com/fidersucre/" aria-label="Facebook de FIDES" title="Facebook de FIDES"><i class="fab fa-facebook-f"></i></a>
-<a class="btn btn-custom" href="https://www.instagram.com/fidersucre/" aria-label="Instagram de FIDES" title="Instagram de FIDES"><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-custom"
-                                href="https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M?si=3b4b5b7e2c1f4b3c"
+                            <a class="btn btn-custom" href="https://www.facebook.com/fidersucre/"
+                                aria-label="Facebook de FIDES"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-custom" href="https://www.instagram.com/fidersucre/"
+                                aria-label="Instagram de FIDES"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-custom" href="https://open.spotify.com/album/5Fylr3sSj4Jd6g4h51i4tW"
                                 aria-label="Spotify de FIDES"><i class="fab fa-spotify"></i></a>
                         </div>
                     </div>
@@ -277,6 +262,14 @@
                         <a href="galeria.html" data-key="nav_galeria">Galería</a>
                         <a href="evaluador_sustentable.html" data-key="nav_herramientas">Herramientas Web</a>
                         <a href="blog.html" data-key="nav_blog">Blog</a>
+                        <a href="contacto.html" data-key="nav_contacto">Contacto</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-link">
+                        <h2 data-key="footer_collaborators">Colaboradores</h2>
+                        <a href="#" target="_blank" rel="noopener noreferrer">Colaborador Uno</a>
+                        <a href="#" target="_blank" rel="noopener noreferrer">Colaborador Dos</a>
                     </div>
                 </div>
             </div>
@@ -284,7 +277,7 @@
         <div class="container copyright">
             <div class="row">
                 <div class="col-md-6">
-                    <p data-key="footer_copyright">© 2025 Fundación FIDES Sucre, Todos los Derechos Reservados.
+                    <p data-key="footer_copyright">© Fundación FIDES Sucre, Todos los Derechos Reservados.
                     </p>
                 </div>
                 <div class="col-md-6">
@@ -296,8 +289,8 @@
     <a href="#" class="back-to-top" aria-label="Volver arriba"><i class="fa fa-chevron-up"></i></a>
 
     <div id="loader" class="show">
-    <img src="img/favicon.ico.png" alt="Cargando..." class="loader-logo">
-</div>
+        <div class="loader"></div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>

@@ -3,9 +3,16 @@
 # ===================================================================
 User-agent: *
 
-# Permitir que todos los bots rastreen todo el sitio.
-# No es estrictamente necesario añadir 'Allow: /', pero es una buena práctica.
-Allow: /
+# Bloquear el acceso al panel de administración de WordPress
+Disallow: /wp-admin/
+
+# Bloquear las páginas de resultados de búsqueda internos para evitar contenido duplicado
+Disallow: /?s=
+Disallow: /search/
+
+# Permitir el acceso a AJAX para el renderizado correcto de temas y plugins
+Allow: /wp-admin/admin-ajax.php
+
 
 # ===================================================================
 # Ubicación del mapa del sitio para ayudar a los bots a encontrar tu contenido
