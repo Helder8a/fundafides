@@ -1,16 +1,26 @@
 (function ($) {
     "use strict";
-    
-    // loader
-    var loader = function () {
-        setTimeout(function () {
-            if ($('#loader').length > 0) {
-                $('#loader').removeClass('show');
-            }
-        }, 1);
-    };
-    loader();
-    
+
+    // Función para ocultar el cargador
+    function hideLoader() {
+        if ($('#loader').length > 0) {
+            $('#loader').removeClass('show');
+        }
+    }
+
+    // Ocultar el cargador cuando la ventana y todos sus elementos (imágenes, etc.) hayan cargado
+    $(window).on('load', function () {
+        hideLoader();
+    });
+
+    // Como medida de seguridad, si la página tarda demasiado, oculta el cargador después de 5 segundos.
+    setTimeout(function() {
+        hideLoader();
+    }, 5000);
+
+
+    // --- EL RESTO DEL CÓDIGO PERMANECE IGUAL ---
+
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 200) {
@@ -176,4 +186,3 @@
     });
     
 })(jQuery);
-
