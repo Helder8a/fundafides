@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Experiencia y Proyectos | Fundación para la Investigacion y el Desarrollod e Sucre FIDES</title>
+    <title>Experiencia y Proyectos | Fundación para la Investigacion y el Desarrollo de Sucre FIDES</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="description"
         content="Explore nuestra completa trayectoria de proyectos desde 1983. Conozca el impacto de la Fundación FIDES Sucre en desarrollo social, construcción, apicultura y más en la Costa Caribe de Colombia.">
@@ -36,80 +36,142 @@
     <link rel="icon" href="img/favicon.ico.png">
 
     <style>
-        /* =================================== */
-        /* === Estilos Profesionales Tabla === */
-        /* =================================== */
+        /* ============================================= */
+        /* === Paleta de Colores Profesional para ONG === */
+        /* ============================================= */
+        :root {
+            --primary-dark: #2c3e50;    /* Azul corporativo oscuro */
+            --primary-accent: #FDBE33; /* Amarillo vibrante del logo */
+            --secondary-accent: #27ae60;/* Verde esperanza del logo */
+            --text-color: #555555;      /* Gris suave para texto */
+            --light-bg: #f8f9fa;       /* Fondo claro y limpio */
+            --white-color: #ffffff;
+            --border-color: #dee2e6;
+        }
 
-        /* Contenedor general de la tabla */
+        /* Aplicando la nueva paleta al cuerpo y elementos base */
+        body {
+            color: var(--text-color);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--primary-dark);
+        }
+
+        a {
+            color: var(--secondary-accent);
+        }
+
+        a:hover {
+            color: var(--primary-accent);
+        }
+        
+        /* Ajustes en componentes reutilizados */
+        .btn.btn-custom {
+            border-color: var(--primary-accent);
+            color: var(--primary-dark);
+        }
+
+        .btn.btn-custom:hover {
+            background-color: var(--primary-accent);
+            box-shadow: inset 0 0 0 30px var(--primary-accent);
+            color: var(--primary-dark);
+        }
+        
+        .navbar.bg-dark {
+            background-color: var(--primary-dark) !important;
+        }
+        
+        .footer {
+            background: var(--primary-dark);
+        }
+
+        .footer .footer-contact h2,
+        .footer .footer-link h2 {
+            color: var(--primary-accent);
+        }
+
+        .footer .footer-link a:hover {
+            color: var(--primary-accent);
+        }
+        
+        .top-bar {
+            background: rgba(44, 62, 80, 0.9); /* Azul oscuro semi-transparente */
+            border-bottom: 1px solid rgba(255, 255, 255, .2);
+        }
+
+        /* --- Estilos Profesionales para la Tabla de Proyectos --- */
+
         .table-responsive {
-            border: none; /* Eliminamos el borde anterior */
+            border: none;
             overflow-x: auto;
         }
 
         #proyectosTable {
             border-collapse: collapse;
             width: 100%;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Sombra sutil para profundidad */
-            border-radius: 8px;
-            overflow: hidden; /* Clave para que el border-radius funcione en las celdas */
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border-radius: 10px;
+            overflow: hidden;
             font-size: 15px;
         }
 
-        /* Encabezado de la tabla */
         #proyectosTable thead th {
-            background-color: #4a4c70; /* Color corporativo oscuro */
-            color: #ffffff;
+            background-color: var(--primary-dark);
+            color: var(--white-color);
             font-weight: 600;
             text-align: left;
-            padding: 16px;
-            position: relative; /* Necesario para posicionar las flechas */
+            padding: 18px 20px;
+            position: relative;
             vertical-align: middle;
             white-space: nowrap;
         }
 
-        /* Filas del cuerpo de la tabla */
         #proyectosTable tbody tr {
-            border-bottom: 1px solid #e0e0e0;
-            transition: background-color 0.2s ease; /* Transición suave */
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.3s ease;
         }
 
         #proyectosTable tbody tr:last-of-type {
-            border-bottom: 2px solid #4a4c70; /* Línea final más gruesa */
+            border-bottom: 3px solid var(--primary-accent);
         }
 
         #proyectosTable tbody tr:hover {
-            background-color: #f3f6ff; /* Resaltado al pasar el mouse */
+            background-color: var(--light-bg);
         }
-
-        /* Celdas de la tabla */
+        
         #proyectosTable td, #proyectosTable th {
-            padding: 14px 16px;
+            padding: 16px 20px;
         }
 
-        /* --- Flechas de Ordenamiento --- */
         #proyectosTable thead th[onclick] {
-            cursor: pointer; /* Muestra que la cabecera es interactiva */
+            cursor: pointer;
         }
 
-        /* Contenedor del ícono de flecha */
         #proyectosTable thead th .sort-icon {
             display: inline-block;
             width: 20px;
             height: 20px;
-            color: #FDBE33; /* Color de acento para la flecha */
-            float: right; /* Alinea la flecha a la derecha */
+            color: var(--primary-accent);
+            float: right;
             font-size: 18px;
             line-height: 1;
-            margin-left: 8px;
+            margin-left: 10px;
+            transition: transform 0.2s ease-in-out;
         }
 
+        #proyectosTable thead th[onclick]:hover .sort-icon {
+            transform: scale(1.1);
+        }
+        
+        /* Ajuste responsivo */
         @media (max-width: 767.98px) {
             .section-header h2 {
-                font-size: 28px; /* Reduce el tamaño del título en móviles */
+                font-size: 28px;
             }
 
             #proyectosTable {
-                font-size: 14px; /* Reduce el tamaño de la fuente de la tabla para mejor legibilidad */
+                font-size: 14px;
             }
         }
     </style>
@@ -918,12 +980,10 @@
                 isAscending = true;
             }
             
-            // Limpiar todos los íconos antes de establecer el nuevo
             for (let i = 0; i <= 5; i++) {
                 document.getElementById('sortIcon-' + i).innerText = '';
             }
             
-            // Establecer el ícono para la columna actual
             document.getElementById('sortIcon-' + columnIndex).innerText = isAscending ? ' ▲' : ' ▼';
             lastSortedColumn = columnIndex;
 
