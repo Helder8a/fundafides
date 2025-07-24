@@ -17,6 +17,34 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link rel="icon" href="img/favicon.ico.png">
+
+    <style>
+        :root {
+            --primary-dark: #000000; /* Negro Intenso */
+            --primary-accent: #FDBE33;
+            --secondary-accent: #27ae60;
+            --text-color: #555555;
+            --light-bg: #f8f9fa;
+            --white-color: #ffffff;
+        }
+        .navbar.bg-dark, .footer, .top-bar {
+            background: var(--primary-dark) !important;
+        }
+        .btn.btn-custom {
+            border-color: var(--primary-accent);
+            color: var(--primary-dark);
+            background-color: var(--white-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        .btn.btn-custom:hover {
+            background-color: var(--primary-accent);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+    </style>
 </head>
 
 <body>
@@ -71,19 +99,6 @@
     </div>
 
     <main class="container my-5">
-        <div class="page-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h2>Herramientas Web</h2>
-                    </div>
-                    <div class="col-12">
-                        <a href="index.html">Inicio</a>
-                        <a href="herramientas_web.html">Herramientas</a>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="section-header text-center">
             <p>Herramientas para un Futuro Sostenible</p>
             <h2>Nuestros Aplicativos</h2>
@@ -97,8 +112,50 @@
         </div>
     </main>
 
-    <footer class="footer">
-       </footer>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-contact">
+                        <h2>Oficina Principal</h2>
+                        <p><i class="fa fa-map-marker-alt"></i>Colombia</p>
+                        <p><i class="fa fa-envelope"></i>fidessuc@gmail.com</p>
+                        <div class="footer-social">
+                            <a class="btn btn-custom" href="https://www.facebook.com/fidersucre/"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-custom" href="https://www.instagram.com/fidersucre/"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-link">
+                        <h2>Enlaces Rápidos</h2>
+                        <a href="index.html">Inicio</a>
+                        <a href="proyectos.html">Proyectos</a>
+                        <a href="galeria.html">Galería</a>
+                        <a href="blog.html">Blog</a>
+                        <a href="donar.html">Donar</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-link">
+                        <h2>Colaboradores</h2>
+                        <a href="#">Colaborador Uno</a>
+                        <a href="#">Colaborador Dos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container copyright">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>© <a href="https://fundafidescol.org/">Fundación FIDES Sucre</a>, Todos los Derechos Reservados.</p>
+                </div>
+                <div class="col-md-6">
+                    <p>Diseñado por: <a href="#" target="_blank" rel="noopener noreferrer">HBO Consulting</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
     <a href="#" class="back-to-top" aria-label="Volver arriba"><i class="fa fa-chevron-up"></i></a>
 
     <div id="loader" class="show">

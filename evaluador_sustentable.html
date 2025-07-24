@@ -18,6 +18,38 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/calculadora_sustentable.css" rel="stylesheet">
     <link rel="icon" href="img/favicon.ico.png">
+
+    <style>
+        :root {
+            --primary-dark: #000000; /* Negro Intenso */
+            --primary-accent: #FDBE33;
+            --secondary-accent: #27ae60;
+            --text-color: #555555;
+            --light-bg: #f8f9fa;
+            --white-color: #ffffff;
+        }
+        .navbar.bg-dark, .footer, .top-bar {
+            background: var(--primary-dark) !important;
+        }
+        .btn.btn-custom {
+            border-color: var(--primary-accent);
+            color: var(--primary-dark);
+            background-color: var(--white-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            font-weight: 600;
+            border-radius: 5px;
+        }
+        .btn.btn-custom:hover {
+            background-color: var(--primary-accent);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        .results-sidebar {
+             background: var(--primary-dark);
+        }
+    </style>
 </head>
 
 <body>
