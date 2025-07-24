@@ -1,25 +1,7 @@
 (function ($) {
     "use strict";
 
-    // Función para ocultar el cargador
-    function hideLoader() {
-        if ($('#loader').length > 0) {
-            $('#loader').removeClass('show');
-        }
-    }
-
-    // Ocultar el cargador cuando la ventana y todos sus elementos (imágenes, etc.) hayan cargado
-    $(window).on('load', function () {
-        hideLoader();
-    });
-
-    // Como medida de seguridad, si la página tarda demasiado, oculta el cargador después de 5 segundos.
-    setTimeout(function() {
-        hideLoader();
-    }, 5000);
-
-
-    // --- EL RESTO DEL CÓDIGO PERMANECE IGUAL ---
+    // --- SE ELIMINÓ LA FUNCIÓN DEL CARGADOR DE AQUÍ ---
 
     // Back to top button
     $(window).scroll(function () {
@@ -33,8 +15,8 @@
         $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
         return false;
     });
-    
-    
+
+
     // Sticky Navbar
     $(window).scroll(function () {
         if ($(this).scrollTop() > 0) {
@@ -43,8 +25,8 @@
             $('.navbar').removeClass('nav-sticky');
         }
     });
-    
-    
+
+
     // Dropdown on mouse hover
     $(document).ready(function () {
         function toggleNavbarMethod() {
@@ -62,7 +44,7 @@
         $(window).resize(toggleNavbarMethod);
     });
 
-    
+
     // Main carousel
     $(".carousel .owl-carousel").owlCarousel({
         autoplay: true,
@@ -78,8 +60,8 @@
             '<i class="fa fa-angle-right" aria-hidden="true"></i>'
         ]
     });
-    
-    
+
+
     // Modal Video
     $(document).ready(function () {
         var $videoSrc;
@@ -96,8 +78,8 @@
             $("#video").attr('src', $videoSrc);
         })
     });
-    
-    
+
+
     // Causes carousel
     $(".causes-carousel").owlCarousel({
         autoplay: true,
@@ -122,16 +104,16 @@
             }
         }
     });
-    
-    
+
+
     // Causes progress
     $('.causes-progress').waypoint(function () {
         $('.progress .progress-bar').each(function () {
             $(this).css("width", $(this).attr("aria-valuenow") + '%');
         });
     }, {offset: '80%'});
-    
-    
+
+
     // Facts counter
     $('[data-toggle="counter-up"]').counterUp({
         delay: 10,
@@ -160,8 +142,8 @@
             }
         }
     });
-    
-    
+
+
     // Related post carousel
     $(".related-slider").owlCarousel({
         autoplay: true,
@@ -184,5 +166,5 @@
             }
         }
     });
-    
+
 })(jQuery);
