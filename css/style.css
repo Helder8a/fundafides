@@ -570,6 +570,7 @@ a:focus {
     background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../img/header_1.webp);
 }
 
+
 /* --- ESTILOS DEL TEXTO DEL ENCABEZADO (PARA MÓVILES) --- */
 .page-header h2 {
     position: relative;
