@@ -1,7 +1,7 @@
 (function ($) {
     "use strict";
 
-    // --- CÓDIGO CORREGIDO Y DEFINITIVO PARA EL CARGADOR ---
+    // --- CÓDIGO CORREGIDO PARA EL CARGADOR ---
     // Espera a que toda la ventana y sus elementos (imágenes, etc.) hayan cargado
     $(window).on('load', function() {
         if ($('#loader').length > 0) {
