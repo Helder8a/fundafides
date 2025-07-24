@@ -1,7 +1,18 @@
 (function ($) {
     "use strict";
 
-    // --- SE ELIMINÓ LA FUNCIÓN DEL CARGADOR DE AQUÍ ---
+    // --- CÓDIGO CORREGIDO Y DEFINITIVO PARA EL CARGADOR ---
+    // Espera a que toda la ventana y sus elementos (imágenes, etc.) hayan cargado
+    $(window).on('load', function() {
+        if ($('#loader').length > 0) {
+            // Se añade un pequeño retardo para que la animación sea visible
+            setTimeout(function() {
+                $('#loader').removeClass('show');
+            }, 500); // 500 milisegundos = 0.5 segundos
+        }
+    });
+    // --- FIN DEL CÓDIGO CORREGIDO ---
+
 
     // Back to top button
     $(window).scroll(function () {
