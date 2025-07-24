@@ -23,8 +23,10 @@
         :root {
             --primary-dark: #000000; /* Negro Intenso */
             --primary-accent: #FDBE33;
+            --primary-accent-hover: #e0ac28; /* Amarillo más oscuro para hover */
             --secondary-accent: #27ae60;
             --text-color: #555555;
+            --text-on-accent: #000000; /* Texto negro para botones amarillos */
             --light-bg: #f8f9fa;
             --white-color: #ffffff;
         }
@@ -32,17 +34,19 @@
             background: var(--primary-dark) !important;
         }
         .btn.btn-custom {
-            border-color: var(--primary-accent);
-            color: var(--primary-dark);
-            background-color: var(--white-color);
+            background-color: var(--primary-accent);
+            color: var(--text-on-accent);
+            border: 2px solid var(--primary-accent);
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
+            font-weight: 700;
         }
         .btn.btn-custom:hover {
-            background-color: var(--primary-accent);
-            color: var(--primary-dark);
+            background-color: var(--primary-accent-hover);
+            border-color: var(--primary-accent-hover);
+            color: var(--text-on-accent);
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
         }
     </style>
 </head>
@@ -118,47 +122,10 @@
     </div>
 
     <section id="about" class="about-section">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="img/about_fides.webp" alt="Imagen representativa de nosotros">
-                </div>
-                <div class="about-text">
-                    <h2 data-key="about_title">Sobre Nosotros</h2>
-                    <p data-key="about_p1">
-                        La Fundación para la Investigación y el Desarrollo de Sucre (FIDES) fue constituida el
-                        16 de marzo de 1983. Somos una organización no gubernamental (ONG) enfocada en el
-                        desarrollo. Nuestra población objetivo incluye campesinos, microempresarios, artesanos,
-                        desplazados, pescadores, mujeres, jóvenes y niños de los estratos 1 y 2 de la Costa
-                        Caribe Colombiana.
-                    </p>
-                    <p data-key="about_p2">
-                        Nuestra preocupación fundamental es contribuir al Desarrollo Humano Integral y
-                        Sostenible de los sectores con menos oportunidades en Sucre y la Costa Caribe. Lo
-                        hacemos mediante programas y proyectos sociales, económicos y culturales con criterios
-                        de equidad, competitividad, sostenibilidad y participación comunitaria, buscando siempre
-                        el disfrute pleno de los derechos humanos.
-                    </p>
-                    <a href="donar.html" class="btn btn-custom" data-key="about_button">Apoya Nuestra Causa</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
     <div class="team">
-        <div class="container">
-            <div class="section-header text-center">
-                <p data-key="juglares_title">JUGLARES DE SABANAS</p>
-                <h3 data-key="juglares_subtitle">FIDES & Inter-American Foundation</h3>
-                <h5 data-key="juglares_share">Comparte Nuestra Musica</h5>
-            </div>
-            <iframe data-testid="embed-iframe" style="border-radius:12px"
-                src="https://open.spotify.com/embed/artist/3j2xJ2oYomNgGYS84d2s5v?utm_source=generator" width="100%"
-                height="352" frameBorder="0" allowfullscreen=""
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"></iframe>
         </div>
-    </div>
 
     <div class="footer">
         <div class="container">
@@ -213,9 +180,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/parallax/parallax.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

@@ -9,31 +9,25 @@
         content="Explora nuestra galería de imágenes y videos. Conoce el impacto visual de nuestros proyectos, el trabajo con las comunidades y nuestro compromiso con el medio ambiente en la Costa Caribe de Colombia.">
     <meta name="keywords"
         content="galería FIDES, fotos proyectos sociales, videos desarrollo comunitario, impacto visual ONG, Sucre, Colombia">
-
-    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://fundafidescol.org/galeria.html" />
-
     <link rel="icon" href="img/favicon.ico.png">
-
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
-
-
     <link href="css/style.css" rel="stylesheet">
 
     <style>
         :root {
             --primary-dark: #000000; /* Negro Intenso */
             --primary-accent: #FDBE33;
+            --primary-accent-hover: #e0ac28; /* Amarillo más oscuro para hover */
             --secondary-accent: #27ae60;
             --text-color: #555555;
+            --text-on-accent: #000000; /* Texto negro para botones amarillos */
             --light-bg: #f8f9fa;
             --white-color: #ffffff;
         }
@@ -41,18 +35,20 @@
             background: var(--primary-dark) !important;
         }
         .btn.btn-custom {
-            border-color: var(--primary-accent);
-            color: var(--primary-dark);
-            background-color: var(--white-color);
+            background-color: var(--primary-accent);
+            color: var(--text-on-accent);
+            border: 2px solid var(--primary-accent);
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
-            font-weight: 600;
+            font-weight: 700;
+            border-radius: 5px;
         }
         .btn.btn-custom:hover {
-            background-color: var(--primary-accent);
-            color: var(--primary-dark);
+            background-color: var(--primary-accent-hover);
+            border-color: var(--primary-accent-hover);
+            color: var(--text-on-accent);
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
         }
     </style>
 </head>
@@ -96,21 +92,13 @@
                     <a href="index.html" class="nav-item nav-link">INICIO</a>
                     <a href="proyectos.html" class="nav-item nav-link">PROYECTOS</a>
                     <a href="galeria.html" class="nav-item nav-link active">GALERÍA</a>
-
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">HERRAMIENTAS WEB</a>
                         <div class="dropdown-menu">
-                            <a href="evaluador_sustentable.html" class="dropdown-item">Evaluador de Proyectos
-                                Sustentables</a>
+                            <a href="evaluador_sustentable.html" class="dropdown-item">Evaluador de Sostenibilidad</a>
                         </div>
                     </div>
                     <a href="blog.html" class="nav-item nav-link">BLOG</a>
-                    <a href="contacto.html" class="nav-item nav-link">CONTACTO</a>
-                    <div class="nav-item d-flex align-items-center lang-switcher">
-                        <a href="#" onclick="setLanguage('es')" class="lang-btn-nav">ES</a>
-                        <span class="text-white mx-1">|</span>
-                        <a href="#" onclick="setLanguage('en')" class="lang-btn-nav">EN</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -118,51 +106,93 @@
 
     <main class="gallery-page">
         <div class="container">
-            <div class="section-header text-center mt-2">
+            <div class="section-header text-center mt-5">
                 <h2>Trabajo con la Comunidad</h2>
             </div>
-
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="gallery-item">
-                        <a href="img_galeria/fides_1.webp" data-toggle="lightbox" data-gallery="#">
-                            <img src="img_galeria/fides_1.webp" class="img-fluid" alt="#">
-                            <div class="gallery-overlay">
-                                <h3>Transformando Vidas</h3>
-                                <i class="fa fa-search-plus"></i>
-                            </div>
+                        <a href="img_galeria/fides_1.webp" data-toggle="lightbox" data-gallery="gallery">
+                            <img src="img_galeria/fides_1.webp" class="img-fluid" alt="Proyecto FIDES 1">
+                            <div class="gallery-overlay"><h3>Transformando Vidas</h3><i class="fa fa-search-plus"></i></div>
                         </a>
                     </div>
                 </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="gallery-item">
+                        <a href="img_galeria/fides_2.webp" data-toggle="lightbox" data-gallery="gallery">
+                            <img src="img_galeria/fides_2.webp" class="img-fluid" alt="Proyecto FIDES 2">
+                            <div class="gallery-overlay"><h3>Transformando Vidas</h3><i class="fa fa-search-plus"></i></div>
+                        </a>
+                    </div>
                 </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="gallery-item">
+                        <a href="img_galeria/fides_3.webp" data-toggle="lightbox" data-gallery="gallery">
+                            <img src="img_galeria/fides_3.webp" class="img-fluid" alt="Proyecto FIDES 3">
+                            <div class="gallery-overlay"><h3>Transformando Vidas</h3><i class="fa fa-search-plus"></i></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="gallery-item">
+                        <a href="img_galeria/fides_4.webp" data-toggle="lightbox" data-gallery="gallery">
+                            <img src="img_galeria/fides_4.webp" class="img-fluid" alt="Proyecto FIDES 4">
+                            <div class="gallery-overlay"><h3>Transformando Vidas</h3><i class="fa fa-search-plus"></i></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="gallery-item">
+                        <a href="img_galeria/fides_5.webp" data-toggle="lightbox" data-gallery="gallery">
+                            <img src="img_galeria/fides_5.webp" class="img-fluid" alt="Proyecto FIDES 5">
+                            <div class="gallery-overlay"><h3>Transformando Vidas</h3><i class="fa fa-search-plus"></i></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="gallery-item">
+                        <a href="img_galeria/fides_6.webp" data-toggle="lightbox" data-gallery="gallery">
+                            <img src="img_galeria/fides_6.webp" class="img-fluid" alt="Proyecto FIDES 6">
+                            <div class="gallery-overlay"><h3>Transformando Vidas</h3><i class="fa fa-search-plus"></i></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="gallery-item">
+                        <a href="img_galeria/fides_7.webp" data-toggle="lightbox" data-gallery="gallery">
+                            <img src="img_galeria/fides_7.webp" class="img-fluid" alt="Proyecto FIDES 7">
+                            <div class="gallery-overlay"><h3>Transformando Vidas</h3><i class="fa fa-search-plus"></i></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
     <div class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-4 col-md-6">
                     <div class="footer-contact">
                         <h2>Oficina Principal</h2>
                         <p><i class="fa fa-map-marker-alt"></i>Colombia</p>
                         <p><i class="fa fa-envelope"></i>fidessuc@gmail.com</p>
                         <div class="footer-social">
-                            <a class="btn btn-custom" href="https://www.facebook.com/fidersucre/"
-                                aria-label="Facebook de FIDES"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-custom" href="https://www.instagram.com/fidersucre/"
-                                aria-label="Instagram de FIDES"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-custom" href="https://www.facebook.com/fidersucre/"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-custom" href="https://www.instagram.com/fidersucre/"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-4 col-md-6">
                     <div class="footer-link">
                         <h2>Enlaces Rápidos</h2>
                         <a href="index.html">Inicio</a>
                         <a href="proyectos.html">Proyectos</a>
                         <a href="blog.html">Blog</a>
-                        <a href="contacto.html">Contacto</a>
+                        <a href="donar.html">Donar</a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-4 col-md-6">
                     <div class="footer-link">
                         <h2>Colaboradores</h2>
                         <a href="#">Colaborador Uno</a>
@@ -174,8 +204,7 @@
         <div class="container copyright">
             <div class="row">
                 <div class="col-md-6">
-                    <p>© <a href="https://fundafidescol.org/">Fundación FIDES Sucre</a>, Todos los Derechos Reservados.
-                    </p>
+                    <p>© <a href="https://fundafidescol.org/">Fundación FIDES Sucre</a>, Todos los Derechos Reservados.</p>
                 </div>
                 <div class="col-md-6">
                     <p>Diseñado por: <a href="#" target="_blank" rel="noopener noreferrer">HBO Consulting</a></p>
@@ -194,7 +223,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="js/main.js"></script>
-
     <script>
         $(document).on('click', '[data-toggle="lightbox"]', function (event) {
             event.preventDefault();
@@ -202,5 +230,4 @@
         });
     </script>
 </body>
-
 </html>
