@@ -2516,32 +2516,3 @@ html {
 .navbar.nav-sticky .navbar-brand img.navbar-logo-round {
     max-height: 40px; /* Reduce ligeramente el tamaño al hacer scroll */
 }
-
-/* --- Estilos Adicionales para Efectos -- */
-
-/* 1. Efecto de Hover para Iconos de Servicio */
-.service .service-item .service-icon {
-    transition: transform 0.4s ease-in-out, color 0.3s ease;
-}
-
-.service .service-item:hover .service-icon {
-    transform: scale(1.2) rotate(15deg); /* El icono crece y rota */
-}
-
-.service .service-item:hover .service-icon i {
-    color: #e0ac28; /* Cambia el color del icono al hacer hover */
-}
-
-/* 2. Suavizado para la aparición de elementos con WOW.js */
-.wow {
-    visibility: hidden;
-}
-
-/* 3. Asegurar que el parallax de la sección de "Hechos" funcione bien */
-.facts {
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-}
