@@ -27,6 +27,34 @@
 
 
     <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-dark: #000000; /* Negro Intenso */
+            --primary-accent: #FDBE33;
+            --secondary-accent: #27ae60;
+            --text-color: #555555;
+            --light-bg: #f8f9fa;
+            --white-color: #ffffff;
+        }
+        .navbar.bg-dark, .footer, .top-bar {
+            background: var(--primary-dark) !important;
+        }
+        .btn.btn-custom {
+            border-color: var(--primary-accent);
+            color: var(--primary-dark);
+            background-color: var(--white-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        .btn.btn-custom:hover {
+            background-color: var(--primary-accent);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+    </style>
 </head>
 
 <body>
@@ -67,13 +95,13 @@
                 <div class="navbar-nav ml-auto">
                     <a href="index.html" class="nav-item nav-link">INICIO</a>
                     <a href="proyectos.html" class="nav-item nav-link">PROYECTOS</a>
-                    <a href="galeria.html" class="nav-item nav-link">GALERÍA</a>
+                    <a href="galeria.html" class="nav-item nav-link active">GALERÍA</a>
 
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">HERRAMIENTAS WEB</a>
                         <div class="dropdown-menu">
                             <a href="evaluador_sustentable.html" class="dropdown-item">Evaluador de Proyectos
-                                Sustebtables</a>
+                                Sustentables</a>
                         </div>
                     </div>
                     <a href="blog.html" class="nav-item nav-link">BLOG</a>
@@ -106,80 +134,7 @@
                         </a>
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="gallery-item">
-                        <a href="img_galeria/fides_2.webp" data-toggle="lightbox" data-gallery="#">
-                            <img src="img_galeria/fides_2.webp" class="img-fluid" alt="#">
-                            <div class="gallery-overlay">
-                                <h3>Transformando Vidas</h3>
-                                <i class="fa fa-search-plus"></i>
-                            </div>
-                        </a>
-                    </div>
                 </div>
-
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="gallery-item">
-                        <a href="img_galeria/fides_3.webp" data-toggle="lightbox" data-gallery="#">
-                            <img src="img_galeria/fides_3.webp" class="img-fluid" alt="#">
-                            <div class="gallery-overlay">
-                                <h3>Transformando Vidas</h3>
-                                <i class="fa fa-search-plus"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="gallery-item">
-                        <a href="img_galeria/fides_4.webp" data-toggle="lightbox" data-gallery="#">
-                            <img src="img_galeria/fides_4.webp" class="img-fluid" alt="#">
-                            <div class="gallery-overlay">
-                                <h3>Transformando Vidas</h3>
-                                <i class="fa fa-search-plus"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="gallery-item">
-                        <a href="img_galeria/fides_5.webp" data-toggle="lightbox" data-gallery="#">
-                            <img src="img_galeria/fides_5.webp" class="img-fluid" alt="#">
-                            <div class="gallery-overlay">
-                                <h3>Transformando Vidas</h3>
-                                <i class="fa fa-search-plus"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="gallery-item">
-                        <a href="img_galeria/fides_6.webp" data-toggle="lightbox" data-gallery="#">
-                            <img src="img_galeria/fides_6.webp" class="img-fluid" alt="#">
-                            <div class="gallery-overlay">
-                                <h3>Transformando Vidas</h3>
-                                <i class="fa fa-search-plus"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="gallery-item">
-                        <a href="img_galeria/fides_7.webp" data-toggle="lightbox" data-gallery="#">
-                            <img src="img_galeria/fides_7.webp" class="img-fluid" alt="#">
-                            <div class="gallery-overlay">
-                                <h3>Transformando Vidas</h3>
-                                <i class="fa fa-search-plus"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                            </div>
         </div>
     </main>
     <div class="footer">
@@ -238,11 +193,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/parallax/parallax.min.js"></script>
-
     <script src="js/main.js"></script>
 
     <script>
@@ -251,12 +201,6 @@
             $(this).ekkoLightbox();
         });
     </script>
-
-    <script src="js/main.js"></script>
-
-    <script src="js/translations.js"></script>
-    <script src="js/language.js"></script>
-
 </body>
 
 </html>

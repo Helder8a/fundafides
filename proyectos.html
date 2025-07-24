@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="utf-8">
     <title>Experiencia y Proyectos | Fundación FIDES</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -55,6 +58,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="top-bar d-none d-md-block">
         <div class="container-fluid">
@@ -99,12 +103,727 @@
     </div>
 
     <div class="container my-5">
+        <div class="section-header text-center">
+            <p>Nuestra Trayectoria</p>
+            <h2>Listado de Proyectos</h2>
         </div>
 
+        <div class="row mb-4">
+            <div class="col-lg-4 col-md-12 mb-3">
+                <input type="text" id="searchInput" onkeyup="applyFilters()" placeholder="Buscar por palabra clave..." class="form-control">
+            </div>
+            <div class="col-lg-3 col-md-6 mb-3">
+                <select id="categoryFilter" onchange="applyFilters()" class="form-control">
+                    <option value="">Todas las Categorías</option>
+                </select>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-3">
+                <select id="yearFilter" onchange="applyFilters()" class="form-control">
+                    <option value="">Todos los Años</option>
+                </select>
+            </div>
+            <div class="col-lg-2 col-md-12">
+                <button class="btn btn-block btn-info" onclick="clearAllFilters()">Limpiar Todo</button>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table id="proyectosTable" class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col" onclick="sortTable(0)">#<span id="sortIcon-0" class="sort-icon"></span></th>
+                        <th scope="col" onclick="sortTable(1)">Año<span id="sortIcon-1" class="sort-icon"></span></th>
+                        <th scope="col" onclick="sortTable(2)">Nombre del Proyecto<span id="sortIcon-2" class="sort-icon"></span></th>
+                        <th scope="col" onclick="sortTable(3)">Entidad Contratante<span id="sortIcon-3" class="sort-icon"></span></th>
+                        <th scope="col" onclick="sortTable(4)">Ubicación<span id="sortIcon-4" class="sort-icon"></span></th>
+                        <th scope="col" onclick="sortTable(5)">Categoría<span id="sortIcon-5" class="sort-icon"></span></th>
+                    </tr>
+                </thead>
+                <tbody id="proyectosBody">
+                    <tr>
+                        <td>1</td>
+                        <td>1986</td>
+                        <td>Alternativas de producción para pequeños cultivadores de tabaco</td>
+                        <td>KMB Austria.</td>
+                        <td>Los Palmitos, Sucre</td>
+                        <td>Desarrollo Productivo y Económico</td>
+                    </tr>
+                     <tr>
+                        <td>2</td>
+                        <td>1990</td>
+                        <td>Capacitacion a 600 Familias Campesinas en 7 Municipio del Dpto de Sucre, en Producción de Hortalizas</td>
+                        <td>Fundación Restrepo Barco.</td>
+                        <td>Sucre, Colombia</td>
+                        <td>Desarrollo Productivo y Económico</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>1993</td>
+                        <td>Asesoría y Fondo de Crédito para la Producción y Procesamiento de Yuca</td>
+                        <td>Katholische Zentralstelle. Alemania</td>
+                        <td>Sucre, Colombia</td>
+                        <td>Desarrollo Productivo y Económico</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>1993</td>
+                        <td>Asesoría legal, Control y Seguimiento de Formas Asociativas (FAS) en Proyectos Agropecuarios</td>
+                        <td>Desarrollo Rural Integrado DRI</td>
+                        <td>Sucre, Colombia</td>
+                        <td>Fortalecimiento Institucional</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>1994</td>
+                        <td>Estudios de Electrificacion del Corregimiento de Jegua</td>
+                        <td>Municipio de San Benito</td>
+                        <td>San Benito, Sucre</td>
+                        <td>Infraestructura y Construcción</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>1994</td>
+                        <td>Fomento de la Vinculación de las Mujeres a la Producción Porcícola</td>
+                        <td>IICA</td>
+                        <td>Sucre, Colombia</td>
+                        <td>Desarrollo Productivo y Económico</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>1994</td>
+                        <td>Estudios de Estratificación Socioeconómica (San Benito)</td>
+                        <td>Municipio de San Benito</td>
+                        <td>San Benito, Sucre</td>
+                        <td>Fortalecimiento Institucional</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>1994</td>
+                        <td>Estudios de Estratificación Socioeconómica (San Marcos)</td>
+                        <td>Municipio de San Marcos</td>
+                        <td>San Marcos, Sucre</td>
+                        <td>Fortalecimiento Institucional</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>1995</td>
+                        <td>Estudios de Estratificación Socioeconómica (Majagual)</td>
+                        <td>Municipio de Majagual</td>
+                        <td>Majagual, Sucre</td>
+                        <td>Fortalecimiento Institucional</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>1995</td>
+                        <td>Capacitación en Formación Empresarial a 175 Microempresarios</td>
+                        <td>Coorp. para el Des. de la MiPyME</td>
+                        <td>Dpto. Sucre, Colombia</td>
+                        <td>Desarrollo Productivo y Económico</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>1996</td>
+                        <td>Estudios sobre una Granja Integral Agroecológica Autosuficiente</td>
+                        <td>FONADE</td>
+                        <td>Dpto. Sucre, Colombia</td>
+                        <td>Medio Ambiente</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>1996</td>
+                        <td>Impulso al Desarrollo Artesanal en el Departamento de Sucre</td>
+                        <td>Artesanías de Colombia</td>
+                        <td>Dpto. Sucre, Colombia</td>
+                        <td>Desarrollo Social y Comunitario</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>2000</td>
+                        <td>Capacitación y Asesorías para Artesanos del Municipio de Sampués</td>
+                        <td>Artesanías de Colombia</td>
+                        <td>Sampués, Sucre</td>
+                        <td>Desarrollo Social y Comunitario</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>2001</td>
+                        <td>Generación de Empleo para Población Desplazada</td>
+                        <td>FUPAD</td>
+                        <td>Dpto. Sucre, Colombia</td>
+                        <td>Desarrollo Social y Comunitario</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>2001</td>
+                        <td>Atención a Población Desplazada en Sincelejo (Generación de empleo e ingreso)</td>
+                        <td>FUPAD</td>
+                        <td>Sincelejo, Sucre</td>
+                        <td>Desarrollo Social y Comunitario</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>2001</td>
+                        <td>Establecimiento de Cultivos Agroecológicos en 5 Municipios de Sucre</td>
+                        <td>CARSUCRE</td>
+                        <td>Dpto. Sucre, Colombia</td>
+                        <td>Medio Ambiente</td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>2002</td>
+                        <td>Mejoramiento de Capacidades Organizativas de Asociaciones de Desplazados</td>
+                        <td>GTZ, Alemania</td>
+                        <td>Sincelejo, Sucre</td>
+                        <td>Fortalecimiento Institucional</td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>2002</td>
+                        <td>Plan de Desarrollo Institucional</td>
+                        <td>Novid, Holanda</td>
+                        <td>Sucre, Colombia</td>
+                        <td>Fortalecimiento Institucional</td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>2002</td>
+                        <td>Formación en Educación Ambiental a Niños y Jóvenes en Sincelejo</td>
+                        <td>Fondo para la Acción Ambiental</td>
+                        <td>Sincelejo, Sucre</td>
+                        <td>Medio Ambiente</td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>2003</td>
+                        <td>Creación y Fortalecimiento de Microempresas Apícolas</td>
+                        <td>IICA</td>
+                        <td>Dpto. Sucre, Colombia</td>
+                        <td>Desarrollo Productivo y Económico</td>
+                    </tr>
+                    <tr>
+                        <td>21</td>
+                        <td>2004</td>
+                        <td>Construcción de 5 Aulas de Clases en San Antonio</td>
+                        <td>Embajada de Japón</td>
+                        <td>San Antonio, Sucre</td>
+                        <td>Infraestructura y Construcción</td>
+                    </tr>
+                    <tr>
+                        <td>22</td>
+                        <td>2004</td>
+                        <td>Acciones Integrales para Atención a Población Desplazada</td>
+                        <td>Unión Europea</td>
+                        <td>Dpto. Sucre, Colombia</td>
+                        <td>Desarrollo Social y Comunitario</td>
+                    </tr>
+                    <tr>
+                        <td>23</td>
+                        <td>2005</td>
+                        <td>Construcción de 4 Aulas de Clases en I.E. Policarpa</td>
+                        <td>Embajada de Japón</td>
+                        <td>Sincelejo, Sucre</td>
+                        <td>Infraestructura y Construcción</td>
+                    </tr>
+                    <tr>
+                        <td>24</td>
+                        <td>2006</td>
+                        <td>Promoción de Alianzas Productivas entre Apicultores</td>
+                        <td>Ministerio de Agricultura</td>
+                        <td>Dpto. Sucre, Colombia</td>
+                        <td>Desarrollo Productivo y Económico</td>
+                    </tr>
+                    <tr>
+                        <td>25</td>
+                        <td>2006</td>
+                        <td>Apoyo Integral a Población Desplazada</td>
+                        <td>Unión Europea</td>
+                        <td>Dpto. Sucre, Colombia</td>
+                        <td>Desarrollo Social y Comunitario</td>
+                    </tr>
+                    <tr>
+                        <td>26</td>
+                        <td>2007</td>
+                        <td>Estabilización Socioeconómica de 500 Hogares Desplazados</td>
+                        <td>OIM</td>
+                        <td>Sincelejo, Sucre</td>
+                        <td>Desarrollo Social y Comunitario</td>
+                    </tr>
+                    <tr>
+                        <td>27</td>
+                        <td>2008</td>
+                        <td>Establecimiento de Cultivos Agroecológicos</td>
+                        <td>Corporación Ecofondo</td>
+                        <td>Dpto. Sucre, Colombia</td>
+                        <td>Medio Ambiente</td>
+                    </tr>
+                    <tr>
+                        <td>28</td>
+                        <td>2008</td>
+                        <td>Construcción de Alcantarillado Sanitario en Dulce Nombre de Jesús</td>
+                        <td>Municipio de Corozal</td>
+                        <td>Corozal, Sucre</td>
+                        <td>Infraestructura y Construcción</td>
+                    </tr>
+                    <tr>
+                        <td>29</td>
+                        <td>2008</td>
+                        <td>Estabilización Socioeconómica de 700 Hogares Desplazados</td>
+                        <td>OIM</td>
+                        <td>Sincelejo, Sucre</td>
+                        <td>Desarrollo Social y Comunitario</td>
+                    </tr>
+                    <tr>
+                        <td>30</td>
+                        <td>2008</td>
+                        <td>Construcción de 100 Viviendas de Interés Social</td>
+                        <td>UNIÓN EUROPEA</td>
+                        <td>Ovejas, Sucre</td>
+                        <td>Infraestructura y Construcción</td>
+                    </tr>
+                    <tr>
+                        <td>31</td>
+                        <td>2009</td>
+                        <td>Fortalecimiento Organizacional a 14 Familias de Productores Rurales</td>
+                        <td>ECOPETROL</td>
+                        <td>Morroa, Sucre</td>
+                        <td>Desarrollo Productivo y Económico</td>
+                    </tr>
+                    <tr>
+                        <td>32</td>
+                        <td>2010</td>
+                        <td>Fortalecimiento Organizacional a 220 Apicultores</td>
+                        <td>ACCION SOCIAL</td>
+                        <td>Dpto. Sucre, Colombia</td>
+                        <td>Desarrollo Productivo y Económico</td>
+                    </tr>
+                    <tr>
+                        <td>33</td>
+                        <td>2010</td>
+                        <td>Alianzas Productivas con 33 Apicultores del Municipio de Ovejas</td>
+                        <td>FIDUCOLDEX</td>
+                        <td>Ovejas, Sucre</td>
+                        <td>Desarrollo Productivo y Económico</td>
+                    </tr>
+                    <tr>
+                        <td>34</td>
+                        <td>2012</td>
+                        <td>Elaboración Plan de Desarrollo del Municipio de Ovejas</td>
+                        <td>Municipio de Ovejas</td>
+                        <td>Ovejas, Sucre</td>
+                        <td>Fortalecimiento Institucional</td>
+                    </tr>
+                    <tr>
+                        <td>35</td>
+                        <td>2012</td>
+                        <td>Alianzas Productivas con 39 Apicultores de Carmen de Bolívar</td>
+                        <td>FIDUCOLDEX</td>
+                        <td>Carmen de Bolívar</td>
+                        <td>Desarrollo Productivo y Económico</td>
+                    </tr>
+                    <tr>
+                        <td>36</td>
+                        <td>2012</td>
+                        <td>Fortalecimiento Técnico a la Secretaría de Planeación de Ovejas</td>
+                        <td>Municipio de Ovejas</td>
+                        <td>Ovejas, Sucre</td>
+                        <td>Fortalecimiento Institucional</td>
+                    </tr>
+                    <tr>
+                        <td>37</td>
+                        <td>2012</td>
+                        <td>Apoyo a Construcción de Plan de Vida Indígena (Cabildo Pueblecito)</td>
+                        <td>ECOPETROL</td>
+                        <td>San Antonio, Sucre</td>
+                        <td>Cultura</td>
+                    </tr>
+                    <tr>
+                        <td>38</td>
+                        <td>2012</td>
+                        <td>Diseño y Ejecución de un Programa de Capacitación</td>
+                        <td>ECOPETROL</td>
+                        <td>Sucre, Córdoba</td>
+                        <td>Fortalecimiento Institucional</td>
+                    </tr>
+                    <tr>
+                        <td>39</td>
+                        <td>2012</td>
+                        <td>Desarrollo Socioeconómico Tejido Verde</td>
+                        <td>ECOPETROL</td>
+                        <td>Sucre, Córdoba</td>
+                        <td>Desarrollo Productivo y Económico</td>
+                    </tr>
+                    <tr>
+                        <td>40</td>
+                        <td>2012</td>
+                        <td>Construcción y Recuperación de Parque Ecológico Pelinku</td>
+                        <td>ECOPETROL</td>
+                        <td>Ovejas, Sucre</td>
+                        <td>Medio Ambiente</td>
+                    </tr>
+                    <tr>
+                        <td>41</td>
+                        <td>2012</td>
+                        <td>Implementación de Compromisos Sociales</td>
+                        <td>ECOPETROL</td>
+                        <td>Córdoba, Sucre</td>
+                        <td>Desarrollo Social y Comunitario</td>
+                    </tr>
+                    <tr>
+                        <td>42</td>
+                        <td>2012</td>
+                        <td>Programa de Comunicación para el Desarrollo</td>
+                        <td>ECOPETROL</td>
+                        <td>Cesar, Colombia</td>
+                        <td>Desarrollo Social y Comunitario</td>
+                    </tr>
+                    <tr>
+                        <td>43</td>
+                        <td>2012</td>
+                        <td>Fortalecimiento Organizacional a Cultura Afrodescendiente</td>
+                        <td>ECOPETROL</td>
+                        <td>Coveñas, Sucre</td>
+                        <td>Cultura</td>
+                    </tr>
+                    <tr>
+                        <td>44</td>
+                        <td>2012</td>
+                        <td>Construcción y Rehabilitación de Vía Terciaria</td>
+                        <td>ECOPETROL</td>
+                        <td>Aserradero, Sucre</td>
+                        <td>Infraestructura y Construcción</td>
+                    </tr>
+                    <tr>
+                        <td>45</td>
+                        <td>2012</td>
+                        <td>Primera Etapa de Megacolegio Flamenco</td>
+                        <td>ECOPETROL</td>
+                        <td>María La Baja, Bolívar</td>
+                        <td>Infraestructura y Construcción</td>
+                    </tr>
+                    <tr>
+                        <td>46</td>
+                        <td>2012</td>
+                        <td>Estudios y Diseños Red Eléctrica Palenquillo</td>
+                        <td>ECOPETROL</td>
+                        <td>Tolú, Sucre</td>
+                        <td>Infraestructura y Construcción</td>
+                    </tr>
+                    <tr>
+                        <td>47</td>
+                        <td>2012</td>
+                        <td>Apoyo a Rescate de Medicina Tradicional Indígena Zenú</td>
+                        <td>ECOPETROL</td>
+                        <td>Córdoba, Colombia</td>
+                        <td>Cultura</td>
+                    </tr>
+                    <tr>
+                        <td>48</td>
+                        <td>2012</td>
+                        <td>Construcción de Sistema de Acueducto Guazo</td>
+                        <td>ECOPETROL</td>
+                        <td>Magangué, Bolívar</td>
+                        <td>Infraestructura y Construcción</td>
+                    </tr>
+                    <tr>
+                        <td>49</td>
+                        <td>2012</td>
+                        <td>Apoyo a Construcción Plan Vida Indígena (Cabildo Porvenir)</td>
+                        <td>ECOPETROL</td>
+                        <td>San Antero, Córdoba</td>
+                        <td>Cultura</td>
+                    </tr>
+                    <tr>
+                        <td>50</td>
+                        <td>2012</td>
+                        <td>Construcción de Casa de Reuniones (Cabildo Indígena Porvenir)</td>
+                        <td>ECOPETROL</td>
+                        <td>San Antero, Córdoba</td>
+                        <td>Infraestructura y Construcción</td>
+                    </tr>
+                    <tr>
+                        <td>51</td>
+                        <td>2012</td>
+                        <td>Construcción de Casa de Reuniones (Cabildo Indígena Pueblecito)</td>
+                        <td>ECOPETROL</td>
+                        <td>San Antonio, Sucre</td>
+                        <td>Infraestructura y Construcción</td>
+                    </tr>
+                    <tr>
+                        <td>52</td>
+                        <td>2013</td>
+                        <td>Ppalabreando sueños</td>
+                        <td>MINISTERIO DE CULTURA</td>
+                        <td>Sucre, Colombia</td>
+                        <td>Cultura</td>
+                    </tr>
+                    <tr>
+                        <td>53</td>
+                        <td>2013</td>
+                        <td>Formación artística para niños y adolescentes en población vulnerable</td>
+                        <td>MINISTERIO DE CULTURA</td>
+                        <td>Sucre, Colombia</td>
+                        <td>Cultura</td>
+                    </tr>
+                    <tr>
+                        <td>54</td>
+                        <td>2013</td>
+                        <td>Ejecución de Proyectos de Gestión Social en el Golfo de Morrosquillo</td>
+                        <td>ECOPETROL S.A.</td>
+                        <td>Sucre, Colombia</td>
+                        <td>Desarrollo Social y Comunitario</td>
+                    </tr>
+                    <tr>
+                        <td>55</td>
+                        <td>2013</td>
+                        <td>Proyecto de desarrollo socio económico Tejido Verde Caribe - Fase I</td>
+                        <td>ECOPETROL S.A.</td>
+                        <td>Sucre, Colombia</td>
+                        <td>Desarrollo Social y Comunitario</td>
+                    </tr>
+                    <tr>
+                        <td>56</td>
+                        <td>2013</td>
+                        <td>Programa de socialización y capacitación para grupos de interés del oleoducto Caño Limón-Coveñas</td>
+                        <td>ECOPETROL S.A.</td>
+                        <td>Sucre, Colombia</td>
+                        <td>Desarrollo Social y Comunitario</td>
+                    </tr>
+                    <tr>
+                        <td>57</td>
+                        <td>2013</td>
+                        <td>Apoyo a la construcción del plan de vida de la comunidad étnica Zenú</td>
+                        <td>ECOPETROL S.A.</td>
+                        <td>Cordoba, Colombia</td>
+                        <td>Cultura</td>
+                    </tr>
+                    <tr>
+                        <td>58</td>
+                        <td>2015</td>
+                        <td>Fortalecimiento de asociaciones de pescadores artesanales (Fase II)</td>
+                        <td>ECOPETROL S.A.</td>
+                        <td>Cordoba, Colombia</td>
+                        <td>Desarrollo Productivo y Económico</td>
+                    </tr>
+                    <tr>
+                        <td>59</td>
+                        <td>2015</td>
+                        <td>Consultoría para Museología y Museografía del Museo Arqueológico de Sucre</td>
+                        <td>GOBERNACION DE SUCRE.</td>
+                        <td>Sucre, Colombia</td>
+                        <td>Cultura</td>
+                    </tr>
+                    <tr>
+                        <td>60</td>
+                        <td>2016</td>
+                        <td>Formulación del Plan de Desarrollo Municipal de San Antonio de Palmitos</td>
+                        <td>Municipio de San Antonio de Palmitos.</td>
+                        <td>Sucre, Colombia</td>
+                        <td>Fortalecimiento Institucional</td>
+                    </tr>
+                    <tr>
+                        <td>61</td>
+                        <td>2016</td>
+                        <td>Recuperación y Transmisión de los Juegos Ancestrales de la Etnia Zenú</td>
+                        <td>Ministerio de Cultura</td>
+                        <td>Sucre, Colombia.</td>
+                        <td>Cultura</td>
+                    </tr>
+                    <tr>
+                        <td>62</td>
+                        <td>2016</td>
+                        <td>Espacio Inclusivo de Arte Contemporáneo</td>
+                        <td>Ministerio de Cultura</td>
+                        <td>Sucre, Colombia</td>
+                        <td>Cultura</td>
+                    </tr>
+                    <tr>
+                        <td>63</td>
+                        <td>2016</td>
+                        <td>Capacitación en Fortalecimiento Organizacional a formas asociativas de Sincelejo</td>
+                        <td>Alcaldia de Sincelejo.</td>
+                        <td>Sincelejo, Sucre</td>
+                        <td>Fortalecimiento Institucional</td>
+                    </tr>
+                    <tr>
+                        <td>64</td>
+                        <td>2017</td>
+                        <td>Fortalecimiento productivo de 420 pequeños productores de Hortalizas en La Guajira</td>
+                        <td>Organizacion de Estados Iberoamericanos OEI.</td>
+                        <td>Dpto de la Guajira.</td>
+                        <td>Desarrollo Productivo y Económico</td>
+                    </tr>
+                    <tr>
+                        <td>65</td>
+                        <td>2017</td>
+                        <td>Fortalecimiento de capacidades productivas de 580 familias en La Guajira</td>
+                        <td>Organizacion de Estados Iberoamericanos OEI.</td>
+                        <td>Dpto de la Guajira.</td>
+                        <td>Desarrollo Productivo y Económico</td>
+                    </tr>
+                    <tr>
+                        <td>66</td>
+                        <td>2018</td>
+                        <td>Alianza para la producción y comercialización de carne de Tilapia Roja</td>
+                        <td>Alianza Fiduciaria.</td>
+                        <td>San Onofre, Sucre</td>
+                        <td>Desarrollo Productivo y Económico</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
     <div class="footer">
-      </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-contact">
+                        <h2>Oficina Principal</h2>
+                        <p><i class="fa fa-map-marker-alt"></i>Colombia</p>
+                        <p><i class="fa fa-phone-alt"></i>+57 3128284509</p>
+                        <p><i class="fa fa-envelope"></i>fidessuc@gmail.com</p>
+                        <div class="footer-social">
+                            <a class="btn btn-custom" href="https://www.facebook.com/fidersucre/"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-custom" href="https://www.instagram.com/fidersucre/"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-link">
+                        <h2>Enlaces Rápidos</h2>
+                        <a href="index.html">Inicio</a>
+                        <a href="proyectos.html">Proyectos</a>
+                        <a href="galeria.html">Galería</a>
+                        <a href="blog.html">Blog</a>
+                        <a href="contacto.html">Contacto</a>
+                    </div>
+                </div>
+                 <div class="col-lg-3 col-md-6">
+                    <div class="footer-link">
+                        <h2>Colaboradores</h2>
+                        <a href="#">Colaborador Uno</a>
+                        <a href="#">Colaborador Dos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container copyright">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>© <a href="#">Fundación FIDES Sucre</a>, Todos los Derechos Reservados.</p>
+                </div>
+                <div class="col-md-6">
+                    <p>Diseñado por: <a href="#">HBO Consulting</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <div id="loader" class="show"><div class="loader"></div></div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" defer></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" defer></script>
-    </body>
+    <script src="js/main.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            populateFilters();
+        });
+
+        function populateFilters() {
+            const tableBody = document.getElementById('proyectosBody');
+            const rows = tableBody.getElementsByTagName('tr');
+            const categoryFilter = document.getElementById('categoryFilter');
+            const yearFilter = document.getElementById('yearFilter');
+            const categories = new Set();
+            const years = new Set();
+            for (let i = 0; i < rows.length; i++) {
+                years.add(rows[i].cells[1].innerText.trim());
+                categories.add(rows[i].cells[5].innerText.trim());
+            }
+            Array.from(categories).sort().forEach(cat => {
+                const option = document.createElement('option');
+                option.value = cat;
+                option.innerText = cat;
+                categoryFilter.appendChild(option);
+            });
+            Array.from(years).sort((a, b) => b - a).forEach(year => {
+                const option = document.createElement('option');
+                option.value = year;
+                option.innerText = year;
+                yearFilter.appendChild(option);
+            });
+        }
+
+        function applyFilters() {
+            const searchFilter = document.getElementById('searchInput').value.toUpperCase();
+            const categoryFilter = document.getElementById('categoryFilter').value;
+            const yearFilter = document.getElementById('yearFilter').value;
+            const tableBody = document.getElementById('proyectosBody');
+            const rows = tableBody.getElementsByTagName('tr');
+            for (let i = 0; i < rows.length; i++) {
+                const row = rows[i];
+                const year = row.cells[1].innerText;
+                const category = row.cells[5].innerText;
+                const yearMatch = (yearFilter === "") || (year === yearFilter);
+                const categoryMatch = (categoryFilter === "") || (category === categoryFilter);
+                let searchMatch = false;
+                if (searchFilter === "") {
+                    searchMatch = true;
+                } else {
+                    for (let j = 0; j < row.cells.length; j++) {
+                        if (row.cells[j].innerText.toUpperCase().indexOf(searchFilter) > -1) {
+                            searchMatch = true;
+                            break;
+                        }
+                    }
+                }
+                if (yearMatch && categoryMatch && searchMatch) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            }
+        }
+
+        function clearAllFilters() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('categoryFilter').selectedIndex = 0;
+            document.getElementById('yearFilter').selectedIndex = 0;
+            applyFilters();
+        }
+
+        let lastSortedColumn = -1;
+        let isAscending = true;
+
+        function sortTable(columnIndex) {
+            const tableBody = document.getElementById('proyectosBody');
+            const rows = Array.from(tableBody.querySelectorAll('tr'));
+            if (columnIndex === lastSortedColumn) {
+                isAscending = !isAscending;
+            } else {
+                isAscending = true;
+            }
+            
+            for (let i = 0; i <= 5; i++) {
+                document.getElementById('sortIcon-' + i).innerText = '';
+            }
+            
+            document.getElementById('sortIcon-' + columnIndex).innerText = isAscending ? ' ▲' : ' ▼';
+            lastSortedColumn = columnIndex;
+
+            rows.sort((a, b) => {
+                const cellA = a.cells[columnIndex].innerText.trim();
+                const cellB = b.cells[columnIndex].innerText.trim();
+                const isNumeric = columnIndex === 1 || columnIndex === 0;
+                let comparison = 0;
+                if (isNumeric) {
+                    comparison = parseFloat(cellA) - parseFloat(cellB);
+                } else {
+                    comparison = cellA.localeCompare(cellB, 'es', { sensitivity: 'base' });
+                }
+                return isAscending ? comparison : -comparison;
+            });
+            rows.forEach(row => tableBody.appendChild(row));
+        }
+    </script>
+</body>
 </html>
