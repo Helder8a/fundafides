@@ -241,5 +241,28 @@
             }
         });
     </script>
+
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Espera a que toda la página, incluyendo imágenes, se cargue completamente
+        window.addEventListener('load', function() {
+            var loader = document.getElementById('loader');
+            if (loader) {
+                // Se añade un pequeño retardo para asegurar que la animación se vea
+                setTimeout(function() {
+                    loader.classList.remove('show');
+                }, 500); // 500 milisegundos = 0.5 segundos
+            }
+        });
+
+        // Medida de seguridad por si algo falla, el loader desaparece después de 4 segundos
+        setTimeout(function() {
+            var loader = document.getElementById('loader');
+            if (loader && loader.classList.contains('show')) {
+                loader.classList.remove('show');
+            }
+        }, 4000);
+    </script>
 </body>
 </html>
