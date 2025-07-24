@@ -36,13 +36,71 @@
     <link rel="icon" href="img/favicon.ico.png">
 
     <style>
+        /* =================================== */
+        /* === Estilos Profesionales Tabla === */
+        /* =================================== */
+
+        /* Contenedor general de la tabla */
         .table-responsive {
-            border: 1px solid #dee2e6;
-            border-radius: .25rem;
+            border: none; /* Eliminamos el borde anterior */
+            overflow-x: auto;
         }
 
+        #proyectosTable {
+            border-collapse: collapse;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Sombra sutil para profundidad */
+            border-radius: 8px;
+            overflow: hidden; /* Clave para que el border-radius funcione en las celdas */
+            font-size: 15px;
+        }
+
+        /* Encabezado de la tabla */
         #proyectosTable thead th {
-            white-space: nowrap; /* Evita que los títulos de la tabla se partan */
+            background-color: #4a4c70; /* Color corporativo oscuro */
+            color: #ffffff;
+            font-weight: 600;
+            text-align: left;
+            padding: 16px;
+            position: relative; /* Necesario para posicionar las flechas */
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+        /* Filas del cuerpo de la tabla */
+        #proyectosTable tbody tr {
+            border-bottom: 1px solid #e0e0e0;
+            transition: background-color 0.2s ease; /* Transición suave */
+        }
+
+        #proyectosTable tbody tr:last-of-type {
+            border-bottom: 2px solid #4a4c70; /* Línea final más gruesa */
+        }
+
+        #proyectosTable tbody tr:hover {
+            background-color: #f3f6ff; /* Resaltado al pasar el mouse */
+        }
+
+        /* Celdas de la tabla */
+        #proyectosTable td, #proyectosTable th {
+            padding: 14px 16px;
+        }
+
+        /* --- Flechas de Ordenamiento --- */
+        #proyectosTable thead th[onclick] {
+            cursor: pointer; /* Muestra que la cabecera es interactiva */
+        }
+
+        /* Contenedor del ícono de flecha */
+        #proyectosTable thead th .sort-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            color: #FDBE33; /* Color de acento para la flecha */
+            float: right; /* Alinea la flecha a la derecha */
+            font-size: 18px;
+            line-height: 1;
+            margin-left: 8px;
         }
 
         @media (max-width: 767.98px) {
@@ -150,15 +208,33 @@
         </div>
 
         <div class="table-responsive">
-            <table id="proyectosTable" class="table table-striped table-hover">
+            <table id="proyectosTable" class="table table-hover">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col" style="cursor: pointer;" onclick="sortTable(0)"><span data-key="proyectos_table_header_num">#</span> <span id="sortIcon-0"></span></th>
-                        <th scope="col" style="cursor: pointer;" onclick="sortTable(1)"><span data-key="proyectos_table_header_year">Año</span> <span id="sortIcon-1"></span></th>
-                        <th scope="col" style="cursor: pointer;" onclick="sortTable(2)"><span data-key="proyectos_table_header_name">Nombre del Proyecto</span> <span id="sortIcon-2"></span></th>
-                        <th scope="col" style="cursor: pointer;" onclick="sortTable(3)"><span data-key="proyectos_table_header_client">Entidad Contratante</span> <span id="sortIcon-3"></span></th>
-                        <th scope="col" style="cursor: pointer;" onclick="sortTable(4)"><span data-key="proyectos_table_header_location">Ubicación</span> <span id="sortIcon-4"></span></th>
-                        <th scope="col" style="cursor: pointer;" onclick="sortTable(5)"><span data-key="proyectos_table_header_category">Categoría</span> <span id="sortIcon-5"></span></th>
+                        <th scope="col" onclick="sortTable(0)">
+                            <span data-key="proyectos_table_header_num">#</span>
+                            <span id="sortIcon-0" class="sort-icon"></span>
+                        </th>
+                        <th scope="col" onclick="sortTable(1)">
+                            <span data-key="proyectos_table_header_year">Año</span>
+                            <span id="sortIcon-1" class="sort-icon"></span>
+                        </th>
+                        <th scope="col" onclick="sortTable(2)">
+                            <span data-key="proyectos_table_header_name">Nombre del Proyecto</span>
+                            <span id="sortIcon-2" class="sort-icon"></span>
+                        </th>
+                        <th scope="col" onclick="sortTable(3)">
+                            <span data-key="proyectos_table_header_client">Entidad Contratante</span>
+                            <span id="sortIcon-3" class="sort-icon"></span>
+                        </th>
+                        <th scope="col" onclick="sortTable(4)">
+                            <span data-key="proyectos_table_header_location">Ubicación</span>
+                            <span id="sortIcon-4" class="sort-icon"></span>
+                        </th>
+                        <th scope="col" onclick="sortTable(5)">
+                            <span data-key="proyectos_table_header_category">Categoría</span>
+                            <span id="sortIcon-5" class="sort-icon"></span>
+                        </th>
                     </tr>
                 </thead>
                 <tbody id="proyectosBody">
@@ -693,7 +769,7 @@
                 </tbody>
             </table>
         </div>
-        </div>
+    </div>
 
     <div class="footer">
         <div class="container">
@@ -841,11 +917,16 @@
             } else {
                 isAscending = true;
             }
+            
+            // Limpiar todos los íconos antes de establecer el nuevo
             for (let i = 0; i <= 5; i++) {
                 document.getElementById('sortIcon-' + i).innerText = '';
             }
+            
+            // Establecer el ícono para la columna actual
             document.getElementById('sortIcon-' + columnIndex).innerText = isAscending ? ' ▲' : ' ▼';
             lastSortedColumn = columnIndex;
+
             rows.sort((a, b) => {
                 const cellA = a.cells[columnIndex].innerText.trim();
                 const cellB = b.cells[columnIndex].innerText.trim();
