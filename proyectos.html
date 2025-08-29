@@ -94,7 +94,7 @@
         </div>
     </nav>
 
-    <div class="page-header page-header-proyectos">
+    <header class="page-header page-header-proyectos">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -106,48 +106,47 @@
                 </div>
             </div>
         </div>
-    </div>
-    <main role="main">
-        <div class="container my-5">
-            <div class="section-header text-center wow fadeInUp" data-wow-delay="0.1s">
-                <p>Nuestra Trayectoria</p>
-                <h2>Listado de Proyectos</h2>
-            </div>
+    </header>
 
-            <div class="row mb-4 wow fadeInUp" data-wow-delay="0.2s">
-                <div class="col-lg-4 col-md-12 mb-3">
-                    <input type="text" id="searchInput" onkeyup="applyFilters()" placeholder="Buscar por palabra clave..." class="form-control">
-                </div>
-                <div class="col-lg-3 col-md-6 mb-3">
-                    <select id="categoryFilter" onchange="applyFilters()" class="form-control">
-                        <option value="">Todas las Categorías</option>
-                    </select>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-3">
-                    <select id="yearFilter" onchange="applyFilters()" class="form-control">
-                        <option value="">Todos los Años</option>
-                    </select>
-                </div>
-                <div class="col-lg-2 col-md-12">
-                    <button class="btn btn-info btn-block" onclick="clearAllFilters()">Limpiar Todo</button>
-                </div>
-            </div>
+    <main role="main" class="container my-5">
+        <section class="section-header text-center wow fadeInUp" data-wow-delay="0.1s">
+            <p>Nuestra Trayectoria</p>
+            <h2>Listado de Proyectos</h2>
+        </section>
 
-            <div class="table-responsive wow fadeInUp" data-wow-delay="0.3s">
-                <table id="proyectosTable" class="table table-hover">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col" onclick="sortTable(0)">#<span id="sortIcon-0" class="sort-icon"></span></th>
-                            <th scope="col" onclick="sortTable(1)">Año<span id="sortIcon-1" class="sort-icon"></span></th>
-                            <th scope="col" onclick="sortTable(2)">Nombre del Proyecto<span id="sortIcon-2" class="sort-icon"></span></th>
-                            <th scope="col" onclick="sortTable(3)">Entidad Contratante<span id="sortIcon-3" class="sort-icon"></span></th>
-                            <th scope="col" onclick="sortTable(4)">Ubicación<span id="sortIcon-4" class="sort-icon"></span></th>
-                            <th scope="col" onclick="sortTable(5)">Categoría<span id="sortIcon-5" class="sort-icon"></span></th>
-                        </tr>
-                    </thead>
-                    <tbody id="proyectosBody"></tbody>
-                </table>
+        <div class="row mb-4 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="col-lg-4 col-md-12 mb-3">
+                <input type="text" id="searchInput" onkeyup="applyFilters()" placeholder="Buscar por palabra clave..." class="form-control">
             </div>
+            <div class="col-lg-3 col-md-6 mb-3">
+                <select id="categoryFilter" onchange="applyFilters()" class="form-control" aria-label="Filtrar por categoría">
+                    <option value="">Todas las Categorías</option>
+                </select>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-3">
+                <select id="yearFilter" onchange="applyFilters()" class="form-control" aria-label="Filtrar por año">
+                    <option value="">Todos los Años</option>
+                </select>
+            </div>
+            <div class="col-lg-2 col-md-12">
+                <button class="btn btn-info btn-block" onclick="clearAllFilters()">Limpiar Filtros</button>
+            </div>
+        </div>
+
+        <div class="table-responsive wow fadeInUp" data-wow-delay="0.3s">
+            <table id="proyectosTable" class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col" onclick="sortTable(0)">#<span id="sortIcon-0" class="sort-icon"></span></th>
+                        <th scope="col" onclick="sortTable(1)">Año<span id="sortIcon-1" class="sort-icon"></span></th>
+                        <th scope="col" onclick="sortTable(2)">Nombre del Proyecto<span id="sortIcon-2" class="sort-icon"></span></th>
+                        <th scope="col" onclick="sortTable(3)">Entidad<span id="sortIcon-3" class="sort-icon"></span></th>
+                        <th scope="col" onclick="sortTable(4)">Ubicación<span id="sortIcon-4" class="sort-icon"></span></th>
+                        <th scope="col" onclick="sortTable(5)">Categoría<span id="sortIcon-5" class="sort-icon"></span></th>
+                    </tr>
+                </thead>
+                <tbody id="proyectosBody"></tbody>
+            </table>
         </div>
     </main>
 
