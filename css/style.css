@@ -2559,3 +2559,115 @@ html {
         display: none; /* Oculta las flechas en móviles para un look más limpio */
     }
 }
+
+/*******************************/
+/***** Nuevos Headers Page *****/
+/*******************************/
+/* Estilo para el header de la página de Proyectos */
+.page-header-proyectos {
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../img/carrusell_3.webp);
+}
+
+/* Estilo para el header de la página de Galería */
+.page-header-galeria {
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../img/about_fides.webp);
+}
+
+/*******************************/
+/***** Carousel Dots Style *****/
+/*******************************/
+.carousel .owl-dots {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel .owl-dot {
+    display: inline-block;
+    margin: 0 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transition: background 0.3s ease;
+}
+
+.carousel .owl-dot.active {
+    background: #FDBE33;
+}
+
+.carousel .owl-dot:hover {
+    background: #ffffff;
+}
+
+/* Ajustes responsivos para el carrusel */
+@media (max-width: 767.98px) {
+    .carousel .carousel-text h1 {
+        font-size: 28px; /* Tamaño de fuente más legible en móviles */
+        margin-bottom: 15px;
+    }
+
+    .carousel .owl-nav {
+        display: none; /* Oculta las flechas en móviles para un look más limpio */
+    }
+}.
+
+/*******************************/
+/***** Nuevos Headers Page *****/
+/*******************************/
+/* Estilo para el header de la página de Proyectos */
+.page-header-proyectos {
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../img/carrusell_3.webp);
+}
+
+/* Estilo para el header de la página de Galería */
+.page-header-galeria {
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../img/about_fides.webp);
+}
+
+/*******************************/
+/***** Carousel Dots Style *****/
+/*******************************/
+.carousel .owl-dots {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel .owl-dot {
+    display: inline-block;
+    margin: 0 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transition: background 0.3s ease;
+}
+
+.carousel .owl-dot.active {
+    background: #FDBE33;
+}
+
+.carousel .owl-dot:hover {
+    background: #ffffff;
+}
+
+/* Ajustes responsivos para el carrusel */
+@media (max-width: 767.98px) {
+    .carousel .carousel-text h1 {
+        font-size: 28px; /* Tamaño de fuente más legible en móviles */
+        margin-bottom: 15px;
+    }
+
+    .carousel .owl-nav {
+        display: none; /* Oculta las flechas en móviles para un look más limpio */
+    }
+}
